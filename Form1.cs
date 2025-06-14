@@ -10,6 +10,11 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Numerics;
 using System.Diagnostics.Tracing;
+using System.Net.Http.Headers;
+using System.Security;
+using System.Data.SqlTypes;
+using System.Drawing.Printing;
+using System.Runtime.ExceptionServices;
 
 namespace Typing_Test
 {
@@ -20,7 +25,7 @@ namespace Typing_Test
             InitializeComponent();
         }
 
-        short CurrentWordCounter = 0;
+        short CurrentWordCounter = 1;
 
         short CorrectWordsCounter = 0;
         short WrongWordsCounter = 0;
@@ -30,34 +35,40 @@ namespace Typing_Test
 
         string[] word = AllWords.Split('|');
 
-        Random rndWord = new Random();
+        string[] CurrentWords = new string[NumberOfWords];
 
         static short NumberOfWords = 25;
 
-        string[] CurrentWords = new string[NumberOfWords];
+        short NumberOfSeconds = 60;
 
-        bool IsTestFinished = false;
+        Random rndWord = new Random();
 
-        private bool IsCurrentWordTypedTrue()
+        bool IsStarted = true;
+
+        private TimeSpan _timeRemaining = TimeSpan.FromMinutes(1);
+
+        Color CurrentWordColor = Color.Purple;
+        Color CorrectWordColor = Color.Green;
+        Color WrongWordColor = Color.Red;
+        Color DefaultWordsColor = Color.Black;
+
+
+        private bool CheckCurrentWordTypedTrue()
         {
-            if (tbType.Text == "")
-                return false;
-
             if (tbType.Text == CurrentWords[CurrentWordCounter])
             { 
                 return true;
             }
+            else
+            {
+                return false;
+            }
 
-            return false;
         }
 
-
-        private void RestartWords()
+        private void FillWords()
         {
             string TempText = "";
-
-            rtbWords.SelectAll();
-            rtbWords.SelectionColor = Color.Black;
 
             for (int i = 0; i < NumberOfWords; i++)
             {
@@ -70,8 +81,17 @@ namespace Typing_Test
 
             rtbWords.Text = TempText;
             tbType.Text = "";
+        }
 
-            IsTestFinished = false;
+        private void RestartWords()
+        {
+            timer1.Stop();
+
+            rtbWords.SelectAll();
+            rtbWords.SelectionColor = DefaultBackColor;
+
+            FillWords();
+
             tbType.Enabled = true;
             tbType.Focus();
 
@@ -79,7 +99,7 @@ namespace Typing_Test
             CorrectWordsCounter = 0;
             WrongWordsCounter = 0;
 
-            SetNextWordColor(Color.Purple);
+            SetFirstWordColor();
         }
 
 
@@ -88,14 +108,45 @@ namespace Typing_Test
             tbType.Select();
 
             RestartWords();
-            SetNextWordColor(Color.Purple);
+            SetFirstWordColor();
+
+            tbTimer.Text = TimeSpan.FromSeconds(NumberOfSeconds).ToString(@"mm\:ss");
+
+        }
+
+        private void SetFirstWordColor()
+        {
+
+            IndexOfFirstCharOfCurrentWord = 0;
+            rtbWords.Select(IndexOfFirstCharOfCurrentWord, CurrentWords[0].Length );
+            rtbWords.SelectionColor = CurrentWordColor;
 
         }
         private void btnRestart_Click(object sender, EventArgs e)
         {
             RestartWords();
-            
-        } 
+            ResetTimer();
+        }
+
+        private bool AreAllWordsTyped()
+        {
+            if (CurrentWordCounter == NumberOfWords)
+            {
+                IsStarted = false;
+                tbType.Enabled = false;
+                timer1.Stop();
+                return true;
+            }
+            return false;
+        }
+
+        private bool IsWordTypingFinished()
+        {
+            if (tbType.Text.EndsWith(" "))
+                return true;
+            else
+                return false;
+        }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
@@ -104,81 +155,126 @@ namespace Typing_Test
                 tbType.Text = "";
                 return;
             }
+            
+            IsStarted = true;
 
+            timer1.Start();
 
-            // if all words are typed.
-            if (CurrentWordCounter == NumberOfWords)
-            {
-                IsTestFinished = true;
-                tbType.Enabled = false;
-                return;
-            }
+            if (AreAllWordsTyped()) return;
 
-            if (tbType.Text.EndsWith(" "))
+            if (IsWordTypingFinished())
             {
                 tbType.Text = tbType.Text.Trim();
-                if (IsCurrentWordTypedTrue())
-                {
-                    CorrectWordsCounter++;
-                    lbCorrectWordsCounter.Text = CorrectWordsCounter.ToString();
-                }
-                else
-                {
-                    WrongWordsCounter++;
-                    lbWrongWordsCounter.Text = WrongWordsCounter.ToString();
-                }
+
+                SetPrevWordColor();
+
+                UpdateIndexOfFirstCharOfCurrentWord();
+
+                CurrentWordCounter++;
 
                 SetCurrentWordColor();
 
-                CurrentWordCounter++;
-                SetNextWordColor(Color.Purple);
-
                 tbType.Text = "";
-
             }
+
         }
 
-        int FirstCharOfWord = 0;
-        int LastCharOfWord = 0;
+
+        int IndexOfFirstCharOfCurrentWord = 0;
+        int LastCharOfCurrentWordIndex = 0;
         int WordLength = 0;
-        private void SetNextWordColor(Color color)
+        private void SetPrevWordColor()
         {
 
-            if (CurrentWordCounter == NumberOfWords) return;
-
-            if(CurrentWordCounter == 0)
+            if (CheckCurrentWordTypedTrue())
             {
-                FirstCharOfWord = 0;
-                LastCharOfWord = CurrentWords[CurrentWordCounter].Length;
-                WordLength = CurrentWords[CurrentWordCounter].Length;
+                rtbWords.Select(IndexOfFirstCharOfCurrentWord, CurrentWords[CurrentWordCounter].Length);
+                rtbWords.SelectionColor = CorrectWordColor;
             }
             else
             {
-                FirstCharOfWord = LastCharOfWord + 1;
-                WordLength = CurrentWords[CurrentWordCounter].Length;
-                LastCharOfWord = FirstCharOfWord + WordLength;
+                rtbWords.Select(IndexOfFirstCharOfCurrentWord, CurrentWords[CurrentWordCounter].Length );
+                rtbWords.SelectionColor = WrongWordColor;
             }
-
-
-            rtbWords.Select(FirstCharOfWord, WordLength);
-            rtbWords.SelectionColor = color;
 
         }
 
+        private void UpdateIndexOfFirstCharOfCurrentWord()
+        {
+            IndexOfFirstCharOfCurrentWord += 1 + CurrentWords[CurrentWordCounter].Length;
+        }
         private void SetCurrentWordColor()
         {
-            if(tbType.Text == CurrentWords[CurrentWordCounter])
+            if(CurrentWordCounter<NumberOfWords)
             {
-                rtbWords.Select(FirstCharOfWord, WordLength);
-                rtbWords.SelectionColor = Color.Green;
-            }
-            else
-            {
-                rtbWords.Select(FirstCharOfWord, WordLength);
-                rtbWords.SelectionColor = Color.FromArgb(235,22,22);
-                //rtbWords.SelectionColor = Color.Red;
-
+                rtbWords.Select(IndexOfFirstCharOfCurrentWord, CurrentWords[CurrentWordCounter].Length);
+                rtbWords.SelectionColor = CurrentWordColor;
             }
         }
+
+        private void btnPickTotalWords_Click(object sender, EventArgs e)
+        {
+            Button btn = (Button)sender;
+            NumberOfWords = Convert.ToInt16(btn.Text);
+            CurrentWords = new string[NumberOfWords];
+            RestartWords();
+        }
+
+
+        private void ResetTimer()
+        {
+            timer1.Stop();
+            _timeRemaining = TimeSpan.FromSeconds(NumberOfSeconds);
+            tbTimer.Text = _timeRemaining.ToString(@"mm\:ss");
+        }
+
+        private void UpdateTimerDisplay()
+        {
+            tbTimer.Text = _timeRemaining.ToString(@"mm\:ss");
+        }
+        
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            if(IsStarted)
+            {
+                _timeRemaining = _timeRemaining.Subtract(TimeSpan.FromSeconds(1));
+
+                if (_timeRemaining <= TimeSpan.Zero)
+                {
+                    ResetTimer();
+                }
+
+                UpdateTimerDisplay();
+            }
+
+            
+        }
+
+        private void ChangeTimerSeconds(Button btn)
+        {
+            NumberOfSeconds = Convert.ToInt16(btn.Text);
+            timer1.Stop();
+            _timeRemaining = TimeSpan.FromSeconds(NumberOfSeconds);
+            tbTimer.Text = _timeRemaining.ToString(@"mm\:ss");
+
+        }
+
+        private void btn120_Click(object sender, EventArgs e)
+        {
+            ChangeTimerSeconds((Button)sender);
+        }
+
+
+
+        // ********** Coming extensions **********:
+        //
+        //
+        //
+        //
+        //
+        //
+        //
+        //
+        //
     }
 }
