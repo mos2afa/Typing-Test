@@ -38,20 +38,31 @@
             this.btn25 = new System.Windows.Forms.Button();
             this.btn50 = new System.Windows.Forms.Button();
             this.btn100 = new System.Windows.Forms.Button();
-            this.btn250 = new System.Windows.Forms.Button();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.TimerForSeconds = new System.Windows.Forms.Timer(this.components);
             this.tbWPM = new System.Windows.Forms.TextBox();
             this.btn15 = new System.Windows.Forms.Button();
             this.btn30 = new System.Windows.Forms.Button();
             this.btn60 = new System.Windows.Forms.Button();
             this.btn120 = new System.Windows.Forms.Button();
             this.tbTimer = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.tbWrongwords = new System.Windows.Forms.TextBox();
+            this.tbCorrectwords = new System.Windows.Forms.TextBox();
+            this.tbKeystrokes = new System.Windows.Forms.TextBox();
+            this.TimerForWords = new System.Windows.Forms.Timer(this.components);
+            this.btnTime = new System.Windows.Forms.Button();
+            this.btnWords = new System.Windows.Forms.Button();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // lbCorrectWordsCounter
             // 
             this.lbCorrectWordsCounter.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.lbCorrectWordsCounter.Location = new System.Drawing.Point(1236, 20);
+            this.lbCorrectWordsCounter.Location = new System.Drawing.Point(1645, 21);
             this.lbCorrectWordsCounter.Name = "lbCorrectWordsCounter";
             this.lbCorrectWordsCounter.Size = new System.Drawing.Size(134, 70);
             this.lbCorrectWordsCounter.TabIndex = 2;
@@ -59,7 +70,7 @@
             // lbWrongWordsCounter
             // 
             this.lbWrongWordsCounter.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.lbWrongWordsCounter.Location = new System.Drawing.Point(1236, 105);
+            this.lbWrongWordsCounter.Location = new System.Drawing.Point(1645, 105);
             this.lbWrongWordsCounter.Name = "lbWrongWordsCounter";
             this.lbWrongWordsCounter.Size = new System.Drawing.Size(134, 70);
             this.lbWrongWordsCounter.TabIndex = 3;
@@ -77,7 +88,7 @@
             // 
             // rtbWords
             // 
-            this.rtbWords.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.rtbWords.BackColor = System.Drawing.Color.White;
             this.rtbWords.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.rtbWords.Font = new System.Drawing.Font("Microsoft Sans Serif", 25.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rtbWords.Location = new System.Drawing.Point(95, 78);
@@ -99,74 +110,66 @@
             // 
             // btn10
             // 
+            this.btn10.BackColor = System.Drawing.Color.Gainsboro;
             this.btn10.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn10.Location = new System.Drawing.Point(95, 32);
+            this.btn10.Location = new System.Drawing.Point(543, 32);
             this.btn10.Name = "btn10";
-            this.btn10.Size = new System.Drawing.Size(53, 40);
+            this.btn10.Size = new System.Drawing.Size(60, 34);
             this.btn10.TabIndex = 8;
             this.btn10.TabStop = false;
             this.btn10.Text = "10";
-            this.btn10.UseVisualStyleBackColor = true;
-            this.btn10.Click += new System.EventHandler(this.btnPickTotalWords_Click);
+            this.btn10.UseVisualStyleBackColor = false;
+            this.btn10.Click += new System.EventHandler(this.btnChangeNumberOfWords_Click);
             // 
             // btn25
             // 
+            this.btn25.BackColor = System.Drawing.Color.Gainsboro;
             this.btn25.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn25.Location = new System.Drawing.Point(154, 32);
+            this.btn25.Location = new System.Drawing.Point(603, 32);
             this.btn25.Name = "btn25";
-            this.btn25.Size = new System.Drawing.Size(53, 40);
+            this.btn25.Size = new System.Drawing.Size(60, 34);
             this.btn25.TabIndex = 9;
             this.btn25.TabStop = false;
             this.btn25.Text = "25";
-            this.btn25.UseVisualStyleBackColor = true;
-            this.btn25.Click += new System.EventHandler(this.btnPickTotalWords_Click);
+            this.btn25.UseVisualStyleBackColor = false;
+            this.btn25.Click += new System.EventHandler(this.btnChangeNumberOfWords_Click);
             // 
             // btn50
             // 
+            this.btn50.BackColor = System.Drawing.Color.Gainsboro;
             this.btn50.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn50.Location = new System.Drawing.Point(213, 32);
+            this.btn50.Location = new System.Drawing.Point(663, 32);
             this.btn50.Name = "btn50";
-            this.btn50.Size = new System.Drawing.Size(72, 40);
+            this.btn50.Size = new System.Drawing.Size(60, 34);
             this.btn50.TabIndex = 10;
             this.btn50.TabStop = false;
             this.btn50.Text = "50";
-            this.btn50.UseVisualStyleBackColor = true;
-            this.btn50.Click += new System.EventHandler(this.btnPickTotalWords_Click);
+            this.btn50.UseVisualStyleBackColor = false;
+            this.btn50.Click += new System.EventHandler(this.btnChangeNumberOfWords_Click);
             // 
             // btn100
             // 
+            this.btn100.BackColor = System.Drawing.Color.Gainsboro;
             this.btn100.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn100.Location = new System.Drawing.Point(291, 32);
+            this.btn100.Location = new System.Drawing.Point(723, 32);
             this.btn100.Name = "btn100";
-            this.btn100.Size = new System.Drawing.Size(89, 40);
+            this.btn100.Size = new System.Drawing.Size(68, 34);
             this.btn100.TabIndex = 11;
             this.btn100.TabStop = false;
             this.btn100.Text = "100";
-            this.btn100.UseVisualStyleBackColor = true;
-            this.btn100.Click += new System.EventHandler(this.btnPickTotalWords_Click);
+            this.btn100.UseVisualStyleBackColor = false;
+            this.btn100.Click += new System.EventHandler(this.btnChangeNumberOfWords_Click);
             // 
-            // btn250
+            // TimerForSeconds
             // 
-            this.btn250.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn250.Location = new System.Drawing.Point(386, 32);
-            this.btn250.Name = "btn250";
-            this.btn250.Size = new System.Drawing.Size(94, 40);
-            this.btn250.TabIndex = 12;
-            this.btn250.TabStop = false;
-            this.btn250.Text = "250";
-            this.btn250.UseVisualStyleBackColor = true;
-            this.btn250.Click += new System.EventHandler(this.btnPickTotalWords_Click);
-            // 
-            // timer1
-            // 
-            this.timer1.Enabled = true;
-            this.timer1.Interval = 1000;
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            this.TimerForSeconds.Enabled = true;
+            this.TimerForSeconds.Interval = 1000;
+            this.TimerForSeconds.Tick += new System.EventHandler(this.TimerForSeconds_Tick);
             // 
             // tbWPM
             // 
             this.tbWPM.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbWPM.Location = new System.Drawing.Point(1181, 520);
+            this.tbWPM.Location = new System.Drawing.Point(1632, 178);
             this.tbWPM.Multiline = true;
             this.tbWPM.Name = "tbWPM";
             this.tbWPM.ReadOnly = true;
@@ -176,87 +179,205 @@
             // 
             // btn15
             // 
+            this.btn15.BackColor = System.Drawing.Color.Gainsboro;
             this.btn15.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn15.Location = new System.Drawing.Point(540, 32);
+            this.btn15.Location = new System.Drawing.Point(543, 32);
             this.btn15.Name = "btn15";
-            this.btn15.Size = new System.Drawing.Size(53, 40);
+            this.btn15.Size = new System.Drawing.Size(60, 34);
             this.btn15.TabIndex = 14;
             this.btn15.TabStop = false;
             this.btn15.Text = "15";
-            this.btn15.UseVisualStyleBackColor = true;
-            this.btn15.Click += new System.EventHandler(this.btn120_Click);
+            this.btn15.UseVisualStyleBackColor = false;
+            this.btn15.Click += new System.EventHandler(this.btnChangeNumberOfSeconds_Click);
             // 
             // btn30
             // 
+            this.btn30.BackColor = System.Drawing.Color.Gainsboro;
             this.btn30.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn30.Location = new System.Drawing.Point(599, 32);
+            this.btn30.Location = new System.Drawing.Point(603, 32);
             this.btn30.Name = "btn30";
-            this.btn30.Size = new System.Drawing.Size(53, 40);
+            this.btn30.Size = new System.Drawing.Size(60, 34);
             this.btn30.TabIndex = 15;
             this.btn30.TabStop = false;
             this.btn30.Text = "30";
-            this.btn30.UseVisualStyleBackColor = true;
-            this.btn30.Click += new System.EventHandler(this.btn120_Click);
+            this.btn30.UseVisualStyleBackColor = false;
+            this.btn30.Click += new System.EventHandler(this.btnChangeNumberOfSeconds_Click);
             // 
             // btn60
             // 
+            this.btn60.BackColor = System.Drawing.Color.Gainsboro;
             this.btn60.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn60.Location = new System.Drawing.Point(658, 32);
+            this.btn60.Location = new System.Drawing.Point(663, 32);
             this.btn60.Name = "btn60";
-            this.btn60.Size = new System.Drawing.Size(53, 40);
+            this.btn60.Size = new System.Drawing.Size(60, 34);
             this.btn60.TabIndex = 16;
             this.btn60.TabStop = false;
             this.btn60.Text = "60";
-            this.btn60.UseVisualStyleBackColor = true;
-            this.btn60.Click += new System.EventHandler(this.btn120_Click);
+            this.btn60.UseVisualStyleBackColor = false;
+            this.btn60.Click += new System.EventHandler(this.btnChangeNumberOfSeconds_Click);
             // 
             // btn120
             // 
+            this.btn120.BackColor = System.Drawing.Color.Gainsboro;
             this.btn120.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn120.Location = new System.Drawing.Point(717, 32);
+            this.btn120.Location = new System.Drawing.Point(723, 32);
             this.btn120.Name = "btn120";
-            this.btn120.Size = new System.Drawing.Size(67, 40);
+            this.btn120.Size = new System.Drawing.Size(68, 34);
             this.btn120.TabIndex = 17;
             this.btn120.TabStop = false;
             this.btn120.Text = "120";
-            this.btn120.UseVisualStyleBackColor = true;
-            this.btn120.Click += new System.EventHandler(this.btn120_Click);
+            this.btn120.UseVisualStyleBackColor = false;
+            this.btn120.Click += new System.EventHandler(this.btnChangeNumberOfSeconds_Click);
             // 
             // tbTimer
             // 
+            this.tbTimer.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tbTimer.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbTimer.Location = new System.Drawing.Point(826, 536);
+            this.tbTimer.Location = new System.Drawing.Point(95, 27);
             this.tbTimer.Multiline = true;
             this.tbTimer.Name = "tbTimer";
             this.tbTimer.ReadOnly = true;
-            this.tbTimer.Size = new System.Drawing.Size(170, 60);
+            this.tbTimer.Size = new System.Drawing.Size(157, 47);
             this.tbTimer.TabIndex = 18;
             this.tbTimer.TabStop = false;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(6, 177);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(154, 32);
+            this.label1.TabIndex = 20;
+            this.label1.Text = "Keystrokes";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(6, 228);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(188, 32);
+            this.label2.TabIndex = 21;
+            this.label2.Text = "Correct words";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(6, 274);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(179, 32);
+            this.label3.TabIndex = 22;
+            this.label3.Text = "Wrong words";
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.richTextBox1);
+            this.groupBox1.Controls.Add(this.tbWrongwords);
+            this.groupBox1.Controls.Add(this.tbCorrectwords);
+            this.groupBox1.Controls.Add(this.tbKeystrokes);
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Location = new System.Drawing.Point(1109, 86);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(402, 417);
+            this.groupBox1.TabIndex = 23;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "groupBox1";
+            this.groupBox1.Visible = false;
+            // 
+            // richTextBox1
+            // 
+            this.richTextBox1.Location = new System.Drawing.Point(56, 56);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.Size = new System.Drawing.Size(234, 96);
+            this.richTextBox1.TabIndex = 26;
+            this.richTextBox1.Text = "";
+            // 
+            // tbWrongwords
+            // 
+            this.tbWrongwords.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbWrongwords.Location = new System.Drawing.Point(191, 274);
+            this.tbWrongwords.Name = "tbWrongwords";
+            this.tbWrongwords.Size = new System.Drawing.Size(132, 38);
+            this.tbWrongwords.TabIndex = 25;
+            this.tbWrongwords.TabStop = false;
+            // 
+            // tbCorrectwords
+            // 
+            this.tbCorrectwords.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbCorrectwords.Location = new System.Drawing.Point(191, 225);
+            this.tbCorrectwords.Name = "tbCorrectwords";
+            this.tbCorrectwords.Size = new System.Drawing.Size(132, 38);
+            this.tbCorrectwords.TabIndex = 24;
+            this.tbCorrectwords.TabStop = false;
+            // 
+            // tbKeystrokes
+            // 
+            this.tbKeystrokes.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbKeystrokes.Location = new System.Drawing.Point(191, 177);
+            this.tbKeystrokes.Name = "tbKeystrokes";
+            this.tbKeystrokes.Size = new System.Drawing.Size(132, 38);
+            this.tbKeystrokes.TabIndex = 23;
+            this.tbKeystrokes.TabStop = false;
+            // 
+            // TimerForWords
+            // 
+            this.TimerForWords.Tick += new System.EventHandler(this.TimerForWords_Tick);
+            // 
+            // btnTime
+            // 
+            this.btnTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTime.Location = new System.Drawing.Point(305, 33);
+            this.btnTime.Name = "btnTime";
+            this.btnTime.Size = new System.Drawing.Size(101, 41);
+            this.btnTime.TabIndex = 24;
+            this.btnTime.Text = "time";
+            this.btnTime.UseVisualStyleBackColor = true;
+            this.btnTime.Click += new System.EventHandler(this.btnTime_Click);
+            // 
+            // btnWords
+            // 
+            this.btnWords.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnWords.Location = new System.Drawing.Point(412, 33);
+            this.btnWords.Name = "btnWords";
+            this.btnWords.Size = new System.Drawing.Size(101, 41);
+            this.btnWords.TabIndex = 25;
+            this.btnWords.Text = "words";
+            this.btnWords.UseVisualStyleBackColor = true;
+            this.btnWords.Click += new System.EventHandler(this.btnWords_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1395, 710);
+            this.BackColor = System.Drawing.SystemColors.Control;
+            this.ClientSize = new System.Drawing.Size(1803, 710);
+            this.Controls.Add(this.btnWords);
+            this.Controls.Add(this.btnTime);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.tbTimer);
             this.Controls.Add(this.btn120);
             this.Controls.Add(this.btn60);
             this.Controls.Add(this.btn30);
             this.Controls.Add(this.btn15);
             this.Controls.Add(this.tbWPM);
-            this.Controls.Add(this.btn250);
-            this.Controls.Add(this.btn100);
-            this.Controls.Add(this.btn50);
-            this.Controls.Add(this.btn25);
-            this.Controls.Add(this.btn10);
             this.Controls.Add(this.tbType);
             this.Controls.Add(this.rtbWords);
             this.Controls.Add(this.btnRestart);
             this.Controls.Add(this.lbWrongWordsCounter);
             this.Controls.Add(this.lbCorrectWordsCounter);
+            this.Controls.Add(this.btn100);
+            this.Controls.Add(this.btn50);
+            this.Controls.Add(this.btn25);
+            this.Controls.Add(this.btn10);
             this.Name = "Form1";
             this.Text = " ";
             this.Load += new System.EventHandler(this.Form1_Load);
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -272,14 +393,24 @@
         private System.Windows.Forms.Button btn25;
         private System.Windows.Forms.Button btn50;
         private System.Windows.Forms.Button btn100;
-        private System.Windows.Forms.Button btn250;
-        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Timer TimerForSeconds;
         private System.Windows.Forms.TextBox tbWPM;
         private System.Windows.Forms.Button btn15;
         private System.Windows.Forms.Button btn30;
         private System.Windows.Forms.Button btn60;
         private System.Windows.Forms.Button btn120;
         private System.Windows.Forms.TextBox tbTimer;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.TextBox tbWrongwords;
+        private System.Windows.Forms.TextBox tbCorrectwords;
+        private System.Windows.Forms.TextBox tbKeystrokes;
+        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.Timer TimerForWords;
+        private System.Windows.Forms.Button btnTime;
+        private System.Windows.Forms.Button btnWords;
     }
 }
 
