@@ -49,6 +49,9 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.rtbKeyStrokes = new System.Windows.Forms.RichTextBox();
+            this.rtbCorrectWords = new System.Windows.Forms.RichTextBox();
+            this.rtbWrongWords = new System.Windows.Forms.RichTextBox();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.tbWrongwords = new System.Windows.Forms.TextBox();
             this.tbCorrectwords = new System.Windows.Forms.TextBox();
@@ -162,7 +165,6 @@
             // 
             // TimerForSeconds
             // 
-            this.TimerForSeconds.Enabled = true;
             this.TimerForSeconds.Interval = 1000;
             this.TimerForSeconds.Tick += new System.EventHandler(this.TimerForSeconds_Tick);
             // 
@@ -244,49 +246,81 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(6, 177);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(154, 32);
+            this.label1.Size = new System.Drawing.Size(110, 25);
             this.label1.TabIndex = 20;
             this.label1.Text = "Keystrokes";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(6, 228);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(188, 32);
+            this.label2.Size = new System.Drawing.Size(133, 25);
             this.label2.TabIndex = 21;
             this.label2.Text = "Correct words";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(6, 274);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(179, 32);
+            this.label3.Size = new System.Drawing.Size(128, 25);
             this.label3.TabIndex = 22;
             this.label3.Text = "Wrong words";
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.rtbKeyStrokes);
+            this.groupBox1.Controls.Add(this.rtbCorrectWords);
+            this.groupBox1.Controls.Add(this.rtbWrongWords);
             this.groupBox1.Controls.Add(this.richTextBox1);
-            this.groupBox1.Controls.Add(this.tbWrongwords);
-            this.groupBox1.Controls.Add(this.tbCorrectwords);
-            this.groupBox1.Controls.Add(this.tbKeystrokes);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(1109, 86);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(402, 417);
+            this.groupBox1.Size = new System.Drawing.Size(359, 417);
             this.groupBox1.TabIndex = 23;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "groupBox1";
             this.groupBox1.Visible = false;
+            // 
+            // rtbKeyStrokes
+            // 
+            this.rtbKeyStrokes.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rtbKeyStrokes.Location = new System.Drawing.Point(160, 177);
+            this.rtbKeyStrokes.Name = "rtbKeyStrokes";
+            this.rtbKeyStrokes.ReadOnly = true;
+            this.rtbKeyStrokes.Size = new System.Drawing.Size(177, 30);
+            this.rtbKeyStrokes.TabIndex = 29;
+            this.rtbKeyStrokes.Text = "";
+            // 
+            // rtbCorrectWords
+            // 
+            this.rtbCorrectWords.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rtbCorrectWords.ForeColor = System.Drawing.Color.Green;
+            this.rtbCorrectWords.Location = new System.Drawing.Point(160, 228);
+            this.rtbCorrectWords.Name = "rtbCorrectWords";
+            this.rtbCorrectWords.ReadOnly = true;
+            this.rtbCorrectWords.Size = new System.Drawing.Size(177, 30);
+            this.rtbCorrectWords.TabIndex = 28;
+            this.rtbCorrectWords.Text = "";
+            // 
+            // rtbWrongWords
+            // 
+            this.rtbWrongWords.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rtbWrongWords.ForeColor = System.Drawing.Color.Red;
+            this.rtbWrongWords.Location = new System.Drawing.Point(160, 274);
+            this.rtbWrongWords.Name = "rtbWrongWords";
+            this.rtbWrongWords.ReadOnly = true;
+            this.rtbWrongWords.Size = new System.Drawing.Size(177, 30);
+            this.rtbWrongWords.TabIndex = 27;
+            this.rtbWrongWords.Text = "";
             // 
             // richTextBox1
             // 
@@ -298,33 +332,37 @@
             // 
             // tbWrongwords
             // 
-            this.tbWrongwords.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbWrongwords.Location = new System.Drawing.Point(191, 274);
+            this.tbWrongwords.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbWrongwords.Location = new System.Drawing.Point(1588, 412);
             this.tbWrongwords.Name = "tbWrongwords";
-            this.tbWrongwords.Size = new System.Drawing.Size(132, 38);
+            this.tbWrongwords.Size = new System.Drawing.Size(177, 30);
             this.tbWrongwords.TabIndex = 25;
             this.tbWrongwords.TabStop = false;
+            this.tbWrongwords.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // tbCorrectwords
             // 
-            this.tbCorrectwords.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbCorrectwords.Location = new System.Drawing.Point(191, 225);
+            this.tbCorrectwords.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbCorrectwords.Location = new System.Drawing.Point(1537, 360);
             this.tbCorrectwords.Name = "tbCorrectwords";
-            this.tbCorrectwords.Size = new System.Drawing.Size(132, 38);
+            this.tbCorrectwords.Size = new System.Drawing.Size(177, 30);
             this.tbCorrectwords.TabIndex = 24;
             this.tbCorrectwords.TabStop = false;
+            this.tbCorrectwords.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // tbKeystrokes
             // 
-            this.tbKeystrokes.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbKeystrokes.Location = new System.Drawing.Point(191, 177);
+            this.tbKeystrokes.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbKeystrokes.Location = new System.Drawing.Point(1551, 311);
             this.tbKeystrokes.Name = "tbKeystrokes";
-            this.tbKeystrokes.Size = new System.Drawing.Size(132, 38);
+            this.tbKeystrokes.Size = new System.Drawing.Size(177, 30);
             this.tbKeystrokes.TabIndex = 23;
             this.tbKeystrokes.TabStop = false;
+            this.tbKeystrokes.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // TimerForWords
             // 
+            this.TimerForWords.Interval = 1000;
             this.TimerForWords.Tick += new System.EventHandler(this.TimerForWords_Tick);
             // 
             // btnTime
@@ -357,8 +395,11 @@
             this.ClientSize = new System.Drawing.Size(1803, 710);
             this.Controls.Add(this.btnWords);
             this.Controls.Add(this.btnTime);
+            this.Controls.Add(this.tbWrongwords);
             this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.tbCorrectwords);
             this.Controls.Add(this.tbTimer);
+            this.Controls.Add(this.tbKeystrokes);
             this.Controls.Add(this.btn120);
             this.Controls.Add(this.btn60);
             this.Controls.Add(this.btn30);
@@ -411,6 +452,9 @@
         private System.Windows.Forms.Timer TimerForWords;
         private System.Windows.Forms.Button btnTime;
         private System.Windows.Forms.Button btnWords;
+        private System.Windows.Forms.RichTextBox rtbKeyStrokes;
+        private System.Windows.Forms.RichTextBox rtbCorrectWords;
+        private System.Windows.Forms.RichTextBox rtbWrongWords;
     }
 }
 

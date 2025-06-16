@@ -112,6 +112,17 @@ namespace Typing_Test
             rtbWords.ForeColor = DefaultWordsColor;
             btn15.BackColor = SelectColor;
 
+            rtbCorrectWords.SelectAll();
+            rtbCorrectWords.SelectionAlignment = HorizontalAlignment.Right;
+
+            rtbWrongWords.SelectAll();
+            rtbWrongWords.SelectionAlignment = HorizontalAlignment.Right;
+
+            rtbKeyStrokes.SelectAll();
+            rtbKeyStrokes.SelectionAlignment = HorizontalAlignment.Right;
+
+
+
             //tbTimer.Text = TimeSpan.FromSeconds(NumberOfSeconds).ToString(@"mm\:ss");
 
         }
@@ -173,21 +184,28 @@ namespace Typing_Test
             }
         }
 
+        
+
         private void DealWithCorrectAndWrongWordsCounter()
         {
             if (tbType.Text == CurrentWords[CurrentWordCounter])
             {
                 CorrectWordsCounter++;
                 tbCorrectwords.Text = CorrectWordsCounter.ToString();
-            }
 
+                CorrectStrokes += CurrentWords[CurrentWordCounter].Length+ (" ".Length);
+            }
             else
             {
                 WrongWordsCounter++;
                 tbWrongwords.Text = WrongWordsCounter.ToString();
+
+                WrongStrokes += CurrentWords[CurrentWordCounter].Length;
             }
         }
 
+        int CorrectStrokes = 0;
+        int WrongStrokes = 0;
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
             if (tbType.Text == " " || tbType.Text == "")
@@ -212,7 +230,11 @@ namespace Typing_Test
 
             CheckEachCharInCurrentWord();
             
-            if (AreAllWordsTyped()) return;
+            if (AreAllWordsTyped())
+            {
+                return;
+            }
+
 
             if (IsWordTypingFinished())
             {
@@ -286,7 +308,28 @@ namespace Typing_Test
         {
             tbTimer.Text = _timeRemainingForSeconds.ToString(@"mm\:ss");
         }
-        
+
+        private void SetKeyStrokesColors()
+        {
+            rtbKeyStrokes.Text = "(" + CorrectStrokes + " | " + WrongStrokes + ")   " + (CorrectStrokes + WrongStrokes);
+
+            rtbKeyStrokes.Select(1, CorrectStrokes.ToString().Length);
+            rtbKeyStrokes.SelectionColor = Color.Green;
+
+            rtbKeyStrokes.Select(1 + CorrectStrokes.ToString().Length + 3, WrongStrokes.ToString().Length);
+            rtbKeyStrokes.SelectionColor = Color.Red;
+        }
+
+        private void ShowResults()
+        {
+            groupBox1.Visible = true;
+
+            rtbCorrectWords.Text = CorrectWordsCounter.ToString();
+            rtbWrongWords.Text = WrongWordsCounter.ToString();
+
+            SetKeyStrokesColors();
+        }
+
         private void TimerForSeconds_Tick(object sender, EventArgs e)
         {
             if(IsStarted)
@@ -295,12 +338,18 @@ namespace Typing_Test
 
                 if (_timeRemainingForSeconds <= TimeSpan.Zero)
                 {
-                    ResetTimer();
-                    groupBox1.Visible = true;
-                    tbType.ReadOnly = true;
+                    IsStarted = false;
                 }
 
                 UpdateTimerDisplay();
+            }
+            else
+            {
+                tbType.ReadOnly = true;
+
+                ShowResults();
+
+                ResetTimer();
             }
 
         }
@@ -349,7 +398,7 @@ namespace Typing_Test
 
         private void TimerForWords_Tick(object sender, EventArgs e)
         {
-
+            _TimeCounterForWords = _TimeCounterForWords.Add(TimeSpan.FromSeconds(1));
         }
 
         private void HideWordsButtons()
@@ -413,6 +462,8 @@ namespace Typing_Test
                 ChangeNumberOfWords(btn10);
             }
         }
+
+
 
 
 
