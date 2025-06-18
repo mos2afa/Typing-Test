@@ -24,6 +24,7 @@ namespace Typing_Test
         public Form1()
         {
             InitializeComponent();
+            //this.WindowState = FormWindowState.Maximized;
         }
 
         short CurrentWordCounter = 1;
@@ -44,7 +45,9 @@ namespace Typing_Test
 
         Random rndWord = new Random();
 
-        bool IsStarted = true;
+        bool IsStartedTimeMode = true;
+        bool IsStartedWordsMode = true;
+
 
         private TimeSpan _timeRemainingForSeconds = TimeSpan.FromSeconds(NumberOfSeconds);
 
@@ -55,7 +58,6 @@ namespace Typing_Test
         Color WrongWordColor = Color.Red;
         Color DefaultWordsColor = Color.Black;
         Color SelectColor = Color.Blue;
-
 
         enum enMode {Words,Time };
 
@@ -85,8 +87,6 @@ namespace Typing_Test
 
         private void RestartWords()
         {
-            TimerForSeconds.Stop();
-
             rtbWords.SelectAll();
             rtbWords.SelectionColor = DefaultBackColor;
 
@@ -107,6 +107,9 @@ namespace Typing_Test
         {
             tbType.Select();
 
+            NumberOfWords = 100;
+            CurrentWords = new string[NumberOfWords];
+
             RestartWords();
             SetFirstWordColor();
             rtbWords.ForeColor = DefaultWordsColor;
@@ -121,10 +124,7 @@ namespace Typing_Test
             rtbKeyStrokes.SelectAll();
             rtbKeyStrokes.SelectionAlignment = HorizontalAlignment.Right;
 
-
-
-            //tbTimer.Text = TimeSpan.FromSeconds(NumberOfSeconds).ToString(@"mm\:ss");
-
+            tbTimer.BackColor = this.BackColor;
         }
 
         private void SetFirstWordColor()
@@ -147,7 +147,7 @@ namespace Typing_Test
         {
             if (CurrentWordCounter == NumberOfWords)
             {
-                IsStarted = false;
+                IsStartedTimeMode = false;
                 tbType.Enabled = false;
                 TimerForSeconds.Stop();
                 return true;
@@ -186,19 +186,17 @@ namespace Typing_Test
 
         
 
-        private void DealWithCorrectAndWrongWordsCounter()
+        private void DealWithCounters()
         {
             if (tbType.Text == CurrentWords[CurrentWordCounter])
             {
                 CorrectWordsCounter++;
-                tbCorrectwords.Text = CorrectWordsCounter.ToString();
 
                 CorrectStrokes += CurrentWords[CurrentWordCounter].Length+ (" ".Length);
             }
             else
             {
                 WrongWordsCounter++;
-                tbWrongwords.Text = WrongWordsCounter.ToString();
 
                 WrongStrokes += CurrentWords[CurrentWordCounter].Length;
             }
@@ -214,18 +212,19 @@ namespace Typing_Test
                 tbType.Text = "";
                 return;
             }
+
             
-            IsStarted = true;
 
             if(Mode == enMode.Time)
             {
+                IsStartedTimeMode = true;
                 TimerForSeconds.Start();
-                tbTimer.Text = _timeRemainingForSeconds.ToString(@"mm\:ss");
+                tbTimer.Text = _timeRemainingForSeconds.ToString(@"mm\:ss"); 
             }
             else
             {
+                IsStartedWordsMode = true;
                 TimerForWords.Start();
-                tbTimer.Text = "";
             }
 
             CheckEachCharInCurrentWord();
@@ -240,7 +239,7 @@ namespace Typing_Test
             {
                 tbType.Text = tbType.Text.Trim();
 
-                DealWithCorrectAndWrongWordsCounter();
+                DealWithCounters();
 
                 SetPrevWordColor();
 
@@ -299,14 +298,31 @@ namespace Typing_Test
 
         private void ResetTimer()
         {
-            TimerForSeconds.Stop();
-            _timeRemainingForSeconds = TimeSpan.FromSeconds(NumberOfSeconds);
-            tbTimer.Text = "";
+            if(Mode == enMode.Time)
+            {
+                TimerForSeconds.Stop();
+                _timeRemainingForSeconds = TimeSpan.FromSeconds(NumberOfSeconds);
+                tbTimer.Text = "";
+            }
+            else
+            {
+                TimerForWords.Stop();
+                _TimeCounterForWords = TimeSpan.FromSeconds(0);
+                tbTimer.Text = "";
+            }
+
         }
 
         private void UpdateTimerDisplay()
         {
-            tbTimer.Text = _timeRemainingForSeconds.ToString(@"mm\:ss");
+            if(Mode == enMode.Time)
+            { 
+                tbTimer.Text = _timeRemainingForSeconds.ToString(@"mm\:ss");
+            }
+            else
+            {
+                tbTimer.Text = _TimeCounterForWords.ToString(@"mm\:ss");
+            }
         }
 
         private void SetKeyStrokesColors()
@@ -332,26 +348,41 @@ namespace Typing_Test
 
         private void TimerForSeconds_Tick(object sender, EventArgs e)
         {
-            if(IsStarted)
+            if(IsStartedTimeMode && Mode == enMode.Time)
             {
                  _timeRemainingForSeconds = _timeRemainingForSeconds.Subtract(TimeSpan.FromSeconds(1));
 
+                UpdateTimerDisplay();
+
                 if (_timeRemainingForSeconds <= TimeSpan.Zero)
                 {
-                    IsStarted = false;
+                    IsStartedTimeMode = false;
+                    tbType.ReadOnly = true;
+                    ShowResults();
+                    ResetTimer();
                 }
 
-                UpdateTimerDisplay();
             }
-            else
+        }
+
+        private void TimerForWords_Tick(object sender, EventArgs e)
+        {
+
+            if (IsStartedWordsMode && Mode == enMode.Words)
             {
-                tbType.ReadOnly = true;
+                _TimeCounterForWords = _TimeCounterForWords.Add(TimeSpan.FromSeconds(1));
 
-                ShowResults();
+                UpdateTimerDisplay();
 
-                ResetTimer();
+                if( CurrentWordCounter == NumberOfWords)
+                {
+                    IsStartedWordsMode = false;
+                    tbType.ReadOnly = true;
+                    ShowResults();
+                    ResetTimer();
+                }
+
             }
-
         }
 
         private void ChangeNumberOfSeconds(Button btn)
@@ -363,7 +394,6 @@ namespace Typing_Test
 
             NumberOfSeconds = Convert.ToInt16(btn.Text);
             _timeRemainingForSeconds = TimeSpan.FromSeconds(NumberOfSeconds);
-            //tbTimer.Text = _timeRemaining.ToString(@"mm\:ss");
 
             btn15.BackColor = btn30.BackColor = btn60.BackColor = btn120.BackColor = Color.Gainsboro;
             btn10.BackColor = btn25.BackColor = btn50.BackColor = btn100.BackColor = Color.Gainsboro;
@@ -396,10 +426,7 @@ namespace Typing_Test
             ChangeNumberOfSeconds((Button)sender);
         }
 
-        private void TimerForWords_Tick(object sender, EventArgs e)
-        {
-            _TimeCounterForWords = _TimeCounterForWords.Add(TimeSpan.FromSeconds(1));
-        }
+        
 
         private void HideWordsButtons()
         {
@@ -439,6 +466,8 @@ namespace Typing_Test
             {
                 TimerForWords.Stop();
 
+                RestartWords();
+
                 Mode = enMode.Time;
 
                 HideWordsButtons();
@@ -465,13 +494,10 @@ namespace Typing_Test
 
 
 
-
-
-
         // ********** Coming extensions **********:
-        // Timer
+        // 
         // WPM
-        // Result Screen
+        // Infinity words in time mode
         //
         //
         //
