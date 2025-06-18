@@ -301,11 +301,17 @@
             // 
             // richTextBox1
             // 
+            this.richTextBox1.BackColor = System.Drawing.Color.BlueViolet;
+            this.richTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.richTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 40.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.richTextBox1.ForeColor = System.Drawing.Color.Green;
             this.richTextBox1.Location = new System.Drawing.Point(11, 21);
             this.richTextBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(327, 178);
+            this.richTextBox1.ReadOnly = true;
+            this.richTextBox1.Size = new System.Drawing.Size(327, 156);
             this.richTextBox1.TabIndex = 26;
+            this.richTextBox1.TabStop = false;
             this.richTextBox1.Text = "";
             // 
             // TimerForWords
@@ -322,6 +328,7 @@
             this.btnTime.Name = "btnTime";
             this.btnTime.Size = new System.Drawing.Size(101, 41);
             this.btnTime.TabIndex = 24;
+            this.btnTime.TabStop = false;
             this.btnTime.Text = "time";
             this.btnTime.UseVisualStyleBackColor = false;
             this.btnTime.Click += new System.EventHandler(this.btnTime_Click);
@@ -335,6 +342,7 @@
             this.btnWords.Name = "btnWords";
             this.btnWords.Size = new System.Drawing.Size(101, 41);
             this.btnWords.TabIndex = 25;
+            this.btnWords.TabStop = false;
             this.btnWords.Text = "words";
             this.btnWords.UseVisualStyleBackColor = false;
             this.btnWords.Click += new System.EventHandler(this.btnWords_Click);

@@ -32,6 +32,9 @@ namespace Typing_Test
         short CorrectWordsCounter = 0;
         short WrongWordsCounter = 0;
 
+        int CorrectStrokes = 0;
+        int WrongStrokes = 0;
+
         static string AllWords = "about|above|add|after|again|air|all|almost|along|also|always|America|an|and|animal|another|answer|any|are|around|as|ask|at|away|back|be|because|been|before|began|begin|being|below|between|big|book|both|boy|but|by|call|came|can|car|carry|change|children|city|close|come|could|country|cut|day|did|different|do|does|don't|down|each|earth|eat|end|enough|even|every|example|eye|face|family|far|father|feet|few|find|first|follow|food|for|form|found|four|from|get|girl|give|go|good|got|great|group|grow|had|hand|hard|has|have|he|head|hear|help|her|here|high|him|his|home|house|how|idea|if|important|in|Indian|into|is|it|its|it's|just|keep|kind|know|land|large|last|later|learn|leave|left|let|letter|life|light|like|line|list|little|live|long|look|made|make|man|many|may|me|mean|men|might|mile|miss|more|most|mother|mountain|move|much|must|my|name|near|need|never|new|next|night|no|not|now|number|of|off|often|oil|old|on|once|one|only|open|or|other|our|out|over|own|page|paper|part|people|picture|place|plant|play|point|put|question|quick|quickly|quite|read|really|right|river|run|said|same|saw|say|school|sea|second|see|seem|sentence|set|she|should|show|side|small|so|some|something|sometimes|song|soon|sound|spell|start|state|still|stop|story|study|such|take|talk|tell|than|that|the|their|them|then|there|these|they|thing|think|this|those|thought|three|through|time|to|together|too|took|tree|try|turn|two|under|until|up|us|use|very|walk|want|was|watch|water|way|we|well|went|were|what|when|where|which|while|white|who|why|will|with|without|word|work|world|would|write|year|you|young|your";
         // 302 words
 
@@ -40,14 +43,12 @@ namespace Typing_Test
         string[] CurrentWords = new string[NumberOfWords];
 
         static short NumberOfWords = 25;
-
         static short NumberOfSeconds = 15;
 
         Random rndWord = new Random();
 
         bool IsStartedTimeMode = true;
         bool IsStartedWordsMode = true;
-
 
         private TimeSpan _timeRemainingForSeconds = TimeSpan.FromSeconds(NumberOfSeconds);
 
@@ -98,6 +99,8 @@ namespace Typing_Test
             CurrentWordCounter = 0;
             CorrectWordsCounter = 0;
             WrongWordsCounter = 0;
+            WrongStrokes = 0;
+            CorrectStrokes = 0;
 
             SetFirstWordColor();
         }
@@ -124,6 +127,9 @@ namespace Typing_Test
             rtbKeyStrokes.SelectAll();
             rtbKeyStrokes.SelectionAlignment = HorizontalAlignment.Right;
 
+            richTextBox1.SelectAll();
+            richTextBox1.SelectionAlignment = HorizontalAlignment.Center;
+
             tbTimer.BackColor = this.BackColor;
         }
 
@@ -145,14 +151,22 @@ namespace Typing_Test
 
         private bool AreAllWordsTyped()
         {
-            if (CurrentWordCounter == NumberOfWords)
+            if (CurrentWordCounter+1 <= NumberOfWords)
+            {
+                return false;
+            }
+            else
             {
                 IsStartedTimeMode = false;
-                tbType.Enabled = false;
+                IsStartedWordsMode = false;
+
+                tbType.ReadOnly = false;
+
                 TimerForSeconds.Stop();
+                TimerForWords.Stop();
                 return true;
             }
-            return false;
+                
         }
 
         private bool IsWordTypingFinished()
@@ -202,8 +216,7 @@ namespace Typing_Test
             }
         }
 
-        int CorrectStrokes = 0;
-        int WrongStrokes = 0;
+       
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
             if (tbType.Text == " " || tbType.Text == "")
@@ -213,9 +226,7 @@ namespace Typing_Test
                 return;
             }
 
-            
-
-            if(Mode == enMode.Time)
+            if (Mode == enMode.Time)
             {
                 IsStartedTimeMode = true;
                 TimerForSeconds.Start();
@@ -225,15 +236,10 @@ namespace Typing_Test
             {
                 IsStartedWordsMode = true;
                 TimerForWords.Start();
+                tbTimer.Text = _TimeCounterForWords.ToString(@"mm\:ss");
             }
 
             CheckEachCharInCurrentWord();
-            
-            if (AreAllWordsTyped())
-            {
-                return;
-            }
-
 
             if (IsWordTypingFinished())
             {
@@ -252,6 +258,13 @@ namespace Typing_Test
                 SetCurrentWordColor();
 
                 tbType.Text = "";
+
+                if (AreAllWordsTyped())
+                {
+                    ShowResults();
+                    ResetTimer();
+                    return;
+                }
             }
 
         }
@@ -300,12 +313,14 @@ namespace Typing_Test
         {
             if(Mode == enMode.Time)
             {
+                IsStartedTimeMode = false;
                 TimerForSeconds.Stop();
                 _timeRemainingForSeconds = TimeSpan.FromSeconds(NumberOfSeconds);
                 tbTimer.Text = "";
             }
             else
             {
+                IsStartedWordsMode = false;
                 TimerForWords.Stop();
                 _TimeCounterForWords = TimeSpan.FromSeconds(0);
                 tbTimer.Text = "";
@@ -343,6 +358,8 @@ namespace Typing_Test
             rtbCorrectWords.Text = CorrectWordsCounter.ToString();
             rtbWrongWords.Text = WrongWordsCounter.ToString();
 
+            richTextBox1.Text = Convert.ToInt16(CalcWPM()).ToString() + " WPM";
+
             SetKeyStrokesColors();
         }
 
@@ -363,6 +380,11 @@ namespace Typing_Test
                 }
 
             }
+            else
+            {
+                
+
+            }
         }
 
         private void TimerForWords_Tick(object sender, EventArgs e)
@@ -374,7 +396,7 @@ namespace Typing_Test
 
                 UpdateTimerDisplay();
 
-                if( CurrentWordCounter == NumberOfWords)
+                if( CurrentWordCounter >= NumberOfWords)
                 {
                     IsStartedWordsMode = false;
                     tbType.ReadOnly = true;
@@ -382,6 +404,10 @@ namespace Typing_Test
                     ResetTimer();
                 }
 
+            }
+            else
+            {
+                
             }
         }
 
@@ -462,7 +488,9 @@ namespace Typing_Test
 
         private void btnTime_Click(object sender, EventArgs e)
         {
-            if(Mode == enMode.Words)
+            groupBox1.Visible = false;
+
+            if (Mode == enMode.Words)
             {
                 TimerForWords.Stop();
 
@@ -479,6 +507,8 @@ namespace Typing_Test
 
         private void btnWords_Click(object sender, EventArgs e)
         {
+            groupBox1.Visible = false;
+
             if(Mode == enMode.Time)
             {
                 TimerForSeconds.Stop();
@@ -492,6 +522,24 @@ namespace Typing_Test
             }
         }
 
+        private double CalcWPM()
+        {
+            double timeInSeconds = (Mode == enMode.Words) ? _TimeCounterForWords.TotalSeconds : NumberOfSeconds;
+
+            // Ensure we don't divide by zero if no time has passed.
+            if (timeInSeconds <= 0)
+            {
+                return 0.0;
+            }
+
+            double words = CorrectStrokes / 5.0; // Use 5.0 to ensure floating-point division
+
+            double timeInMinutes = timeInSeconds / 60.0; // Use 60.0 for floating-point division
+
+            // Calculate WPM: Words / Time in Minutes.
+            return words / timeInMinutes;
+
+        }
 
 
         // ********** Coming extensions **********:
