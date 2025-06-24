@@ -58,7 +58,7 @@ namespace Typing_Test
         Color CorrectWordColor = Color.Green;
         Color WrongWordColor = Color.Red;
         Color DefaultWordsColor = Color.Black;
-        Color SelectColor = Color.Blue;
+        Color SelectColor = Color.DodgerBlue;
 
         enum enMode {Words,Time };
 
@@ -102,6 +102,9 @@ namespace Typing_Test
             WrongStrokes = 0;
             CorrectStrokes = 0;
 
+            //_timeRemainingForSeconds = TimeSpan.FromSeconds(0);//
+            tbLiveWPM.Text = "";
+
             SetFirstWordColor();
         }
 
@@ -110,13 +113,14 @@ namespace Typing_Test
         {
             tbType.Select();
 
-            NumberOfWords = 100;
+            NumberOfWords = 1000;
             CurrentWords = new string[NumberOfWords];
 
             RestartWords();
             SetFirstWordColor();
             rtbWords.ForeColor = DefaultWordsColor;
             btn15.BackColor = SelectColor;
+            btnTime.BackColor = SelectColor;
 
             rtbCorrectWords.SelectAll();
             rtbCorrectWords.SelectionAlignment = HorizontalAlignment.Right;
@@ -131,6 +135,26 @@ namespace Typing_Test
             richTextBox1.SelectionAlignment = HorizontalAlignment.Center;
 
             tbTimer.BackColor = this.BackColor;
+
+
+
+            //// VERY IMPORTANT: Set KeyPreview to true so the Form receives key events
+            //// before any other controls on the form.
+            //this.KeyPreview = true;
+
+            //// Subscribe to the KeyDown event of the Form
+            //this.KeyDown += new KeyEventHandler(Form1_KeyDown);
+        }
+
+        private void Form1_KeyDown(object sender, KeyEventArgs e)
+        {
+            // Example 1: Clear the TextBox when F5 is pressed
+            if (e.KeyCode == Keys.Tab)
+            {
+                MessageBox.Show("tab Pressed: TextBox Cleared!");
+                // Optionally, suppress further processing of the F5 key
+                e.SuppressKeyPress = true;
+            }
         }
 
         private void SetFirstWordColor()
@@ -263,6 +287,7 @@ namespace Typing_Test
                 {
                     ShowResults();
                     ResetTimer();
+                    tbLiveWPM.Text = "";
                     return;
                 }
             }
@@ -358,7 +383,7 @@ namespace Typing_Test
             rtbCorrectWords.Text = CorrectWordsCounter.ToString();
             rtbWrongWords.Text = WrongWordsCounter.ToString();
 
-            richTextBox1.Text = Convert.ToInt16(CalcWPM()).ToString() + " WPM";
+            richTextBox1.Text = Convert.ToInt16(CalcWPM()).ToString() + "\nWPM";
 
             SetKeyStrokesColors();
         }
@@ -369,6 +394,8 @@ namespace Typing_Test
             {
                  _timeRemainingForSeconds = _timeRemainingForSeconds.Subtract(TimeSpan.FromSeconds(1));
 
+                _TimeCounterForWords = _TimeCounterForWords.Add(TimeSpan.FromSeconds(1));
+
                 UpdateTimerDisplay();
 
                 if (_timeRemainingForSeconds <= TimeSpan.Zero)
@@ -377,12 +404,11 @@ namespace Typing_Test
                     tbType.ReadOnly = true;
                     ShowResults();
                     ResetTimer();
+                    tbLiveWPM.Text = "";
+                    return;
                 }
 
-            }
-            else
-            {
-                
+                tbLiveWPM.Text = Convert.ToInt16(CalcLiveWPM()).ToString();
 
             }
         }
@@ -404,10 +430,8 @@ namespace Typing_Test
                     ResetTimer();
                 }
 
-            }
-            else
-            {
-                
+                tbLiveWPM.Text = Convert.ToInt16(CalcLiveWPM()).ToString();
+
             }
         }
 
@@ -490,9 +514,19 @@ namespace Typing_Test
         {
             groupBox1.Visible = false;
 
+            tbType.ReadOnly = false;
+
+            tbLiveWPM.Text = "";
+
+            _TimeCounterForWords = TimeSpan.FromSeconds(0);
+            _timeRemainingForSeconds = TimeSpan.FromSeconds(NumberOfSeconds);
+
             if (Mode == enMode.Words)
             {
                 TimerForWords.Stop();
+
+                NumberOfWords = 80;
+                CurrentWords = new string[NumberOfWords];
 
                 RestartWords();
 
@@ -502,6 +536,9 @@ namespace Typing_Test
                 ShowSecondsButtons();
 
                 ChangeNumberOfSeconds(btn15);
+
+                btnTime.BackColor = SelectColor;
+                btnWords.BackColor = Color.White;
             }
         }
 
@@ -509,7 +546,14 @@ namespace Typing_Test
         {
             groupBox1.Visible = false;
 
-            if(Mode == enMode.Time)
+            tbType.ReadOnly = false;
+
+            tbLiveWPM.Text = "";
+
+            _TimeCounterForWords = TimeSpan.FromSeconds(0);
+            _timeRemainingForSeconds = TimeSpan.FromSeconds(NumberOfSeconds);
+
+            if (Mode == enMode.Time)
             {
                 TimerForSeconds.Stop();
 
@@ -519,12 +563,16 @@ namespace Typing_Test
                 ShowWordsButtons();
 
                 ChangeNumberOfWords(btn10);
+
+                btnWords.BackColor = SelectColor;
+                btnTime.BackColor = Color.White;
             }
         }
 
         private double CalcWPM()
         {
             double timeInSeconds = (Mode == enMode.Words) ? _TimeCounterForWords.TotalSeconds : NumberOfSeconds;
+            //double timeInSeconds = _TimeCounterForWords.TotalSeconds;
 
             // Ensure we don't divide by zero if no time has passed.
             if (timeInSeconds <= 0)
@@ -540,6 +588,37 @@ namespace Typing_Test
             return words / timeInMinutes;
 
         }
+
+        private double CalcLiveWPM()
+        {
+            double timeInSeconds = (Mode == enMode.Words) ? _TimeCounterForWords.TotalSeconds : (NumberOfSeconds-_timeRemainingForSeconds.TotalSeconds);
+            //double timeInSeconds = _TimeCounterForWords.TotalSeconds;
+
+            // Ensure we don't divide by zero if no time has passed.
+            if (timeInSeconds <= 0)
+            {
+                return 0.0;
+            }
+
+            double words = CorrectStrokes / 5.0; // Use 5.0 to ensure floating-point division
+
+            double timeInMinutes = timeInSeconds / 60.0; // Use 60.0 for floating-point division
+
+            // Calculate WPM: Words / Time in Minutes.
+            return words / timeInMinutes;
+        }
+
+        private void Form1_KeyDown_1(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Up)
+            {
+                MessageBox.Show("up Pressed: TextBox Cleared!");
+                // Optionally, suppress further processing of the F5 key
+            }
+
+        }
+
+
 
 
         // ********** Coming extensions **********:
