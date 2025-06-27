@@ -16,6 +16,7 @@ using System.Data.SqlTypes;
 using System.Drawing.Printing;
 using System.Runtime.ExceptionServices;
 using System.Diagnostics.Eventing.Reader;
+using Typing_Test.Properties;
 
 namespace Typing_Test
 {
@@ -136,6 +137,9 @@ namespace Typing_Test
 
             tbTimer.BackColor = this.BackColor;
 
+
+            //rtbWords.Dock = DockStyle.Fill;
+            //rtbWords.Anchor = AnchorStyles.Right;
 
 
             //// VERY IMPORTANT: Set KeyPreview to true so the Form receives key events
@@ -290,6 +294,8 @@ namespace Typing_Test
                     tbLiveWPM.Text = "";
                     return;
                 }
+
+                //rtbWords.GetLineFromCharIndex();
             }
 
         }
@@ -618,12 +624,27 @@ namespace Typing_Test
 
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start(@"D:\typingfingersposition.png");
+        }
+
+        private void tbType_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Control && e.KeyCode == Keys.Back)
+            {
+                e.SuppressKeyPress = true; // Prevent the default Backspace behavior (inserting space)
+
+                tbType.Text = "";
+            }
+        }
+
 
 
 
         // ********** Coming extensions **********:
         // 
-        // WPM
+        // 
         // Infinity words in time mode
         //
         //

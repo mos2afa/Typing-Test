@@ -55,6 +55,7 @@
             this.btnWords = new System.Windows.Forms.Button();
             this.btnRestart = new System.Windows.Forms.Button();
             this.tbLiveWPM = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -83,6 +84,7 @@
             this.tbType.Size = new System.Drawing.Size(901, 61);
             this.tbType.TabIndex = 0;
             this.tbType.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.tbType.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbType_KeyDown);
             // 
             // btn10
             // 
@@ -376,12 +378,27 @@
             this.tbLiveWPM.TabIndex = 26;
             this.tbLiveWPM.TabStop = false;
             // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.Transparent;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.Black;
+            this.button1.Location = new System.Drawing.Point(292, 7);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(220, 41);
+            this.button1.TabIndex = 27;
+            this.button1.TabStop = false;
+            this.button1.Text = "Fingers position";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DodgerBlue;
             this.ClientSize = new System.Drawing.Size(1488, 642);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.tbLiveWPM);
             this.Controls.Add(this.btnWords);
             this.Controls.Add(this.btnTime);
@@ -401,7 +418,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Form1";
-            this.Text = " ";
+            this.Text = "Typing";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown_1);
             this.groupBox1.ResumeLayout(false);
@@ -438,6 +455,7 @@
         public System.Windows.Forms.RichTextBox rtbCorrectWords;
         public System.Windows.Forms.RichTextBox rtbWrongWords;
         public System.Windows.Forms.TextBox tbLiveWPM;
+        private System.Windows.Forms.Button button1;
     }
 }
 
