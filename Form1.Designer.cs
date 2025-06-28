@@ -63,12 +63,13 @@
             // 
             this.rtbWords.BackColor = System.Drawing.Color.White;
             this.rtbWords.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.rtbWords.Font = new System.Drawing.Font("Microsoft Sans Serif", 25.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rtbWords.Font = new System.Drawing.Font("Microsoft Sans Serif", 37F);
             this.rtbWords.ForeColor = System.Drawing.Color.Black;
             this.rtbWords.Location = new System.Drawing.Point(13, 60);
             this.rtbWords.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.rtbWords.Name = "rtbWords";
             this.rtbWords.ReadOnly = true;
+            this.rtbWords.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None;
             this.rtbWords.Size = new System.Drawing.Size(981, 425);
             this.rtbWords.TabIndex = 6;
             this.rtbWords.TabStop = false;

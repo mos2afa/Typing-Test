@@ -107,6 +107,9 @@ namespace Typing_Test
             tbLiveWPM.Text = "";
 
             SetFirstWordColor();
+
+            rtbWords.Select(0, 1);
+            rtbWords.ScrollToCaret();
         }
 
 
@@ -137,22 +140,10 @@ namespace Typing_Test
 
             tbTimer.BackColor = this.BackColor;
 
-
-            //rtbWords.Dock = DockStyle.Fill;
-            //rtbWords.Anchor = AnchorStyles.Right;
-
-
-            //// VERY IMPORTANT: Set KeyPreview to true so the Form receives key events
-            //// before any other controls on the form.
-            //this.KeyPreview = true;
-
-            //// Subscribe to the KeyDown event of the Form
-            //this.KeyDown += new KeyEventHandler(Form1_KeyDown);
         }
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
-            // Example 1: Clear the TextBox when F5 is pressed
             if (e.KeyCode == Keys.Tab)
             {
                 MessageBox.Show("tab Pressed: TextBox Cleared!");
@@ -179,7 +170,7 @@ namespace Typing_Test
 
         private bool AreAllWordsTyped()
         {
-            if (CurrentWordCounter+1 <= NumberOfWords)
+            if (CurrentWordCounter < NumberOfWords)
             {
                 return false;
             }
@@ -199,10 +190,7 @@ namespace Typing_Test
 
         private bool IsWordTypingFinished()
         {
-            if (tbType.Text.EndsWith(" "))
-                return true;
-            else
-                return false;
+            return tbType.Text.EndsWith(" ");
         }
 
 
@@ -331,6 +319,7 @@ namespace Typing_Test
                 rtbWords.Select(IndexOfFirstCharOfCurrentWord, CurrentWords[CurrentWordCounter].Length);
                 rtbWords.SelectionColor = CurrentWordColor;
 
+                rtbWords.ScrollToCaret();
             }
         }
 
@@ -638,19 +627,5 @@ namespace Typing_Test
                 tbType.Text = "";
             }
         }
-
-
-
-
-        // ********** Coming extensions **********:
-        // 
-        // 
-        // Infinity words in time mode
-        //
-        //
-        //
-        //
-        //
-        //
     }
 }
