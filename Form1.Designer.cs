@@ -69,6 +69,7 @@
             this.rtbWords.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.rtbWords.Name = "rtbWords";
             this.rtbWords.ReadOnly = true;
+            this.rtbWords.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.rtbWords.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None;
             this.rtbWords.Size = new System.Drawing.Size(981, 425);
             this.rtbWords.TabIndex = 6;
@@ -398,7 +399,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DodgerBlue;
-            this.ClientSize = new System.Drawing.Size(1488, 642);
+            this.ClientSize = new System.Drawing.Size(1488, 588);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.tbLiveWPM);
             this.Controls.Add(this.btnWords);
@@ -417,6 +418,7 @@
             this.Controls.Add(this.btn10);
             this.Controls.Add(this.rtbWords);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.KeyPreview = true;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Form1";
             this.Text = "Typing";

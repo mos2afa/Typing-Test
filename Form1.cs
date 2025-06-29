@@ -25,6 +25,8 @@ namespace Typing_Test
         public Form1()
         {
             InitializeComponent();
+
+            
             //this.WindowState = FormWindowState.Maximized;
         }
 
@@ -41,10 +43,12 @@ namespace Typing_Test
 
         string[] word = AllWords.Split('|');
 
+        static short NumberOfSeconds = 15;
+
+        static short NumberOfWords = 1000;
+
         string[] CurrentWords = new string[NumberOfWords];
 
-        static short NumberOfWords = 25;
-        static short NumberOfSeconds = 15;
 
         Random rndWord = new Random();
 
@@ -55,11 +59,24 @@ namespace Typing_Test
 
         private TimeSpan _TimeCounterForWords = TimeSpan.FromSeconds(0);
 
+        // my first colors
         Color CurrentWordColor = Color.Purple;
         Color CorrectWordColor = Color.Green;
         Color WrongWordColor = Color.Red;
         Color DefaultWordsColor = Color.Black;
-        Color SelectColor = Color.DodgerBlue;
+        //Color SelectColor = Color.DodgerBlue;
+        Color SelectColor = Color.FromArgb(106, 90, 205);
+
+
+        // Gemini colors
+        //Color CurrentWordColor = Color.FromArgb(106, 90, 205); // Slate Blue / Lavender
+        //Color CorrectWordColor = Color.FromArgb(32, 201, 151); // Teal Green
+        //Color WrongWordColor = Color.FromArgb(224, 82, 82);   // Soft Red
+        //Color DefaultWordsColor = Color.FromArgb(74, 74, 74); // Medium-Dark Grey
+        //Color SelectColor = Color.FromArgb(106, 90, 205);     // Matching Current Word color for selected buttons
+
+
+
 
         enum enMode {Words,Time };
 
@@ -117,9 +134,6 @@ namespace Typing_Test
         {
             tbType.Select();
 
-            NumberOfWords = 1000;
-            CurrentWords = new string[NumberOfWords];
-
             RestartWords();
             SetFirstWordColor();
             rtbWords.ForeColor = DefaultWordsColor;
@@ -142,13 +156,12 @@ namespace Typing_Test
 
         }
 
-        private void Form1_KeyDown(object sender, KeyEventArgs e)
+        private void Form1_KeyDown_1(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Tab)
+            if (e.Control && e.KeyCode == Keys.W)
             {
-                MessageBox.Show("tab Pressed: TextBox Cleared!");
-                // Optionally, suppress further processing of the F5 key
                 e.SuppressKeyPress = true;
+                this.Close(); 
             }
         }
 
@@ -314,7 +327,7 @@ namespace Typing_Test
 
         private void SetCurrentWordColor()
         {
-            if(CurrentWordCounter<NumberOfWords)
+            if (CurrentWordCounter < NumberOfWords)
             {
                 rtbWords.Select(IndexOfFirstCharOfCurrentWord, CurrentWords[CurrentWordCounter].Length);
                 rtbWords.SelectionColor = CurrentWordColor;
@@ -601,16 +614,6 @@ namespace Typing_Test
 
             // Calculate WPM: Words / Time in Minutes.
             return words / timeInMinutes;
-        }
-
-        private void Form1_KeyDown_1(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Up)
-            {
-                MessageBox.Show("up Pressed: TextBox Cleared!");
-                // Optionally, suppress further processing of the F5 key
-            }
-
         }
 
         private void button1_Click(object sender, EventArgs e)
