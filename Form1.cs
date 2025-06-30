@@ -17,6 +17,7 @@ using System.Drawing.Printing;
 using System.Runtime.ExceptionServices;
 using System.Diagnostics.Eventing.Reader;
 using Typing_Test.Properties;
+using System.IO.Pipes;
 
 namespace Typing_Test
 {
@@ -100,7 +101,11 @@ namespace Typing_Test
                 TempText += " ";
             }
 
+
+
             rtbWords.Text = TempText;
+            rtbWords.Text += "\n\n\n\n\n\n\n"; // because there was a glitch in 50 / 100 words mode because of rtbwords.scrolltocaret() function.
+
             tbType.Text = "";
         }
 
@@ -183,22 +188,22 @@ namespace Typing_Test
 
         private bool AreAllWordsTyped()
         {
-            if (CurrentWordCounter < NumberOfWords)
-            {
-                return false;
-            }
-            else
+            if (CurrentWordCounter >= NumberOfWords)
             {
                 IsStartedTimeMode = false;
                 IsStartedWordsMode = false;
 
-                tbType.ReadOnly = false;
+                tbType.ReadOnly = true;
 
                 TimerForSeconds.Stop();
                 TimerForWords.Stop();
                 return true;
             }
-                
+            else
+            {
+                return false;
+            }
+
         }
 
         private bool IsWordTypingFinished()
@@ -255,6 +260,8 @@ namespace Typing_Test
                 return;
             }
 
+            
+
             if (Mode == enMode.Time)
             {
                 IsStartedTimeMode = true;
@@ -286,17 +293,18 @@ namespace Typing_Test
 
                 SetCurrentWordColor();
 
+                rtbWords.ScrollToCaret();
+
                 tbType.Text = "";
 
                 if (AreAllWordsTyped())
                 {
                     ShowResults();
                     ResetTimer();
+
                     tbLiveWPM.Text = "";
                     return;
                 }
-
-                //rtbWords.GetLineFromCharIndex();
             }
 
         }
@@ -332,7 +340,6 @@ namespace Typing_Test
                 rtbWords.Select(IndexOfFirstCharOfCurrentWord, CurrentWords[CurrentWordCounter].Length);
                 rtbWords.SelectionColor = CurrentWordColor;
 
-                rtbWords.ScrollToCaret();
             }
         }
 
@@ -421,6 +428,16 @@ namespace Typing_Test
             }
         }
 
+        private void ResetTest()
+        {
+
+        }
+
+        private void EndTest()
+        {
+
+        }
+
         private void TimerForWords_Tick(object sender, EventArgs e)
         {
 
@@ -466,6 +483,11 @@ namespace Typing_Test
             TimerForWords.Stop();
             TimerForSeconds.Stop();
             
+            groupBox1.Hide();
+            tbType.ReadOnly = false;
+
+            ResetTimer();
+
             NumberOfWords = Convert.ToInt16(btn.Text);
             CurrentWords = new string[NumberOfWords];
             RestartWords();
