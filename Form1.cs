@@ -61,12 +61,14 @@ namespace Typing_Test
         private TimeSpan _TimeCounterForWords = TimeSpan.FromSeconds(0);
 
         // my first colors
-        Color CurrentWordColor = Color.Purple;
+        Color FormColor = Color.FromArgb(0,0,150);
+        Color CurrentWordColor = Color.FromArgb(0, 0, 150);
         Color CorrectWordColor = Color.Green;
         Color WrongWordColor = Color.Red;
         Color DefaultWordsColor = Color.Black;
         //Color SelectColor = Color.DodgerBlue;
-        Color SelectColor = Color.FromArgb(106, 90, 205);
+        //Color SelectColor = Color.FromArgb(106, 90, 205);
+        Color SelectColor = Color.DarkTurquoise;
 
 
         // Gemini colors
@@ -75,9 +77,6 @@ namespace Typing_Test
         //Color WrongWordColor = Color.FromArgb(224, 82, 82);   // Soft Red
         //Color DefaultWordsColor = Color.FromArgb(74, 74, 74); // Medium-Dark Grey
         //Color SelectColor = Color.FromArgb(106, 90, 205);     // Matching Current Word color for selected buttons
-
-
-
 
         enum enMode {Words,Time };
 
@@ -144,6 +143,12 @@ namespace Typing_Test
             rtbWords.ForeColor = DefaultWordsColor;
             btn15.BackColor = SelectColor;
             btnTime.BackColor = SelectColor;
+
+            this.BackColor = FormColor;
+            tbTimer.BackColor = FormColor;
+            tbLiveWPM.BackColor = FormColor;
+            richTextBox1.BackColor = FormColor;
+            richTextBox2.BackColor = FormColor;
 
             rtbCorrectWords.SelectAll();
             rtbCorrectWords.SelectionAlignment = HorizontalAlignment.Right;
@@ -221,12 +226,12 @@ namespace Typing_Test
                 if (tbType.Text[i] == CurrentWords[CurrentWordCounter][i] && tbType.Text.Length <= CurrentWords[CurrentWordCounter].Length)
                 {
                     rtbWords.Select(IndexOfFirstCharOfCurrentWord, CurrentWords[CurrentWordCounter].Length);
-                    rtbWords.SelectionBackColor = Color.White;
+                    rtbWords.SelectionBackColor = rtbWords.BackColor;
                 }
                 else
                 {
                     rtbWords.Select(IndexOfFirstCharOfCurrentWord, CurrentWords[CurrentWordCounter].Length);
-                    rtbWords.SelectionBackColor = Color.Red;
+                    rtbWords.SelectionBackColor = WrongWordColor;
                     break;
                 }
             }
@@ -255,7 +260,7 @@ namespace Typing_Test
         {
             if (tbType.Text == " " || tbType.Text == "")
             {
-                rtbWords.SelectionBackColor = Color.White;
+                rtbWords.SelectionBackColor = rtbWords.BackColor;
                 tbType.Text = "";
                 return;
             }
@@ -285,7 +290,7 @@ namespace Typing_Test
 
                 SetPrevWordColor();
 
-                rtbWords.SelectionBackColor = Color.White;
+                rtbWords.SelectionBackColor = rtbWords.BackColor;
 
                 UpdateIndexOfFirstCharOfCurrentWord();
 
@@ -303,7 +308,6 @@ namespace Typing_Test
                     ResetTimer();
 
                     tbLiveWPM.Text = "";
-                    return;
                 }
             }
 
@@ -356,15 +360,15 @@ namespace Typing_Test
                 IsStartedTimeMode = false;
                 TimerForSeconds.Stop();
                 _timeRemainingForSeconds = TimeSpan.FromSeconds(NumberOfSeconds);
-                tbTimer.Text = "";
             }
             else
             {
                 IsStartedWordsMode = false;
                 TimerForWords.Stop();
                 _TimeCounterForWords = TimeSpan.FromSeconds(0);
-                tbTimer.Text = "";
             }
+
+            tbTimer.Text = "";
 
         }
 
@@ -398,7 +402,7 @@ namespace Typing_Test
             rtbCorrectWords.Text = CorrectWordsCounter.ToString();
             rtbWrongWords.Text = WrongWordsCounter.ToString();
 
-            richTextBox1.Text = Convert.ToInt16(CalcWPM()).ToString() + "\nWPM";
+            richTextBox1.Text = Convert.ToInt16(CalcWPM()).ToString();
 
             SetKeyStrokesColors();
         }
@@ -467,6 +471,13 @@ namespace Typing_Test
             TimerForSeconds.Stop();
             TimerForWords.Stop();
 
+            RestartWords();
+
+            tbTimer.Text = "";
+
+            groupBox1.Hide();
+            tbType.ReadOnly = false;
+
             NumberOfSeconds = Convert.ToInt16(btn.Text);
             _timeRemainingForSeconds = TimeSpan.FromSeconds(NumberOfSeconds);
 
@@ -502,7 +513,6 @@ namespace Typing_Test
 
         private void btnChangeNumberOfSeconds_Click(object sender, EventArgs e)
         {
-            
             ChangeNumberOfSeconds((Button)sender);
         }
 
@@ -555,7 +565,7 @@ namespace Typing_Test
             {
                 TimerForWords.Stop();
 
-                NumberOfWords = 80;
+                NumberOfWords = 1000;
                 CurrentWords = new string[NumberOfWords];
 
                 RestartWords();
@@ -650,6 +660,16 @@ namespace Typing_Test
                 e.SuppressKeyPress = true; // Prevent the default Backspace behavior (inserting space)
 
                 tbType.Text = "";
+            }
+        }
+
+        private void contextMenuStrip1_Click(object sender, EventArgs e)
+        {     
+
+            if (colorDialog1.ShowDialog() == DialogResult.OK)
+            {
+                ContextMenuStrip cms = (ContextMenuStrip)sender;
+                cms.SourceControl.BackColor = colorDialog1.Color;
             }
         }
     }
