@@ -57,7 +57,6 @@
             this.btnWords = new System.Windows.Forms.Button();
             this.btnRestart = new System.Windows.Forms.Button();
             this.tbLiveWPM = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
             this.colorDialog2 = new System.Windows.Forms.ColorDialog();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.richTextBox2 = new System.Windows.Forms.RichTextBox();
@@ -436,22 +435,6 @@
             this.tbLiveWPM.TabIndex = 26;
             this.tbLiveWPM.TabStop = false;
             // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.Transparent;
-            this.button1.ContextMenuStrip = this.cmsBackColor;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.Black;
-            this.button1.Location = new System.Drawing.Point(292, 7);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(220, 41);
-            this.button1.TabIndex = 27;
-            this.button1.TabStop = false;
-            this.button1.Text = "Fingers position";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Visible = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // richTextBox2
             // 
             this.richTextBox2.BackColor = System.Drawing.Color.DodgerBlue;
@@ -476,7 +459,6 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ClientSize = new System.Drawing.Size(1407, 579);
             this.ContextMenuStrip = this.cmsBackColor;
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.tbLiveWPM);
             this.Controls.Add(this.btnWords);
             this.Controls.Add(this.btnTime);
@@ -535,7 +517,6 @@
         public System.Windows.Forms.RichTextBox rtbCorrectWords;
         public System.Windows.Forms.RichTextBox rtbWrongWords;
         public System.Windows.Forms.TextBox tbLiveWPM;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.ContextMenuStrip cmsBackColor;
         private System.Windows.Forms.ToolStripMenuItem changeBackColorToolStripMenuItem;
         private System.Windows.Forms.ColorDialog colorDialog2;

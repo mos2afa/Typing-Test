@@ -1,23 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Collections.Specialized;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Numerics;
-using System.Diagnostics.Tracing;
-using System.Net.Http.Headers;
-using System.Security;
-using System.Data.SqlTypes;
-using System.Drawing.Printing;
-using System.Runtime.ExceptionServices;
-using System.Diagnostics.Eventing.Reader;
-using Typing_Test.Properties;
-using System.IO.Pipes;
+
 
 namespace Typing_Test
 {
@@ -26,9 +10,6 @@ namespace Typing_Test
         public Form1()
         {
             InitializeComponent();
-
-            
-            //this.WindowState = FormWindowState.Maximized;
         }
 
         short CurrentWordCounter = 1;
@@ -50,7 +31,6 @@ namespace Typing_Test
 
         string[] CurrentWords = new string[NumberOfWords];
 
-
         Random rndWord = new Random();
 
         bool IsStartedTimeMode = true;
@@ -60,23 +40,12 @@ namespace Typing_Test
 
         private TimeSpan _TimeCounterForWords = TimeSpan.FromSeconds(0);
 
-        // my first colors
         Color FormColor = Color.FromArgb(0,0,150);
         Color CurrentWordColor = Color.FromArgb(0, 0, 150);
         Color CorrectWordColor = Color.Green;
         Color WrongWordColor = Color.Red;
         Color DefaultWordsColor = Color.Black;
-        //Color SelectColor = Color.DodgerBlue;
-        //Color SelectColor = Color.FromArgb(106, 90, 205);
         Color SelectColor = Color.DarkTurquoise;
-
-
-        // Gemini colors
-        //Color CurrentWordColor = Color.FromArgb(106, 90, 205); // Slate Blue / Lavender
-        //Color CorrectWordColor = Color.FromArgb(32, 201, 151); // Teal Green
-        //Color WrongWordColor = Color.FromArgb(224, 82, 82);   // Soft Red
-        //Color DefaultWordsColor = Color.FromArgb(74, 74, 74); // Medium-Dark Grey
-        //Color SelectColor = Color.FromArgb(106, 90, 205);     // Matching Current Word color for selected buttons
 
         enum enMode {Words,Time };
 
@@ -124,7 +93,6 @@ namespace Typing_Test
             WrongStrokes = 0;
             CorrectStrokes = 0;
 
-            //_timeRemainingForSeconds = TimeSpan.FromSeconds(0);//
             tbLiveWPM.Text = "";
 
             SetFirstWordColor();
@@ -432,16 +400,6 @@ namespace Typing_Test
             }
         }
 
-        private void ResetTest()
-        {
-
-        }
-
-        private void EndTest()
-        {
-
-        }
-
         private void TimerForWords_Tick(object sender, EventArgs e)
         {
 
@@ -515,8 +473,6 @@ namespace Typing_Test
         {
             ChangeNumberOfSeconds((Button)sender);
         }
-
-        
 
         private void HideWordsButtons()
         {
@@ -612,45 +568,35 @@ namespace Typing_Test
         private double CalcWPM()
         {
             double timeInSeconds = (Mode == enMode.Words) ? _TimeCounterForWords.TotalSeconds : NumberOfSeconds;
-            //double timeInSeconds = _TimeCounterForWords.TotalSeconds;
 
-            // Ensure we don't divide by zero if no time has passed.
             if (timeInSeconds <= 0)
             {
                 return 0.0;
             }
 
-            double words = CorrectStrokes / 5.0; // Use 5.0 to ensure floating-point division
+            double words = CorrectStrokes / 5.0; 
 
-            double timeInMinutes = timeInSeconds / 60.0; // Use 60.0 for floating-point division
+            double timeInMinutes = timeInSeconds / 60.0; 
 
             // Calculate WPM: Words / Time in Minutes.
             return words / timeInMinutes;
-
         }
 
         private double CalcLiveWPM()
         {
             double timeInSeconds = (Mode == enMode.Words) ? _TimeCounterForWords.TotalSeconds : (NumberOfSeconds-_timeRemainingForSeconds.TotalSeconds);
-            //double timeInSeconds = _TimeCounterForWords.TotalSeconds;
 
-            // Ensure we don't divide by zero if no time has passed.
             if (timeInSeconds <= 0)
             {
                 return 0.0;
             }
 
-            double words = CorrectStrokes / 5.0; // Use 5.0 to ensure floating-point division
+            double words = CorrectStrokes / 5.0; 
 
-            double timeInMinutes = timeInSeconds / 60.0; // Use 60.0 for floating-point division
+            double timeInMinutes = timeInSeconds / 60.0; 
 
             // Calculate WPM: Words / Time in Minutes.
             return words / timeInMinutes;
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            System.Diagnostics.Process.Start(@"D:\typingfingersposition.png");
         }
 
         private void tbType_KeyDown(object sender, KeyEventArgs e)
@@ -665,7 +611,6 @@ namespace Typing_Test
 
         private void contextMenuStrip1_Click(object sender, EventArgs e)
         {     
-
             if (colorDialog1.ShowDialog() == DialogResult.OK)
             {
                 ContextMenuStrip cms = (ContextMenuStrip)sender;
