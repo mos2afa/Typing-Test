@@ -48,6 +48,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.richTextBox2 = new System.Windows.Forms.RichTextBox();
             this.rtbKeyStrokes = new System.Windows.Forms.RichTextBox();
             this.rtbCorrectWords = new System.Windows.Forms.RichTextBox();
             this.rtbWrongWords = new System.Windows.Forms.RichTextBox();
@@ -59,19 +60,18 @@
             this.tbLiveWPM = new System.Windows.Forms.TextBox();
             this.colorDialog2 = new System.Windows.Forms.ColorDialog();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
-            this.richTextBox2 = new System.Windows.Forms.RichTextBox();
             this.cmsBackColor.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // rtbWords
             // 
-            this.rtbWords.BackColor = System.Drawing.Color.White;
+            this.rtbWords.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(25)))), ((int)(((byte)(24)))));
             this.rtbWords.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.rtbWords.ContextMenuStrip = this.cmsBackColor;
             this.rtbWords.Cursor = System.Windows.Forms.Cursors.No;
             this.rtbWords.Font = new System.Drawing.Font("Microsoft Sans Serif", 37F);
-            this.rtbWords.ForeColor = System.Drawing.Color.Black;
+            this.rtbWords.ForeColor = System.Drawing.Color.White;
             this.rtbWords.Location = new System.Drawing.Point(13, 76);
             this.rtbWords.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.rtbWords.Name = "rtbWords";
@@ -100,11 +100,11 @@
             // 
             // tbType
             // 
-            this.tbType.BackColor = System.Drawing.Color.White;
+            this.tbType.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(25)))), ((int)(((byte)(24)))));
             this.tbType.ContextMenuStrip = this.cmsBackColor;
             this.tbType.Font = new System.Drawing.Font("Microsoft Sans Serif", 28.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbType.ForeColor = System.Drawing.Color.Black;
-            this.tbType.Location = new System.Drawing.Point(13, 507);
+            this.tbType.ForeColor = System.Drawing.Color.White;
+            this.tbType.Location = new System.Drawing.Point(12, 502);
             this.tbType.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbType.Name = "tbType";
             this.tbType.Size = new System.Drawing.Size(901, 61);
@@ -121,7 +121,7 @@
             this.btn10.Location = new System.Drawing.Point(746, 7);
             this.btn10.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn10.Name = "btn10";
-            this.btn10.Size = new System.Drawing.Size(60, 41);
+            this.btn10.Size = new System.Drawing.Size(60, 47);
             this.btn10.TabIndex = 8;
             this.btn10.TabStop = false;
             this.btn10.Text = "10";
@@ -137,7 +137,7 @@
             this.btn25.Location = new System.Drawing.Point(806, 7);
             this.btn25.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn25.Name = "btn25";
-            this.btn25.Size = new System.Drawing.Size(60, 41);
+            this.btn25.Size = new System.Drawing.Size(60, 47);
             this.btn25.TabIndex = 9;
             this.btn25.TabStop = false;
             this.btn25.Text = "25";
@@ -153,7 +153,7 @@
             this.btn50.Location = new System.Drawing.Point(866, 7);
             this.btn50.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn50.Name = "btn50";
-            this.btn50.Size = new System.Drawing.Size(60, 41);
+            this.btn50.Size = new System.Drawing.Size(60, 47);
             this.btn50.TabIndex = 10;
             this.btn50.TabStop = false;
             this.btn50.Text = "50";
@@ -169,7 +169,7 @@
             this.btn100.Location = new System.Drawing.Point(926, 7);
             this.btn100.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn100.Name = "btn100";
-            this.btn100.Size = new System.Drawing.Size(68, 41);
+            this.btn100.Size = new System.Drawing.Size(68, 47);
             this.btn100.TabIndex = 11;
             this.btn100.TabStop = false;
             this.btn100.Text = "100";
@@ -190,7 +190,7 @@
             this.btn15.Location = new System.Drawing.Point(746, 7);
             this.btn15.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn15.Name = "btn15";
-            this.btn15.Size = new System.Drawing.Size(60, 41);
+            this.btn15.Size = new System.Drawing.Size(60, 47);
             this.btn15.TabIndex = 14;
             this.btn15.TabStop = false;
             this.btn15.Text = "15";
@@ -206,7 +206,7 @@
             this.btn30.Location = new System.Drawing.Point(806, 7);
             this.btn30.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn30.Name = "btn30";
-            this.btn30.Size = new System.Drawing.Size(60, 41);
+            this.btn30.Size = new System.Drawing.Size(60, 47);
             this.btn30.TabIndex = 15;
             this.btn30.TabStop = false;
             this.btn30.Text = "30";
@@ -222,7 +222,7 @@
             this.btn60.Location = new System.Drawing.Point(866, 7);
             this.btn60.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn60.Name = "btn60";
-            this.btn60.Size = new System.Drawing.Size(60, 41);
+            this.btn60.Size = new System.Drawing.Size(60, 47);
             this.btn60.TabIndex = 16;
             this.btn60.TabStop = false;
             this.btn60.Text = "60";
@@ -238,7 +238,7 @@
             this.btn120.Location = new System.Drawing.Point(926, 7);
             this.btn120.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn120.Name = "btn120";
-            this.btn120.Size = new System.Drawing.Size(68, 41);
+            this.btn120.Size = new System.Drawing.Size(68, 47);
             this.btn120.TabIndex = 17;
             this.btn120.TabStop = false;
             this.btn120.Text = "120";
@@ -251,43 +251,46 @@
             this.tbTimer.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tbTimer.ContextMenuStrip = this.cmsBackColor;
             this.tbTimer.Cursor = System.Windows.Forms.Cursors.Default;
-            this.tbTimer.Font = new System.Drawing.Font("Microsoft Sans Serif", 31.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbTimer.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbTimer.ForeColor = System.Drawing.Color.DeepPink;
-            this.tbTimer.Location = new System.Drawing.Point(12, 7);
+            this.tbTimer.Location = new System.Drawing.Point(12, 1);
             this.tbTimer.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbTimer.Name = "tbTimer";
             this.tbTimer.ReadOnly = true;
-            this.tbTimer.Size = new System.Drawing.Size(157, 60);
+            this.tbTimer.Size = new System.Drawing.Size(157, 57);
             this.tbTimer.TabIndex = 18;
             this.tbTimer.TabStop = false;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(5, 257);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(474, 33);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(110, 25);
+            this.label1.Size = new System.Drawing.Size(185, 39);
             this.label1.TabIndex = 20;
             this.label1.Text = "Keystrokes";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(5, 308);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(474, 128);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(133, 25);
+            this.label2.Size = new System.Drawing.Size(228, 39);
             this.label2.TabIndex = 21;
             this.label2.Text = "Correct words";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(5, 354);
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(474, 229);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(128, 25);
+            this.label3.Size = new System.Drawing.Size(217, 39);
             this.label3.TabIndex = 22;
             this.label3.Text = "Wrong words";
             // 
@@ -302,26 +305,43 @@
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(1031, 58);
+            this.groupBox1.ForeColor = System.Drawing.Color.White;
+            this.groupBox1.Location = new System.Drawing.Point(12, 59);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox1.Size = new System.Drawing.Size(359, 507);
+            this.groupBox1.Size = new System.Drawing.Size(981, 439);
             this.groupBox1.TabIndex = 23;
             this.groupBox1.TabStop = false;
             this.groupBox1.Visible = false;
+            // 
+            // richTextBox2
+            // 
+            this.richTextBox2.BackColor = System.Drawing.Color.DodgerBlue;
+            this.richTextBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.richTextBox2.ContextMenuStrip = this.cmsBackColor;
+            this.richTextBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.richTextBox2.ForeColor = System.Drawing.Color.DeepPink;
+            this.richTextBox2.Location = new System.Drawing.Point(6, 203);
+            this.richTextBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.richTextBox2.Name = "richTextBox2";
+            this.richTextBox2.ReadOnly = true;
+            this.richTextBox2.Size = new System.Drawing.Size(453, 65);
+            this.richTextBox2.TabIndex = 30;
+            this.richTextBox2.TabStop = false;
+            this.richTextBox2.Text = "            (WPM)";
             // 
             // rtbKeyStrokes
             // 
             this.rtbKeyStrokes.BackColor = System.Drawing.Color.White;
             this.rtbKeyStrokes.ContextMenuStrip = this.cmsBackColor;
-            this.rtbKeyStrokes.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rtbKeyStrokes.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rtbKeyStrokes.ForeColor = System.Drawing.Color.Black;
-            this.rtbKeyStrokes.Location = new System.Drawing.Point(160, 257);
+            this.rtbKeyStrokes.Location = new System.Drawing.Point(718, 27);
             this.rtbKeyStrokes.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.rtbKeyStrokes.Name = "rtbKeyStrokes";
             this.rtbKeyStrokes.ReadOnly = true;
-            this.rtbKeyStrokes.Size = new System.Drawing.Size(177, 30);
+            this.rtbKeyStrokes.Size = new System.Drawing.Size(253, 45);
             this.rtbKeyStrokes.TabIndex = 29;
             this.rtbKeyStrokes.Text = "";
             // 
@@ -329,13 +349,13 @@
             // 
             this.rtbCorrectWords.BackColor = System.Drawing.Color.White;
             this.rtbCorrectWords.ContextMenuStrip = this.cmsBackColor;
-            this.rtbCorrectWords.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rtbCorrectWords.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rtbCorrectWords.ForeColor = System.Drawing.Color.Green;
-            this.rtbCorrectWords.Location = new System.Drawing.Point(160, 308);
+            this.rtbCorrectWords.Location = new System.Drawing.Point(718, 125);
             this.rtbCorrectWords.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.rtbCorrectWords.Name = "rtbCorrectWords";
             this.rtbCorrectWords.ReadOnly = true;
-            this.rtbCorrectWords.Size = new System.Drawing.Size(177, 30);
+            this.rtbCorrectWords.Size = new System.Drawing.Size(250, 45);
             this.rtbCorrectWords.TabIndex = 28;
             this.rtbCorrectWords.Text = "";
             // 
@@ -343,13 +363,13 @@
             // 
             this.rtbWrongWords.BackColor = System.Drawing.Color.White;
             this.rtbWrongWords.ContextMenuStrip = this.cmsBackColor;
-            this.rtbWrongWords.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rtbWrongWords.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rtbWrongWords.ForeColor = System.Drawing.Color.Red;
-            this.rtbWrongWords.Location = new System.Drawing.Point(160, 354);
+            this.rtbWrongWords.Location = new System.Drawing.Point(718, 223);
             this.rtbWrongWords.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.rtbWrongWords.Name = "rtbWrongWords";
             this.rtbWrongWords.ReadOnly = true;
-            this.rtbWrongWords.Size = new System.Drawing.Size(177, 30);
+            this.rtbWrongWords.Size = new System.Drawing.Size(250, 45);
             this.rtbWrongWords.TabIndex = 27;
             this.rtbWrongWords.Text = "";
             // 
@@ -358,13 +378,13 @@
             this.richTextBox1.BackColor = System.Drawing.Color.DodgerBlue;
             this.richTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.richTextBox1.ContextMenuStrip = this.cmsBackColor;
-            this.richTextBox1.Font = new System.Drawing.Font("Microsoft Tai Le", 72F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.richTextBox1.Font = new System.Drawing.Font("Microsoft Tai Le", 100F, System.Drawing.FontStyle.Bold);
             this.richTextBox1.ForeColor = System.Drawing.Color.DeepPink;
-            this.richTextBox1.Location = new System.Drawing.Point(11, 18);
+            this.richTextBox1.Location = new System.Drawing.Point(6, 17);
             this.richTextBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.richTextBox1.Name = "richTextBox1";
             this.richTextBox1.ReadOnly = true;
-            this.richTextBox1.Size = new System.Drawing.Size(327, 156);
+            this.richTextBox1.Size = new System.Drawing.Size(453, 251);
             this.richTextBox1.TabIndex = 26;
             this.richTextBox1.TabStop = false;
             this.richTextBox1.Text = "";
@@ -379,11 +399,11 @@
             this.btnTime.BackColor = System.Drawing.Color.White;
             this.btnTime.ContextMenuStrip = this.cmsBackColor;
             this.btnTime.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTime.Location = new System.Drawing.Point(518, 7);
+            this.btnTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTime.Location = new System.Drawing.Point(409, 7);
             this.btnTime.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnTime.Name = "btnTime";
-            this.btnTime.Size = new System.Drawing.Size(101, 41);
+            this.btnTime.Size = new System.Drawing.Size(156, 47);
             this.btnTime.TabIndex = 24;
             this.btnTime.TabStop = false;
             this.btnTime.Text = "time";
@@ -395,11 +415,11 @@
             this.btnWords.BackColor = System.Drawing.Color.White;
             this.btnWords.ContextMenuStrip = this.cmsBackColor;
             this.btnWords.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnWords.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnWords.Location = new System.Drawing.Point(626, 7);
+            this.btnWords.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnWords.Location = new System.Drawing.Point(571, 7);
             this.btnWords.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnWords.Name = "btnWords";
-            this.btnWords.Size = new System.Drawing.Size(101, 41);
+            this.btnWords.Size = new System.Drawing.Size(156, 47);
             this.btnWords.TabIndex = 25;
             this.btnWords.TabStop = false;
             this.btnWords.Text = "words";
@@ -411,7 +431,7 @@
             this.btnRestart.BackgroundImage = global::Typing_Test.Properties.Resources.Restart;
             this.btnRestart.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnRestart.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnRestart.Location = new System.Drawing.Point(920, 507);
+            this.btnRestart.Location = new System.Drawing.Point(919, 502);
             this.btnRestart.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnRestart.Name = "btnRestart";
             this.btnRestart.Size = new System.Drawing.Size(75, 62);
@@ -425,48 +445,30 @@
             this.tbLiveWPM.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tbLiveWPM.ContextMenuStrip = this.cmsBackColor;
             this.tbLiveWPM.Cursor = System.Windows.Forms.Cursors.Default;
-            this.tbLiveWPM.Font = new System.Drawing.Font("Microsoft Sans Serif", 31.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbLiveWPM.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbLiveWPM.ForeColor = System.Drawing.Color.DeepPink;
-            this.tbLiveWPM.Location = new System.Drawing.Point(175, 7);
+            this.tbLiveWPM.Location = new System.Drawing.Point(175, 1);
             this.tbLiveWPM.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbLiveWPM.Name = "tbLiveWPM";
             this.tbLiveWPM.ReadOnly = true;
-            this.tbLiveWPM.Size = new System.Drawing.Size(111, 60);
+            this.tbLiveWPM.Size = new System.Drawing.Size(111, 57);
             this.tbLiveWPM.TabIndex = 26;
             this.tbLiveWPM.TabStop = false;
-            // 
-            // richTextBox2
-            // 
-            this.richTextBox2.BackColor = System.Drawing.Color.DodgerBlue;
-            this.richTextBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.richTextBox2.ContextMenuStrip = this.cmsBackColor;
-            this.richTextBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.richTextBox2.ForeColor = System.Drawing.Color.DeepPink;
-            this.richTextBox2.Location = new System.Drawing.Point(11, 178);
-            this.richTextBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.richTextBox2.Name = "richTextBox2";
-            this.richTextBox2.ReadOnly = true;
-            this.richTextBox2.Size = new System.Drawing.Size(327, 54);
-            this.richTextBox2.TabIndex = 30;
-            this.richTextBox2.TabStop = false;
-            this.richTextBox2.Text = "       (WPM)";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.DodgerBlue;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(25)))), ((int)(((byte)(24)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.ClientSize = new System.Drawing.Size(1407, 579);
+            this.ClientSize = new System.Drawing.Size(995, 574);
             this.ContextMenuStrip = this.cmsBackColor;
             this.Controls.Add(this.tbLiveWPM);
             this.Controls.Add(this.btnWords);
             this.Controls.Add(this.btnTime);
-            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.tbTimer);
             this.Controls.Add(this.tbType);
             this.Controls.Add(this.btnRestart);
-            this.Controls.Add(this.rtbWords);
             this.Controls.Add(this.btn120);
             this.Controls.Add(this.btn60);
             this.Controls.Add(this.btn30);
@@ -475,6 +477,9 @@
             this.Controls.Add(this.btn50);
             this.Controls.Add(this.btn25);
             this.Controls.Add(this.btn10);
+            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.rtbWords);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);

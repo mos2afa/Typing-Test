@@ -108,15 +108,16 @@ namespace Typing_Test
 
             RestartWords();
             SetFirstWordColor();
-            rtbWords.ForeColor = DefaultWordsColor;
+            //rtbWords.ForeColor = DefaultWordsColor;
             btn15.BackColor = SelectColor;
             btnTime.BackColor = SelectColor;
 
-            this.BackColor = FormColor;
-            tbTimer.BackColor = FormColor;
-            tbLiveWPM.BackColor = FormColor;
-            richTextBox1.BackColor = FormColor;
-            richTextBox2.BackColor = FormColor;
+            //this.BackColor = FormColor;
+
+            richTextBox1.BackColor = this.BackColor;
+            richTextBox2.BackColor = this.BackColor;
+            tbTimer.BackColor = this.BackColor;
+            tbLiveWPM.BackColor = this.BackColor;
 
             rtbCorrectWords.SelectAll();
             rtbCorrectWords.SelectionAlignment = HorizontalAlignment.Right;
@@ -129,8 +130,6 @@ namespace Typing_Test
 
             richTextBox1.SelectAll();
             richTextBox1.SelectionAlignment = HorizontalAlignment.Center;
-
-            tbTimer.BackColor = this.BackColor;
 
         }
 
@@ -159,24 +158,27 @@ namespace Typing_Test
             tbType.ReadOnly = false;
         }
 
+        private void EndTheTest()
+        {
+            IsStartedTimeMode = false;
+            IsStartedWordsMode = false;
+
+            tbType.ReadOnly = true;
+
+            TimerForSeconds.Stop();
+            TimerForWords.Stop();
+        }
+
         private bool AreAllWordsTyped()
         {
             if (CurrentWordCounter >= NumberOfWords)
             {
-                IsStartedTimeMode = false;
-                IsStartedWordsMode = false;
-
-                tbType.ReadOnly = true;
-
-                TimerForSeconds.Stop();
-                TimerForWords.Stop();
                 return true;
             }
             else
             {
                 return false;
             }
-
         }
 
         private bool IsWordTypingFinished()
@@ -272,6 +274,7 @@ namespace Typing_Test
 
                 if (AreAllWordsTyped())
                 {
+                    EndTheTest();
                     ShowResults();
                     ResetTimer();
 
@@ -365,6 +368,7 @@ namespace Typing_Test
 
         private void ShowResults()
         {
+            groupBox1.BringToFront();
             groupBox1.Visible = true;
 
             rtbCorrectWords.Text = CorrectWordsCounter.ToString();
@@ -474,40 +478,27 @@ namespace Typing_Test
             ChangeNumberOfSeconds((Button)sender);
         }
 
-        private void HideWordsButtons()
+        private void BringToFrontWordButtons()
         {
-            btn10.Hide();
-            btn25.Hide();
-            btn50.Hide();
-            btn100.Hide();
+            btn10.BringToFront();
+            btn25.BringToFront();
+            btn50.BringToFront();
+            btn100.BringToFront();
         }
 
-        private void ShowWordsButtons()
+        private void BringToFrontTimeButtons()
         {
-            btn10.Show();
-            btn25.Show();
-            btn50.Show();
-           btn100.Show();
-        }
-
-        private void HideSecondsButtons()
-        {
-            btn15.Hide();
-            btn30.Hide();
-            btn60.Hide();
-            btn120.Hide();
-        }
-
-        private void ShowSecondsButtons()
-        {
-            btn15.Show();
-            btn30.Show();
-            btn60.Show();
-           btn120.Show();
+            btn15.BringToFront();
+            btn30.BringToFront();
+            btn60.BringToFront();
+            btn120.BringToFront();
         }
 
         private void btnTime_Click(object sender, EventArgs e)
         {
+            btnTime.BackColor = SelectColor;
+            btnWords.BackColor = Color.White;
+
             groupBox1.Visible = false;
 
             tbType.ReadOnly = false;
@@ -528,18 +519,17 @@ namespace Typing_Test
 
                 Mode = enMode.Time;
 
-                HideWordsButtons();
-                ShowSecondsButtons();
+                BringToFrontTimeButtons();
 
                 ChangeNumberOfSeconds(btn15);
-
-                btnTime.BackColor = SelectColor;
-                btnWords.BackColor = Color.White;
             }
         }
 
         private void btnWords_Click(object sender, EventArgs e)
         {
+            btnWords.BackColor = SelectColor;
+            btnTime.BackColor = Color.White;
+
             groupBox1.Visible = false;
 
             tbType.ReadOnly = false;
@@ -555,13 +545,9 @@ namespace Typing_Test
 
                 Mode = enMode.Words;
 
-                HideSecondsButtons();
-                ShowWordsButtons();
+                BringToFrontWordButtons();
 
                 ChangeNumberOfWords(btn10);
-
-                btnWords.BackColor = SelectColor;
-                btnTime.BackColor = Color.White;
             }
         }
 
