@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Drawing;
+using System.Linq;
 using System.Windows.Forms;
 
 
@@ -114,7 +115,7 @@ namespace Typing_Test
 
             //this.BackColor = FormColor;
 
-            richTextBox1.BackColor = this.BackColor;
+            rtbFinalWPM.BackColor = this.BackColor;
             richTextBox2.BackColor = this.BackColor;
             tbTimer.BackColor = this.BackColor;
             tbLiveWPM.BackColor = this.BackColor;
@@ -128,8 +129,11 @@ namespace Typing_Test
             rtbKeyStrokes.SelectAll();
             rtbKeyStrokes.SelectionAlignment = HorizontalAlignment.Right;
 
-            richTextBox1.SelectAll();
-            richTextBox1.SelectionAlignment = HorizontalAlignment.Center;
+            rtbAccuracy.SelectAll();
+            rtbAccuracy.SelectionAlignment = HorizontalAlignment.Right;
+
+            rtbFinalWPM.SelectAll();
+            rtbFinalWPM.SelectionAlignment = HorizontalAlignment.Center;
 
         }
 
@@ -207,8 +211,6 @@ namespace Typing_Test
             }
         }
 
-        
-
         private void DealWithCounters()
         {
             if (tbType.Text == CurrentWords[CurrentWordCounter])
@@ -224,7 +226,6 @@ namespace Typing_Test
                 WrongStrokes += CurrentWords[CurrentWordCounter].Length;
             }
         }
-
        
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
@@ -373,8 +374,9 @@ namespace Typing_Test
 
             rtbCorrectWords.Text = CorrectWordsCounter.ToString();
             rtbWrongWords.Text = WrongWordsCounter.ToString();
+            rtbAccuracy.Text = (Convert.ToInt16((Convert.ToDouble(CorrectStrokes) / (CorrectStrokes+WrongStrokes)) * 100)).ToString() + "%";
 
-            richTextBox1.Text = Convert.ToInt16(CalcWPM()).ToString();
+            rtbFinalWPM.Text = Convert.ToInt16(CalcWPM()).ToString();
 
             SetKeyStrokesColors();
         }

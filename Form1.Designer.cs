@@ -48,11 +48,13 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.rtbAccuracy = new System.Windows.Forms.RichTextBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.richTextBox2 = new System.Windows.Forms.RichTextBox();
             this.rtbKeyStrokes = new System.Windows.Forms.RichTextBox();
             this.rtbCorrectWords = new System.Windows.Forms.RichTextBox();
             this.rtbWrongWords = new System.Windows.Forms.RichTextBox();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.rtbFinalWPM = new System.Windows.Forms.RichTextBox();
             this.TimerForWords = new System.Windows.Forms.Timer(this.components);
             this.btnTime = new System.Windows.Forms.Button();
             this.btnWords = new System.Windows.Forms.Button();
@@ -66,6 +68,7 @@
             // 
             // rtbWords
             // 
+            this.rtbWords.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.rtbWords.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(25)))), ((int)(((byte)(24)))));
             this.rtbWords.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.rtbWords.ContextMenuStrip = this.cmsBackColor;
@@ -100,6 +103,8 @@
             // 
             // tbType
             // 
+            this.tbType.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.tbType.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(25)))), ((int)(((byte)(24)))));
             this.tbType.ContextMenuStrip = this.cmsBackColor;
             this.tbType.Font = new System.Drawing.Font("Microsoft Sans Serif", 28.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -114,6 +119,7 @@
             // 
             // btn10
             // 
+            this.btn10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btn10.BackColor = System.Drawing.Color.Gainsboro;
             this.btn10.ContextMenuStrip = this.cmsBackColor;
             this.btn10.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -130,6 +136,7 @@
             // 
             // btn25
             // 
+            this.btn25.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btn25.BackColor = System.Drawing.Color.Gainsboro;
             this.btn25.ContextMenuStrip = this.cmsBackColor;
             this.btn25.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -146,6 +153,7 @@
             // 
             // btn50
             // 
+            this.btn50.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btn50.BackColor = System.Drawing.Color.Gainsboro;
             this.btn50.ContextMenuStrip = this.cmsBackColor;
             this.btn50.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -162,6 +170,7 @@
             // 
             // btn100
             // 
+            this.btn100.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btn100.BackColor = System.Drawing.Color.Gainsboro;
             this.btn100.ContextMenuStrip = this.cmsBackColor;
             this.btn100.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -183,6 +192,7 @@
             // 
             // btn15
             // 
+            this.btn15.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btn15.BackColor = System.Drawing.Color.Gainsboro;
             this.btn15.ContextMenuStrip = this.cmsBackColor;
             this.btn15.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -199,6 +209,7 @@
             // 
             // btn30
             // 
+            this.btn30.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btn30.BackColor = System.Drawing.Color.Gainsboro;
             this.btn30.ContextMenuStrip = this.cmsBackColor;
             this.btn30.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -215,6 +226,7 @@
             // 
             // btn60
             // 
+            this.btn60.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btn60.BackColor = System.Drawing.Color.Gainsboro;
             this.btn60.ContextMenuStrip = this.cmsBackColor;
             this.btn60.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -231,6 +243,7 @@
             // 
             // btn120
             // 
+            this.btn120.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btn120.BackColor = System.Drawing.Color.Gainsboro;
             this.btn120.ContextMenuStrip = this.cmsBackColor;
             this.btn120.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -266,9 +279,9 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(474, 33);
+            this.label1.Location = new System.Drawing.Point(474, 127);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(185, 39);
+            this.label1.Size = new System.Drawing.Size(181, 38);
             this.label1.TabIndex = 20;
             this.label1.Text = "Keystrokes";
             // 
@@ -277,9 +290,9 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(474, 128);
+            this.label2.Location = new System.Drawing.Point(474, 222);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(228, 39);
+            this.label2.Size = new System.Drawing.Size(222, 38);
             this.label2.TabIndex = 21;
             this.label2.Text = "Correct words";
             // 
@@ -288,20 +301,23 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(474, 229);
+            this.label3.Location = new System.Drawing.Point(474, 323);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(217, 39);
+            this.label3.Size = new System.Drawing.Size(210, 38);
             this.label3.TabIndex = 22;
             this.label3.Text = "Wrong words";
             // 
             // groupBox1
             // 
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.ContextMenuStrip = this.cmsBackColor;
+            this.groupBox1.Controls.Add(this.rtbAccuracy);
+            this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.richTextBox2);
             this.groupBox1.Controls.Add(this.rtbKeyStrokes);
             this.groupBox1.Controls.Add(this.rtbCorrectWords);
             this.groupBox1.Controls.Add(this.rtbWrongWords);
-            this.groupBox1.Controls.Add(this.richTextBox1);
+            this.groupBox1.Controls.Add(this.rtbFinalWPM);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
@@ -314,6 +330,31 @@
             this.groupBox1.TabIndex = 23;
             this.groupBox1.TabStop = false;
             this.groupBox1.Visible = false;
+            // 
+            // rtbAccuracy
+            // 
+            this.rtbAccuracy.BackColor = System.Drawing.Color.White;
+            this.rtbAccuracy.ContextMenuStrip = this.cmsBackColor;
+            this.rtbAccuracy.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rtbAccuracy.ForeColor = System.Drawing.Color.Black;
+            this.rtbAccuracy.Location = new System.Drawing.Point(718, 30);
+            this.rtbAccuracy.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.rtbAccuracy.Name = "rtbAccuracy";
+            this.rtbAccuracy.ReadOnly = true;
+            this.rtbAccuracy.Size = new System.Drawing.Size(250, 45);
+            this.rtbAccuracy.TabIndex = 32;
+            this.rtbAccuracy.Text = "";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.Location = new System.Drawing.Point(474, 33);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(154, 38);
+            this.label4.TabIndex = 31;
+            this.label4.Text = "Accuracy";
             // 
             // richTextBox2
             // 
@@ -337,11 +378,11 @@
             this.rtbKeyStrokes.ContextMenuStrip = this.cmsBackColor;
             this.rtbKeyStrokes.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rtbKeyStrokes.ForeColor = System.Drawing.Color.Black;
-            this.rtbKeyStrokes.Location = new System.Drawing.Point(718, 27);
+            this.rtbKeyStrokes.Location = new System.Drawing.Point(718, 121);
             this.rtbKeyStrokes.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.rtbKeyStrokes.Name = "rtbKeyStrokes";
             this.rtbKeyStrokes.ReadOnly = true;
-            this.rtbKeyStrokes.Size = new System.Drawing.Size(253, 45);
+            this.rtbKeyStrokes.Size = new System.Drawing.Size(250, 45);
             this.rtbKeyStrokes.TabIndex = 29;
             this.rtbKeyStrokes.Text = "";
             // 
@@ -351,7 +392,7 @@
             this.rtbCorrectWords.ContextMenuStrip = this.cmsBackColor;
             this.rtbCorrectWords.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rtbCorrectWords.ForeColor = System.Drawing.Color.Green;
-            this.rtbCorrectWords.Location = new System.Drawing.Point(718, 125);
+            this.rtbCorrectWords.Location = new System.Drawing.Point(718, 219);
             this.rtbCorrectWords.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.rtbCorrectWords.Name = "rtbCorrectWords";
             this.rtbCorrectWords.ReadOnly = true;
@@ -365,7 +406,7 @@
             this.rtbWrongWords.ContextMenuStrip = this.cmsBackColor;
             this.rtbWrongWords.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rtbWrongWords.ForeColor = System.Drawing.Color.Red;
-            this.rtbWrongWords.Location = new System.Drawing.Point(718, 223);
+            this.rtbWrongWords.Location = new System.Drawing.Point(718, 317);
             this.rtbWrongWords.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.rtbWrongWords.Name = "rtbWrongWords";
             this.rtbWrongWords.ReadOnly = true;
@@ -373,21 +414,21 @@
             this.rtbWrongWords.TabIndex = 27;
             this.rtbWrongWords.Text = "";
             // 
-            // richTextBox1
+            // rtbFinalWPM
             // 
-            this.richTextBox1.BackColor = System.Drawing.Color.DodgerBlue;
-            this.richTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.richTextBox1.ContextMenuStrip = this.cmsBackColor;
-            this.richTextBox1.Font = new System.Drawing.Font("Microsoft Tai Le", 100F, System.Drawing.FontStyle.Bold);
-            this.richTextBox1.ForeColor = System.Drawing.Color.DeepPink;
-            this.richTextBox1.Location = new System.Drawing.Point(6, 17);
-            this.richTextBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.ReadOnly = true;
-            this.richTextBox1.Size = new System.Drawing.Size(453, 251);
-            this.richTextBox1.TabIndex = 26;
-            this.richTextBox1.TabStop = false;
-            this.richTextBox1.Text = "";
+            this.rtbFinalWPM.BackColor = System.Drawing.Color.DodgerBlue;
+            this.rtbFinalWPM.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.rtbFinalWPM.ContextMenuStrip = this.cmsBackColor;
+            this.rtbFinalWPM.Font = new System.Drawing.Font("Microsoft Tai Le", 100F, System.Drawing.FontStyle.Bold);
+            this.rtbFinalWPM.ForeColor = System.Drawing.Color.DeepPink;
+            this.rtbFinalWPM.Location = new System.Drawing.Point(6, 17);
+            this.rtbFinalWPM.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.rtbFinalWPM.Name = "rtbFinalWPM";
+            this.rtbFinalWPM.ReadOnly = true;
+            this.rtbFinalWPM.Size = new System.Drawing.Size(453, 251);
+            this.rtbFinalWPM.TabIndex = 26;
+            this.rtbFinalWPM.TabStop = false;
+            this.rtbFinalWPM.Text = "";
             // 
             // TimerForWords
             // 
@@ -396,6 +437,7 @@
             // 
             // btnTime
             // 
+            this.btnTime.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btnTime.BackColor = System.Drawing.Color.White;
             this.btnTime.ContextMenuStrip = this.cmsBackColor;
             this.btnTime.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -412,6 +454,7 @@
             // 
             // btnWords
             // 
+            this.btnWords.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btnWords.BackColor = System.Drawing.Color.White;
             this.btnWords.ContextMenuStrip = this.cmsBackColor;
             this.btnWords.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -428,6 +471,7 @@
             // 
             // btnRestart
             // 
+            this.btnRestart.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnRestart.BackgroundImage = global::Typing_Test.Properties.Resources.Restart;
             this.btnRestart.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnRestart.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -459,9 +503,10 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(25)))), ((int)(((byte)(24)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.ClientSize = new System.Drawing.Size(995, 574);
+            this.ClientSize = new System.Drawing.Size(999, 570);
             this.ContextMenuStrip = this.cmsBackColor;
             this.Controls.Add(this.tbLiveWPM);
             this.Controls.Add(this.btnWords);
@@ -514,7 +559,7 @@
         public System.Windows.Forms.Label label2;
         public System.Windows.Forms.Label label3;
         public System.Windows.Forms.GroupBox groupBox1;
-        public System.Windows.Forms.RichTextBox richTextBox1;
+        public System.Windows.Forms.RichTextBox rtbFinalWPM;
         public System.Windows.Forms.Timer TimerForWords;
         public System.Windows.Forms.Button btnTime;
         public System.Windows.Forms.Button btnWords;
@@ -527,6 +572,8 @@
         private System.Windows.Forms.ColorDialog colorDialog2;
         private System.Windows.Forms.ColorDialog colorDialog1;
         public System.Windows.Forms.RichTextBox richTextBox2;
+        public System.Windows.Forms.RichTextBox rtbAccuracy;
+        public System.Windows.Forms.Label label4;
     }
 }
 
