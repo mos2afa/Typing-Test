@@ -139,6 +139,20 @@ namespace Typing_Test
                 e.SuppressKeyPress = true;
                 this.Close(); 
             }
+
+            if (e.Control && e.KeyCode == Keys.F)
+            {
+                e.SuppressKeyPress = true;
+
+                if(this.WindowState == FormWindowState.Normal)
+                {
+                    this.WindowState = FormWindowState.Maximized;
+                }
+                else if(this.WindowState == FormWindowState.Maximized)
+                {
+                    this.WindowState = FormWindowState.Normal;
+                }
+            }
         }
 
         private void SetFirstWordColor()
