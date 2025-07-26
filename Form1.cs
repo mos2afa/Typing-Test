@@ -41,7 +41,6 @@ namespace Typing_Test
 
         private TimeSpan _TimeCounterForWords = TimeSpan.FromSeconds(0);
 
-        Color FormColor = Color.FromArgb(0,0,150);
         Color CurrentWordColor = Color.FromArgb(0, 0, 150);
         Color CorrectWordColor = Color.Green;
         Color WrongWordColor = Color.Red;
@@ -70,10 +69,8 @@ namespace Typing_Test
                 TempText += " ";
             }
 
-
-
             rtbWords.Text = TempText;
-            rtbWords.Text += "\n\n\n\n\n\n\n"; // because there was a glitch in 50 / 100 words mode because of rtbwords.scrolltocaret() function.
+            rtbWords.Text += "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n"; // because there was a glitch in 50 / 100 words mode because of rtbwords.scrolltocaret() function.
 
             tbType.Text = "";
         }
@@ -109,11 +106,9 @@ namespace Typing_Test
 
             RestartWords();
             SetFirstWordColor();
-            //rtbWords.ForeColor = DefaultWordsColor;
+
             btn15.BackColor = SelectColor;
             btnTime.BackColor = SelectColor;
-
-            //this.BackColor = FormColor;
 
             rtbFinalWPM.BackColor = this.BackColor;
             richTextBox2.BackColor = this.BackColor;
@@ -148,12 +143,11 @@ namespace Typing_Test
 
         private void SetFirstWordColor()
         {
-
             IndexOfFirstCharOfCurrentWord = 0;
             rtbWords.Select(IndexOfFirstCharOfCurrentWord, CurrentWords[0].Length );
             rtbWords.SelectionColor = CurrentWordColor;
-
         }
+
         private void btnRestart_Click(object sender, EventArgs e)
         {
             RestartWords();
@@ -175,21 +169,13 @@ namespace Typing_Test
 
         private bool AreAllWordsTyped()
         {
-            if (CurrentWordCounter >= NumberOfWords)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            return (CurrentWordCounter >= NumberOfWords);
         }
 
         private bool IsWordTypingFinished()
         {
             return tbType.Text.EndsWith(" ");
         }
-
 
         private void CheckEachCharInCurrentWord()
         {
@@ -236,7 +222,6 @@ namespace Typing_Test
                 return;
             }
 
-            
 
             if (Mode == enMode.Time)
             {
@@ -282,7 +267,6 @@ namespace Typing_Test
                     tbLiveWPM.Text = "";
                 }
             }
-
         }
 
 
@@ -603,6 +587,19 @@ namespace Typing_Test
             {
                 ContextMenuStrip cms = (ContextMenuStrip)sender;
                 cms.SourceControl.BackColor = colorDialog1.Color;
+            }
+        }
+
+        private void Form1_Resize(object sender, EventArgs e)
+        {
+            if(this.WindowState == FormWindowState.Maximized)
+            {
+                rtbWords.ZoomFactor = 2f;
+            }
+
+            if (this.WindowState == FormWindowState.Normal)
+            {
+                rtbWords.ZoomFactor = 1f;
             }
         }
     }

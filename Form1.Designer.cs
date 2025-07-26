@@ -68,7 +68,9 @@
             // 
             // rtbWords
             // 
-            this.rtbWords.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.rtbWords.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.rtbWords.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(25)))), ((int)(((byte)(24)))));
             this.rtbWords.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.rtbWords.ContextMenuStrip = this.cmsBackColor;
@@ -309,7 +311,9 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.ContextMenuStrip = this.cmsBackColor;
             this.groupBox1.Controls.Add(this.rtbAccuracy);
             this.groupBox1.Controls.Add(this.label4);
@@ -522,8 +526,8 @@
             this.Controls.Add(this.btn50);
             this.Controls.Add(this.btn25);
             this.Controls.Add(this.btn10);
-            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.rtbWords);
+            this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
@@ -532,6 +536,7 @@
             this.Text = "Typing";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown_1);
+            this.Resize += new System.EventHandler(this.Form1_Resize);
             this.cmsBackColor.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
