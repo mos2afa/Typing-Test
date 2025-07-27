@@ -48,6 +48,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.gbSetting = new System.Windows.Forms.GroupBox();
             this.rtbAccuracy = new System.Windows.Forms.RichTextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.richTextBox2 = new System.Windows.Forms.RichTextBox();
@@ -58,12 +59,22 @@
             this.TimerForWords = new System.Windows.Forms.Timer(this.components);
             this.btnTime = new System.Windows.Forms.Button();
             this.btnWords = new System.Windows.Forms.Button();
-            this.btnRestart = new System.Windows.Forms.Button();
             this.tbLiveWPM = new System.Windows.Forms.TextBox();
             this.colorDialog2 = new System.Windows.Forms.ColorDialog();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
+            this.btnRestart = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
             this.cmsBackColor.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            this.gbSetting.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // rtbWords
@@ -77,7 +88,7 @@
             this.rtbWords.Cursor = System.Windows.Forms.Cursors.No;
             this.rtbWords.Font = new System.Drawing.Font("Microsoft Sans Serif", 37F);
             this.rtbWords.ForeColor = System.Drawing.Color.White;
-            this.rtbWords.Location = new System.Drawing.Point(13, 76);
+            this.rtbWords.Location = new System.Drawing.Point(13, 73);
             this.rtbWords.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.rtbWords.Name = "rtbWords";
             this.rtbWords.ReadOnly = true;
@@ -326,7 +337,7 @@
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.ForeColor = System.Drawing.Color.White;
-            this.groupBox1.Location = new System.Drawing.Point(12, 59);
+            this.groupBox1.Location = new System.Drawing.Point(13, 62);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -334,6 +345,25 @@
             this.groupBox1.TabIndex = 23;
             this.groupBox1.TabStop = false;
             this.groupBox1.Visible = false;
+            // 
+            // gbSetting
+            // 
+            this.gbSetting.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.gbSetting.Controls.Add(this.label11);
+            this.gbSetting.Controls.Add(this.label10);
+            this.gbSetting.Controls.Add(this.label9);
+            this.gbSetting.Controls.Add(this.label8);
+            this.gbSetting.Controls.Add(this.label7);
+            this.gbSetting.Controls.Add(this.label6);
+            this.gbSetting.Controls.Add(this.label5);
+            this.gbSetting.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.gbSetting.Location = new System.Drawing.Point(12, 73);
+            this.gbSetting.Name = "gbSetting";
+            this.gbSetting.Size = new System.Drawing.Size(981, 425);
+            this.gbSetting.TabIndex = 33;
+            this.gbSetting.TabStop = false;
             // 
             // rtbAccuracy
             // 
@@ -473,20 +503,6 @@
             this.btnWords.UseVisualStyleBackColor = false;
             this.btnWords.Click += new System.EventHandler(this.btnWords_Click);
             // 
-            // btnRestart
-            // 
-            this.btnRestart.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnRestart.BackgroundImage = global::Typing_Test.Properties.Resources.Restart;
-            this.btnRestart.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnRestart.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnRestart.Location = new System.Drawing.Point(919, 502);
-            this.btnRestart.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnRestart.Name = "btnRestart";
-            this.btnRestart.Size = new System.Drawing.Size(75, 62);
-            this.btnRestart.TabIndex = 1;
-            this.btnRestart.UseVisualStyleBackColor = true;
-            this.btnRestart.Click += new System.EventHandler(this.btnRestart_Click);
-            // 
             // tbLiveWPM
             // 
             this.tbLiveWPM.BackColor = System.Drawing.Color.DodgerBlue;
@@ -503,6 +519,114 @@
             this.tbLiveWPM.TabIndex = 26;
             this.tbLiveWPM.TabStop = false;
             // 
+            // btnRestart
+            // 
+            this.btnRestart.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnRestart.BackgroundImage = global::Typing_Test.Properties.Resources.Restart;
+            this.btnRestart.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnRestart.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnRestart.Location = new System.Drawing.Point(919, 502);
+            this.btnRestart.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnRestart.Name = "btnRestart";
+            this.btnRestart.Size = new System.Drawing.Size(75, 62);
+            this.btnRestart.TabIndex = 1;
+            this.btnRestart.UseVisualStyleBackColor = true;
+            this.btnRestart.Click += new System.EventHandler(this.btnRestart_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::Typing_Test.Properties.Resources.setting;
+            this.pictureBox1.Location = new System.Drawing.Point(303, 7);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(100, 50);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 27;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.label5.Location = new System.Drawing.Point(17, 26);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(217, 32);
+            this.label5.TabIndex = 0;
+            this.label5.Text = "Form BackColor";
+            this.label5.Click += new System.EventHandler(this.label5_Click);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.label6.Location = new System.Drawing.Point(17, 84);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(146, 32);
+            this.label6.TabIndex = 1;
+            this.label6.Text = "Font Color";
+            this.label6.Click += new System.EventHandler(this.label6_Click);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.label7.Location = new System.Drawing.Point(17, 200);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(257, 32);
+            this.label7.TabIndex = 2;
+            this.label7.Text = "Current Word Color";
+            this.label7.Click += new System.EventHandler(this.label7_Click);
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.label8.Location = new System.Drawing.Point(17, 258);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(255, 32);
+            this.label8.TabIndex = 3;
+            this.label8.Text = "Correct Word Color";
+            this.label8.Click += new System.EventHandler(this.label8_Click);
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(17, 316);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(246, 32);
+            this.label9.TabIndex = 4;
+            this.label9.Text = "Wrong Word Color";
+            this.label9.Click += new System.EventHandler(this.label9_Click);
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.label10.Location = new System.Drawing.Point(20, 142);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(254, 32);
+            this.label10.TabIndex = 5;
+            this.label10.Text = "Default Word Color";
+            this.label10.Click += new System.EventHandler(this.label10_Click);
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.label11.Location = new System.Drawing.Point(17, 374);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(261, 32);
+            this.label11.TabIndex = 6;
+            this.label11.Text = "TypeBar Fore Color";
+            this.label11.Click += new System.EventHandler(this.label11_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -512,6 +636,7 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ClientSize = new System.Drawing.Size(999, 570);
             this.ContextMenuStrip = this.cmsBackColor;
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.tbLiveWPM);
             this.Controls.Add(this.btnWords);
             this.Controls.Add(this.btnTime);
@@ -526,8 +651,9 @@
             this.Controls.Add(this.btn50);
             this.Controls.Add(this.btn25);
             this.Controls.Add(this.btn10);
-            this.Controls.Add(this.rtbWords);
+            this.Controls.Add(this.gbSetting);
             this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.rtbWords);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
@@ -535,11 +661,15 @@
             this.Name = "Form1";
             this.Text = "Typing";
             this.Load += new System.EventHandler(this.Form1_Load);
+            this.BackColorChanged += new System.EventHandler(this.Form1_BackColorChanged);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown_1);
             this.Resize += new System.EventHandler(this.Form1_Resize);
             this.cmsBackColor.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.gbSetting.ResumeLayout(false);
+            this.gbSetting.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -579,6 +709,15 @@
         public System.Windows.Forms.RichTextBox richTextBox2;
         public System.Windows.Forms.RichTextBox rtbAccuracy;
         public System.Windows.Forms.Label label4;
+        private System.Windows.Forms.GroupBox gbSetting;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label5;
     }
 }
 

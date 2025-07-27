@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Drawing;
 using System.Linq;
+using System.Net;
 using System.Windows.Forms;
 
 
@@ -45,7 +46,7 @@ namespace Typing_Test
         Color CorrectWordColor = Color.Green;
         Color WrongWordColor = Color.Red;
         Color DefaultWordsColor = Color.Black;
-        Color SelectColor = Color.DarkTurquoise;
+        Color SelectColor = Color.DodgerBlue;
 
         enum enMode {Words,Time };
 
@@ -75,6 +76,8 @@ namespace Typing_Test
             tbType.Text = "";
         }
 
+        
+
         private void RestartWords()
         {
             rtbWords.SelectAll();
@@ -91,8 +94,6 @@ namespace Typing_Test
             WrongStrokes = 0;
             CorrectStrokes = 0;
 
-            tbLiveWPM.Text = "";
-
             SetFirstWordColor();
 
             rtbWords.Select(0, 1);
@@ -104,8 +105,10 @@ namespace Typing_Test
         {
             tbType.Select();
 
-            RestartWords();
+            Restart();
             SetFirstWordColor();
+
+            rtbWords.BringToFront();
 
             btn15.BackColor = SelectColor;
             btnTime.BackColor = SelectColor;
@@ -162,12 +165,19 @@ namespace Typing_Test
             rtbWords.SelectionColor = CurrentWordColor;
         }
 
-        private void btnRestart_Click(object sender, EventArgs e)
+        private void Restart()
         {
             RestartWords();
             ResetTimer();
             groupBox1.Visible = false;
             tbType.ReadOnly = false;
+        }
+
+        private void btnRestart_Click(object sender, EventArgs e)
+        {
+            if (IsSettingOpened) return;
+
+            Restart();
         }
 
         private void EndTheTest()
@@ -339,6 +349,7 @@ namespace Typing_Test
             }
 
             tbTimer.Text = "";
+            tbLiveWPM.Text = "";
 
         }
 
@@ -356,7 +367,7 @@ namespace Typing_Test
 
         private void SetKeyStrokesColors()
         {
-            rtbKeyStrokes.Text = "(" + CorrectStrokes + " | " + WrongStrokes + ")   " + (CorrectStrokes + WrongStrokes);
+            rtbKeyStrokes.Text = "(" + CorrectStrokes + " | " + WrongStrokes + ")  " + (CorrectStrokes + WrongStrokes);
 
             rtbKeyStrokes.Select(1, CorrectStrokes.ToString().Length);
             rtbKeyStrokes.SelectionColor = Color.Green;
@@ -614,6 +625,89 @@ namespace Typing_Test
             if (this.WindowState == FormWindowState.Normal)
             {
                 rtbWords.ZoomFactor = 1f;
+            }
+        }
+
+        private void Form1_BackColorChanged(object sender, EventArgs e)
+        {
+            tbLiveWPM.BackColor = this.BackColor;
+            tbTimer.BackColor = this.BackColor;
+        }
+
+        public bool IsSettingOpened = false;
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            Restart();
+
+            if (!IsSettingOpened)
+            {
+                gbSetting.BringToFront();
+                IsSettingOpened = true;
+                tbType.ReadOnly = true;
+            }
+            else
+            {
+                gbSetting.SendToBack();
+                IsSettingOpened = false;
+                tbType.ReadOnly = false;
+            }
+
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+            if(colorDialog1.ShowDialog() == DialogResult.OK)
+            {
+                this.BackColor = colorDialog1.Color;
+            }
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+            if (colorDialog1.ShowDialog() == DialogResult.OK)
+            {
+                rtbWords.ForeColor = colorDialog1.Color;
+            }
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+            if (colorDialog1.ShowDialog() == DialogResult.OK)
+            {
+                CurrentWordColor = colorDialog1.Color;
+            }
+        }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+            if (colorDialog1.ShowDialog() == DialogResult.OK)
+            {
+                CorrectWordColor = colorDialog1.Color;
+            }
+        }
+
+        private void label9_Click(object sender, EventArgs e)
+        {
+            if (colorDialog1.ShowDialog() == DialogResult.OK)
+            {
+                WrongWordColor = colorDialog1.Color;
+            }
+        }
+
+        private void label10_Click(object sender, EventArgs e)
+        {
+            if (colorDialog1.ShowDialog() == DialogResult.OK)
+            {
+                rtbWords.ForeColor = colorDialog1.Color;
+            }
+        }
+
+        private void label11_Click(object sender, EventArgs e)
+        {
+            if (colorDialog1.ShowDialog() == DialogResult.OK)
+            {
+                tbType.ForeColor = colorDialog1.Color;
             }
         }
     }

@@ -96,6 +96,8 @@
     <None Include="Resources\Restart.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\SettingIcon.png" />
+    <None Include="Resources\setting.png" />
     <Content Include="—Pngtree—vector keyboard icon_3772837.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
