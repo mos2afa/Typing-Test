@@ -70,11 +70,13 @@
             this.tbLiveWPM = new System.Windows.Forms.TextBox();
             this.colorDialog2 = new System.Windows.Forms.ColorDialog();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
-            this.btnRestart = new System.Windows.Forms.Button();
+            this.pbLogo = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnRestart = new System.Windows.Forms.Button();
             this.cmsBackColor.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.gbSetting.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -95,7 +97,7 @@
             this.rtbWords.ReadOnly = true;
             this.rtbWords.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.rtbWords.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None;
-            this.rtbWords.Size = new System.Drawing.Size(981, 425);
+            this.rtbWords.Size = new System.Drawing.Size(1412, 425);
             this.rtbWords.TabIndex = 6;
             this.rtbWords.TabStop = false;
             this.rtbWords.Text = "";
@@ -126,7 +128,7 @@
             this.tbType.Location = new System.Drawing.Point(12, 502);
             this.tbType.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbType.Name = "tbType";
-            this.tbType.Size = new System.Drawing.Size(901, 61);
+            this.tbType.Size = new System.Drawing.Size(1332, 61);
             this.tbType.TabIndex = 0;
             this.tbType.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             this.tbType.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbType_KeyDown);
@@ -138,7 +140,7 @@
             this.btn10.ContextMenuStrip = this.cmsBackColor;
             this.btn10.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn10.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn10.Location = new System.Drawing.Point(746, 7);
+            this.btn10.Location = new System.Drawing.Point(1177, 7);
             this.btn10.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn10.Name = "btn10";
             this.btn10.Size = new System.Drawing.Size(60, 47);
@@ -155,7 +157,7 @@
             this.btn25.ContextMenuStrip = this.cmsBackColor;
             this.btn25.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn25.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn25.Location = new System.Drawing.Point(806, 7);
+            this.btn25.Location = new System.Drawing.Point(1237, 7);
             this.btn25.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn25.Name = "btn25";
             this.btn25.Size = new System.Drawing.Size(60, 47);
@@ -172,7 +174,7 @@
             this.btn50.ContextMenuStrip = this.cmsBackColor;
             this.btn50.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn50.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn50.Location = new System.Drawing.Point(866, 7);
+            this.btn50.Location = new System.Drawing.Point(1297, 7);
             this.btn50.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn50.Name = "btn50";
             this.btn50.Size = new System.Drawing.Size(60, 47);
@@ -189,7 +191,7 @@
             this.btn100.ContextMenuStrip = this.cmsBackColor;
             this.btn100.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn100.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn100.Location = new System.Drawing.Point(926, 7);
+            this.btn100.Location = new System.Drawing.Point(1357, 7);
             this.btn100.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn100.Name = "btn100";
             this.btn100.Size = new System.Drawing.Size(68, 47);
@@ -211,7 +213,7 @@
             this.btn15.ContextMenuStrip = this.cmsBackColor;
             this.btn15.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn15.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn15.Location = new System.Drawing.Point(746, 7);
+            this.btn15.Location = new System.Drawing.Point(1177, 7);
             this.btn15.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn15.Name = "btn15";
             this.btn15.Size = new System.Drawing.Size(60, 47);
@@ -228,7 +230,7 @@
             this.btn30.ContextMenuStrip = this.cmsBackColor;
             this.btn30.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn30.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn30.Location = new System.Drawing.Point(806, 7);
+            this.btn30.Location = new System.Drawing.Point(1237, 7);
             this.btn30.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn30.Name = "btn30";
             this.btn30.Size = new System.Drawing.Size(60, 47);
@@ -245,7 +247,7 @@
             this.btn60.ContextMenuStrip = this.cmsBackColor;
             this.btn60.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn60.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn60.Location = new System.Drawing.Point(866, 7);
+            this.btn60.Location = new System.Drawing.Point(1297, 7);
             this.btn60.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn60.Name = "btn60";
             this.btn60.Size = new System.Drawing.Size(60, 47);
@@ -262,7 +264,7 @@
             this.btn120.ContextMenuStrip = this.cmsBackColor;
             this.btn120.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn120.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn120.Location = new System.Drawing.Point(926, 7);
+            this.btn120.Location = new System.Drawing.Point(1357, 7);
             this.btn120.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn120.Name = "btn120";
             this.btn120.Size = new System.Drawing.Size(68, 47);
@@ -342,7 +344,7 @@
             this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox1.Size = new System.Drawing.Size(981, 439);
+            this.groupBox1.Size = new System.Drawing.Size(1412, 439);
             this.groupBox1.TabIndex = 23;
             this.groupBox1.TabStop = false;
             this.groupBox1.Visible = false;
@@ -462,7 +464,7 @@
             this.gbSetting.ForeColor = System.Drawing.Color.DodgerBlue;
             this.gbSetting.Location = new System.Drawing.Point(19, 73);
             this.gbSetting.Name = "gbSetting";
-            this.gbSetting.Size = new System.Drawing.Size(974, 425);
+            this.gbSetting.Size = new System.Drawing.Size(1405, 425);
             this.gbSetting.TabIndex = 33;
             this.gbSetting.TabStop = false;
             // 
@@ -480,6 +482,7 @@
             this.cbWhichWords.TabIndex = 7;
             this.cbWhichWords.TabStop = false;
             this.cbWhichWords.Text = "Which Words";
+            this.cbWhichWords.SelectedIndexChanged += new System.EventHandler(this.cbWhichWords_SelectedIndexChanged);
             // 
             // label11
             // 
@@ -576,7 +579,7 @@
             this.btnTime.ContextMenuStrip = this.cmsBackColor;
             this.btnTime.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTime.Location = new System.Drawing.Point(409, 7);
+            this.btnTime.Location = new System.Drawing.Point(838, 7);
             this.btnTime.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnTime.Name = "btnTime";
             this.btnTime.Size = new System.Drawing.Size(156, 47);
@@ -593,7 +596,7 @@
             this.btnWords.ContextMenuStrip = this.cmsBackColor;
             this.btnWords.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnWords.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnWords.Location = new System.Drawing.Point(571, 7);
+            this.btnWords.Location = new System.Drawing.Point(1000, 7);
             this.btnWords.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnWords.Name = "btnWords";
             this.btnWords.Size = new System.Drawing.Size(156, 47);
@@ -619,19 +622,15 @@
             this.tbLiveWPM.TabIndex = 26;
             this.tbLiveWPM.TabStop = false;
             // 
-            // btnRestart
+            // pbLogo
             // 
-            this.btnRestart.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnRestart.BackgroundImage = global::Typing_Test.Properties.Resources.Restart;
-            this.btnRestart.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnRestart.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnRestart.Location = new System.Drawing.Point(919, 502);
-            this.btnRestart.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnRestart.Name = "btnRestart";
-            this.btnRestart.Size = new System.Drawing.Size(75, 62);
-            this.btnRestart.TabIndex = 1;
-            this.btnRestart.UseVisualStyleBackColor = true;
-            this.btnRestart.Click += new System.EventHandler(this.btnRestart_Click);
+            this.pbLogo.Image = global::Typing_Test.Properties.Resources.final4;
+            this.pbLogo.Location = new System.Drawing.Point(458, 1);
+            this.pbLogo.Name = "pbLogo";
+            this.pbLogo.Size = new System.Drawing.Size(270, 63);
+            this.pbLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbLogo.TabIndex = 34;
+            this.pbLogo.TabStop = false;
             // 
             // pictureBox1
             // 
@@ -645,6 +644,20 @@
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
+            // btnRestart
+            // 
+            this.btnRestart.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnRestart.BackgroundImage = global::Typing_Test.Properties.Resources.Restart;
+            this.btnRestart.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnRestart.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnRestart.Location = new System.Drawing.Point(1350, 502);
+            this.btnRestart.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnRestart.Name = "btnRestart";
+            this.btnRestart.Size = new System.Drawing.Size(75, 62);
+            this.btnRestart.TabIndex = 1;
+            this.btnRestart.UseVisualStyleBackColor = true;
+            this.btnRestart.Click += new System.EventHandler(this.btnRestart_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -652,8 +665,9 @@
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(25)))), ((int)(((byte)(24)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.ClientSize = new System.Drawing.Size(999, 570);
+            this.ClientSize = new System.Drawing.Size(1430, 570);
             this.ContextMenuStrip = this.cmsBackColor;
+            this.Controls.Add(this.pbLogo);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.tbLiveWPM);
             this.Controls.Add(this.btnWords);
@@ -688,6 +702,7 @@
             this.groupBox1.PerformLayout();
             this.gbSetting.ResumeLayout(false);
             this.gbSetting.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -738,6 +753,7 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ComboBox cbWhichWords;
+        private System.Windows.Forms.PictureBox pbLogo;
     }
 }
 

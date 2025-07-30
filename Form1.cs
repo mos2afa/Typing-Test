@@ -3,6 +3,7 @@ using System.Drawing;
 using System.Linq;
 using System.Net;
 using System.Windows.Forms;
+using Typing_Test.Properties;
 //using System.Text.Json;
 
 
@@ -726,6 +727,19 @@ namespace Typing_Test
             if (colorDialog1.ShowDialog() == DialogResult.OK)
             {
                 tbType.ForeColor = colorDialog1.Color;
+            }
+        }
+
+        private void cbWhichWords_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(cbWhichWords.SelectedIndex == 0)
+            {
+                pbLogo.Image = Resources.final4;
+            }
+
+            if(cbWhichWords.SelectedIndex == 1)
+            {
+                pbLogo.Image = Resources.monkeytypefinal2;
             }
         }
     }
