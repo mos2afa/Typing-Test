@@ -1,4 +1,5 @@
-﻿namespace Typing_Test
+﻿
+namespace Typing_Test
 {
     partial class Form1
     {

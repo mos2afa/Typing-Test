@@ -4,6 +4,7 @@ using System.Linq;
 using System.Net;
 using System.Windows.Forms;
 using Typing_Test.Properties;
+
 //using System.Text.Json;
 
 
@@ -469,6 +470,7 @@ namespace Typing_Test
             RestartWords();
 
             tbTimer.Text = "";
+            tbLiveWPM.Text = "";
 
             groupBox1.Hide();
             tbType.ReadOnly = false;
@@ -732,14 +734,14 @@ namespace Typing_Test
 
         private void cbWhichWords_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(cbWhichWords.SelectedIndex == 0)
+            if (cbWhichWords.SelectedIndex == 0)
             {
-                pbLogo.Image = Resources.final4;
+                pbLogo.Image = Resources.final4; // Resources is part of Typing_Test.Properties
             }
 
-            if(cbWhichWords.SelectedIndex == 1)
+            if (cbWhichWords.SelectedIndex == 1)
             {
-                pbLogo.Image = Resources.monkeytypefinal2;
+                pbLogo.Image = Resources.monkeytypefinal2; // Resources is part of Typing_Test.Properties
             }
         }
     }
