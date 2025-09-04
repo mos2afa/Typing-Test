@@ -80,6 +80,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Class1.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -130,13 +131,13 @@
   <ItemGroup>
     <None Include="Resources\SettingIcon.png" />
     <None Include="Resources\setting.png" />
-    <None Include="Resources\10fastfingers logo.png" />
     <None Include="Resources\monkeytype logo.png" />
     <None Include="Resources\10fastfingersfinal.png" />
     <None Include="Resources\monkeytypefinal.png" />
     <None Include="Resources\monkeytypefinal2.png" />
     <None Include="Resources\10fastfingersfinal3.png" />
     <None Include="Resources\final4.png" />
+    <None Include="Resources\fullscreen.png" />
     <Content Include="—Pngtree—vector keyboard icon_3772837.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

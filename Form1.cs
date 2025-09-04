@@ -1,10 +1,7 @@
 ﻿using System;
 using System.Drawing;
-using System.Linq;
-using System.Net;
 using System.Windows.Forms;
 using Typing_Test.Properties;
-
 //using System.Text.Json;
 
 
@@ -17,11 +14,10 @@ namespace Typing_Test
         public Form1()
         {
             InitializeComponent();
+            
         }
 
         public string JsonSettings;
-
-
 
         short CurrentWordCounter = 1;
 
@@ -34,7 +30,7 @@ namespace Typing_Test
         static string AllWords10FastFingers = "about|above|add|after|again|air|all|almost|along|also|always|America|an|and|animal|another|answer|any|are|around|as|ask|at|away|back|be|because|been|before|began|begin|being|below|between|big|book|both|boy|but|by|call|came|can|car|carry|change|children|city|close|come|could|country|cut|day|did|different|do|does|don't|down|each|earth|eat|end|enough|even|every|example|eye|face|family|far|father|feet|few|find|first|follow|food|for|form|found|four|from|get|girl|give|go|good|got|great|group|grow|had|hand|hard|has|have|he|head|hear|help|her|here|high|him|his|home|house|how|idea|if|important|in|Indian|into|is|it|its|it's|just|keep|kind|know|land|large|last|later|learn|leave|left|let|letter|life|light|like|line|list|little|live|long|look|made|make|man|many|may|me|mean|men|might|mile|miss|more|most|mother|mountain|move|much|must|my|name|near|need|never|new|next|night|no|not|now|number|of|off|often|oil|old|on|once|one|only|open|or|other|our|out|over|own|page|paper|part|people|picture|place|plant|play|point|put|question|quick|quickly|quite|read|really|right|river|run|said|same|saw|say|school|sea|second|see|seem|sentence|set|she|should|show|side|small|so|some|something|sometimes|song|soon|sound|spell|start|state|still|stop|story|study|such|take|talk|tell|than|that|the|their|them|then|there|these|they|thing|think|this|those|thought|three|through|time|to|together|too|took|tree|try|turn|two|under|until|up|us|use|very|walk|want|was|watch|water|way|we|well|went|were|what|when|where|which|while|white|who|why|will|with|without|word|work|world|would|write|year|you|young|your";
         // 302 words
 
-        static string AllWordsMonkeyType = "a about and any as ask at back be but by can come do down end few find for go group have he help home house how I if in into it large last late lead life line man many may more move new no not now of on one open or other out own part plan play point real run same say set she so some take the this those time to turn up use want we what who with work you against also another before begin both change child could course day each early face form from get give great hand hold just know leave like long make mean might most most must number old only over person place right should show since stand such than then they thing think very way when while word would write year again all call even eye fact feel good here high increase keep nation off order see seem small still tell that these too well where which will without after because become between consider develop during first follow general however interest little look need never people present problem program public school state system there through under world";
+        static string AllWordsMonkeyType = "a about and any as ask at back be but by can come do down end few find for go group have he help home house how if in into it large last late lead life line man many may more move new no not now of on one open or other out own part plan play point real run same say set she so some take the this those time to turn up use want we what who with work you against also another before begin both change child could course day each early face form from get give great hand hold just know leave like long make mean might most most must number old only over person place right should show since stand such than then they thing think very way when while word would write year again all call even eye fact feel good here high increase keep nation off order see seem small still tell that these too well where which will without after because become between consider develop during first follow general however interest little look need never people present problem program public school state system there through under world";
         // 196 words
 
         string[] word = AllWords10FastFingers.Split('|');
@@ -54,11 +50,10 @@ namespace Typing_Test
 
         private TimeSpan _TimeCounterForWords = TimeSpan.FromSeconds(0);
 
-        //Color CurrentWordColor = Color.FromArgb(0, 0, 150);
         Color CurrentWordColor = Color.DodgerBlue;
         Color CorrectWordColor = Color.Green;
-        Color WrongWordColor = Color.Red;
-        Color SelectColor = Color.DodgerBlue;
+        Color WrongWordColor   = Color.Red;
+        Color SelectColor      = Color.DodgerBlue;
 
         enum enMode {Words,Time };
 
@@ -157,7 +152,6 @@ namespace Typing_Test
         }
 
 
-
         private void Form1_KeyDown_1(object sender, KeyEventArgs e)
         {
             if (e.Control && e.KeyCode == Keys.W)
@@ -170,14 +164,40 @@ namespace Typing_Test
             {
                 e.SuppressKeyPress = true;
 
-                if(this.WindowState == FormWindowState.Normal)
-                {
-                    this.WindowState = FormWindowState.Maximized;
-                }
-                else if(this.WindowState == FormWindowState.Maximized)
-                {
-                    this.WindowState = FormWindowState.Normal;
-                }
+                ToggleFullScreen();
+            }
+        }
+
+        private void ToggleFullScreen()
+        {
+
+            if (this.FormBorderStyle == FormBorderStyle.Fixed3D)
+            {
+                this.WindowState = FormWindowState.Normal; // If this line be removed, there would be a glitch.
+                this.FormBorderStyle = FormBorderStyle.None;
+                this.WindowState = FormWindowState.Maximized;
+                rtbWords.ZoomFactor += 0.25f;
+                return;
+            }
+
+            if (this.FormBorderStyle == FormBorderStyle.None)
+            {
+                this.FormBorderStyle = FormBorderStyle.Fixed3D;
+                rtbWords.ZoomFactor -= 0.25f;
+                return;
+            }
+        }
+
+        private void Form1_Resize(object sender, EventArgs e)
+        {
+            if (this.WindowState == FormWindowState.Maximized)
+            {
+                rtbWords.ZoomFactor = 2f;
+            }
+
+            if (this.WindowState == FormWindowState.Normal)
+            {
+                rtbWords.ZoomFactor = 1f;
             }
         }
 
@@ -639,19 +659,6 @@ namespace Typing_Test
             }
         }
 
-        private void Form1_Resize(object sender, EventArgs e)
-        {
-            if(this.WindowState == FormWindowState.Maximized)
-            {
-                rtbWords.ZoomFactor = 2f;
-            }
-
-            if (this.WindowState == FormWindowState.Normal)
-            {
-                rtbWords.ZoomFactor = 1f;
-            }
-        }
-
         private void Form1_BackColorChanged(object sender, EventArgs e)
         {
             tbLiveWPM.BackColor = this.BackColor;
@@ -736,13 +743,18 @@ namespace Typing_Test
         {
             if (cbWhichWords.SelectedIndex == 0)
             {
-                pbLogo.Image = Resources.final4; // Resources is part of Typing_Test.Properties
+                pbLogo.Image = Resources.final4; 
             }
 
             if (cbWhichWords.SelectedIndex == 1)
             {
-                pbLogo.Image = Resources.monkeytypefinal2; // Resources is part of Typing_Test.Properties
+                pbLogo.Image = Resources.monkeytypefinal2;
             }
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            ToggleFullScreen();
         }
     }
 }

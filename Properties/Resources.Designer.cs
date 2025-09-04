@@ -63,16 +63,6 @@ namespace Typing_Test.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap _10fastfingers_logo {
-            get {
-                object obj = ResourceManager.GetObject("10fastfingers logo", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap _10fastfingersfinal {
             get {
                 object obj = ResourceManager.GetObject("10fastfingersfinal", resourceCulture);
@@ -96,6 +86,16 @@ namespace Typing_Test.Properties {
         internal static System.Drawing.Bitmap final4 {
             get {
                 object obj = ResourceManager.GetObject("final4", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap fullscreen {
+            get {
+                object obj = ResourceManager.GetObject("fullscreen", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
