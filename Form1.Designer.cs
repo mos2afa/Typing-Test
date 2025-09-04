@@ -73,13 +73,11 @@ namespace Typing_Test
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnRestart = new System.Windows.Forms.Button();
-            this.pbLogo = new System.Windows.Forms.PictureBox();
             this.cmsBackColor.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.gbSetting.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).BeginInit();
             this.SuspendLayout();
             // 
             // rtbWords
@@ -348,7 +346,6 @@ namespace Typing_Test
             resources.GetString("cbWhichWords.Items1")});
             this.cbWhichWords.Name = "cbWhichWords";
             this.cbWhichWords.TabStop = false;
-            this.cbWhichWords.SelectedIndexChanged += new System.EventHandler(this.cbWhichWords_SelectedIndexChanged);
             // 
             // label11
             // 
@@ -448,9 +445,9 @@ namespace Typing_Test
             // 
             // pictureBox1
             // 
+            resources.ApplyResources(this.pictureBox1, "pictureBox1");
             this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox1.Image = global::Typing_Test.Properties.Resources.setting;
-            resources.ApplyResources(this.pictureBox1, "pictureBox1");
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
@@ -464,13 +461,6 @@ namespace Typing_Test
             this.btnRestart.UseVisualStyleBackColor = true;
             this.btnRestart.Click += new System.EventHandler(this.btnRestart_Click);
             // 
-            // pbLogo
-            // 
-            this.pbLogo.Image = global::Typing_Test.Properties.Resources.final4;
-            resources.ApplyResources(this.pbLogo, "pbLogo");
-            this.pbLogo.Name = "pbLogo";
-            this.pbLogo.TabStop = false;
-            // 
             // Form1
             // 
             resources.ApplyResources(this, "$this");
@@ -478,7 +468,6 @@ namespace Typing_Test
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(25)))), ((int)(((byte)(24)))));
             this.ContextMenuStrip = this.cmsBackColor;
             this.Controls.Add(this.pictureBox2);
-            this.Controls.Add(this.pbLogo);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.tbLiveWPM);
             this.Controls.Add(this.btnWords);
@@ -512,7 +501,6 @@ namespace Typing_Test
             this.gbSetting.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -562,7 +550,6 @@ namespace Typing_Test
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ComboBox cbWhichWords;
         private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.PictureBox pbLogo;
     }
 }
 

@@ -739,19 +739,6 @@ namespace Typing_Test
             }
         }
 
-        private void cbWhichWords_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (cbWhichWords.SelectedIndex == 0)
-            {
-                pbLogo.Image = Resources.final4; 
-            }
-
-            if (cbWhichWords.SelectedIndex == 1)
-            {
-                pbLogo.Image = Resources.monkeytypefinal2;
-            }
-        }
-
         private void pictureBox2_Click(object sender, EventArgs e)
         {
             ToggleFullScreen();

@@ -129,14 +129,7 @@
     <None Include="Resources\Restart.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\SettingIcon.png" />
     <None Include="Resources\setting.png" />
-    <None Include="Resources\monkeytype logo.png" />
-    <None Include="Resources\10fastfingersfinal.png" />
-    <None Include="Resources\monkeytypefinal.png" />
-    <None Include="Resources\monkeytypefinal2.png" />
-    <None Include="Resources\10fastfingersfinal3.png" />
-    <None Include="Resources\final4.png" />
     <None Include="Resources\fullscreen.png" />
     <Content Include="—Pngtree—vector keyboard icon_3772837.ico" />
   </ItemGroup>
