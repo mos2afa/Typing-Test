@@ -197,7 +197,7 @@ namespace Typing_Test
 
             if (this.WindowState == FormWindowState.Normal)
             {
-                rtbWords.ZoomFactor = 1f;
+                rtbWords.ZoomFactor = 1.45f;
             }
         }
 
@@ -270,7 +270,7 @@ namespace Typing_Test
             {
                 CorrectWordsCounter++;
 
-                CorrectStrokes += CurrentWords[CurrentWordCounter].Length+ (" ".Length);
+                CorrectStrokes += CurrentWords[CurrentWordCounter].Length+ 1;
             }
             else
             {
@@ -663,6 +663,9 @@ namespace Typing_Test
         {
             tbLiveWPM.BackColor = this.BackColor;
             tbTimer.BackColor = this.BackColor;
+            rtbWords.BackColor = this.BackColor;
+            rtbFinalWPM.BackColor = this.BackColor;
+            richTextBox2.BackColor = this.BackColor;
         }
 
         public bool IsSettingOpened = false;

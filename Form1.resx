@@ -125,6 +125,12 @@
     <value>352, 17</value>
   </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="changeBackColorToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>203, 24</value>
+  </data>
+  <data name="changeBackColorToolStripMenuItem.Text" xml:space="preserve">
+    <value>Change Back Color</value>
+  </data>
   <data name="cmsBackColor.Size" type="System.Drawing.Size, System.Drawing">
     <value>204, 28</value>
   </data>
@@ -150,7 +156,7 @@
     <value>None</value>
   </data>
   <data name="rtbWords.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1412, 504</value>
+    <value>1412, 505</value>
   </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="rtbWords.TabIndex" type="System.Int32, mscorlib">
@@ -169,13 +175,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;rtbWords.ZOrder" xml:space="preserve">
-    <value>17</value>
-  </data>
-  <data name="changeBackColorToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>203, 24</value>
-  </data>
-  <data name="changeBackColorToolStripMenuItem.Text" xml:space="preserve">
-    <value>Change Back Color</value>
+    <value>18</value>
   </data>
   <data name="tbType.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Left, Right</value>
@@ -184,7 +184,7 @@
     <value>Microsoft Sans Serif, 28.2pt</value>
   </data>
   <data name="tbType.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 581</value>
+    <value>12, 582</value>
   </data>
   <data name="tbType.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 2, 3, 2</value>
@@ -850,7 +850,7 @@
     <value>3, 2, 3, 2</value>
   </data>
   <data name="groupBox1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1412, 518</value>
+    <value>1412, 519</value>
   </data>
   <data name="groupBox1.TabIndex" type="System.Int32, mscorlib">
     <value>23</value>
@@ -868,127 +868,10 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;groupBox1.ZOrder" xml:space="preserve">
-    <value>19</value>
+    <value>17</value>
   </data>
   <data name="gbSetting.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Bottom, Left, Right</value>
-  </data>
-  <data name="&gt;&gt;cbWhichWords.Name" xml:space="preserve">
-    <value>cbWhichWords</value>
-  </data>
-  <data name="&gt;&gt;cbWhichWords.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;cbWhichWords.Parent" xml:space="preserve">
-    <value>gbSetting</value>
-  </data>
-  <data name="&gt;&gt;cbWhichWords.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;label11.Name" xml:space="preserve">
-    <value>label11</value>
-  </data>
-  <data name="&gt;&gt;label11.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label11.Parent" xml:space="preserve">
-    <value>gbSetting</value>
-  </data>
-  <data name="&gt;&gt;label11.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;label10.Name" xml:space="preserve">
-    <value>label10</value>
-  </data>
-  <data name="&gt;&gt;label10.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label10.Parent" xml:space="preserve">
-    <value>gbSetting</value>
-  </data>
-  <data name="&gt;&gt;label10.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;label9.Name" xml:space="preserve">
-    <value>label9</value>
-  </data>
-  <data name="&gt;&gt;label9.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label9.Parent" xml:space="preserve">
-    <value>gbSetting</value>
-  </data>
-  <data name="&gt;&gt;label9.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;label8.Name" xml:space="preserve">
-    <value>label8</value>
-  </data>
-  <data name="&gt;&gt;label8.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label8.Parent" xml:space="preserve">
-    <value>gbSetting</value>
-  </data>
-  <data name="&gt;&gt;label8.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="&gt;&gt;label7.Name" xml:space="preserve">
-    <value>label7</value>
-  </data>
-  <data name="&gt;&gt;label7.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label7.Parent" xml:space="preserve">
-    <value>gbSetting</value>
-  </data>
-  <data name="&gt;&gt;label7.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="&gt;&gt;label6.Name" xml:space="preserve">
-    <value>label6</value>
-  </data>
-  <data name="&gt;&gt;label6.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label6.Parent" xml:space="preserve">
-    <value>gbSetting</value>
-  </data>
-  <data name="&gt;&gt;label6.ZOrder" xml:space="preserve">
-    <value>6</value>
-  </data>
-  <data name="&gt;&gt;label5.Name" xml:space="preserve">
-    <value>label5</value>
-  </data>
-  <data name="&gt;&gt;label5.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label5.Parent" xml:space="preserve">
-    <value>gbSetting</value>
-  </data>
-  <data name="&gt;&gt;label5.ZOrder" xml:space="preserve">
-    <value>7</value>
-  </data>
-  <data name="gbSetting.Location" type="System.Drawing.Point, System.Drawing">
-    <value>19, 73</value>
-  </data>
-  <data name="gbSetting.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1405, 504</value>
-  </data>
-  <data name="gbSetting.TabIndex" type="System.Int32, mscorlib">
-    <value>33</value>
-  </data>
-  <data name="&gt;&gt;gbSetting.Name" xml:space="preserve">
-    <value>gbSetting</value>
-  </data>
-  <data name="&gt;&gt;gbSetting.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;gbSetting.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;gbSetting.ZOrder" xml:space="preserve">
-    <value>18</value>
   </data>
   <data name="cbWhichWords.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 16.2pt</value>
@@ -1254,6 +1137,27 @@
   <data name="&gt;&gt;label5.ZOrder" xml:space="preserve">
     <value>7</value>
   </data>
+  <data name="gbSetting.Location" type="System.Drawing.Point, System.Drawing">
+    <value>19, 73</value>
+  </data>
+  <data name="gbSetting.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1405, 505</value>
+  </data>
+  <data name="gbSetting.TabIndex" type="System.Int32, mscorlib">
+    <value>33</value>
+  </data>
+  <data name="&gt;&gt;gbSetting.Name" xml:space="preserve">
+    <value>gbSetting</value>
+  </data>
+  <data name="&gt;&gt;gbSetting.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;gbSetting.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;gbSetting.ZOrder" xml:space="preserve">
+    <value>19</value>
+  </data>
   <metadata name="TimerForWords.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>191, 17</value>
   </metadata>
@@ -1429,7 +1333,7 @@
     <value>NoControl</value>
   </data>
   <data name="btnRestart.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1350, 581</value>
+    <value>1350, 582</value>
   </data>
   <data name="btnRestart.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 2, 3, 2</value>
@@ -1468,7 +1372,7 @@
     <value>Center</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>1430, 649</value>
+    <value>1430, 650</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
