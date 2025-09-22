@@ -453,7 +453,7 @@ namespace Typing_Test
                     return;
                 }
 
-                tbLiveWPM.Text = Convert.ToInt16(CalcLiveWPM()).ToString();
+                tbLiveWPM.Text = Convert.ToInt16(CalcWPM()).ToString();
 
             }
         }
@@ -475,7 +475,7 @@ namespace Typing_Test
                     ResetTimer();
                 }
 
-                tbLiveWPM.Text = Convert.ToInt16(CalcLiveWPM()).ToString();
+                tbLiveWPM.Text = Convert.ToInt16(CalcWPM()).ToString();
 
             }
         }
@@ -608,7 +608,7 @@ namespace Typing_Test
 
         private double CalcWPM()
         {
-            double timeInSeconds = (Mode == enMode.Words) ? _TimeCounterForWords.TotalSeconds : NumberOfSeconds;
+            double timeInSeconds = ((Mode == enMode.Words) ? (_TimeCounterForWords.TotalSeconds) : (!IsStartedTimeMode?NumberOfSeconds: NumberOfSeconds - _timeRemainingForSeconds.TotalSeconds));
 
             if (timeInSeconds <= 0)
             {
@@ -623,22 +623,7 @@ namespace Typing_Test
             return words / timeInMinutes;
         }
 
-        private double CalcLiveWPM()
-        {
-            double timeInSeconds = (Mode == enMode.Words) ? _TimeCounterForWords.TotalSeconds : (NumberOfSeconds-_timeRemainingForSeconds.TotalSeconds);
 
-            if (timeInSeconds <= 0)
-            {
-                return 0.0;
-            }
-
-            double words = CorrectStrokes / 5.0; 
-
-            double timeInMinutes = timeInSeconds / 60.0; 
-
-            // Calculate WPM: Words / Time in Minutes.
-            return words / timeInMinutes;
-        }
 
         private void tbType_KeyDown(object sender, KeyEventArgs e)
         {
