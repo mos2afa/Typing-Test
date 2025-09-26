@@ -73,6 +73,8 @@ namespace Typing_Test
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnRestart = new System.Windows.Forms.Button();
+            this.tCheckCapsLock = new System.Windows.Forms.Timer(this.components);
+            this.rtbCapsLock = new System.Windows.Forms.RichTextBox();
             this.cmsBackColor.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.gbSetting.SuspendLayout();
@@ -461,12 +463,27 @@ namespace Typing_Test
             this.btnRestart.UseVisualStyleBackColor = true;
             this.btnRestart.Click += new System.EventHandler(this.btnRestart_Click);
             // 
+            // tCheckCapsLock
+            // 
+            this.tCheckCapsLock.Enabled = true;
+            this.tCheckCapsLock.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // rtbCapsLock
+            // 
+            resources.ApplyResources(this.rtbCapsLock, "rtbCapsLock");
+            this.rtbCapsLock.BackColor = System.Drawing.Color.DeepPink;
+            this.rtbCapsLock.ForeColor = System.Drawing.Color.Black;
+            this.rtbCapsLock.Name = "rtbCapsLock";
+            this.rtbCapsLock.ReadOnly = true;
+            this.rtbCapsLock.TabStop = false;
+            // 
             // Form1
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(25)))), ((int)(((byte)(24)))));
             this.ContextMenuStrip = this.cmsBackColor;
+            this.Controls.Add(this.rtbCapsLock);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.tbLiveWPM);
@@ -550,6 +567,8 @@ namespace Typing_Test
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ComboBox cbWhichWords;
         private System.Windows.Forms.PictureBox pictureBox2;
+        public System.Windows.Forms.Timer tCheckCapsLock;
+        private System.Windows.Forms.RichTextBox rtbCapsLock;
     }
 }
 
