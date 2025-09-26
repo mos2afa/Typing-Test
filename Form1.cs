@@ -280,6 +280,8 @@ namespace Typing_Test
             }
         }
        
+
+
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
             if (tbType.Text == " " || tbType.Text == "")
@@ -288,7 +290,6 @@ namespace Typing_Test
                 tbType.Text = "";
                 return;
             }
-
 
             if (Mode == enMode.Time)
             {
@@ -730,6 +731,18 @@ namespace Typing_Test
         private void pictureBox2_Click(object sender, EventArgs e)
         {
             ToggleFullScreen();
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            if(Control.IsKeyLocked(Keys.CapsLock))
+            {
+                rtbCapsLock.Visible = true;
+            }
+            else
+            {
+                rtbCapsLock.Visible = false;
+            }
         }
     }
 }
