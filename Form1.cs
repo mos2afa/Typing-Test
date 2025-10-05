@@ -166,6 +166,12 @@ namespace Typing_Test
 
                 ToggleFullScreen();
             }
+
+            if (e.KeyCode == Keys.Escape)
+            {
+                ToggleSettingsVisibility();
+            }
+
         }
 
         private void ToggleFullScreen()
@@ -656,10 +662,8 @@ namespace Typing_Test
 
         public bool IsSettingOpened = false;
 
-        private void pictureBox1_Click(object sender, EventArgs e)
+        private void ToggleSettingsVisibility()
         {
-            Restart();
-
             if (!IsSettingOpened)
             {
                 gbSetting.BringToFront();
@@ -672,7 +676,13 @@ namespace Typing_Test
                 IsSettingOpened = false;
                 tbType.ReadOnly = false;
             }
+        }
 
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            Restart();
+
+            ToggleSettingsVisibility();
         }
 
         private void label5_Click(object sender, EventArgs e)

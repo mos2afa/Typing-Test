@@ -71,7 +71,7 @@ namespace Typing_Test
             this.tbLiveWPM = new System.Windows.Forms.TextBox();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnSettings = new System.Windows.Forms.PictureBox();
             this.btnRestart = new System.Windows.Forms.Button();
             this.tCheckCapsLock = new System.Windows.Forms.Timer(this.components);
             this.rtbCapsLock = new System.Windows.Forms.RichTextBox();
@@ -79,7 +79,7 @@ namespace Typing_Test
             this.groupBox1.SuspendLayout();
             this.gbSetting.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnSettings)).BeginInit();
             this.SuspendLayout();
             // 
             // rtbWords
@@ -88,7 +88,7 @@ namespace Typing_Test
             this.rtbWords.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(25)))), ((int)(((byte)(24)))));
             this.rtbWords.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.rtbWords.ContextMenuStrip = this.cmsBackColor;
-            this.rtbWords.Cursor = System.Windows.Forms.Cursors.No;
+            this.rtbWords.Cursor = System.Windows.Forms.Cursors.Default;
             this.rtbWords.ForeColor = System.Drawing.Color.White;
             this.rtbWords.Name = "rtbWords";
             this.rtbWords.ReadOnly = true;
@@ -445,14 +445,14 @@ namespace Typing_Test
             this.pictureBox2.TabStop = false;
             this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
             // 
-            // pictureBox1
+            // btnSettings
             // 
-            resources.ApplyResources(this.pictureBox1, "pictureBox1");
-            this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox1.Image = global::Typing_Test.Properties.Resources.setting;
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            resources.ApplyResources(this.btnSettings, "btnSettings");
+            this.btnSettings.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSettings.Image = global::Typing_Test.Properties.Resources.setting;
+            this.btnSettings.Name = "btnSettings";
+            this.btnSettings.TabStop = false;
+            this.btnSettings.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // btnRestart
             // 
@@ -472,6 +472,7 @@ namespace Typing_Test
             // 
             resources.ApplyResources(this.rtbCapsLock, "rtbCapsLock");
             this.rtbCapsLock.BackColor = System.Drawing.Color.DeepPink;
+            this.rtbCapsLock.Cursor = System.Windows.Forms.Cursors.Default;
             this.rtbCapsLock.ForeColor = System.Drawing.Color.Black;
             this.rtbCapsLock.Name = "rtbCapsLock";
             this.rtbCapsLock.ReadOnly = true;
@@ -485,7 +486,7 @@ namespace Typing_Test
             this.ContextMenuStrip = this.cmsBackColor;
             this.Controls.Add(this.rtbCapsLock);
             this.Controls.Add(this.pictureBox2);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.btnSettings);
             this.Controls.Add(this.tbLiveWPM);
             this.Controls.Add(this.btnWords);
             this.Controls.Add(this.btnTime);
@@ -500,9 +501,9 @@ namespace Typing_Test
             this.Controls.Add(this.btn50);
             this.Controls.Add(this.btn25);
             this.Controls.Add(this.btn10);
-            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.rtbWords);
             this.Controls.Add(this.gbSetting);
+            this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.KeyPreview = true;
             this.Name = "Form1";
@@ -517,7 +518,7 @@ namespace Typing_Test
             this.gbSetting.ResumeLayout(false);
             this.gbSetting.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnSettings)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -557,7 +558,7 @@ namespace Typing_Test
         public System.Windows.Forms.RichTextBox rtbAccuracy;
         public System.Windows.Forms.Label label4;
         private System.Windows.Forms.GroupBox gbSetting;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox btnSettings;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;
