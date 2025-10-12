@@ -1,14 +1,14 @@
 ﻿using System;
 using System.Drawing;
+using System.Globalization;
+using System.IO;
+using System.Net.Configuration;
+using System.Text.Json;
 using System.Windows.Forms;
 using Typing_Test.Properties;
-//using System.Text.Json;
-
 
 namespace Typing_Test
 {
-   
-
     public partial class Form1 : Form
     {
         public Form1()
@@ -17,7 +17,9 @@ namespace Typing_Test
             
         }
 
-        public string JsonSettings;
+        Settings settings = new Settings();
+
+        string jsonSettingsPath = Directory.GetCurrentDirectory() + "\\Settings.json";
 
         short CurrentWordCounter = 1;
 
@@ -50,37 +52,77 @@ namespace Typing_Test
 
         private TimeSpan _TimeCounterForWords = TimeSpan.FromSeconds(0);
 
-        Color CurrentWordColor = Color.DodgerBlue;
-        Color CorrectWordColor = Color.Green;
-        Color WrongWordColor   = Color.Red;
-        Color SelectColor      = Color.DodgerBlue;
+        Color CurrentWordColor ;
+        Color CorrectWordColor ;
+        Color WrongWordColor   ;
+        Color SelectColor      ;
 
         enum enMode {Words,Time };
 
         enMode Mode = enMode.Time;
 
+        private void LoadDefaultSettings()
+        {
+            this.BackColor = Color.FromArgb(1,3,25);
+            rtbWords.ForeColor = Color.FromArgb(60, 77, 120);
+            CurrentWordColor = Color.DodgerBlue;
+            CorrectWordColor = Color.Green;
+            WrongWordColor = Color.Red;
+            SelectColor = Color.DodgerBlue;
+            tbType.ForeColor = Color.White;
+        }
 
+        private void LoadSettings()
+        {
+            if (!File.Exists(jsonSettingsPath))
+            {
+                File.Create(jsonSettingsPath);
+                LoadDefaultSettings();
+                return;
+            }
+
+            string jsonString = File.ReadAllText("Settings.json");
+            settings = JsonSerializer.Deserialize<Settings>(jsonString);
+
+            this.BackColor     = ColorTranslator.FromHtml(settings.FormBackColor);
+            rtbWords.ForeColor = ColorTranslator.FromHtml(settings.FontColor);
+            CurrentWordColor   = ColorTranslator.FromHtml(settings.CurrentWordColor);
+            CorrectWordColor   = ColorTranslator.FromHtml(settings.CorrectWordColor);
+            WrongWordColor     = ColorTranslator.FromHtml(settings.WrongWordColor);
+            SelectColor        = ColorTranslator.FromHtml(settings.SelectColor);
+            tbType.ForeColor   = ColorTranslator.FromHtml(settings.TypeBarColor);
+        }
+
+        private void SaveSettings()
+        {
+            settings.FormBackColor    = ColorTranslator.ToHtml(this.BackColor);
+            settings.FontColor        = ColorTranslator.ToHtml(rtbWords.ForeColor);
+            settings.CurrentWordColor = ColorTranslator.ToHtml(CurrentWordColor);
+            settings.CorrectWordColor = ColorTranslator.ToHtml(CorrectWordColor);
+            settings.WrongWordColor   = ColorTranslator.ToHtml(WrongWordColor);
+            settings.SelectColor      = ColorTranslator.ToHtml(SelectColor);
+            settings.TypeBarColor     = ColorTranslator.ToHtml(tbType.ForeColor);
+
+            string jsonString = JsonSerializer.Serialize<Settings>(settings);
+
+            File.WriteAllText(jsonSettingsPath,jsonString);
+        }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            tbType.Select();
+            LoadSettings();
 
-            this.BackColor = Color.FromArgb(1, 2, 26);
-            rtbWords.BackColor = this.BackColor;
-            rtbWords.ForeColor = Color.FromArgb(60, 77, 120);
+            tbType.Select();
 
             Restart();
             SetFirstWordColor();
 
             rtbWords.BringToFront();
 
+            ChangeSomeControlColorsAccordingToFormBackColor();
+
             btn15.BackColor = SelectColor;
             btnTime.BackColor = SelectColor;
-
-            rtbFinalWPM.BackColor = this.BackColor;
-            richTextBox2.BackColor = this.BackColor;
-            tbTimer.BackColor = this.BackColor;
-            tbLiveWPM.BackColor = this.BackColor;
 
             rtbCorrectWords.SelectAll();
             rtbCorrectWords.SelectionAlignment = HorizontalAlignment.Right;
@@ -651,13 +693,19 @@ namespace Typing_Test
             }
         }
 
-        private void Form1_BackColorChanged(object sender, EventArgs e)
+        private void ChangeSomeControlColorsAccordingToFormBackColor()
         {
             tbLiveWPM.BackColor = this.BackColor;
             tbTimer.BackColor = this.BackColor;
             rtbWords.BackColor = this.BackColor;
             rtbFinalWPM.BackColor = this.BackColor;
             richTextBox2.BackColor = this.BackColor;
+            tbType.BackColor = this.BackColor;
+        }
+
+        private void Form1_BackColorChanged(object sender, EventArgs e)
+        {
+            ChangeSomeControlColorsAccordingToFormBackColor();
         }
 
         public bool IsSettingOpened = false;
@@ -690,6 +738,7 @@ namespace Typing_Test
             if(colorDialog1.ShowDialog() == DialogResult.OK)
             {
                 this.BackColor = colorDialog1.Color;
+                //
             }
         }
 
@@ -725,9 +774,10 @@ namespace Typing_Test
             }
         }
 
-        private void label10_Click(object sender, EventArgs e)
+        private void lbResetDefaultColors_Click(object sender, EventArgs e)
         {
-
+            LoadDefaultSettings();
+            File.Delete(jsonSettingsPath);
         }
 
         private void label11_Click(object sender, EventArgs e)
@@ -753,6 +803,11 @@ namespace Typing_Test
             {
                 rtbCapsLock.Visible = false;
             }
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            SaveSettings();
         }
     }
 }

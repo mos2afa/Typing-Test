@@ -1,0 +1,20 @@
+﻿using System;
+using System.Drawing;
+using Typing_Test.Properties;
+
+
+namespace Typing_Test
+{
+    public class Settings
+    {
+        // these are HTML colors
+
+        public string FormBackColor    {get;set; } 
+        public string FontColor        {get;set; }
+        public string CurrentWordColor {get;set; }
+        public string CorrectWordColor {get;set; }
+        public string WrongWordColor   {get;set; }
+        public string SelectColor      {get;set; }
+        public string TypeBarColor     {get;set; }
+    }
+}

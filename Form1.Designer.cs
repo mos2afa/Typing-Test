@@ -58,13 +58,13 @@ namespace Typing_Test
             this.rtbFinalWPM = new System.Windows.Forms.RichTextBox();
             this.gbSetting = new System.Windows.Forms.GroupBox();
             this.cbWhichWords = new System.Windows.Forms.ComboBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
+            this.lbTypeBarForeColor = new System.Windows.Forms.Label();
+            this.lbResetDefaultColors = new System.Windows.Forms.Label();
+            this.lbWrongWordColor = new System.Windows.Forms.Label();
+            this.lbCorrectWordColor = new System.Windows.Forms.Label();
+            this.lbCurrentWordColor = new System.Windows.Forms.Label();
+            this.lbFontColor = new System.Windows.Forms.Label();
+            this.lbFormBackColor = new System.Windows.Forms.Label();
             this.TimerForWords = new System.Windows.Forms.Timer(this.components);
             this.btnTime = new System.Windows.Forms.Button();
             this.btnWords = new System.Windows.Forms.Button();
@@ -327,13 +327,13 @@ namespace Typing_Test
             // 
             resources.ApplyResources(this.gbSetting, "gbSetting");
             this.gbSetting.Controls.Add(this.cbWhichWords);
-            this.gbSetting.Controls.Add(this.label11);
-            this.gbSetting.Controls.Add(this.label10);
-            this.gbSetting.Controls.Add(this.label9);
-            this.gbSetting.Controls.Add(this.label8);
-            this.gbSetting.Controls.Add(this.label7);
-            this.gbSetting.Controls.Add(this.label6);
-            this.gbSetting.Controls.Add(this.label5);
+            this.gbSetting.Controls.Add(this.lbTypeBarForeColor);
+            this.gbSetting.Controls.Add(this.lbResetDefaultColors);
+            this.gbSetting.Controls.Add(this.lbWrongWordColor);
+            this.gbSetting.Controls.Add(this.lbCorrectWordColor);
+            this.gbSetting.Controls.Add(this.lbCurrentWordColor);
+            this.gbSetting.Controls.Add(this.lbFontColor);
+            this.gbSetting.Controls.Add(this.lbFormBackColor);
             this.gbSetting.ForeColor = System.Drawing.Color.DodgerBlue;
             this.gbSetting.Name = "gbSetting";
             this.gbSetting.TabStop = false;
@@ -349,53 +349,53 @@ namespace Typing_Test
             this.cbWhichWords.Name = "cbWhichWords";
             this.cbWhichWords.TabStop = false;
             // 
-            // label11
+            // lbTypeBarForeColor
             // 
-            resources.ApplyResources(this.label11, "label11");
-            this.label11.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.label11.Name = "label11";
-            this.label11.Click += new System.EventHandler(this.label11_Click);
+            resources.ApplyResources(this.lbTypeBarForeColor, "lbTypeBarForeColor");
+            this.lbTypeBarForeColor.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.lbTypeBarForeColor.Name = "lbTypeBarForeColor";
+            this.lbTypeBarForeColor.Click += new System.EventHandler(this.label11_Click);
             // 
-            // label10
+            // lbResetDefaultColors
             // 
-            resources.ApplyResources(this.label10, "label10");
-            this.label10.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.label10.Name = "label10";
-            this.label10.Click += new System.EventHandler(this.label10_Click);
+            resources.ApplyResources(this.lbResetDefaultColors, "lbResetDefaultColors");
+            this.lbResetDefaultColors.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.lbResetDefaultColors.Name = "lbResetDefaultColors";
+            this.lbResetDefaultColors.Click += new System.EventHandler(this.lbResetDefaultColors_Click);
             // 
-            // label9
+            // lbWrongWordColor
             // 
-            resources.ApplyResources(this.label9, "label9");
-            this.label9.Name = "label9";
-            this.label9.Click += new System.EventHandler(this.label9_Click);
+            resources.ApplyResources(this.lbWrongWordColor, "lbWrongWordColor");
+            this.lbWrongWordColor.Name = "lbWrongWordColor";
+            this.lbWrongWordColor.Click += new System.EventHandler(this.label9_Click);
             // 
-            // label8
+            // lbCorrectWordColor
             // 
-            resources.ApplyResources(this.label8, "label8");
-            this.label8.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.label8.Name = "label8";
-            this.label8.Click += new System.EventHandler(this.label8_Click);
+            resources.ApplyResources(this.lbCorrectWordColor, "lbCorrectWordColor");
+            this.lbCorrectWordColor.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.lbCorrectWordColor.Name = "lbCorrectWordColor";
+            this.lbCorrectWordColor.Click += new System.EventHandler(this.label8_Click);
             // 
-            // label7
+            // lbCurrentWordColor
             // 
-            resources.ApplyResources(this.label7, "label7");
-            this.label7.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.label7.Name = "label7";
-            this.label7.Click += new System.EventHandler(this.label7_Click);
+            resources.ApplyResources(this.lbCurrentWordColor, "lbCurrentWordColor");
+            this.lbCurrentWordColor.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.lbCurrentWordColor.Name = "lbCurrentWordColor";
+            this.lbCurrentWordColor.Click += new System.EventHandler(this.label7_Click);
             // 
-            // label6
+            // lbFontColor
             // 
-            resources.ApplyResources(this.label6, "label6");
-            this.label6.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.label6.Name = "label6";
-            this.label6.Click += new System.EventHandler(this.label6_Click);
+            resources.ApplyResources(this.lbFontColor, "lbFontColor");
+            this.lbFontColor.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.lbFontColor.Name = "lbFontColor";
+            this.lbFontColor.Click += new System.EventHandler(this.label6_Click);
             // 
-            // label5
+            // lbFormBackColor
             // 
-            resources.ApplyResources(this.label5, "label5");
-            this.label5.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.label5.Name = "label5";
-            this.label5.Click += new System.EventHandler(this.label5_Click);
+            resources.ApplyResources(this.lbFormBackColor, "lbFormBackColor");
+            this.lbFormBackColor.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.lbFormBackColor.Name = "lbFormBackColor";
+            this.lbFormBackColor.Click += new System.EventHandler(this.label5_Click);
             // 
             // TimerForWords
             // 
@@ -501,13 +501,14 @@ namespace Typing_Test
             this.Controls.Add(this.btn50);
             this.Controls.Add(this.btn25);
             this.Controls.Add(this.btn10);
-            this.Controls.Add(this.rtbWords);
             this.Controls.Add(this.gbSetting);
             this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.rtbWords);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.KeyPreview = true;
             this.Name = "Form1";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.BackColorChanged += new System.EventHandler(this.Form1_BackColorChanged);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown_1);
@@ -559,13 +560,13 @@ namespace Typing_Test
         public System.Windows.Forms.Label label4;
         private System.Windows.Forms.GroupBox gbSetting;
         private System.Windows.Forms.PictureBox btnSettings;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label lbTypeBarForeColor;
+        private System.Windows.Forms.Label lbResetDefaultColors;
+        private System.Windows.Forms.Label lbWrongWordColor;
+        private System.Windows.Forms.Label lbCorrectWordColor;
+        private System.Windows.Forms.Label lbCurrentWordColor;
+        private System.Windows.Forms.Label lbFontColor;
+        private System.Windows.Forms.Label lbFormBackColor;
         private System.Windows.Forms.ComboBox cbWhichWords;
         private System.Windows.Forms.PictureBox pictureBox2;
         public System.Windows.Forms.Timer tCheckCapsLock;
