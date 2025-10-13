@@ -542,7 +542,10 @@ namespace Typing_Test
             tbLiveWPM.Text = "";
 
             groupBox1.Hide();
-            tbType.ReadOnly = false;
+            if(!IsSettingOpened)
+            {
+                tbType.ReadOnly = false;
+            }
 
             NumberOfSeconds = Convert.ToInt16(btn.Text);
             _timeRemainingForSeconds = TimeSpan.FromSeconds(NumberOfSeconds);
@@ -561,7 +564,10 @@ namespace Typing_Test
             TimerForSeconds.Stop();
             
             groupBox1.Hide();
-            tbType.ReadOnly = false;
+            if (!IsSettingOpened)
+            {
+                tbType.ReadOnly = false;
+            }
 
             ResetTimer();
 
@@ -605,7 +611,10 @@ namespace Typing_Test
 
             groupBox1.Visible = false;
 
-            tbType.ReadOnly = false;
+            if (!IsSettingOpened)
+            {
+                tbType.ReadOnly = false;
+            }
 
             tbLiveWPM.Text = "";
 
@@ -635,8 +644,10 @@ namespace Typing_Test
             btnTime.BackColor = Color.White;
 
             groupBox1.Visible = false;
-
-            tbType.ReadOnly = false;
+            if(!IsSettingOpened)
+            {
+                tbType.ReadOnly = false;
+            }
 
             tbLiveWPM.Text = "";
 

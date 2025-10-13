@@ -32,8 +32,6 @@ namespace Typing_Test
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.rtbWords = new System.Windows.Forms.RichTextBox();
-            this.cmsBackColor = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.changeBackColorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tbType = new System.Windows.Forms.TextBox();
             this.btn10 = new System.Windows.Forms.Button();
             this.btn25 = new System.Windows.Forms.Button();
@@ -75,7 +73,6 @@ namespace Typing_Test
             this.btnRestart = new System.Windows.Forms.Button();
             this.tCheckCapsLock = new System.Windows.Forms.Timer(this.components);
             this.rtbCapsLock = new System.Windows.Forms.RichTextBox();
-            this.cmsBackColor.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.gbSetting.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -87,32 +84,16 @@ namespace Typing_Test
             resources.ApplyResources(this.rtbWords, "rtbWords");
             this.rtbWords.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(25)))), ((int)(((byte)(24)))));
             this.rtbWords.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.rtbWords.ContextMenuStrip = this.cmsBackColor;
             this.rtbWords.Cursor = System.Windows.Forms.Cursors.Default;
             this.rtbWords.ForeColor = System.Drawing.Color.White;
             this.rtbWords.Name = "rtbWords";
             this.rtbWords.ReadOnly = true;
             this.rtbWords.TabStop = false;
             // 
-            // cmsBackColor
-            // 
-            this.cmsBackColor.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.cmsBackColor.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.changeBackColorToolStripMenuItem});
-            this.cmsBackColor.Name = "contextMenuStrip1";
-            resources.ApplyResources(this.cmsBackColor, "cmsBackColor");
-            this.cmsBackColor.Click += new System.EventHandler(this.contextMenuStrip1_Click);
-            // 
-            // changeBackColorToolStripMenuItem
-            // 
-            this.changeBackColorToolStripMenuItem.Name = "changeBackColorToolStripMenuItem";
-            resources.ApplyResources(this.changeBackColorToolStripMenuItem, "changeBackColorToolStripMenuItem");
-            // 
             // tbType
             // 
             resources.ApplyResources(this.tbType, "tbType");
             this.tbType.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(25)))), ((int)(((byte)(24)))));
-            this.tbType.ContextMenuStrip = this.cmsBackColor;
             this.tbType.ForeColor = System.Drawing.Color.White;
             this.tbType.Name = "tbType";
             this.tbType.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
@@ -122,7 +103,6 @@ namespace Typing_Test
             // 
             resources.ApplyResources(this.btn10, "btn10");
             this.btn10.BackColor = System.Drawing.Color.Gainsboro;
-            this.btn10.ContextMenuStrip = this.cmsBackColor;
             this.btn10.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn10.Name = "btn10";
             this.btn10.TabStop = false;
@@ -133,7 +113,6 @@ namespace Typing_Test
             // 
             resources.ApplyResources(this.btn25, "btn25");
             this.btn25.BackColor = System.Drawing.Color.Gainsboro;
-            this.btn25.ContextMenuStrip = this.cmsBackColor;
             this.btn25.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn25.Name = "btn25";
             this.btn25.TabStop = false;
@@ -144,7 +123,6 @@ namespace Typing_Test
             // 
             resources.ApplyResources(this.btn50, "btn50");
             this.btn50.BackColor = System.Drawing.Color.Gainsboro;
-            this.btn50.ContextMenuStrip = this.cmsBackColor;
             this.btn50.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn50.Name = "btn50";
             this.btn50.TabStop = false;
@@ -155,7 +133,6 @@ namespace Typing_Test
             // 
             resources.ApplyResources(this.btn100, "btn100");
             this.btn100.BackColor = System.Drawing.Color.Gainsboro;
-            this.btn100.ContextMenuStrip = this.cmsBackColor;
             this.btn100.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn100.Name = "btn100";
             this.btn100.TabStop = false;
@@ -171,7 +148,6 @@ namespace Typing_Test
             // 
             resources.ApplyResources(this.btn15, "btn15");
             this.btn15.BackColor = System.Drawing.Color.Gainsboro;
-            this.btn15.ContextMenuStrip = this.cmsBackColor;
             this.btn15.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn15.Name = "btn15";
             this.btn15.TabStop = false;
@@ -182,7 +158,6 @@ namespace Typing_Test
             // 
             resources.ApplyResources(this.btn30, "btn30");
             this.btn30.BackColor = System.Drawing.Color.Gainsboro;
-            this.btn30.ContextMenuStrip = this.cmsBackColor;
             this.btn30.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn30.Name = "btn30";
             this.btn30.TabStop = false;
@@ -193,7 +168,6 @@ namespace Typing_Test
             // 
             resources.ApplyResources(this.btn60, "btn60");
             this.btn60.BackColor = System.Drawing.Color.Gainsboro;
-            this.btn60.ContextMenuStrip = this.cmsBackColor;
             this.btn60.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn60.Name = "btn60";
             this.btn60.TabStop = false;
@@ -204,7 +178,6 @@ namespace Typing_Test
             // 
             resources.ApplyResources(this.btn120, "btn120");
             this.btn120.BackColor = System.Drawing.Color.Gainsboro;
-            this.btn120.ContextMenuStrip = this.cmsBackColor;
             this.btn120.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn120.Name = "btn120";
             this.btn120.TabStop = false;
@@ -215,7 +188,6 @@ namespace Typing_Test
             // 
             this.tbTimer.BackColor = System.Drawing.Color.DodgerBlue;
             this.tbTimer.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tbTimer.ContextMenuStrip = this.cmsBackColor;
             this.tbTimer.Cursor = System.Windows.Forms.Cursors.Default;
             resources.ApplyResources(this.tbTimer, "tbTimer");
             this.tbTimer.ForeColor = System.Drawing.Color.DeepPink;
@@ -244,7 +216,6 @@ namespace Typing_Test
             // groupBox1
             // 
             resources.ApplyResources(this.groupBox1, "groupBox1");
-            this.groupBox1.ContextMenuStrip = this.cmsBackColor;
             this.groupBox1.Controls.Add(this.rtbAccuracy);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.richTextBox2);
@@ -262,7 +233,6 @@ namespace Typing_Test
             // rtbAccuracy
             // 
             this.rtbAccuracy.BackColor = System.Drawing.Color.White;
-            this.rtbAccuracy.ContextMenuStrip = this.cmsBackColor;
             resources.ApplyResources(this.rtbAccuracy, "rtbAccuracy");
             this.rtbAccuracy.ForeColor = System.Drawing.Color.Black;
             this.rtbAccuracy.Name = "rtbAccuracy";
@@ -278,7 +248,6 @@ namespace Typing_Test
             // 
             this.richTextBox2.BackColor = System.Drawing.Color.DodgerBlue;
             this.richTextBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.richTextBox2.ContextMenuStrip = this.cmsBackColor;
             resources.ApplyResources(this.richTextBox2, "richTextBox2");
             this.richTextBox2.ForeColor = System.Drawing.Color.DeepPink;
             this.richTextBox2.Name = "richTextBox2";
@@ -288,7 +257,6 @@ namespace Typing_Test
             // rtbKeyStrokes
             // 
             this.rtbKeyStrokes.BackColor = System.Drawing.Color.White;
-            this.rtbKeyStrokes.ContextMenuStrip = this.cmsBackColor;
             resources.ApplyResources(this.rtbKeyStrokes, "rtbKeyStrokes");
             this.rtbKeyStrokes.ForeColor = System.Drawing.Color.Black;
             this.rtbKeyStrokes.Name = "rtbKeyStrokes";
@@ -297,7 +265,6 @@ namespace Typing_Test
             // rtbCorrectWords
             // 
             this.rtbCorrectWords.BackColor = System.Drawing.Color.White;
-            this.rtbCorrectWords.ContextMenuStrip = this.cmsBackColor;
             resources.ApplyResources(this.rtbCorrectWords, "rtbCorrectWords");
             this.rtbCorrectWords.ForeColor = System.Drawing.Color.Green;
             this.rtbCorrectWords.Name = "rtbCorrectWords";
@@ -306,7 +273,6 @@ namespace Typing_Test
             // rtbWrongWords
             // 
             this.rtbWrongWords.BackColor = System.Drawing.Color.White;
-            this.rtbWrongWords.ContextMenuStrip = this.cmsBackColor;
             resources.ApplyResources(this.rtbWrongWords, "rtbWrongWords");
             this.rtbWrongWords.ForeColor = System.Drawing.Color.Red;
             this.rtbWrongWords.Name = "rtbWrongWords";
@@ -316,7 +282,6 @@ namespace Typing_Test
             // 
             this.rtbFinalWPM.BackColor = System.Drawing.Color.DodgerBlue;
             this.rtbFinalWPM.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.rtbFinalWPM.ContextMenuStrip = this.cmsBackColor;
             resources.ApplyResources(this.rtbFinalWPM, "rtbFinalWPM");
             this.rtbFinalWPM.ForeColor = System.Drawing.Color.DeepPink;
             this.rtbFinalWPM.Name = "rtbFinalWPM";
@@ -406,7 +371,6 @@ namespace Typing_Test
             // 
             resources.ApplyResources(this.btnTime, "btnTime");
             this.btnTime.BackColor = System.Drawing.Color.White;
-            this.btnTime.ContextMenuStrip = this.cmsBackColor;
             this.btnTime.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnTime.Name = "btnTime";
             this.btnTime.TabStop = false;
@@ -417,7 +381,6 @@ namespace Typing_Test
             // 
             resources.ApplyResources(this.btnWords, "btnWords");
             this.btnWords.BackColor = System.Drawing.Color.White;
-            this.btnWords.ContextMenuStrip = this.cmsBackColor;
             this.btnWords.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnWords.Name = "btnWords";
             this.btnWords.TabStop = false;
@@ -428,7 +391,6 @@ namespace Typing_Test
             // 
             this.tbLiveWPM.BackColor = System.Drawing.Color.DodgerBlue;
             this.tbLiveWPM.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tbLiveWPM.ContextMenuStrip = this.cmsBackColor;
             this.tbLiveWPM.Cursor = System.Windows.Forms.Cursors.Default;
             resources.ApplyResources(this.tbLiveWPM, "tbLiveWPM");
             this.tbLiveWPM.ForeColor = System.Drawing.Color.DeepPink;
@@ -483,7 +445,6 @@ namespace Typing_Test
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(25)))), ((int)(((byte)(24)))));
-            this.ContextMenuStrip = this.cmsBackColor;
             this.Controls.Add(this.rtbCapsLock);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.btnSettings);
@@ -513,7 +474,6 @@ namespace Typing_Test
             this.BackColorChanged += new System.EventHandler(this.Form1_BackColorChanged);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown_1);
             this.Resize += new System.EventHandler(this.Form1_Resize);
-            this.cmsBackColor.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.gbSetting.ResumeLayout(false);
@@ -552,8 +512,6 @@ namespace Typing_Test
         public System.Windows.Forms.RichTextBox rtbCorrectWords;
         public System.Windows.Forms.RichTextBox rtbWrongWords;
         public System.Windows.Forms.TextBox tbLiveWPM;
-        private System.Windows.Forms.ContextMenuStrip cmsBackColor;
-        private System.Windows.Forms.ToolStripMenuItem changeBackColorToolStripMenuItem;
         private System.Windows.Forms.ColorDialog colorDialog1;
         public System.Windows.Forms.RichTextBox richTextBox2;
         public System.Windows.Forms.RichTextBox rtbAccuracy;

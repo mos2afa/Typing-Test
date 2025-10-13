@@ -121,25 +121,7 @@
   <data name="rtbWords.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Bottom, Left, Right</value>
   </data>
-  <metadata name="cmsBackColor.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>352, 17</value>
-  </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="changeBackColorToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>203, 24</value>
-  </data>
-  <data name="changeBackColorToolStripMenuItem.Text" xml:space="preserve">
-    <value>Change Back Color</value>
-  </data>
-  <data name="cmsBackColor.Size" type="System.Drawing.Size, System.Drawing">
-    <value>204, 28</value>
-  </data>
-  <data name="&gt;&gt;cmsBackColor.Name" xml:space="preserve">
-    <value>cmsBackColor</value>
-  </data>
-  <data name="&gt;&gt;cmsBackColor.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ContextMenuStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="rtbWords.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 37pt</value>
   </data>
@@ -175,7 +157,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;rtbWords.ZOrder" xml:space="preserve">
-    <value>20</value>
+    <value>19</value>
   </data>
   <data name="tbType.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Left, Right</value>
@@ -205,7 +187,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;tbType.ZOrder" xml:space="preserve">
-    <value>8</value>
+    <value>7</value>
   </data>
   <data name="btn10.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
@@ -241,7 +223,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btn10.ZOrder" xml:space="preserve">
-    <value>17</value>
+    <value>16</value>
   </data>
   <data name="btn25.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
@@ -277,7 +259,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btn25.ZOrder" xml:space="preserve">
-    <value>16</value>
+    <value>15</value>
   </data>
   <data name="btn50.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
@@ -313,7 +295,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btn50.ZOrder" xml:space="preserve">
-    <value>15</value>
+    <value>14</value>
   </data>
   <data name="btn100.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
@@ -349,7 +331,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btn100.ZOrder" xml:space="preserve">
-    <value>14</value>
+    <value>13</value>
   </data>
   <metadata name="TimerForSeconds.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
@@ -388,7 +370,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btn15.ZOrder" xml:space="preserve">
-    <value>13</value>
+    <value>12</value>
   </data>
   <data name="btn30.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
@@ -424,7 +406,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btn30.ZOrder" xml:space="preserve">
-    <value>12</value>
+    <value>11</value>
   </data>
   <data name="btn60.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
@@ -460,7 +442,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btn60.ZOrder" xml:space="preserve">
-    <value>11</value>
+    <value>10</value>
   </data>
   <data name="btn120.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
@@ -496,7 +478,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btn120.ZOrder" xml:space="preserve">
-    <value>10</value>
+    <value>9</value>
   </data>
   <data name="tbTimer.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 30pt, style=Bold</value>
@@ -523,7 +505,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;tbTimer.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>6</value>
   </data>
   <data name="label1.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -868,7 +850,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;groupBox1.ZOrder" xml:space="preserve">
-    <value>19</value>
+    <value>18</value>
   </data>
   <data name="gbSetting.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Bottom, Left, Right</value>
@@ -1156,7 +1138,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;gbSetting.ZOrder" xml:space="preserve">
-    <value>18</value>
+    <value>17</value>
   </data>
   <metadata name="TimerForWords.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>191, 17</value>
@@ -1195,7 +1177,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btnTime.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>5</value>
   </data>
   <data name="btnWords.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
@@ -1231,7 +1213,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btnWords.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>4</value>
   </data>
   <data name="tbLiveWPM.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 30pt, style=Bold</value>
@@ -1258,7 +1240,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;tbLiveWPM.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>3</value>
   </data>
   <metadata name="colorDialog1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>523, 20</value>
@@ -1291,7 +1273,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;pictureBox2.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>1</value>
   </data>
   <data name="btnSettings.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
@@ -1321,7 +1303,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btnSettings.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>2</value>
   </data>
   <data name="btnRestart.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Right</value>
@@ -1354,7 +1336,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btnRestart.ZOrder" xml:space="preserve">
-    <value>9</value>
+    <value>8</value>
   </data>
   <metadata name="tCheckCapsLock.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>670, 20</value>
@@ -1390,7 +1372,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;rtbCapsLock.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>0</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
@@ -1780,12 +1762,6 @@
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>Typing</value>
-  </data>
-  <data name="&gt;&gt;changeBackColorToolStripMenuItem.Name" xml:space="preserve">
-    <value>changeBackColorToolStripMenuItem</value>
-  </data>
-  <data name="&gt;&gt;changeBackColorToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;TimerForSeconds.Name" xml:space="preserve">
     <value>TimerForSeconds</value>
