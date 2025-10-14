@@ -73,6 +73,9 @@ namespace Typing_Test
             this.btnRestart = new System.Windows.Forms.Button();
             this.tCheckCapsLock = new System.Windows.Forms.Timer(this.components);
             this.rtbCapsLock = new System.Windows.Forms.RichTextBox();
+            this.tbWordsCounter = new System.Windows.Forms.TextBox();
+            this.lbExportSettings = new System.Windows.Forms.Label();
+            this.lbImportSettings = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.gbSetting.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -237,6 +240,7 @@ namespace Typing_Test
             this.rtbAccuracy.ForeColor = System.Drawing.Color.Black;
             this.rtbAccuracy.Name = "rtbAccuracy";
             this.rtbAccuracy.ReadOnly = true;
+            this.rtbAccuracy.TabStop = false;
             // 
             // label4
             // 
@@ -261,6 +265,7 @@ namespace Typing_Test
             this.rtbKeyStrokes.ForeColor = System.Drawing.Color.Black;
             this.rtbKeyStrokes.Name = "rtbKeyStrokes";
             this.rtbKeyStrokes.ReadOnly = true;
+            this.rtbKeyStrokes.TabStop = false;
             // 
             // rtbCorrectWords
             // 
@@ -269,6 +274,7 @@ namespace Typing_Test
             this.rtbCorrectWords.ForeColor = System.Drawing.Color.Green;
             this.rtbCorrectWords.Name = "rtbCorrectWords";
             this.rtbCorrectWords.ReadOnly = true;
+            this.rtbCorrectWords.TabStop = false;
             // 
             // rtbWrongWords
             // 
@@ -277,6 +283,7 @@ namespace Typing_Test
             this.rtbWrongWords.ForeColor = System.Drawing.Color.Red;
             this.rtbWrongWords.Name = "rtbWrongWords";
             this.rtbWrongWords.ReadOnly = true;
+            this.rtbWrongWords.TabStop = false;
             // 
             // rtbFinalWPM
             // 
@@ -291,6 +298,8 @@ namespace Typing_Test
             // gbSetting
             // 
             resources.ApplyResources(this.gbSetting, "gbSetting");
+            this.gbSetting.Controls.Add(this.lbImportSettings);
+            this.gbSetting.Controls.Add(this.lbExportSettings);
             this.gbSetting.Controls.Add(this.cbWhichWords);
             this.gbSetting.Controls.Add(this.lbTypeBarForeColor);
             this.gbSetting.Controls.Add(this.lbResetDefaultColors);
@@ -440,11 +449,37 @@ namespace Typing_Test
             this.rtbCapsLock.ReadOnly = true;
             this.rtbCapsLock.TabStop = false;
             // 
+            // tbWordsCounter
+            // 
+            this.tbWordsCounter.BackColor = System.Drawing.Color.DodgerBlue;
+            this.tbWordsCounter.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tbWordsCounter.Cursor = System.Windows.Forms.Cursors.Default;
+            resources.ApplyResources(this.tbWordsCounter, "tbWordsCounter");
+            this.tbWordsCounter.ForeColor = System.Drawing.Color.DeepPink;
+            this.tbWordsCounter.Name = "tbWordsCounter";
+            this.tbWordsCounter.ReadOnly = true;
+            this.tbWordsCounter.TabStop = false;
+            // 
+            // lbExportSettings
+            // 
+            resources.ApplyResources(this.lbExportSettings, "lbExportSettings");
+            this.lbExportSettings.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.lbExportSettings.Name = "lbExportSettings";
+            this.lbExportSettings.Click += new System.EventHandler(this.lbExportSettings_Click);
+            // 
+            // lbImportSettings
+            // 
+            resources.ApplyResources(this.lbImportSettings, "lbImportSettings");
+            this.lbImportSettings.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.lbImportSettings.Name = "lbImportSettings";
+            this.lbImportSettings.Click += new System.EventHandler(this.lbImportSettings_Click);
+            // 
             // Form1
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(25)))), ((int)(((byte)(24)))));
+            this.Controls.Add(this.tbWordsCounter);
             this.Controls.Add(this.rtbCapsLock);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.btnSettings);
@@ -529,6 +564,9 @@ namespace Typing_Test
         private System.Windows.Forms.PictureBox pictureBox2;
         public System.Windows.Forms.Timer tCheckCapsLock;
         private System.Windows.Forms.RichTextBox rtbCapsLock;
+        public System.Windows.Forms.TextBox tbWordsCounter;
+        private System.Windows.Forms.Label lbExportSettings;
+        private System.Windows.Forms.Label lbImportSettings;
     }
 }
 

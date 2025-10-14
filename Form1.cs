@@ -1,11 +1,8 @@
 ﻿using System;
 using System.Drawing;
-using System.Globalization;
 using System.IO;
-using System.Net.Configuration;
 using System.Text.Json;
 using System.Windows.Forms;
-using Typing_Test.Properties;
 
 namespace Typing_Test
 {
@@ -14,10 +11,11 @@ namespace Typing_Test
         public Form1()
         {
             InitializeComponent();
-            
         }
 
         Settings settings = new Settings();
+
+        string jsonString {  get; set; }
 
         string jsonSettingsPath = Directory.GetCurrentDirectory() + "\\Settings.json";
 
@@ -70,47 +68,122 @@ namespace Typing_Test
             WrongWordColor = Color.Red;
             SelectColor = Color.DodgerBlue;
             tbType.ForeColor = Color.White;
+
+            this.WindowState = FormWindowState.Maximized;
+            this.FormBorderStyle = FormBorderStyle.Fixed3D;
+        }
+
+        private void LoadColorsSettings()
+        {
+            this.BackColor = ColorTranslator.FromHtml(settings.FormBackColor);
+            rtbWords.ForeColor = ColorTranslator.FromHtml(settings.FontColor);
+            CurrentWordColor = ColorTranslator.FromHtml(settings.CurrentWordColor);
+            CorrectWordColor = ColorTranslator.FromHtml(settings.CorrectWordColor);
+            WrongWordColor = ColorTranslator.FromHtml(settings.WrongWordColor);
+            SelectColor = ColorTranslator.FromHtml(settings.SelectColor);
+            tbType.ForeColor = ColorTranslator.FromHtml(settings.TypeBarColor);
+        }
+
+        private void LoadWindowStateSettings()
+        {
+            if (settings.WindowState == "Maximized")
+            {
+                this.WindowState = FormWindowState.Maximized;
+            }
+            else if (settings.WindowState == "Minimized")
+            {
+                this.WindowState = FormWindowState.Minimized;
+            }
+            else // Normal
+            {
+                this.WindowState = FormWindowState.Normal;
+            }
+        }
+
+        private void LoadFormBorderStyleSettings()
+        {
+            if (settings.FormBorderStyle == "Fixed3D")
+            {
+                this.FormBorderStyle = FormBorderStyle.Fixed3D;
+            }
+            else if (settings.FormBorderStyle == "None")
+            {
+                this.WindowState = FormWindowState.Normal; // If this line be removed, there would be a glitch.
+                this.FormBorderStyle = FormBorderStyle.None;
+                this.WindowState = FormWindowState.Maximized;
+            }
+        }
+
+        private void Deserialize()
+        {
+            settings = JsonSerializer.Deserialize<Settings>(jsonString);
+        }
+
+        private void LoadFromFile()
+        {
+            jsonString = File.ReadAllText("Settings.json");
         }
 
         private void LoadSettings()
         {
-            if (!File.Exists(jsonSettingsPath))
-            {
-                File.Create(jsonSettingsPath);
-                LoadDefaultSettings();
-                return;
-            }
+            LoadFromFile();
 
-            string jsonString = File.ReadAllText("Settings.json");
-            settings = JsonSerializer.Deserialize<Settings>(jsonString);
+            Deserialize();
 
-            this.BackColor     = ColorTranslator.FromHtml(settings.FormBackColor);
-            rtbWords.ForeColor = ColorTranslator.FromHtml(settings.FontColor);
-            CurrentWordColor   = ColorTranslator.FromHtml(settings.CurrentWordColor);
-            CorrectWordColor   = ColorTranslator.FromHtml(settings.CorrectWordColor);
-            WrongWordColor     = ColorTranslator.FromHtml(settings.WrongWordColor);
-            SelectColor        = ColorTranslator.FromHtml(settings.SelectColor);
-            tbType.ForeColor   = ColorTranslator.FromHtml(settings.TypeBarColor);
+            LoadColorsSettings();
+
+            LoadWindowStateSettings();
+
+            LoadFormBorderStyleSettings();
+        }
+
+        private void UpdateSettingsObject()
+        {
+            settings.FormBackColor = ColorTranslator.ToHtml(this.BackColor);
+            settings.FontColor = ColorTranslator.ToHtml(rtbWords.ForeColor);
+            settings.CurrentWordColor = ColorTranslator.ToHtml(CurrentWordColor);
+            settings.CorrectWordColor = ColorTranslator.ToHtml(CorrectWordColor);
+            settings.WrongWordColor = ColorTranslator.ToHtml(WrongWordColor);
+            settings.SelectColor = ColorTranslator.ToHtml(SelectColor);
+            settings.TypeBarColor = ColorTranslator.ToHtml(tbType.ForeColor);
+
+            settings.WindowState = this.WindowState.ToString(); // Normal, Maximized, Minimized
+            settings.FormBorderStyle = this.FormBorderStyle.ToString(); // None, Fixed3D
+        }
+
+        private void SaveToFile()
+        {
+            File.WriteAllText(jsonSettingsPath, jsonString);
+        }
+
+        private void Serialize()
+        {
+            jsonString = JsonSerializer.Serialize<Settings>(settings);
         }
 
         private void SaveSettings()
         {
-            settings.FormBackColor    = ColorTranslator.ToHtml(this.BackColor);
-            settings.FontColor        = ColorTranslator.ToHtml(rtbWords.ForeColor);
-            settings.CurrentWordColor = ColorTranslator.ToHtml(CurrentWordColor);
-            settings.CorrectWordColor = ColorTranslator.ToHtml(CorrectWordColor);
-            settings.WrongWordColor   = ColorTranslator.ToHtml(WrongWordColor);
-            settings.SelectColor      = ColorTranslator.ToHtml(SelectColor);
-            settings.TypeBarColor     = ColorTranslator.ToHtml(tbType.ForeColor);
+            UpdateSettingsObject();
 
-            string jsonString = JsonSerializer.Serialize<Settings>(settings);
+            Serialize();
 
-            File.WriteAllText(jsonSettingsPath,jsonString);
+            SaveToFile();
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            LoadSettings();
+
+            if (!File.Exists(jsonSettingsPath))
+            {
+                LoadDefaultSettings();
+                using (File.Create(jsonSettingsPath)) { };
+                Serialize();
+                SaveToFile();
+            }
+            else
+            {
+                LoadSettings();
+            }
 
             tbType.Select();
 
@@ -218,7 +291,6 @@ namespace Typing_Test
 
         private void ToggleFullScreen()
         {
-
             if (this.FormBorderStyle == FormBorderStyle.Fixed3D)
             {
                 this.WindowState = FormWindowState.Normal; // If this line be removed, there would be a glitch.
@@ -368,6 +440,8 @@ namespace Typing_Test
 
                 CurrentWordCounter++;
 
+                tbWordsCounter.Text = CurrentWordCounter.ToString();
+
                 SetCurrentWordColor();
 
                 rtbWords.ScrollToCaret();
@@ -442,7 +516,7 @@ namespace Typing_Test
 
             tbTimer.Text = "";
             tbLiveWPM.Text = "";
-
+            tbWordsCounter.Text = "";
         }
 
         private void UpdateTimerDisplay()
@@ -540,6 +614,7 @@ namespace Typing_Test
 
             tbTimer.Text = "";
             tbLiveWPM.Text = "";
+            tbWordsCounter.Text = "";
 
             groupBox1.Hide();
             if(!IsSettingOpened)
@@ -708,6 +783,7 @@ namespace Typing_Test
         {
             tbLiveWPM.BackColor = this.BackColor;
             tbTimer.BackColor = this.BackColor;
+            tbWordsCounter.BackColor = this.BackColor;
             rtbWords.BackColor = this.BackColor;
             rtbFinalWPM.BackColor = this.BackColor;
             richTextBox2.BackColor = this.BackColor;
@@ -723,6 +799,8 @@ namespace Typing_Test
 
         private void ToggleSettingsVisibility()
         {
+            Restart();
+
             if (!IsSettingOpened)
             {
                 gbSetting.BringToFront();
@@ -739,8 +817,6 @@ namespace Typing_Test
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            Restart();
-
             ToggleSettingsVisibility();
         }
 
@@ -749,7 +825,7 @@ namespace Typing_Test
             if(colorDialog1.ShowDialog() == DialogResult.OK)
             {
                 this.BackColor = colorDialog1.Color;
-                //
+                SaveSettings();
             }
         }
 
@@ -758,6 +834,7 @@ namespace Typing_Test
             if (colorDialog1.ShowDialog() == DialogResult.OK)
             {
                 rtbWords.ForeColor = colorDialog1.Color;
+                SaveSettings();
             }
         }
 
@@ -766,6 +843,7 @@ namespace Typing_Test
             if (colorDialog1.ShowDialog() == DialogResult.OK)
             {
                 CurrentWordColor = colorDialog1.Color;
+                SaveSettings();
             }
         }
 
@@ -774,6 +852,7 @@ namespace Typing_Test
             if (colorDialog1.ShowDialog() == DialogResult.OK)
             {
                 CorrectWordColor = colorDialog1.Color;
+                SaveSettings();
             }
         }
 
@@ -782,6 +861,7 @@ namespace Typing_Test
             if (colorDialog1.ShowDialog() == DialogResult.OK)
             {
                 WrongWordColor = colorDialog1.Color;
+                SaveSettings();
             }
         }
 
@@ -789,6 +869,7 @@ namespace Typing_Test
         {
             LoadDefaultSettings();
             File.Delete(jsonSettingsPath);
+            SaveSettings();
         }
 
         private void label11_Click(object sender, EventArgs e)
@@ -796,6 +877,7 @@ namespace Typing_Test
             if (colorDialog1.ShowDialog() == DialogResult.OK)
             {
                 tbType.ForeColor = colorDialog1.Color;
+                SaveSettings();
             }
         }
 
@@ -819,6 +901,33 @@ namespace Typing_Test
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
             SaveSettings();
+        }
+
+        private void lbExportSettings_Click(object sender, EventArgs e)
+        {
+            SaveSettings();
+
+            Clipboard.SetText(jsonString);
+
+            MessageBox.Show("Settings Copied To Clipboard Successfully.");
+        }
+
+        private void lbImportSettings_Click(object sender, EventArgs e)
+        {
+            jsonString = Clipboard.GetText();
+
+            try
+            {
+                SaveToFile();
+
+                LoadSettings();
+
+                MessageBox.Show("Settings Loaded Successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Error while Importing Settings.","Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
+            }
         }
     }
 }
