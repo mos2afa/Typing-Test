@@ -332,7 +332,7 @@ namespace Typing_Test
         {
             RestartWords();
             ResetTimer();
-            groupBox1.Visible = false;
+            pnlResults.Visible = false;
             tbType.ReadOnly = false;
         }
 
@@ -544,8 +544,8 @@ namespace Typing_Test
 
         private void ShowResults()
         {
-            groupBox1.BringToFront();
-            groupBox1.Visible = true;
+            pnlResults.BringToFront();
+            pnlResults.Visible = true;
 
             rtbCorrectWords.Text = CorrectWordsCounter.ToString();
             rtbWrongWords.Text = WrongWordsCounter.ToString();
@@ -616,7 +616,7 @@ namespace Typing_Test
             tbLiveWPM.Text = "";
             tbWordsCounter.Text = "";
 
-            groupBox1.Hide();
+            pnlResults.Hide();
             if(!IsSettingOpened)
             {
                 tbType.ReadOnly = false;
@@ -638,7 +638,7 @@ namespace Typing_Test
             TimerForWords.Stop();
             TimerForSeconds.Stop();
             
-            groupBox1.Hide();
+            pnlResults.Hide();
             if (!IsSettingOpened)
             {
                 tbType.ReadOnly = false;
@@ -684,7 +684,7 @@ namespace Typing_Test
             btnTime.BackColor = SelectColor;
             btnWords.BackColor = Color.White;
 
-            groupBox1.Visible = false;
+            pnlResults.Visible = false;
 
             if (!IsSettingOpened)
             {
@@ -718,7 +718,7 @@ namespace Typing_Test
             btnWords.BackColor = SelectColor;
             btnTime.BackColor = Color.White;
 
-            groupBox1.Visible = false;
+            pnlResults.Visible = false;
             if(!IsSettingOpened)
             {
                 tbType.ReadOnly = false;
@@ -786,6 +786,7 @@ namespace Typing_Test
             tbWordsCounter.BackColor = this.BackColor;
             rtbWords.BackColor = this.BackColor;
             rtbFinalWPM.BackColor = this.BackColor;
+            richTextBox1.BackColor = this.BackColor;
             richTextBox2.BackColor = this.BackColor;
             tbType.BackColor = this.BackColor;
         }
@@ -803,13 +804,13 @@ namespace Typing_Test
 
             if (!IsSettingOpened)
             {
-                gbSetting.BringToFront();
+                pnlSettings.BringToFront();
                 IsSettingOpened = true;
                 tbType.ReadOnly = true;
             }
             else
             {
-                gbSetting.SendToBack();
+                pnlSettings.SendToBack();
                 IsSettingOpened = false;
                 tbType.ReadOnly = false;
             }

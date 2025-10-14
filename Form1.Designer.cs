@@ -46,7 +46,6 @@ namespace Typing_Test
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.rtbAccuracy = new System.Windows.Forms.RichTextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.richTextBox2 = new System.Windows.Forms.RichTextBox();
@@ -54,7 +53,8 @@ namespace Typing_Test
             this.rtbCorrectWords = new System.Windows.Forms.RichTextBox();
             this.rtbWrongWords = new System.Windows.Forms.RichTextBox();
             this.rtbFinalWPM = new System.Windows.Forms.RichTextBox();
-            this.gbSetting = new System.Windows.Forms.GroupBox();
+            this.lbImportSettings = new System.Windows.Forms.Label();
+            this.lbExportSettings = new System.Windows.Forms.Label();
             this.cbWhichWords = new System.Windows.Forms.ComboBox();
             this.lbTypeBarForeColor = new System.Windows.Forms.Label();
             this.lbResetDefaultColors = new System.Windows.Forms.Label();
@@ -74,12 +74,13 @@ namespace Typing_Test
             this.tCheckCapsLock = new System.Windows.Forms.Timer(this.components);
             this.rtbCapsLock = new System.Windows.Forms.RichTextBox();
             this.tbWordsCounter = new System.Windows.Forms.TextBox();
-            this.lbExportSettings = new System.Windows.Forms.Label();
-            this.lbImportSettings = new System.Windows.Forms.Label();
-            this.groupBox1.SuspendLayout();
-            this.gbSetting.SuspendLayout();
+            this.pnlSettings = new System.Windows.Forms.Panel();
+            this.pnlResults = new System.Windows.Forms.Panel();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnSettings)).BeginInit();
+            this.pnlSettings.SuspendLayout();
+            this.pnlResults.SuspendLayout();
             this.SuspendLayout();
             // 
             // rtbWords
@@ -216,23 +217,6 @@ namespace Typing_Test
             this.label3.ForeColor = System.Drawing.Color.White;
             this.label3.Name = "label3";
             // 
-            // groupBox1
-            // 
-            resources.ApplyResources(this.groupBox1, "groupBox1");
-            this.groupBox1.Controls.Add(this.rtbAccuracy);
-            this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.richTextBox2);
-            this.groupBox1.Controls.Add(this.rtbKeyStrokes);
-            this.groupBox1.Controls.Add(this.rtbCorrectWords);
-            this.groupBox1.Controls.Add(this.rtbWrongWords);
-            this.groupBox1.Controls.Add(this.rtbFinalWPM);
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.ForeColor = System.Drawing.Color.White;
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.TabStop = false;
-            // 
             // rtbAccuracy
             // 
             this.rtbAccuracy.BackColor = System.Drawing.Color.White;
@@ -295,22 +279,19 @@ namespace Typing_Test
             this.rtbFinalWPM.ReadOnly = true;
             this.rtbFinalWPM.TabStop = false;
             // 
-            // gbSetting
+            // lbImportSettings
             // 
-            resources.ApplyResources(this.gbSetting, "gbSetting");
-            this.gbSetting.Controls.Add(this.lbImportSettings);
-            this.gbSetting.Controls.Add(this.lbExportSettings);
-            this.gbSetting.Controls.Add(this.cbWhichWords);
-            this.gbSetting.Controls.Add(this.lbTypeBarForeColor);
-            this.gbSetting.Controls.Add(this.lbResetDefaultColors);
-            this.gbSetting.Controls.Add(this.lbWrongWordColor);
-            this.gbSetting.Controls.Add(this.lbCorrectWordColor);
-            this.gbSetting.Controls.Add(this.lbCurrentWordColor);
-            this.gbSetting.Controls.Add(this.lbFontColor);
-            this.gbSetting.Controls.Add(this.lbFormBackColor);
-            this.gbSetting.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.gbSetting.Name = "gbSetting";
-            this.gbSetting.TabStop = false;
+            resources.ApplyResources(this.lbImportSettings, "lbImportSettings");
+            this.lbImportSettings.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.lbImportSettings.Name = "lbImportSettings";
+            this.lbImportSettings.Click += new System.EventHandler(this.lbImportSettings_Click);
+            // 
+            // lbExportSettings
+            // 
+            resources.ApplyResources(this.lbExportSettings, "lbExportSettings");
+            this.lbExportSettings.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.lbExportSettings.Name = "lbExportSettings";
+            this.lbExportSettings.Click += new System.EventHandler(this.lbExportSettings_Click);
             // 
             // cbWhichWords
             // 
@@ -340,6 +321,7 @@ namespace Typing_Test
             // lbWrongWordColor
             // 
             resources.ApplyResources(this.lbWrongWordColor, "lbWrongWordColor");
+            this.lbWrongWordColor.ForeColor = System.Drawing.Color.DodgerBlue;
             this.lbWrongWordColor.Name = "lbWrongWordColor";
             this.lbWrongWordColor.Click += new System.EventHandler(this.label9_Click);
             // 
@@ -460,19 +442,46 @@ namespace Typing_Test
             this.tbWordsCounter.ReadOnly = true;
             this.tbWordsCounter.TabStop = false;
             // 
-            // lbExportSettings
+            // pnlSettings
             // 
-            resources.ApplyResources(this.lbExportSettings, "lbExportSettings");
-            this.lbExportSettings.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.lbExportSettings.Name = "lbExportSettings";
-            this.lbExportSettings.Click += new System.EventHandler(this.lbExportSettings_Click);
+            resources.ApplyResources(this.pnlSettings, "pnlSettings");
+            this.pnlSettings.Controls.Add(this.lbTypeBarForeColor);
+            this.pnlSettings.Controls.Add(this.cbWhichWords);
+            this.pnlSettings.Controls.Add(this.lbResetDefaultColors);
+            this.pnlSettings.Controls.Add(this.lbImportSettings);
+            this.pnlSettings.Controls.Add(this.lbWrongWordColor);
+            this.pnlSettings.Controls.Add(this.lbExportSettings);
+            this.pnlSettings.Controls.Add(this.lbCorrectWordColor);
+            this.pnlSettings.Controls.Add(this.lbCurrentWordColor);
+            this.pnlSettings.Controls.Add(this.lbFormBackColor);
+            this.pnlSettings.Controls.Add(this.lbFontColor);
+            this.pnlSettings.Name = "pnlSettings";
             // 
-            // lbImportSettings
+            // pnlResults
             // 
-            resources.ApplyResources(this.lbImportSettings, "lbImportSettings");
-            this.lbImportSettings.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.lbImportSettings.Name = "lbImportSettings";
-            this.lbImportSettings.Click += new System.EventHandler(this.lbImportSettings_Click);
+            resources.ApplyResources(this.pnlResults, "pnlResults");
+            this.pnlResults.Controls.Add(this.richTextBox1);
+            this.pnlResults.Controls.Add(this.rtbAccuracy);
+            this.pnlResults.Controls.Add(this.rtbFinalWPM);
+            this.pnlResults.Controls.Add(this.label4);
+            this.pnlResults.Controls.Add(this.label1);
+            this.pnlResults.Controls.Add(this.richTextBox2);
+            this.pnlResults.Controls.Add(this.label2);
+            this.pnlResults.Controls.Add(this.rtbKeyStrokes);
+            this.pnlResults.Controls.Add(this.label3);
+            this.pnlResults.Controls.Add(this.rtbCorrectWords);
+            this.pnlResults.Controls.Add(this.rtbWrongWords);
+            this.pnlResults.Name = "pnlResults";
+            // 
+            // richTextBox1
+            // 
+            this.richTextBox1.BackColor = System.Drawing.Color.DodgerBlue;
+            this.richTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            resources.ApplyResources(this.richTextBox1, "richTextBox1");
+            this.richTextBox1.ForeColor = System.Drawing.Color.DeepPink;
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.ReadOnly = true;
+            this.richTextBox1.TabStop = false;
             // 
             // Form1
             // 
@@ -497,9 +506,9 @@ namespace Typing_Test
             this.Controls.Add(this.btn50);
             this.Controls.Add(this.btn25);
             this.Controls.Add(this.btn10);
-            this.Controls.Add(this.gbSetting);
-            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.rtbWords);
+            this.Controls.Add(this.pnlSettings);
+            this.Controls.Add(this.pnlResults);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.KeyPreview = true;
             this.Name = "Form1";
@@ -509,12 +518,12 @@ namespace Typing_Test
             this.BackColorChanged += new System.EventHandler(this.Form1_BackColorChanged);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown_1);
             this.Resize += new System.EventHandler(this.Form1_Resize);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            this.gbSetting.ResumeLayout(false);
-            this.gbSetting.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnSettings)).EndInit();
+            this.pnlSettings.ResumeLayout(false);
+            this.pnlSettings.PerformLayout();
+            this.pnlResults.ResumeLayout(false);
+            this.pnlResults.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -538,7 +547,6 @@ namespace Typing_Test
         public System.Windows.Forms.Label label1;
         public System.Windows.Forms.Label label2;
         public System.Windows.Forms.Label label3;
-        public System.Windows.Forms.GroupBox groupBox1;
         public System.Windows.Forms.RichTextBox rtbFinalWPM;
         public System.Windows.Forms.Timer TimerForWords;
         public System.Windows.Forms.Button btnTime;
@@ -551,7 +559,6 @@ namespace Typing_Test
         public System.Windows.Forms.RichTextBox richTextBox2;
         public System.Windows.Forms.RichTextBox rtbAccuracy;
         public System.Windows.Forms.Label label4;
-        private System.Windows.Forms.GroupBox gbSetting;
         private System.Windows.Forms.PictureBox btnSettings;
         private System.Windows.Forms.Label lbTypeBarForeColor;
         private System.Windows.Forms.Label lbResetDefaultColors;
@@ -567,6 +574,9 @@ namespace Typing_Test
         public System.Windows.Forms.TextBox tbWordsCounter;
         private System.Windows.Forms.Label lbExportSettings;
         private System.Windows.Forms.Label lbImportSettings;
+        private System.Windows.Forms.Panel pnlSettings;
+        private System.Windows.Forms.Panel pnlResults;
+        public System.Windows.Forms.RichTextBox richTextBox1;
     }
 }
 
