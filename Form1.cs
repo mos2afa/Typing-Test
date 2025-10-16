@@ -111,6 +111,7 @@ namespace Typing_Test
                 this.WindowState = FormWindowState.Normal; // If this line be removed, there would be a glitch.
                 this.FormBorderStyle = FormBorderStyle.None;
                 this.WindowState = FormWindowState.Maximized;
+                rtbWords.ZoomFactor += 0.25f;
             }
         }
 
@@ -287,6 +288,10 @@ namespace Typing_Test
                 ToggleSettingsVisibility();
             }
 
+            if (Control.IsKeyLocked(Keys.CapsLock))
+                rtbCapsLock.Show();
+            else
+                rtbCapsLock.Hide();
         }
 
         private void ToggleFullScreen()
@@ -823,7 +828,8 @@ namespace Typing_Test
 
         private void label5_Click(object sender, EventArgs e)
         {
-            if(colorDialog1.ShowDialog() == DialogResult.OK)
+            colorDialog1.Color = this.BackColor;
+            if (colorDialog1.ShowDialog() == DialogResult.OK)
             {
                 this.BackColor = colorDialog1.Color;
                 SaveSettings();
@@ -832,6 +838,7 @@ namespace Typing_Test
 
         private void label6_Click(object sender, EventArgs e)
         {
+            colorDialog1.Color = rtbWords.ForeColor;
             if (colorDialog1.ShowDialog() == DialogResult.OK)
             {
                 rtbWords.ForeColor = colorDialog1.Color;
@@ -841,6 +848,7 @@ namespace Typing_Test
 
         private void label7_Click(object sender, EventArgs e)
         {
+            colorDialog1.Color = CurrentWordColor;
             if (colorDialog1.ShowDialog() == DialogResult.OK)
             {
                 CurrentWordColor = colorDialog1.Color;
@@ -850,6 +858,7 @@ namespace Typing_Test
 
         private void label8_Click(object sender, EventArgs e)
         {
+            colorDialog1.Color = CorrectWordColor;
             if (colorDialog1.ShowDialog() == DialogResult.OK)
             {
                 CorrectWordColor = colorDialog1.Color;
@@ -859,6 +868,7 @@ namespace Typing_Test
 
         private void label9_Click(object sender, EventArgs e)
         {
+            colorDialog1.Color = WrongWordColor;
             if (colorDialog1.ShowDialog() == DialogResult.OK)
             {
                 WrongWordColor = colorDialog1.Color;
@@ -875,6 +885,7 @@ namespace Typing_Test
 
         private void label11_Click(object sender, EventArgs e)
         {
+            colorDialog1.Color = tbType.ForeColor;
             if (colorDialog1.ShowDialog() == DialogResult.OK)
             {
                 tbType.ForeColor = colorDialog1.Color;
@@ -885,18 +896,6 @@ namespace Typing_Test
         private void pictureBox2_Click(object sender, EventArgs e)
         {
             ToggleFullScreen();
-        }
-
-        private void timer1_Tick(object sender, EventArgs e)
-        {
-            if(Control.IsKeyLocked(Keys.CapsLock))
-            {
-                rtbCapsLock.Visible = true;
-            }
-            else
-            {
-                rtbCapsLock.Visible = false;
-            }
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
