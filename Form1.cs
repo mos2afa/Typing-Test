@@ -19,7 +19,7 @@ namespace Typing_Test
 
         string jsonSettingsPath = Directory.GetCurrentDirectory() + "\\Settings.json";
 
-        short CurrentWordCounter = 1;
+        short CurrentWordCounter = 0;
 
         short CorrectWordsCounter = 0;
         short WrongWordsCounter = 0;
@@ -173,7 +173,6 @@ namespace Typing_Test
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
             if (!File.Exists(jsonSettingsPath))
             {
                 LoadDefaultSettings();
@@ -232,10 +231,10 @@ namespace Typing_Test
 
             for (int i = 0; i < NumberOfWords; i++)
             {
-                int rndNUM = rndWord.Next(0, word.Length);
+                int RandomNumber = rndWord.Next(0, word.Length);
 
-                CurrentWords[i] = word[rndNUM];
-                TempText += word[rndNUM];
+                CurrentWords[i] = word[RandomNumber];
+                TempText += word[RandomNumber];
                 TempText += " ";
             }
 
@@ -405,29 +404,34 @@ namespace Typing_Test
             }
         }
        
-
+        private void StartTimer()
+        {
+            if (Mode == enMode.Time && !IsStartedTimeMode)
+            {
+                IsStartedTimeMode = true;
+                TimerForSeconds.Start();
+                tbTimer.Text = _timeRemainingForSeconds.ToString(@"mm\:ss");
+            }
+            else if(Mode == enMode.Words && !IsStartedWordsMode)
+            {
+                IsStartedWordsMode = true;
+                TimerForWords.Start();
+                tbTimer.Text = _TimeCounterForWords.ToString(@"mm\:ss");
+            }
+        }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            if (tbType.Text == " " || tbType.Text == "")
+            tbWordsCounter.Text = CurrentWordCounter.ToString() + $"/{NumberOfWords}";
+
+            if (tbType.Text.Trim() == "")
             {
                 rtbWords.SelectionBackColor = rtbWords.BackColor;
                 tbType.Text = "";
                 return;
             }
 
-            if (Mode == enMode.Time)
-            {
-                IsStartedTimeMode = true;
-                TimerForSeconds.Start();
-                tbTimer.Text = _timeRemainingForSeconds.ToString(@"mm\:ss"); 
-            }
-            else
-            {
-                IsStartedWordsMode = true;
-                TimerForWords.Start();
-                tbTimer.Text = _TimeCounterForWords.ToString(@"mm\:ss");
-            }
+            StartTimer();
 
             CheckEachCharInCurrentWord();
 
@@ -444,8 +448,6 @@ namespace Typing_Test
                 UpdateIndexOfFirstCharOfCurrentWord();
 
                 CurrentWordCounter++;
-
-                tbWordsCounter.Text = CurrentWordCounter.ToString();
 
                 SetCurrentWordColor();
 
@@ -464,12 +466,10 @@ namespace Typing_Test
             }
         }
 
-
         int IndexOfFirstCharOfCurrentWord = 0;
 
         private void SetPrevWordColor()
         {
-
             if (CheckCurrentWordTypedTrue())
             {
                 rtbWords.Select(IndexOfFirstCharOfCurrentWord, CurrentWords[CurrentWordCounter].Length);
@@ -480,7 +480,6 @@ namespace Typing_Test
                 rtbWords.Select(IndexOfFirstCharOfCurrentWord, CurrentWords[CurrentWordCounter].Length );
                 rtbWords.SelectionColor = WrongWordColor;
             }
-
         }
 
         private void UpdateIndexOfFirstCharOfCurrentWord()
@@ -494,7 +493,6 @@ namespace Typing_Test
             {
                 rtbWords.Select(IndexOfFirstCharOfCurrentWord, CurrentWords[CurrentWordCounter].Length);
                 rtbWords.SelectionColor = CurrentWordColor;
-
             }
         }
 
@@ -502,7 +500,6 @@ namespace Typing_Test
         {
             ChangeNumberOfWords((Button)sender);
         }
-
 
         private void ResetTimer()
         {
@@ -554,7 +551,14 @@ namespace Typing_Test
 
             rtbCorrectWords.Text = CorrectWordsCounter.ToString();
             rtbWrongWords.Text = WrongWordsCounter.ToString();
-            rtbAccuracy.Text = (Convert.ToInt16((Convert.ToDouble(CorrectStrokes) / (CorrectStrokes+WrongStrokes)) * 100)).ToString() + "%";
+            if(CurrentWordCounter == 0)
+            {
+                rtbAccuracy.Text = "0%"; 
+            }
+            else
+            {
+                rtbAccuracy.Text = (Convert.ToInt16((Convert.ToDouble(CorrectStrokes) / (CorrectStrokes + WrongStrokes)) * 100)).ToString() + "%";
+            }
 
             rtbFinalWPM.Text = Convert.ToInt16(CalcWPM()).ToString();
 
@@ -565,9 +569,7 @@ namespace Typing_Test
         {
             if(IsStartedTimeMode && Mode == enMode.Time)
             {
-                 _timeRemainingForSeconds = _timeRemainingForSeconds.Subtract(TimeSpan.FromSeconds(1));
-
-                _TimeCounterForWords = _TimeCounterForWords.Add(TimeSpan.FromSeconds(1));
+                _timeRemainingForSeconds = _timeRemainingForSeconds.Subtract(TimeSpan.FromSeconds(1));
 
                 UpdateTimerDisplay();
 
@@ -582,7 +584,6 @@ namespace Typing_Test
                 }
 
                 tbLiveWPM.Text = Convert.ToInt16(CalcWPM()).ToString();
-
             }
         }
 
@@ -604,7 +605,6 @@ namespace Typing_Test
                 }
 
                 tbLiveWPM.Text = Convert.ToInt16(CalcWPM()).ToString();
-
             }
         }
 
@@ -689,7 +689,10 @@ namespace Typing_Test
             btnTime.BackColor = SelectColor;
             btnWords.BackColor = Color.White;
 
-            pnlResults.Visible = false;
+            tbTimer.Show();
+            tbWordsCounter.Hide();
+
+            pnlResults.Hide();
 
             if (!IsSettingOpened)
             {
@@ -723,7 +726,10 @@ namespace Typing_Test
             btnWords.BackColor = SelectColor;
             btnTime.BackColor = Color.White;
 
-            pnlResults.Visible = false;
+            tbTimer.Hide();
+            tbWordsCounter.Show();
+
+            pnlResults.Hide();
             if(!IsSettingOpened)
             {
                 tbType.ReadOnly = false;
@@ -762,8 +768,6 @@ namespace Typing_Test
             // Calculate WPM: Words / Time in Minutes.
             return words / timeInMinutes;
         }
-
-
 
         private void tbType_KeyDown(object sender, KeyEventArgs e)
         {

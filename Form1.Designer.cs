@@ -486,11 +486,9 @@ namespace Typing_Test
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(25)))), ((int)(((byte)(24)))));
-            this.Controls.Add(this.tbWordsCounter);
             this.Controls.Add(this.rtbCapsLock);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.btnSettings);
-            this.Controls.Add(this.tbLiveWPM);
             this.Controls.Add(this.btnWords);
             this.Controls.Add(this.btnTime);
             this.Controls.Add(this.tbTimer);
@@ -504,9 +502,11 @@ namespace Typing_Test
             this.Controls.Add(this.btn50);
             this.Controls.Add(this.btn25);
             this.Controls.Add(this.btn10);
+            this.Controls.Add(this.rtbWords);
             this.Controls.Add(this.pnlSettings);
             this.Controls.Add(this.pnlResults);
-            this.Controls.Add(this.rtbWords);
+            this.Controls.Add(this.tbLiveWPM);
+            this.Controls.Add(this.tbWordsCounter);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.KeyPreview = true;
             this.Name = "Form1";

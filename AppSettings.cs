@@ -17,10 +17,6 @@ namespace Typing_Test
         public string SelectColor      {get;set; }
         public string TypeBarColor     {get;set; }
 
-        public bool IsTimerVisible        {get;set; }
-        public bool IsLiveWPMVisible      {get;set; }
-        public bool IsWordsCounterVisible {get;set; }
-
         public string WindowState      {get;set; } // Normal, Maximized, Minimized
         public string FormBorderStyle  {get;set; }
     }
