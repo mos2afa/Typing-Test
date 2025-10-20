@@ -57,7 +57,7 @@ namespace Typing_Test
             this.lbExportSettings = new System.Windows.Forms.Label();
             this.cbWhichWords = new System.Windows.Forms.ComboBox();
             this.lbTypeBarForeColor = new System.Windows.Forms.Label();
-            this.lbResetDefaultColors = new System.Windows.Forms.Label();
+            this.lbResetDefaultSettings = new System.Windows.Forms.Label();
             this.lbWrongWordColor = new System.Windows.Forms.Label();
             this.lbCorrectWordColor = new System.Windows.Forms.Label();
             this.lbCurrentWordColor = new System.Windows.Forms.Label();
@@ -92,6 +92,7 @@ namespace Typing_Test
             this.rtbWords.Name = "rtbWords";
             this.rtbWords.ReadOnly = true;
             this.rtbWords.TabStop = false;
+            this.rtbWords.MouseDown += new System.Windows.Forms.MouseEventHandler(this.rtbWords_MouseDown);
             // 
             // tbType
             // 
@@ -302,6 +303,7 @@ namespace Typing_Test
             resources.GetString("cbWhichWords.Items1")});
             this.cbWhichWords.Name = "cbWhichWords";
             this.cbWhichWords.TabStop = false;
+            this.cbWhichWords.SelectedIndexChanged += new System.EventHandler(this.cbWhichWords_SelectedIndexChanged);
             // 
             // lbTypeBarForeColor
             // 
@@ -310,12 +312,12 @@ namespace Typing_Test
             this.lbTypeBarForeColor.Name = "lbTypeBarForeColor";
             this.lbTypeBarForeColor.Click += new System.EventHandler(this.label11_Click);
             // 
-            // lbResetDefaultColors
+            // lbResetDefaultSettings
             // 
-            resources.ApplyResources(this.lbResetDefaultColors, "lbResetDefaultColors");
-            this.lbResetDefaultColors.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.lbResetDefaultColors.Name = "lbResetDefaultColors";
-            this.lbResetDefaultColors.Click += new System.EventHandler(this.lbResetDefaultColors_Click);
+            resources.ApplyResources(this.lbResetDefaultSettings, "lbResetDefaultSettings");
+            this.lbResetDefaultSettings.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.lbResetDefaultSettings.Name = "lbResetDefaultSettings";
+            this.lbResetDefaultSettings.Click += new System.EventHandler(this.lbResetDefaultSettings_Click);
             // 
             // lbWrongWordColor
             // 
@@ -445,7 +447,7 @@ namespace Typing_Test
             resources.ApplyResources(this.pnlSettings, "pnlSettings");
             this.pnlSettings.Controls.Add(this.lbTypeBarForeColor);
             this.pnlSettings.Controls.Add(this.cbWhichWords);
-            this.pnlSettings.Controls.Add(this.lbResetDefaultColors);
+            this.pnlSettings.Controls.Add(this.lbResetDefaultSettings);
             this.pnlSettings.Controls.Add(this.lbImportSettings);
             this.pnlSettings.Controls.Add(this.lbWrongWordColor);
             this.pnlSettings.Controls.Add(this.lbExportSettings);
@@ -502,11 +504,11 @@ namespace Typing_Test
             this.Controls.Add(this.btn50);
             this.Controls.Add(this.btn25);
             this.Controls.Add(this.btn10);
-            this.Controls.Add(this.rtbWords);
             this.Controls.Add(this.pnlSettings);
             this.Controls.Add(this.pnlResults);
             this.Controls.Add(this.tbLiveWPM);
             this.Controls.Add(this.tbWordsCounter);
+            this.Controls.Add(this.rtbWords);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.KeyPreview = true;
             this.Name = "Form1";
@@ -559,7 +561,7 @@ namespace Typing_Test
         public System.Windows.Forms.Label label4;
         private System.Windows.Forms.PictureBox btnSettings;
         private System.Windows.Forms.Label lbTypeBarForeColor;
-        private System.Windows.Forms.Label lbResetDefaultColors;
+        private System.Windows.Forms.Label lbResetDefaultSettings;
         private System.Windows.Forms.Label lbWrongWordColor;
         private System.Windows.Forms.Label lbCorrectWordColor;
         private System.Windows.Forms.Label lbCurrentWordColor;

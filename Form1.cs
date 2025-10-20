@@ -33,7 +33,7 @@ namespace Typing_Test
         static string AllWordsMonkeyType = "a about and any as ask at back be but by can come do down end few find for go group have he help home house how if in into it large last late lead life line man many may more move new no not now of on one open or other out own part plan play point real run same say set she so some take the this those time to turn up use want we what who with work you against also another before begin both change child could course day each early face form from get give great hand hold just know leave like long make mean might most most must number old only over person place right should show since stand such than then they thing think very way when while word would write year again all call even eye fact feel good here high increase keep nation off order see seem small still tell that these too well where which will without after because become between consider develop during first follow general however interest little look need never people present problem program public school state system there through under world";
         // 196 words
 
-        string[] word = AllWords10FastFingers.Split('|');
+        string[] words = AllWords10FastFingers.Split('|');
 
         static short NumberOfSeconds = 15;
 
@@ -225,16 +225,12 @@ namespace Typing_Test
         {
             string TempText = "";
 
-            if (cbWhichWords.SelectedIndex == 0) word = AllWords10FastFingers.Split('|');
-
-            if (cbWhichWords.SelectedIndex == 1) word = AllWordsMonkeyType.Split(' ');
-
             for (int i = 0; i < NumberOfWords; i++)
             {
-                int RandomNumber = rndWord.Next(0, word.Length);
+                int RandomNumber = rndWord.Next(0, words.Length);
 
-                CurrentWords[i] = word[RandomNumber];
-                TempText += word[RandomNumber];
+                CurrentWords[i] = words[RandomNumber];
+                TempText += words[RandomNumber];
                 TempText += " ";
             }
 
@@ -251,7 +247,6 @@ namespace Typing_Test
 
             FillWords();
 
-            tbType.Enabled = true;
             tbType.Focus();
 
             CurrentWordCounter = 0;
@@ -336,13 +331,17 @@ namespace Typing_Test
         {
             RestartWords();
             ResetTimer();
-            pnlResults.Visible = false;
-            tbType.ReadOnly = false;
+            pnlResults.Hide();
+
+            if(IsSettingsOpen)
+                tbType.ReadOnly = true;
+            else
+                tbType.ReadOnly = false;
         }
 
         private void btnRestart_Click(object sender, EventArgs e)
         {
-            if (IsSettingOpened) return;
+            if (IsSettingsOpen) return;
 
             Restart();
         }
@@ -589,7 +588,6 @@ namespace Typing_Test
 
         private void TimerForWords_Tick(object sender, EventArgs e)
         {
-
             if (IsStartedWordsMode && Mode == enMode.Words)
             {
                 _TimeCounterForWords = _TimeCounterForWords.Add(TimeSpan.FromSeconds(1));
@@ -622,7 +620,7 @@ namespace Typing_Test
             tbWordsCounter.Text = "";
 
             pnlResults.Hide();
-            if(!IsSettingOpened)
+            if(!IsSettingsOpen)
             {
                 tbType.ReadOnly = false;
             }
@@ -644,7 +642,7 @@ namespace Typing_Test
             TimerForSeconds.Stop();
             
             pnlResults.Hide();
-            if (!IsSettingOpened)
+            if (!IsSettingsOpen)
             {
                 tbType.ReadOnly = false;
             }
@@ -686,70 +684,43 @@ namespace Typing_Test
 
         private void btnTime_Click(object sender, EventArgs e)
         {
+            if (Mode == enMode.Time) return;
+
+            Mode = enMode.Time;
+
             btnTime.BackColor = SelectColor;
             btnWords.BackColor = Color.White;
 
             tbTimer.Show();
             tbWordsCounter.Hide();
 
-            pnlResults.Hide();
+            NumberOfWords = 1000;
+            CurrentWords = new string[NumberOfWords];
 
-            if (!IsSettingOpened)
-            {
-                tbType.ReadOnly = false;
-            }
+            Restart();
+            
+            BringToFrontTimeButtons();
 
-            tbLiveWPM.Text = "";
-
-            _TimeCounterForWords = TimeSpan.FromSeconds(0);
-            _timeRemainingForSeconds = TimeSpan.FromSeconds(NumberOfSeconds);
-
-            if (Mode == enMode.Words)
-            {
-                TimerForWords.Stop();
-
-                NumberOfWords = 1000;
-                CurrentWords = new string[NumberOfWords];
-
-                RestartWords();
-
-                Mode = enMode.Time;
-
-                BringToFrontTimeButtons();
-
-                ChangeNumberOfSeconds(btn15);
-            }
+            ChangeNumberOfSeconds(btn15);
         }
 
         private void btnWords_Click(object sender, EventArgs e)
         {
+            if (Mode == enMode.Words) return;
+
+            Mode = enMode.Words;
+
             btnWords.BackColor = SelectColor;
             btnTime.BackColor = Color.White;
 
             tbTimer.Hide();
             tbWordsCounter.Show();
 
-            pnlResults.Hide();
-            if(!IsSettingOpened)
-            {
-                tbType.ReadOnly = false;
-            }
+            Restart();
 
-            tbLiveWPM.Text = "";
+            BringToFrontWordButtons();
 
-            _TimeCounterForWords = TimeSpan.FromSeconds(0);
-            _timeRemainingForSeconds = TimeSpan.FromSeconds(NumberOfSeconds);
-
-            if (Mode == enMode.Time)
-            {
-                TimerForSeconds.Stop();
-
-                Mode = enMode.Words;
-
-                BringToFrontWordButtons();
-
-                ChangeNumberOfWords(btn10);
-            }
+            ChangeNumberOfWords(btn10);
         }
 
         private double CalcWPM()
@@ -779,15 +750,6 @@ namespace Typing_Test
             }
         }
 
-        private void contextMenuStrip1_Click(object sender, EventArgs e)
-        {     
-            if (colorDialog1.ShowDialog() == DialogResult.OK)
-            {
-                ContextMenuStrip cms = (ContextMenuStrip)sender;
-                cms.SourceControl.BackColor = colorDialog1.Color;
-            }
-        }
-
         private void ChangeSomeControlColorsAccordingToFormBackColor()
         {
             tbLiveWPM.BackColor = this.BackColor;
@@ -805,22 +767,22 @@ namespace Typing_Test
             ChangeSomeControlColorsAccordingToFormBackColor();
         }
 
-        public bool IsSettingOpened = false;
+        public bool IsSettingsOpen = false;
 
         private void ToggleSettingsVisibility()
         {
             Restart();
 
-            if (!IsSettingOpened)
+            if (!IsSettingsOpen)
             {
                 pnlSettings.BringToFront();
-                IsSettingOpened = true;
+                IsSettingsOpen = true;
                 tbType.ReadOnly = true;
             }
             else
             {
                 pnlSettings.SendToBack();
-                IsSettingOpened = false;
+                IsSettingsOpen = false;
                 tbType.ReadOnly = false;
             }
         }
@@ -880,11 +842,12 @@ namespace Typing_Test
             }
         }
 
-        private void lbResetDefaultColors_Click(object sender, EventArgs e)
+        private void lbResetDefaultSettings_Click(object sender, EventArgs e)
         {
             LoadDefaultSettings();
             File.Delete(jsonSettingsPath);
             SaveSettings();
+            MessageBox.Show("Settings have been reset successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void label11_Click(object sender, EventArgs e)
@@ -913,7 +876,7 @@ namespace Typing_Test
 
             Clipboard.SetText(jsonString);
 
-            MessageBox.Show("Settings Copied To Clipboard Successfully.");
+            MessageBox.Show("Settings Copied To Clipboard Successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void lbImportSettings_Click(object sender, EventArgs e)
@@ -932,6 +895,19 @@ namespace Typing_Test
             {
                 MessageBox.Show("Error while Importing Settings.","Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
             }
+        }
+
+        private void rtbWords_MouseDown(object sender, MouseEventArgs e)
+        {
+            e = null;
+            this.ActiveControl = tbType;
+        }
+
+        private void cbWhichWords_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbWhichWords.SelectedIndex == 0) words = AllWords10FastFingers.Split('|');
+
+            if (cbWhichWords.SelectedIndex == 1) words = AllWordsMonkeyType.Split(' ');
         }
     }
 }
