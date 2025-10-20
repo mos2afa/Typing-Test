@@ -504,11 +504,11 @@ namespace Typing_Test
             this.Controls.Add(this.btn50);
             this.Controls.Add(this.btn25);
             this.Controls.Add(this.btn10);
-            this.Controls.Add(this.pnlSettings);
-            this.Controls.Add(this.pnlResults);
             this.Controls.Add(this.tbLiveWPM);
             this.Controls.Add(this.tbWordsCounter);
             this.Controls.Add(this.rtbWords);
+            this.Controls.Add(this.pnlSettings);
+            this.Controls.Add(this.pnlResults);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.KeyPreview = true;
             this.Name = "Form1";
