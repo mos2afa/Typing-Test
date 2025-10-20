@@ -18,6 +18,13 @@ namespace Typing_Test
 
         string jsonSettingsPath = Directory.GetCurrentDirectory() + "\\Settings.json";
 
+        public bool IsSettingsOpen = false;
+
+        Color CurrentWordColor;
+        Color CorrectWordColor;
+        Color WrongWordColor;
+        Color SelectColor;
+
         private void LoadDefaultSettings()
         {
             this.BackColor = Color.FromArgb(1, 3, 25);
@@ -109,6 +116,14 @@ namespace Typing_Test
 
             settings.WindowState = this.WindowState.ToString(); // Normal, Maximized, Minimized
             settings.FormBorderStyle = this.FormBorderStyle.ToString(); // None, Fixed3D
+        }
+
+        private void ResetDefaultSettings()
+        {
+            LoadDefaultSettings();
+            File.Delete(jsonSettingsPath);
+            SaveSettings();
+            MessageBox.Show("Settings have been reset successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void SaveToFile()
