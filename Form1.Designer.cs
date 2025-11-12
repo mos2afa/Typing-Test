@@ -37,7 +37,6 @@ namespace Typing_Test
             this.btn25 = new System.Windows.Forms.Button();
             this.btn50 = new System.Windows.Forms.Button();
             this.btn100 = new System.Windows.Forms.Button();
-            this.TimerForSeconds = new System.Windows.Forms.Timer(this.components);
             this.btn15 = new System.Windows.Forms.Button();
             this.btn30 = new System.Windows.Forms.Button();
             this.btn60 = new System.Windows.Forms.Button();
@@ -62,7 +61,6 @@ namespace Typing_Test
             this.lbCurrentWordColor = new System.Windows.Forms.Label();
             this.lbFontColor = new System.Windows.Forms.Label();
             this.lbFormBackColor = new System.Windows.Forms.Label();
-            this.TimerForWords = new System.Windows.Forms.Timer(this.components);
             this.btnTime = new System.Windows.Forms.Button();
             this.btnWords = new System.Windows.Forms.Button();
             this.tbLiveWPM = new System.Windows.Forms.TextBox();
@@ -77,6 +75,7 @@ namespace Typing_Test
             this.lbChangeCountersColor = new System.Windows.Forms.Label();
             this.pnlResults = new System.Windows.Forms.Panel();
             this.rtbWPMWord = new System.Windows.Forms.RichTextBox();
+            this.tUpdateUI = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnSettings)).BeginInit();
             this.pnlSettings.SuspendLayout();
@@ -143,11 +142,6 @@ namespace Typing_Test
             this.btn100.TabStop = false;
             this.btn100.UseVisualStyleBackColor = false;
             this.btn100.Click += new System.EventHandler(this.btnChangeNumberOfWords_Click);
-            // 
-            // TimerForSeconds
-            // 
-            this.TimerForSeconds.Interval = 1000;
-            this.TimerForSeconds.Tick += new System.EventHandler(this.TimerForSeconds_Tick);
             // 
             // btn15
             // 
@@ -348,11 +342,6 @@ namespace Typing_Test
             this.lbFormBackColor.Name = "lbFormBackColor";
             this.lbFormBackColor.Click += new System.EventHandler(this.lbChangeFormBackColor_Click);
             // 
-            // TimerForWords
-            // 
-            this.TimerForWords.Interval = 1000;
-            this.TimerForWords.Tick += new System.EventHandler(this.TimerForWords_Tick);
-            // 
             // btnTime
             // 
             resources.ApplyResources(this.btnTime, "btnTime");
@@ -497,6 +486,11 @@ namespace Typing_Test
             this.rtbWPMWord.TabStop = false;
             this.rtbWPMWord.MouseDown += new System.Windows.Forms.MouseEventHandler(this.rtbWPMWord_MouseDown);
             // 
+            // tUpdateUI
+            // 
+            this.tUpdateUI.Interval = 1000;
+            this.tUpdateUI.Tick += new System.EventHandler(this.tUpdateUI_Tick);
+            // 
             // Form1
             // 
             resources.ApplyResources(this, "$this");
@@ -552,7 +546,6 @@ namespace Typing_Test
         public System.Windows.Forms.Button btn25;
         public System.Windows.Forms.Button btn50;
         public System.Windows.Forms.Button btn100;
-        public System.Windows.Forms.Timer TimerForSeconds;
         public System.Windows.Forms.Button btn15;
         public System.Windows.Forms.Button btn30;
         public System.Windows.Forms.Button btn60;
@@ -562,7 +555,6 @@ namespace Typing_Test
         public System.Windows.Forms.Label label2;
         public System.Windows.Forms.Label label3;
         public System.Windows.Forms.RichTextBox rtbFinalWPM;
-        public System.Windows.Forms.Timer TimerForWords;
         public System.Windows.Forms.Button btnTime;
         public System.Windows.Forms.Button btnWords;
         public System.Windows.Forms.RichTextBox rtbKeyStrokes;
@@ -592,6 +584,7 @@ namespace Typing_Test
         public System.Windows.Forms.RichTextBox rtbWPMWord;
         private System.Windows.Forms.Label lbChangeCountersColor;
         private System.Windows.Forms.Label lbChangeSelectColor;
+        private System.Windows.Forms.Timer tUpdateUI;
     }
 }
 

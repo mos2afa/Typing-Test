@@ -101,16 +101,6 @@ namespace Typing_Test
             ChangeNumberOfWords((Button)sender);
         }
 
-        private void TimerForSeconds_Tick(object sender, EventArgs e)
-        {
-            SecondsTimerTick();
-        }
-
-        private void TimerForWords_Tick(object sender, EventArgs e)
-        {
-            WordsTimerTick();
-        }
-
         private void btnChangeNumberOfSeconds_Click(object sender, EventArgs e)
         {
             ChangeNumberOfSeconds((Button)sender);
@@ -221,5 +211,7 @@ namespace Typing_Test
             e = null;
             this.ActiveControl = tbType;
         }
+
+        
     }
 }
