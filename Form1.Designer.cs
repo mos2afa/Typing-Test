@@ -48,7 +48,6 @@ namespace Typing_Test
             this.label3 = new System.Windows.Forms.Label();
             this.rtbAccuracy = new System.Windows.Forms.RichTextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.richTextBox2 = new System.Windows.Forms.RichTextBox();
             this.rtbKeyStrokes = new System.Windows.Forms.RichTextBox();
             this.rtbCorrectWords = new System.Windows.Forms.RichTextBox();
             this.rtbWrongWords = new System.Windows.Forms.RichTextBox();
@@ -74,8 +73,10 @@ namespace Typing_Test
             this.rtbCapsLock = new System.Windows.Forms.RichTextBox();
             this.tbWordsCounter = new System.Windows.Forms.TextBox();
             this.pnlSettings = new System.Windows.Forms.Panel();
+            this.lbChangeSelectColor = new System.Windows.Forms.Label();
+            this.lbChangeCountersColor = new System.Windows.Forms.Label();
             this.pnlResults = new System.Windows.Forms.Panel();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.rtbWPMWord = new System.Windows.Forms.RichTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnSettings)).BeginInit();
             this.pnlSettings.SuspendLayout();
@@ -198,6 +199,7 @@ namespace Typing_Test
             this.tbTimer.Name = "tbTimer";
             this.tbTimer.ReadOnly = true;
             this.tbTimer.TabStop = false;
+            this.tbTimer.MouseDown += new System.Windows.Forms.MouseEventHandler(this.rtbWPMWord_MouseDown);
             // 
             // label1
             // 
@@ -232,16 +234,6 @@ namespace Typing_Test
             this.label4.ForeColor = System.Drawing.Color.White;
             this.label4.Name = "label4";
             // 
-            // richTextBox2
-            // 
-            this.richTextBox2.BackColor = System.Drawing.Color.DodgerBlue;
-            this.richTextBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            resources.ApplyResources(this.richTextBox2, "richTextBox2");
-            this.richTextBox2.ForeColor = System.Drawing.Color.DeepPink;
-            this.richTextBox2.Name = "richTextBox2";
-            this.richTextBox2.ReadOnly = true;
-            this.richTextBox2.TabStop = false;
-            // 
             // rtbKeyStrokes
             // 
             this.rtbKeyStrokes.BackColor = System.Drawing.Color.White;
@@ -273,11 +265,13 @@ namespace Typing_Test
             // 
             this.rtbFinalWPM.BackColor = System.Drawing.Color.DodgerBlue;
             this.rtbFinalWPM.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.rtbFinalWPM.Cursor = System.Windows.Forms.Cursors.Default;
             resources.ApplyResources(this.rtbFinalWPM, "rtbFinalWPM");
             this.rtbFinalWPM.ForeColor = System.Drawing.Color.DeepPink;
             this.rtbFinalWPM.Name = "rtbFinalWPM";
             this.rtbFinalWPM.ReadOnly = true;
             this.rtbFinalWPM.TabStop = false;
+            this.rtbFinalWPM.MouseDown += new System.Windows.Forms.MouseEventHandler(this.rtbWPMWord_MouseDown);
             // 
             // lbImportSettings
             // 
@@ -310,7 +304,7 @@ namespace Typing_Test
             resources.ApplyResources(this.lbTypeBarForeColor, "lbTypeBarForeColor");
             this.lbTypeBarForeColor.ForeColor = System.Drawing.Color.DodgerBlue;
             this.lbTypeBarForeColor.Name = "lbTypeBarForeColor";
-            this.lbTypeBarForeColor.Click += new System.EventHandler(this.label11_Click);
+            this.lbTypeBarForeColor.Click += new System.EventHandler(this.lbChangetbTypeForeColor_Click);
             // 
             // lbResetDefaultSettings
             // 
@@ -324,35 +318,35 @@ namespace Typing_Test
             resources.ApplyResources(this.lbWrongWordColor, "lbWrongWordColor");
             this.lbWrongWordColor.ForeColor = System.Drawing.Color.DodgerBlue;
             this.lbWrongWordColor.Name = "lbWrongWordColor";
-            this.lbWrongWordColor.Click += new System.EventHandler(this.label9_Click);
+            this.lbWrongWordColor.Click += new System.EventHandler(this.lbChangeWrongWordColor_Click);
             // 
             // lbCorrectWordColor
             // 
             resources.ApplyResources(this.lbCorrectWordColor, "lbCorrectWordColor");
             this.lbCorrectWordColor.ForeColor = System.Drawing.Color.DodgerBlue;
             this.lbCorrectWordColor.Name = "lbCorrectWordColor";
-            this.lbCorrectWordColor.Click += new System.EventHandler(this.label8_Click);
+            this.lbCorrectWordColor.Click += new System.EventHandler(this.lbChangeCorrectWordColor_Click);
             // 
             // lbCurrentWordColor
             // 
             resources.ApplyResources(this.lbCurrentWordColor, "lbCurrentWordColor");
             this.lbCurrentWordColor.ForeColor = System.Drawing.Color.DodgerBlue;
             this.lbCurrentWordColor.Name = "lbCurrentWordColor";
-            this.lbCurrentWordColor.Click += new System.EventHandler(this.label7_Click);
+            this.lbCurrentWordColor.Click += new System.EventHandler(this.lbChangeCurrentWordColor_Click);
             // 
             // lbFontColor
             // 
             resources.ApplyResources(this.lbFontColor, "lbFontColor");
             this.lbFontColor.ForeColor = System.Drawing.Color.DodgerBlue;
             this.lbFontColor.Name = "lbFontColor";
-            this.lbFontColor.Click += new System.EventHandler(this.label6_Click);
+            this.lbFontColor.Click += new System.EventHandler(this.lbChangertbWordsForeColor_Click);
             // 
             // lbFormBackColor
             // 
             resources.ApplyResources(this.lbFormBackColor, "lbFormBackColor");
             this.lbFormBackColor.ForeColor = System.Drawing.Color.DodgerBlue;
             this.lbFormBackColor.Name = "lbFormBackColor";
-            this.lbFormBackColor.Click += new System.EventHandler(this.label5_Click);
+            this.lbFormBackColor.Click += new System.EventHandler(this.lbChangeFormBackColor_Click);
             // 
             // TimerForWords
             // 
@@ -389,6 +383,7 @@ namespace Typing_Test
             this.tbLiveWPM.Name = "tbLiveWPM";
             this.tbLiveWPM.ReadOnly = true;
             this.tbLiveWPM.TabStop = false;
+            this.tbLiveWPM.MouseDown += new System.Windows.Forms.MouseEventHandler(this.rtbWPMWord_MouseDown);
             // 
             // colorDialog1
             // 
@@ -430,6 +425,7 @@ namespace Typing_Test
             this.rtbCapsLock.Name = "rtbCapsLock";
             this.rtbCapsLock.ReadOnly = true;
             this.rtbCapsLock.TabStop = false;
+            this.rtbCapsLock.MouseDown += new System.Windows.Forms.MouseEventHandler(this.rtbWPMWord_MouseDown);
             // 
             // tbWordsCounter
             // 
@@ -441,10 +437,13 @@ namespace Typing_Test
             this.tbWordsCounter.Name = "tbWordsCounter";
             this.tbWordsCounter.ReadOnly = true;
             this.tbWordsCounter.TabStop = false;
+            this.tbWordsCounter.MouseDown += new System.Windows.Forms.MouseEventHandler(this.rtbWPMWord_MouseDown);
             // 
             // pnlSettings
             // 
             resources.ApplyResources(this.pnlSettings, "pnlSettings");
+            this.pnlSettings.Controls.Add(this.lbChangeSelectColor);
+            this.pnlSettings.Controls.Add(this.lbChangeCountersColor);
             this.pnlSettings.Controls.Add(this.lbTypeBarForeColor);
             this.pnlSettings.Controls.Add(this.cbWhichWords);
             this.pnlSettings.Controls.Add(this.lbResetDefaultSettings);
@@ -457,15 +456,28 @@ namespace Typing_Test
             this.pnlSettings.Controls.Add(this.lbFontColor);
             this.pnlSettings.Name = "pnlSettings";
             // 
+            // lbChangeSelectColor
+            // 
+            resources.ApplyResources(this.lbChangeSelectColor, "lbChangeSelectColor");
+            this.lbChangeSelectColor.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.lbChangeSelectColor.Name = "lbChangeSelectColor";
+            this.lbChangeSelectColor.Click += new System.EventHandler(this.lbChangeSelectColor_Click);
+            // 
+            // lbChangeCountersColor
+            // 
+            resources.ApplyResources(this.lbChangeCountersColor, "lbChangeCountersColor");
+            this.lbChangeCountersColor.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.lbChangeCountersColor.Name = "lbChangeCountersColor";
+            this.lbChangeCountersColor.Click += new System.EventHandler(this.lbChangeCountersColor_Click);
+            // 
             // pnlResults
             // 
             resources.ApplyResources(this.pnlResults, "pnlResults");
-            this.pnlResults.Controls.Add(this.richTextBox1);
+            this.pnlResults.Controls.Add(this.rtbWPMWord);
             this.pnlResults.Controls.Add(this.rtbAccuracy);
             this.pnlResults.Controls.Add(this.rtbFinalWPM);
             this.pnlResults.Controls.Add(this.label4);
             this.pnlResults.Controls.Add(this.label1);
-            this.pnlResults.Controls.Add(this.richTextBox2);
             this.pnlResults.Controls.Add(this.label2);
             this.pnlResults.Controls.Add(this.rtbKeyStrokes);
             this.pnlResults.Controls.Add(this.label3);
@@ -473,15 +485,17 @@ namespace Typing_Test
             this.pnlResults.Controls.Add(this.rtbWrongWords);
             this.pnlResults.Name = "pnlResults";
             // 
-            // richTextBox1
+            // rtbWPMWord
             // 
-            this.richTextBox1.BackColor = System.Drawing.Color.DodgerBlue;
-            this.richTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            resources.ApplyResources(this.richTextBox1, "richTextBox1");
-            this.richTextBox1.ForeColor = System.Drawing.Color.DeepPink;
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.ReadOnly = true;
-            this.richTextBox1.TabStop = false;
+            this.rtbWPMWord.BackColor = System.Drawing.Color.DodgerBlue;
+            this.rtbWPMWord.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.rtbWPMWord.Cursor = System.Windows.Forms.Cursors.Default;
+            resources.ApplyResources(this.rtbWPMWord, "rtbWPMWord");
+            this.rtbWPMWord.ForeColor = System.Drawing.Color.DeepPink;
+            this.rtbWPMWord.Name = "rtbWPMWord";
+            this.rtbWPMWord.ReadOnly = true;
+            this.rtbWPMWord.TabStop = false;
+            this.rtbWPMWord.MouseDown += new System.Windows.Forms.MouseEventHandler(this.rtbWPMWord_MouseDown);
             // 
             // Form1
             // 
@@ -493,7 +507,6 @@ namespace Typing_Test
             this.Controls.Add(this.btnSettings);
             this.Controls.Add(this.btnWords);
             this.Controls.Add(this.btnTime);
-            this.Controls.Add(this.tbTimer);
             this.Controls.Add(this.tbType);
             this.Controls.Add(this.btnRestart);
             this.Controls.Add(this.btn120);
@@ -505,6 +518,7 @@ namespace Typing_Test
             this.Controls.Add(this.btn25);
             this.Controls.Add(this.btn10);
             this.Controls.Add(this.tbLiveWPM);
+            this.Controls.Add(this.tbTimer);
             this.Controls.Add(this.tbWordsCounter);
             this.Controls.Add(this.rtbWords);
             this.Controls.Add(this.pnlSettings);
@@ -556,7 +570,7 @@ namespace Typing_Test
         public System.Windows.Forms.RichTextBox rtbWrongWords;
         public System.Windows.Forms.TextBox tbLiveWPM;
         private System.Windows.Forms.ColorDialog colorDialog1;
-        public System.Windows.Forms.RichTextBox richTextBox2;
+        //public System.Windows.Forms.RichTextBox richTextBox2;
         public System.Windows.Forms.RichTextBox rtbAccuracy;
         public System.Windows.Forms.Label label4;
         private System.Windows.Forms.PictureBox btnSettings;
@@ -575,7 +589,9 @@ namespace Typing_Test
         private System.Windows.Forms.Label lbImportSettings;
         private System.Windows.Forms.Panel pnlSettings;
         private System.Windows.Forms.Panel pnlResults;
-        public System.Windows.Forms.RichTextBox richTextBox1;
+        public System.Windows.Forms.RichTextBox rtbWPMWord;
+        private System.Windows.Forms.Label lbChangeCountersColor;
+        private System.Windows.Forms.Label lbChangeSelectColor;
     }
 }
 

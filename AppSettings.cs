@@ -16,6 +16,7 @@ namespace Typing_Test
         public string WrongWordColor   {get;set; }
         public string SelectColor      {get;set; }
         public string TypeBarColor     {get;set; }
+        public string CountersColor    {get;set; }
 
         public string WindowState      {get;set; } // Normal, Maximized, Minimized
         public string FormBorderStyle  {get;set; }

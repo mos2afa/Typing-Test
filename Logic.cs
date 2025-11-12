@@ -281,14 +281,7 @@ namespace Typing_Test
 
         private void UpdateTimerDisplay()
         {
-            if (Mode == enMode.Time)
-            {
-                tbTimer.Text = _timeRemainingForSeconds.ToString(@"mm\:ss");
-            }
-            else
-            {
-                tbTimer.Text = _TimeCounterForWords.ToString(@"mm\:ss");
-            }
+            tbTimer.Text = _timeRemainingForSeconds.ToString(@"mm\:ss");
         }
 
         private void SetKeyStrokesColors()
@@ -304,7 +297,17 @@ namespace Typing_Test
 
         private double CalcWPM()
         {
-            double timeInSeconds = ((Mode == enMode.Words) ? (_TimeCounterForWords.TotalSeconds) : (!IsStartedTimeMode ? NumberOfSeconds : NumberOfSeconds - _timeRemainingForSeconds.TotalSeconds));
+            double timeInSeconds = 0.0;
+
+            if(Mode == enMode.Words)
+                timeInSeconds = _TimeCounterForWords.TotalSeconds;
+            else
+            {
+                if (!IsStartedTimeMode)
+                    timeInSeconds = NumberOfSeconds;
+                else
+                    timeInSeconds = NumberOfSeconds - _timeRemainingForSeconds.TotalSeconds;
+            }
 
             if (timeInSeconds <= 0)
             {
@@ -401,8 +404,6 @@ namespace Typing_Test
             {
                 _TimeCounterForWords = _TimeCounterForWords.Add(TimeSpan.FromSeconds(1));
 
-                UpdateTimerDisplay();
-
                 if (CurrentWordCounter >= NumberOfWords)
                 {
                     IsStartedWordsMode = false;
@@ -437,7 +438,7 @@ namespace Typing_Test
             }
         }
 
-        private void PerformBackSpace(KeyEventArgs e)
+        private void PerformCtrlBackSpace(KeyEventArgs e)
         {
             if (e.Control && e.KeyCode == Keys.Back)
             {

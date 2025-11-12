@@ -66,7 +66,7 @@ namespace Typing_Test
                 this.Close(); 
             }
 
-            if (e.Control && e.KeyCode == Keys.F)
+            if (e.KeyCode == Keys.F11 || (e.Control && e.KeyCode == Keys.F))
             {
                 e.SuppressKeyPress = true;
 
@@ -175,7 +175,7 @@ namespace Typing_Test
 
         private void tbType_KeyDown(object sender, KeyEventArgs e)
         {
-            PerformBackSpace(e);
+            PerformCtrlBackSpace(e);
         }
 
         private void Form1_BackColorChanged(object sender, EventArgs e)
@@ -198,12 +198,6 @@ namespace Typing_Test
             SaveSettings();
         }
 
-        private void rtbWords_MouseDown(object sender, MouseEventArgs e)
-        {
-            e = null;
-            this.ActiveControl = tbType;
-        }
-
         private void lbResetDefaultSettings_Click(object sender, EventArgs e)
         {
             ResetDefaultSettings();
@@ -214,6 +208,18 @@ namespace Typing_Test
             if (cbWhichWords.SelectedIndex == 0) words = AllWords10FastFingers.Split('|');
 
             if (cbWhichWords.SelectedIndex == 1) words = AllWordsMonkeyType.Split(' ');
+        }
+
+        private void rtbWPMWord_MouseDown(object sender, MouseEventArgs e)
+        {
+            e = null;
+            this.ActiveControl = tbType;
+        }
+
+        private void rtbWords_MouseDown(object sender, MouseEventArgs e)
+        {
+            e = null;
+            this.ActiveControl = tbType;
         }
     }
 }

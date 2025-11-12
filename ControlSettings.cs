@@ -35,6 +35,12 @@ namespace Typing_Test
             SelectColor = Color.DodgerBlue;
             tbType.ForeColor = Color.White;
 
+            tbTimer.ForeColor = Color.DeepPink;
+            tbLiveWPM.ForeColor = Color.DeepPink;
+            tbWordsCounter.ForeColor = Color.DeepPink;
+            rtbWPMWord.ForeColor = Color.DeepPink;
+            rtbFinalWPM.ForeColor = Color.DeepPink;
+
             this.WindowState = FormWindowState.Maximized;
             this.FormBorderStyle = FormBorderStyle.Fixed3D;
         }
@@ -48,6 +54,12 @@ namespace Typing_Test
             WrongWordColor = ColorTranslator.FromHtml(settings.WrongWordColor);
             SelectColor = ColorTranslator.FromHtml(settings.SelectColor);
             tbType.ForeColor = ColorTranslator.FromHtml(settings.TypeBarColor);
+
+            tbTimer.ForeColor = ColorTranslator.FromHtml(settings.CountersColor);
+            tbLiveWPM.ForeColor = ColorTranslator.FromHtml(settings.CountersColor);
+            tbWordsCounter.ForeColor = ColorTranslator.FromHtml(settings.CountersColor);
+            rtbWPMWord.ForeColor = ColorTranslator.FromHtml(settings.CountersColor);
+            rtbFinalWPM.ForeColor = ColorTranslator.FromHtml(settings.CountersColor);
         }
 
         private void LoadWindowStateSettings()
@@ -113,6 +125,7 @@ namespace Typing_Test
             settings.WrongWordColor = ColorTranslator.ToHtml(WrongWordColor);
             settings.SelectColor = ColorTranslator.ToHtml(SelectColor);
             settings.TypeBarColor = ColorTranslator.ToHtml(tbType.ForeColor);
+            settings.CountersColor = ColorTranslator.ToHtml(tbTimer.ForeColor);
 
             settings.WindowState = this.WindowState.ToString(); // Normal, Maximized, Minimized
             settings.FormBorderStyle = this.FormBorderStyle.ToString(); // None, Fixed3D
@@ -190,7 +203,7 @@ namespace Typing_Test
             }
         }
 
-        private void label5_Click(object sender, EventArgs e)
+        private void lbChangeFormBackColor_Click(object sender, EventArgs e)
         {
             colorDialog1.Color = this.BackColor;
             if (colorDialog1.ShowDialog() == DialogResult.OK)
@@ -200,7 +213,7 @@ namespace Typing_Test
             }
         }
 
-        private void label6_Click(object sender, EventArgs e)
+        private void lbChangertbWordsForeColor_Click(object sender, EventArgs e)
         {
             colorDialog1.Color = rtbWords.ForeColor;
             if (colorDialog1.ShowDialog() == DialogResult.OK)
@@ -210,7 +223,7 @@ namespace Typing_Test
             }
         }
 
-        private void label7_Click(object sender, EventArgs e)
+        private void lbChangeCurrentWordColor_Click(object sender, EventArgs e)
         {
             colorDialog1.Color = CurrentWordColor;
             if (colorDialog1.ShowDialog() == DialogResult.OK)
@@ -220,7 +233,7 @@ namespace Typing_Test
             }
         }
 
-        private void label8_Click(object sender, EventArgs e)
+        private void lbChangeCorrectWordColor_Click(object sender, EventArgs e)
         {
             colorDialog1.Color = CorrectWordColor;
             if (colorDialog1.ShowDialog() == DialogResult.OK)
@@ -230,7 +243,7 @@ namespace Typing_Test
             }
         }
 
-        private void label9_Click(object sender, EventArgs e)
+        private void lbChangeWrongWordColor_Click(object sender, EventArgs e)
         {
             colorDialog1.Color = WrongWordColor;
             if (colorDialog1.ShowDialog() == DialogResult.OK)
@@ -240,12 +253,37 @@ namespace Typing_Test
             }
         }
 
-        private void label11_Click(object sender, EventArgs e)
+        private void lbChangetbTypeForeColor_Click(object sender, EventArgs e)
         {
             colorDialog1.Color = tbType.ForeColor;
             if (colorDialog1.ShowDialog() == DialogResult.OK)
             {
                 tbType.ForeColor = colorDialog1.Color;
+                SaveSettings();
+            }
+        }
+
+        private void lbChangeCountersColor_Click(object sender, EventArgs e)
+        {
+            colorDialog1.Color = tbLiveWPM.ForeColor;
+            if (colorDialog1.ShowDialog() == DialogResult.OK)
+            {
+                tbLiveWPM.ForeColor = colorDialog1.Color;
+                tbWordsCounter.ForeColor = colorDialog1.Color;
+                tbTimer.ForeColor = colorDialog1.Color;
+                rtbFinalWPM.ForeColor = colorDialog1.Color;
+                rtbWPMWord.ForeColor = colorDialog1.Color;
+                SaveSettings();
+            }
+        }
+
+
+        private void lbChangeSelectColor_Click(object sender, EventArgs e)
+        {
+            colorDialog1.Color = SelectColor;
+            if (colorDialog1.ShowDialog() == DialogResult.OK)
+            {
+                SelectColor = colorDialog1.Color;
                 SaveSettings();
             }
         }
@@ -257,8 +295,8 @@ namespace Typing_Test
             tbWordsCounter.BackColor = this.BackColor;
             rtbWords.BackColor = this.BackColor;
             rtbFinalWPM.BackColor = this.BackColor;
-            richTextBox1.BackColor = this.BackColor;
-            richTextBox2.BackColor = this.BackColor;
+            rtbWPMWord.BackColor = this.BackColor;
+            //richTextBox2.BackColor = this.BackColor;
             tbType.BackColor = this.BackColor;
         }
 

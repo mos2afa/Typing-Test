@@ -187,7 +187,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;tbType.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>5</value>
   </data>
   <data name="btn10.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
@@ -223,7 +223,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btn10.ZOrder" xml:space="preserve">
-    <value>15</value>
+    <value>14</value>
   </data>
   <data name="btn25.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
@@ -259,7 +259,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btn25.ZOrder" xml:space="preserve">
-    <value>14</value>
+    <value>13</value>
   </data>
   <data name="btn50.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
@@ -295,7 +295,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btn50.ZOrder" xml:space="preserve">
-    <value>13</value>
+    <value>12</value>
   </data>
   <data name="btn100.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
@@ -331,7 +331,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btn100.ZOrder" xml:space="preserve">
-    <value>12</value>
+    <value>11</value>
   </data>
   <metadata name="TimerForSeconds.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
@@ -370,7 +370,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btn15.ZOrder" xml:space="preserve">
-    <value>11</value>
+    <value>10</value>
   </data>
   <data name="btn30.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
@@ -406,7 +406,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btn30.ZOrder" xml:space="preserve">
-    <value>10</value>
+    <value>9</value>
   </data>
   <data name="btn60.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
@@ -442,7 +442,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btn60.ZOrder" xml:space="preserve">
-    <value>9</value>
+    <value>8</value>
   </data>
   <data name="btn120.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
@@ -478,10 +478,10 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btn120.ZOrder" xml:space="preserve">
-    <value>8</value>
+    <value>7</value>
   </data>
   <data name="tbTimer.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 30pt, style=Bold</value>
+    <value>Microsoft Sans Serif, 40.2pt, style=Bold</value>
   </data>
   <data name="tbTimer.Location" type="System.Drawing.Point, System.Drawing">
     <value>12, 1</value>
@@ -490,7 +490,7 @@
     <value>3, 2, 3, 2</value>
   </data>
   <data name="tbTimer.Size" type="System.Drawing.Size, System.Drawing">
-    <value>185, 57</value>
+    <value>239, 76</value>
   </data>
   <data name="tbTimer.TabIndex" type="System.Int32, mscorlib">
     <value>18</value>
@@ -505,7 +505,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;tbTimer.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>16</value>
   </data>
   <data name="label1.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -571,7 +571,7 @@
     <value>pnlResults</value>
   </data>
   <data name="&gt;&gt;label2.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>5</value>
   </data>
   <data name="label3.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -604,7 +604,7 @@
     <value>pnlResults</value>
   </data>
   <data name="&gt;&gt;label3.ZOrder" xml:space="preserve">
-    <value>8</value>
+    <value>7</value>
   </data>
   <data name="rtbAccuracy.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 19.8pt</value>
@@ -669,36 +669,6 @@
   <data name="&gt;&gt;label4.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
-  <data name="richTextBox2.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 24pt, style=Bold</value>
-  </data>
-  <data name="richTextBox2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>24, 215</value>
-  </data>
-  <data name="richTextBox2.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 2, 3, 2</value>
-  </data>
-  <data name="richTextBox2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>453, 65</value>
-  </data>
-  <data name="richTextBox2.TabIndex" type="System.Int32, mscorlib">
-    <value>30</value>
-  </data>
-  <data name="richTextBox2.Text" xml:space="preserve">
-    <value>            (WPM)</value>
-  </data>
-  <data name="&gt;&gt;richTextBox2.Name" xml:space="preserve">
-    <value>richTextBox2</value>
-  </data>
-  <data name="&gt;&gt;richTextBox2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RichTextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;richTextBox2.Parent" xml:space="preserve">
-    <value>pnlResults</value>
-  </data>
-  <data name="&gt;&gt;richTextBox2.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
   <data name="rtbKeyStrokes.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 19.8pt</value>
   </data>
@@ -727,7 +697,7 @@
     <value>pnlResults</value>
   </data>
   <data name="&gt;&gt;rtbKeyStrokes.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>6</value>
   </data>
   <data name="rtbCorrectWords.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 19.8pt</value>
@@ -757,7 +727,7 @@
     <value>pnlResults</value>
   </data>
   <data name="&gt;&gt;rtbCorrectWords.ZOrder" xml:space="preserve">
-    <value>9</value>
+    <value>8</value>
   </data>
   <data name="rtbWrongWords.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 19.8pt</value>
@@ -787,7 +757,7 @@
     <value>pnlResults</value>
   </data>
   <data name="&gt;&gt;rtbWrongWords.ZOrder" xml:space="preserve">
-    <value>10</value>
+    <value>9</value>
   </data>
   <data name="rtbFinalWPM.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Tai Le, 100pt, style=Bold</value>
@@ -850,7 +820,7 @@
     <value>pnlSettings</value>
   </data>
   <data name="&gt;&gt;lbImportSettings.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>5</value>
   </data>
   <data name="lbExportSettings.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -883,7 +853,7 @@
     <value>pnlSettings</value>
   </data>
   <data name="&gt;&gt;lbExportSettings.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>7</value>
   </data>
   <data name="cbWhichWords.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 19.8000011pt</value>
@@ -895,7 +865,7 @@
     <value>monkey type</value>
   </data>
   <data name="cbWhichWords.Location" type="System.Drawing.Point, System.Drawing">
-    <value>359, 23</value>
+    <value>1102, 23</value>
   </data>
   <data name="cbWhichWords.Size" type="System.Drawing.Size, System.Drawing">
     <value>243, 46</value>
@@ -916,7 +886,7 @@
     <value>pnlSettings</value>
   </data>
   <data name="&gt;&gt;cbWhichWords.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>3</value>
   </data>
   <data name="lbTypeBarForeColor.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -928,7 +898,7 @@
     <value>NoControl</value>
   </data>
   <data name="lbTypeBarForeColor.Location" type="System.Drawing.Point, System.Drawing">
-    <value>26, 304</value>
+    <value>26, 326</value>
   </data>
   <data name="lbTypeBarForeColor.Size" type="System.Drawing.Size, System.Drawing">
     <value>316, 39</value>
@@ -949,7 +919,7 @@
     <value>pnlSettings</value>
   </data>
   <data name="&gt;&gt;lbTypeBarForeColor.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>2</value>
   </data>
   <data name="lbResetDefaultSettings.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -982,7 +952,7 @@
     <value>pnlSettings</value>
   </data>
   <data name="&gt;&gt;lbResetDefaultSettings.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>4</value>
   </data>
   <data name="lbWrongWordColor.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -994,7 +964,7 @@
     <value>NoControl</value>
   </data>
   <data name="lbWrongWordColor.Location" type="System.Drawing.Point, System.Drawing">
-    <value>26, 246</value>
+    <value>26, 268</value>
   </data>
   <data name="lbWrongWordColor.Size" type="System.Drawing.Size, System.Drawing">
     <value>298, 39</value>
@@ -1015,7 +985,7 @@
     <value>pnlSettings</value>
   </data>
   <data name="&gt;&gt;lbWrongWordColor.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>6</value>
   </data>
   <data name="lbCorrectWordColor.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1027,7 +997,7 @@
     <value>NoControl</value>
   </data>
   <data name="lbCorrectWordColor.Location" type="System.Drawing.Point, System.Drawing">
-    <value>26, 188</value>
+    <value>26, 210</value>
   </data>
   <data name="lbCorrectWordColor.Size" type="System.Drawing.Size, System.Drawing">
     <value>309, 39</value>
@@ -1048,7 +1018,7 @@
     <value>pnlSettings</value>
   </data>
   <data name="&gt;&gt;lbCorrectWordColor.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>8</value>
   </data>
   <data name="lbCurrentWordColor.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1060,7 +1030,7 @@
     <value>NoControl</value>
   </data>
   <data name="lbCurrentWordColor.Location" type="System.Drawing.Point, System.Drawing">
-    <value>26, 130</value>
+    <value>26, 152</value>
   </data>
   <data name="lbCurrentWordColor.Size" type="System.Drawing.Size, System.Drawing">
     <value>311, 39</value>
@@ -1081,7 +1051,7 @@
     <value>pnlSettings</value>
   </data>
   <data name="&gt;&gt;lbCurrentWordColor.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>9</value>
   </data>
   <data name="lbFontColor.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1093,7 +1063,7 @@
     <value>NoControl</value>
   </data>
   <data name="lbFontColor.Location" type="System.Drawing.Point, System.Drawing">
-    <value>26, 79</value>
+    <value>26, 94</value>
   </data>
   <data name="lbFontColor.Size" type="System.Drawing.Size, System.Drawing">
     <value>176, 39</value>
@@ -1114,7 +1084,7 @@
     <value>pnlSettings</value>
   </data>
   <data name="&gt;&gt;lbFontColor.ZOrder" xml:space="preserve">
-    <value>9</value>
+    <value>11</value>
   </data>
   <data name="lbFormBackColor.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1126,7 +1096,7 @@
     <value>NoControl</value>
   </data>
   <data name="lbFormBackColor.Location" type="System.Drawing.Point, System.Drawing">
-    <value>26, 21</value>
+    <value>26, 36</value>
   </data>
   <data name="lbFormBackColor.Size" type="System.Drawing.Size, System.Drawing">
     <value>263, 39</value>
@@ -1147,7 +1117,7 @@
     <value>pnlSettings</value>
   </data>
   <data name="&gt;&gt;lbFormBackColor.ZOrder" xml:space="preserve">
-    <value>8</value>
+    <value>10</value>
   </data>
   <metadata name="TimerForWords.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>191, 17</value>
@@ -1225,16 +1195,16 @@
     <value>3</value>
   </data>
   <data name="tbLiveWPM.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 30pt, style=Bold</value>
+    <value>Microsoft Sans Serif, 40.2pt, style=Bold</value>
   </data>
   <data name="tbLiveWPM.Location" type="System.Drawing.Point, System.Drawing">
-    <value>203, 1</value>
+    <value>261, 1</value>
   </data>
   <data name="tbLiveWPM.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 2, 3, 2</value>
   </data>
   <data name="tbLiveWPM.Size" type="System.Drawing.Size, System.Drawing">
-    <value>111, 57</value>
+    <value>134, 76</value>
   </data>
   <data name="tbLiveWPM.TabIndex" type="System.Int32, mscorlib">
     <value>26</value>
@@ -1249,7 +1219,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;tbLiveWPM.ZOrder" xml:space="preserve">
-    <value>16</value>
+    <value>15</value>
   </data>
   <metadata name="colorDialog1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>341, 20</value>
@@ -1345,7 +1315,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btnRestart.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>6</value>
   </data>
   <data name="rtbCapsLock.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top</value>
@@ -1381,7 +1351,7 @@
     <value>0</value>
   </data>
   <data name="tbWordsCounter.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 30pt, style=Bold</value>
+    <value>Microsoft Sans Serif, 40.2pt, style=Bold</value>
   </data>
   <data name="tbWordsCounter.Location" type="System.Drawing.Point, System.Drawing">
     <value>12, 1</value>
@@ -1390,7 +1360,7 @@
     <value>3, 2, 3, 2</value>
   </data>
   <data name="tbWordsCounter.Size" type="System.Drawing.Size, System.Drawing">
-    <value>185, 57</value>
+    <value>239, 76</value>
   </data>
   <data name="tbWordsCounter.TabIndex" type="System.Int32, mscorlib">
     <value>37</value>
@@ -1419,11 +1389,77 @@
   <data name="pnlSettings.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
+  <data name="lbChangeSelectColor.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lbChangeSelectColor.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 19.8000011pt</value>
+  </data>
+  <data name="lbChangeSelectColor.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lbChangeSelectColor.Location" type="System.Drawing.Point, System.Drawing">
+    <value>26, 442</value>
+  </data>
+  <data name="lbChangeSelectColor.Size" type="System.Drawing.Size, System.Drawing">
+    <value>203, 39</value>
+  </data>
+  <data name="lbChangeSelectColor.TabIndex" type="System.Int32, mscorlib">
+    <value>11</value>
+  </data>
+  <data name="lbChangeSelectColor.Text" xml:space="preserve">
+    <value>Select Color</value>
+  </data>
+  <data name="&gt;&gt;lbChangeSelectColor.Name" xml:space="preserve">
+    <value>lbChangeSelectColor</value>
+  </data>
+  <data name="&gt;&gt;lbChangeSelectColor.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lbChangeSelectColor.Parent" xml:space="preserve">
+    <value>pnlSettings</value>
+  </data>
+  <data name="&gt;&gt;lbChangeSelectColor.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="lbChangeCountersColor.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lbChangeCountersColor.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 19.8000011pt</value>
+  </data>
+  <data name="lbChangeCountersColor.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lbChangeCountersColor.Location" type="System.Drawing.Point, System.Drawing">
+    <value>26, 384</value>
+  </data>
+  <data name="lbChangeCountersColor.Size" type="System.Drawing.Size, System.Drawing">
+    <value>246, 39</value>
+  </data>
+  <data name="lbChangeCountersColor.TabIndex" type="System.Int32, mscorlib">
+    <value>10</value>
+  </data>
+  <data name="lbChangeCountersColor.Text" xml:space="preserve">
+    <value>Counters Color</value>
+  </data>
+  <data name="&gt;&gt;lbChangeCountersColor.Name" xml:space="preserve">
+    <value>lbChangeCountersColor</value>
+  </data>
+  <data name="&gt;&gt;lbChangeCountersColor.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lbChangeCountersColor.Parent" xml:space="preserve">
+    <value>pnlSettings</value>
+  </data>
+  <data name="&gt;&gt;lbChangeCountersColor.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
   <data name="pnlSettings.Location" type="System.Drawing.Point, System.Drawing">
     <value>13, 73</value>
   </data>
   <data name="pnlSettings.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1399, 497</value>
+    <value>1399, 504</value>
   </data>
   <data name="pnlSettings.TabIndex" type="System.Int32, mscorlib">
     <value>10</value>
@@ -1449,41 +1485,41 @@
   <data name="pnlResults.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="richTextBox1.Font" type="System.Drawing.Font, System.Drawing">
+  <data name="rtbWPMWord.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Tai Le, 36pt, style=Bold, Underline</value>
   </data>
-  <data name="richTextBox1.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="rtbWPMWord.Location" type="System.Drawing.Point, System.Drawing">
     <value>172, 234</value>
   </data>
-  <data name="richTextBox1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+  <data name="rtbWPMWord.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 2, 3, 2</value>
   </data>
-  <data name="richTextBox1.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="rtbWPMWord.Size" type="System.Drawing.Size, System.Drawing">
     <value>198, 97</value>
   </data>
-  <data name="richTextBox1.TabIndex" type="System.Int32, mscorlib">
+  <data name="rtbWPMWord.TabIndex" type="System.Int32, mscorlib">
     <value>33</value>
   </data>
-  <data name="richTextBox1.Text" xml:space="preserve">
+  <data name="rtbWPMWord.Text" xml:space="preserve">
     <value>WPM</value>
   </data>
-  <data name="&gt;&gt;richTextBox1.Name" xml:space="preserve">
-    <value>richTextBox1</value>
+  <data name="&gt;&gt;rtbWPMWord.Name" xml:space="preserve">
+    <value>rtbWPMWord</value>
   </data>
-  <data name="&gt;&gt;richTextBox1.Type" xml:space="preserve">
+  <data name="&gt;&gt;rtbWPMWord.Type" xml:space="preserve">
     <value>System.Windows.Forms.RichTextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;richTextBox1.Parent" xml:space="preserve">
+  <data name="&gt;&gt;rtbWPMWord.Parent" xml:space="preserve">
     <value>pnlResults</value>
   </data>
-  <data name="&gt;&gt;richTextBox1.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;rtbWPMWord.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <data name="pnlResults.Location" type="System.Drawing.Point, System.Drawing">
     <value>13, 73</value>
   </data>
   <data name="pnlResults.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1399, 497</value>
+    <value>1399, 504</value>
   </data>
   <data name="pnlResults.TabIndex" type="System.Int32, mscorlib">
     <value>33</value>
