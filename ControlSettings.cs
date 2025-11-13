@@ -64,27 +64,16 @@ namespace Typing_Test
 
         private void LoadWindowStateSettings()
         {
-            if (settings.WindowState == "Maximized")
-            {
-                this.WindowState = FormWindowState.Maximized;
-            }
-            else if (settings.WindowState == "Minimized")
-            {
-                this.WindowState = FormWindowState.Minimized;
-            }
-            else // Normal
-            {
-                this.WindowState = FormWindowState.Normal;
-            }
+            this.WindowState = settings.WindowState;
         }
 
         private void LoadFormBorderStyleSettings()
         {
-            if (settings.FormBorderStyle == "Fixed3D")
+            if (settings.FormBorderStyle == FormBorderStyle.Fixed3D)
             {
                 this.FormBorderStyle = FormBorderStyle.Fixed3D;
             }
-            else if (settings.FormBorderStyle == "None")
+            else if (settings.FormBorderStyle == FormBorderStyle.None)
             {
                 this.WindowState = FormWindowState.Normal; // If this line be removed, there would be a glitch.
                 this.FormBorderStyle = FormBorderStyle.None;
@@ -127,8 +116,8 @@ namespace Typing_Test
             settings.TypeBarColor = ColorTranslator.ToHtml(tbType.ForeColor);
             settings.CountersColor = ColorTranslator.ToHtml(tbTimer.ForeColor);
 
-            settings.WindowState = this.WindowState.ToString(); // Normal, Maximized, Minimized
-            settings.FormBorderStyle = this.FormBorderStyle.ToString(); // None, Fixed3D
+            settings.WindowState = this.WindowState; // Normal, Maximized, Minimized
+            settings.FormBorderStyle = this.FormBorderStyle; // None, Fixed3D
         }
 
         private void ResetDefaultSettings()
@@ -285,6 +274,17 @@ namespace Typing_Test
             {
                 SelectColor = colorDialog1.Color;
                 SaveSettings();
+
+                CurrentBtn.BackColor = SelectColor;
+
+                if(Mode == enMode.Time)
+                {
+                    btnTime.BackColor = SelectColor;
+                }
+                else
+                {
+                    btnWords.BackColor = SelectColor;
+                }
             }
         }
 
@@ -296,7 +296,6 @@ namespace Typing_Test
             rtbWords.BackColor = this.BackColor;
             rtbFinalWPM.BackColor = this.BackColor;
             rtbWPMWord.BackColor = this.BackColor;
-            //richTextBox2.BackColor = this.BackColor;
             tbType.BackColor = this.BackColor;
         }
 
@@ -321,6 +320,7 @@ namespace Typing_Test
 
         private void Form1_Resize(object sender, EventArgs e)
         {
+
             if (this.WindowState == FormWindowState.Maximized)
             {
                 rtbWords.ZoomFactor = 2f;

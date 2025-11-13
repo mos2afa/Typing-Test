@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Drawing;
+using System.Windows.Forms;
 using Typing_Test.Properties;
 
 
@@ -18,7 +19,7 @@ namespace Typing_Test
         public string TypeBarColor     {get;set; }
         public string CountersColor    {get;set; }
 
-        public string WindowState      {get;set; } // Normal, Maximized, Minimized
-        public string FormBorderStyle  {get;set; }
+        public FormWindowState WindowState      {get;set; } // Normal, Maximized, Minimized
+        public FormBorderStyle FormBorderStyle  {get;set; }
     }
 }

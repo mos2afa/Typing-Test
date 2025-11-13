@@ -56,6 +56,8 @@ namespace Typing_Test
             rtbFinalWPM.SelectionAlignment = HorizontalAlignment.Center;
 
             cbWhichWords.SelectedIndex = 0;
+
+            CurrentBtn = btn15;
         }
 
         private void Form1_KeyDown_1(object sender, KeyEventArgs e)
@@ -122,6 +124,8 @@ namespace Typing_Test
             btn120.BringToFront();
         }
 
+        Button CurrentBtn;
+
         private void btnTime_Click(object sender, EventArgs e)
         {
             if (Mode == enMode.Time) return;
@@ -141,7 +145,8 @@ namespace Typing_Test
             
             BringToFrontTimeButtons();
 
-            ChangeNumberOfSeconds(btn15);
+            CurrentBtn = btn15;
+            ChangeNumberOfSeconds(CurrentBtn);
         }
 
         private void btnWords_Click(object sender, EventArgs e)
@@ -160,7 +165,8 @@ namespace Typing_Test
 
             BringToFrontWordButtons();
 
-            ChangeNumberOfWords(btn10);
+            CurrentBtn = btn10;
+            ChangeNumberOfWords(CurrentBtn);
         }
 
         private void tbType_KeyDown(object sender, KeyEventArgs e)
@@ -212,6 +218,48 @@ namespace Typing_Test
             this.ActiveControl = tbType;
         }
 
+        ToolTip toolTip = new ToolTip();
+        private void rtbFinalWPM_MouseEnter(object sender, EventArgs e)
+        {
+            toolTip.BackColor = Color.Black;
+            toolTip.ForeColor = Color.White;
+
+            // Enable custom drawing
+            toolTip.OwnerDraw = true;
+
+            // Handle the Draw event to use a larger font
+            toolTip.Draw += (s, m) =>
+            {
+                using (Font f = new Font("Segoe UI", 16, FontStyle.Bold)) // larger font
+                {
+                    m.Graphics.FillRectangle(new SolidBrush(toolTip.BackColor), m.Bounds);
+                    m.Graphics.DrawString(m.ToolTipText, f, new SolidBrush(toolTip.ForeColor), m.Bounds);
+                }
+            };
+
+            // Optional: handle Popup if you want to adjust the tooltip size to fit bigger text
+            toolTip.Popup += (s, m) =>
+            {
+                using (Font f = new Font("Segoe UI", 16, FontStyle.Bold))
+                {
+                    Size size = TextRenderer.MeasureText(toolTip.GetToolTip(m.AssociatedControl), f);
+                    m.ToolTipSize = new Size(size.Width + 10, size.Height + 10);
+                }
+            };
+
+            toolTip.Show(
+                CurrentWPM.ToString("F2") + " WPM",
+                rtbFinalWPM,
+                rtbFinalWPM.Location.X + 80,
+                Location.Y - 20
+            );
+
+        }
+
+        private void rtbFinalWPM_MouseLeave(object sender, EventArgs e)
+        {
+            toolTip.Hide(rtbFinalWPM);
+        }
         
     }
 }

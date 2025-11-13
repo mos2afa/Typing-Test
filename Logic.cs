@@ -11,12 +11,14 @@ namespace Typing_Test
 {
     public partial class Form1
     {
-        enum enMode { Words, Time };
+        public enum enMode { Words, Time };
 
-        enMode Mode = enMode.Time;
+        public enMode Mode = enMode.Time;
+
+        double CurrentWPM = 0.0;
 
         short CurrentWordCounter = 0;
-
+        
         short CorrectWordsCounter = 0;
         short WrongWordsCounter = 0;
 
@@ -264,11 +266,13 @@ namespace Typing_Test
 
             if(Words == 0 || TotalSeconds == 0)
             {
+                CurrentWPM = WPM;
                 return 0.0;
-            }
+            }   
 
             WPM = Words / (TotalSeconds / 60.0);
-            
+
+            CurrentWPM = WPM;
             return WPM;
         }
 
@@ -312,7 +316,8 @@ namespace Typing_Test
             btn15.BackColor = btn30.BackColor = btn60.BackColor = btn120.BackColor = Color.Gainsboro;
             btn10.BackColor = btn25.BackColor = btn50.BackColor = btn100.BackColor = Color.Gainsboro;
 
-            btn.BackColor = SelectColor;
+            CurrentBtn = btn;
+            CurrentBtn.BackColor = SelectColor;
         }
 
         private void ChangeNumberOfWords(Button btn)
@@ -334,7 +339,8 @@ namespace Typing_Test
             btn15.BackColor = btn30.BackColor = btn60.BackColor = btn120.BackColor = Color.Gainsboro;
             btn10.BackColor = btn25.BackColor = btn50.BackColor = btn100.BackColor = Color.Gainsboro;
 
-            btn.BackColor = SelectColor;
+            CurrentBtn = btn;
+            CurrentBtn.BackColor = SelectColor;
         }
 
         private void UpdateTestTimer()

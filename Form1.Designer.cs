@@ -266,6 +266,8 @@ namespace Typing_Test
             this.rtbFinalWPM.ReadOnly = true;
             this.rtbFinalWPM.TabStop = false;
             this.rtbFinalWPM.MouseDown += new System.Windows.Forms.MouseEventHandler(this.rtbWPMWord_MouseDown);
+            this.rtbFinalWPM.MouseEnter += new System.EventHandler(this.rtbFinalWPM_MouseEnter);
+            this.rtbFinalWPM.MouseLeave += new System.EventHandler(this.rtbFinalWPM_MouseLeave);
             // 
             // lbImportSettings
             // 
@@ -517,7 +519,6 @@ namespace Typing_Test
             this.Controls.Add(this.rtbWords);
             this.Controls.Add(this.pnlSettings);
             this.Controls.Add(this.pnlResults);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.KeyPreview = true;
             this.Name = "Form1";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
