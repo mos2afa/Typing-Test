@@ -163,13 +163,9 @@ namespace Typing_Test
                 {
                     ShowTypingTestScreen();
                 }
-
             }
 
-            if (pnlResults.Visible || pnlSettings.Visible)
-                tbType.ReadOnly = true;
-            else
-                tbType.ReadOnly = false;
+            CanType();
         }
 
         private void lbExportSettings_Click(object sender, EventArgs e)

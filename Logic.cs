@@ -322,6 +322,14 @@ namespace Typing_Test
             Test.AddResult(CurrentTest);
         }
 
+        private void CanType()
+        {
+            if (pnlSettings.Visible || pnlResults.Visible)
+                tbType.ReadOnly = true;
+            else
+                tbType.ReadOnly = false;
+        }
+
         private void ChangeNumberOfSeconds(Button btn)
         {
             CurrentTest.Mode = enMode.Time;
@@ -337,6 +345,10 @@ namespace Typing_Test
 
             CurrentBtn = btn;
             CurrentBtn.BackColor = SelectColor;
+
+            ShowTypingTestScreen();
+
+            CanType();
         }
 
         private void ChangeNumberOfWords(Button btn)
@@ -354,6 +366,10 @@ namespace Typing_Test
 
             CurrentBtn = btn;
             CurrentBtn.BackColor = SelectColor;
+
+            ShowTypingTestScreen();
+
+            CanType();
         }
 
         private void UpdateTestTimer()
