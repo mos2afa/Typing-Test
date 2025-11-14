@@ -87,7 +87,7 @@ namespace Typing_Test
 
         private void Restart()
         {
-            if (IsSettingsOpen) return;
+            if (pnlSettings.Visible) return;
 
             RestartWords();
             ResetTimer();
@@ -364,6 +364,7 @@ namespace Typing_Test
 
             if (stopwatch.Elapsed.Seconds >= NumberOfSeconds || AreAllWordsTyped())
             {
+                IsTestCompleted = true;
                 tbType.ReadOnly = true;
                 ShowResults();
                 ResetTimer();

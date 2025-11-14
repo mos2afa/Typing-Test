@@ -18,8 +18,6 @@ namespace Typing_Test
 
         string jsonSettingsPath = Directory.GetCurrentDirectory() + "\\Settings.json";
 
-        public bool IsSettingsOpen = false;
-
         Color CurrentWordColor;
         Color CorrectWordColor;
         Color WrongWordColor;
@@ -151,10 +149,9 @@ namespace Typing_Test
         {
             Restart();
 
-            if (!IsSettingsOpen) // to open
+            if (!pnlSettings.Visible) // to open
             {
                 ShowSettingsScreen();
-                IsSettingsOpen = true;
             }
             else// to close
             {
@@ -167,7 +164,6 @@ namespace Typing_Test
                     ShowTypingTestScreen();
                 }
 
-                IsSettingsOpen = false;
             }
 
             if (pnlResults.Visible || pnlSettings.Visible)

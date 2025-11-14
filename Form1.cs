@@ -30,12 +30,10 @@ namespace Typing_Test
 
             tbType.Select();
 
+            ShowTypingTestScreen();
+
             Restart();
             SetFirstWordColor();
-
-            rtbWords.Show();
-            pnlResults.Hide();
-            pnlSettings.Hide();
 
             ChangeSomeControlColorsAccordingToFormBackColor();
 
@@ -78,7 +76,7 @@ namespace Typing_Test
 
         private void btnRestart_Click(object sender, EventArgs e)
         {
-            if (IsSettingsOpen) return;
+            if (pnlSettings.Visible) return;
             else
             {
                 ShowTypingTestScreen();
