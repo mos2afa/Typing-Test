@@ -71,11 +71,15 @@ namespace Typing_Test
             this.rtbCapsLock = new System.Windows.Forms.RichTextBox();
             this.tbWordsCounter = new System.Windows.Forms.TextBox();
             this.pnlSettings = new System.Windows.Forms.Panel();
+            this.lbExportResultsToExcel = new System.Windows.Forms.Label();
             this.lbChangeSelectColor = new System.Windows.Forms.Label();
             this.lbChangeCountersColor = new System.Windows.Forms.Label();
             this.pnlResults = new System.Windows.Forms.Panel();
+            this.rtbDuration = new System.Windows.Forms.RichTextBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.rtbWPMWord = new System.Windows.Forms.RichTextBox();
             this.tUpdateUI = new System.Windows.Forms.Timer(this.components);
+            this.sfdExportResultsToExcel = new System.Windows.Forms.SaveFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnSettings)).BeginInit();
             this.pnlSettings.SuspendLayout();
@@ -433,6 +437,7 @@ namespace Typing_Test
             // pnlSettings
             // 
             resources.ApplyResources(this.pnlSettings, "pnlSettings");
+            this.pnlSettings.Controls.Add(this.lbExportResultsToExcel);
             this.pnlSettings.Controls.Add(this.lbChangeSelectColor);
             this.pnlSettings.Controls.Add(this.lbChangeCountersColor);
             this.pnlSettings.Controls.Add(this.lbTypeBarForeColor);
@@ -446,6 +451,13 @@ namespace Typing_Test
             this.pnlSettings.Controls.Add(this.lbFormBackColor);
             this.pnlSettings.Controls.Add(this.lbFontColor);
             this.pnlSettings.Name = "pnlSettings";
+            // 
+            // lbExportResultsToExcel
+            // 
+            resources.ApplyResources(this.lbExportResultsToExcel, "lbExportResultsToExcel");
+            this.lbExportResultsToExcel.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.lbExportResultsToExcel.Name = "lbExportResultsToExcel";
+            this.lbExportResultsToExcel.Click += new System.EventHandler(this.lbExportResultsToExcel_Click);
             // 
             // lbChangeSelectColor
             // 
@@ -464,6 +476,8 @@ namespace Typing_Test
             // pnlResults
             // 
             resources.ApplyResources(this.pnlResults, "pnlResults");
+            this.pnlResults.Controls.Add(this.rtbDuration);
+            this.pnlResults.Controls.Add(this.label5);
             this.pnlResults.Controls.Add(this.rtbWPMWord);
             this.pnlResults.Controls.Add(this.rtbAccuracy);
             this.pnlResults.Controls.Add(this.rtbFinalWPM);
@@ -475,6 +489,21 @@ namespace Typing_Test
             this.pnlResults.Controls.Add(this.rtbCorrectWords);
             this.pnlResults.Controls.Add(this.rtbWrongWords);
             this.pnlResults.Name = "pnlResults";
+            // 
+            // rtbDuration
+            // 
+            this.rtbDuration.BackColor = System.Drawing.Color.White;
+            resources.ApplyResources(this.rtbDuration, "rtbDuration");
+            this.rtbDuration.ForeColor = System.Drawing.Color.Black;
+            this.rtbDuration.Name = "rtbDuration";
+            this.rtbDuration.ReadOnly = true;
+            this.rtbDuration.TabStop = false;
+            // 
+            // label5
+            // 
+            resources.ApplyResources(this.label5, "label5");
+            this.label5.ForeColor = System.Drawing.Color.White;
+            this.label5.Name = "label5";
             // 
             // rtbWPMWord
             // 
@@ -586,6 +615,10 @@ namespace Typing_Test
         private System.Windows.Forms.Label lbChangeCountersColor;
         private System.Windows.Forms.Label lbChangeSelectColor;
         private System.Windows.Forms.Timer tUpdateUI;
+        private System.Windows.Forms.Label lbExportResultsToExcel;
+        private System.Windows.Forms.SaveFileDialog sfdExportResultsToExcel;
+        public System.Windows.Forms.RichTextBox rtbDuration;
+        public System.Windows.Forms.Label label5;
     }
 }
 

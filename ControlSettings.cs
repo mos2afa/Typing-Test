@@ -151,18 +151,29 @@ namespace Typing_Test
         {
             Restart();
 
-            if (!IsSettingsOpen)
+            if (!IsSettingsOpen) // to open
             {
-                pnlSettings.BringToFront();
+                ShowSettingsScreen();
                 IsSettingsOpen = true;
-                tbType.ReadOnly = true;
             }
-            else
+            else// to close
             {
-                pnlSettings.SendToBack();
+                if(IsTestCompleted)
+                {
+                    ShowResultScreen();
+                }
+                else
+                {
+                    ShowTypingTestScreen();
+                }
+
                 IsSettingsOpen = false;
-                tbType.ReadOnly = false;
             }
+
+            if (pnlResults.Visible || pnlSettings.Visible)
+                tbType.ReadOnly = true;
+            else
+                tbType.ReadOnly = false;
         }
 
         private void lbExportSettings_Click(object sender, EventArgs e)
@@ -277,7 +288,7 @@ namespace Typing_Test
 
                 CurrentBtn.BackColor = SelectColor;
 
-                if(Mode == enMode.Time)
+                if(CurrentTest.Mode == enMode.Time)
                 {
                     btnTime.BackColor = SelectColor;
                 }
@@ -329,6 +340,80 @@ namespace Typing_Test
             if (this.WindowState == FormWindowState.Normal)
             {
                 rtbWords.ZoomFactor = 1.45f;
+            }
+        }
+
+        private void cbWhichWords_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbWhichWords.SelectedIndex == 0) words = AllWords10FastFingers.Split('|');
+
+            if (cbWhichWords.SelectedIndex == 1) words = AllWordsMonkeyType.Split(' ');
+        }
+
+        private void rtbWPMWord_MouseDown(object sender, MouseEventArgs e)
+        {
+            e = null;
+            this.ActiveControl = tbType;
+        }
+
+        private void rtbWords_MouseDown(object sender, MouseEventArgs e)
+        {
+            e = null;
+            this.ActiveControl = tbType;
+        }
+
+        ToolTip toolTip = new ToolTip();
+        private void rtbFinalWPM_MouseEnter(object sender, EventArgs e)
+        {
+            toolTip.BackColor = Color.Black;
+            toolTip.ForeColor = Color.White;
+
+            // Enable custom drawing
+            toolTip.OwnerDraw = true;
+
+            // Handle the Draw event to use a larger font
+            toolTip.Draw += (s, m) =>
+            {
+                using (Font f = new Font("Segoe UI", 16, FontStyle.Bold)) // larger font
+                {
+                    m.Graphics.FillRectangle(new SolidBrush(toolTip.BackColor), m.Bounds);
+                    m.Graphics.DrawString(m.ToolTipText, f, new SolidBrush(toolTip.ForeColor), m.Bounds);
+                }
+            };
+
+            // Optional: handle Popup if you want to adjust the tooltip size to fit bigger text
+            toolTip.Popup += (s, m) =>
+            {
+                using (Font f = new Font("Segoe UI", 16, FontStyle.Bold))
+                {
+                    Size size = TextRenderer.MeasureText(toolTip.GetToolTip(m.AssociatedControl), f);
+                    m.ToolTipSize = new Size(size.Width + 10, size.Height + 10);
+                }
+            };
+
+            toolTip.Show(
+                CurrentTest.WPM.ToString("F2") + " WPM",
+                rtbFinalWPM,
+                rtbFinalWPM.Location.X + 80,
+                Location.Y - 20
+            );
+
+        }
+
+        private void rtbFinalWPM_MouseLeave(object sender, EventArgs e)
+        {
+            toolTip.Hide(rtbFinalWPM);
+        }
+
+        private void lbExportResultsToExcel_Click(object sender, EventArgs e)
+        {
+            sfdExportResultsToExcel.Filter = "Excel Workbook (*.xlsx)|*.xlsx";
+            sfdExportResultsToExcel.FileName = "Typing_Results.xlsx";
+
+            if (sfdExportResultsToExcel.ShowDialog() == DialogResult.OK)
+            {
+                Test.ExportTypingTestsToExcel(sfdExportResultsToExcel.FileName);
+                MessageBox.Show("Results exported to Excel successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
     }

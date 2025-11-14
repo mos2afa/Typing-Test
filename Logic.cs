@@ -6,24 +6,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Microsoft.Data.Sqlite;
+
 
 namespace Typing_Test
 {
     public partial class Form1
     {
-        public enum enMode { Words, Time };
-
-        public enMode Mode = enMode.Time;
-
-        double CurrentWPM = 0.0;
-
-        short CurrentWordCounter = 0;
-        
-        short CorrectWordsCounter = 0;
-        short WrongWordsCounter = 0;
-
-        int CorrectStrokes = 0;
-        int WrongStrokes = 0;
+        Typing_Test.Test CurrentTest = new Typing_Test.Test();
 
         static string AllWords10FastFingers = "about|above|add|after|again|air|all|almost|along|also|always|America|an|and|animal|another|answer|any|are|around|as|ask|at|away|back|be|because|been|before|began|begin|being|below|between|big|book|both|boy|but|by|call|came|can|car|carry|change|children|city|close|come|could|country|cut|day|did|different|do|does|don't|down|each|earth|eat|end|enough|even|every|example|eye|face|family|far|father|feet|few|find|first|follow|food|for|form|found|four|from|get|girl|give|go|good|got|great|group|grow|had|hand|hard|has|have|he|head|hear|help|her|here|high|him|his|home|house|how|idea|if|important|in|Indian|into|is|it|its|it's|just|keep|kind|know|land|large|last|later|learn|leave|left|let|letter|life|light|like|line|list|little|live|long|look|made|make|man|many|may|me|mean|men|might|mile|miss|more|most|mother|mountain|move|much|must|my|name|near|need|never|new|next|night|no|not|now|number|of|off|often|oil|old|on|once|one|only|open|or|other|our|out|over|own|page|paper|part|people|picture|place|plant|play|point|put|question|quick|quickly|quite|read|really|right|river|run|said|same|saw|say|school|sea|second|see|seem|sentence|set|she|should|show|side|small|so|some|something|sometimes|song|soon|sound|spell|start|state|still|stop|story|study|such|take|talk|tell|than|that|the|their|them|then|there|these|they|thing|think|this|those|thought|three|through|time|to|together|too|took|tree|try|turn|two|under|until|up|us|use|very|walk|want|was|watch|water|way|we|well|went|were|what|when|where|which|while|white|who|why|will|with|without|word|work|world|would|write|year|you|young|your";
         // 302 words
@@ -41,9 +31,11 @@ namespace Typing_Test
 
         Random rndWord = new Random();
 
+        public bool IsTestCompleted = false;
+
         private bool CheckCurrentWordTypedTrue()
         {
-            return tbType.Text == CurrentWords[CurrentWordCounter];
+            return tbType.Text == CurrentWords[CurrentTest.CurrentWordCounter];
         }
 
         private void FillWords()
@@ -74,11 +66,11 @@ namespace Typing_Test
 
             tbType.Focus();
 
-            CurrentWordCounter = 0;
-            CorrectWordsCounter = 0;
-            WrongWordsCounter = 0;
-            WrongStrokes = 0;
-            CorrectStrokes = 0;
+            CurrentTest.CurrentWordCounter = 0;
+            CurrentTest.CorrectWords = 0;
+            CurrentTest.WrongWords = 0;
+            CurrentTest.CorrectStrokes = 0;
+            CurrentTest.WrongStrokes = 0;
 
             SetFirstWordColor();
 
@@ -95,19 +87,18 @@ namespace Typing_Test
 
         private void Restart()
         {
+            if (IsSettingsOpen) return;
+
             RestartWords();
             ResetTimer();
-            pnlResults.Hide();
 
-            if (IsSettingsOpen)
-                tbType.ReadOnly = true;
-            else
-                tbType.ReadOnly = false;
+            tbType.ReadOnly = false;
         }
 
         private bool AreAllWordsTyped()
         {
-            return (CurrentWordCounter >= NumberOfWords);
+            IsTestCompleted = (CurrentTest.CurrentWordCounter >= NumberOfWords);
+            return IsTestCompleted;
         }
 
         private bool IsWordTypingFinished()
@@ -117,18 +108,18 @@ namespace Typing_Test
 
         private void CheckEachCharInCurrentWord()
         {
-            if (CurrentWordCounter >= NumberOfWords) return;
+            if (CurrentTest.CurrentWordCounter >= NumberOfWords) return;
 
-            for (int i = 0; (i < CurrentWords[CurrentWordCounter].Length) && (i < tbType.Text.Length); i++)
+            for (int i = 0; (i < CurrentWords[CurrentTest.CurrentWordCounter].Length) && (i < tbType.Text.Length); i++)
             {
-                if (tbType.Text[i] == CurrentWords[CurrentWordCounter][i] && tbType.Text.Length <= CurrentWords[CurrentWordCounter].Length)
+                if (tbType.Text[i] == CurrentWords[CurrentTest.CurrentWordCounter][i] && tbType.Text.Length <= CurrentWords[CurrentTest.CurrentWordCounter].Length)
                 {
-                    rtbWords.Select(IndexOfFirstCharOfCurrentWord, CurrentWords[CurrentWordCounter].Length);
+                    rtbWords.Select(IndexOfFirstCharOfCurrentWord, CurrentWords[CurrentTest.CurrentWordCounter].Length);
                     rtbWords.SelectionBackColor = rtbWords.BackColor;
                 }
                 else
                 {
-                    rtbWords.Select(IndexOfFirstCharOfCurrentWord, CurrentWords[CurrentWordCounter].Length);
+                    rtbWords.Select(IndexOfFirstCharOfCurrentWord, CurrentWords[CurrentTest.CurrentWordCounter].Length);
                     rtbWords.SelectionBackColor = WrongWordColor;
                     break;
                 }
@@ -137,17 +128,17 @@ namespace Typing_Test
 
         private void DealWithCounters()
         {
-            if (tbType.Text == CurrentWords[CurrentWordCounter])
+            if (tbType.Text == CurrentWords[CurrentTest.CurrentWordCounter])
             {
-                CorrectWordsCounter++;
+                CurrentTest.CorrectWords++;
 
-                CorrectStrokes += CurrentWords[CurrentWordCounter].Length + 1;
+                CurrentTest.CorrectStrokes += CurrentWords[CurrentTest.CurrentWordCounter].Length + 1;
             }
             else
             {
-                WrongWordsCounter++;
+                CurrentTest.WrongWords++;
 
-                WrongStrokes += CurrentWords[CurrentWordCounter].Length;
+                CurrentTest.WrongStrokes += CurrentWords[CurrentTest.CurrentWordCounter].Length;
             }
         }
 
@@ -160,7 +151,7 @@ namespace Typing_Test
                 return;
             }
 
-            tbWordsCounter.Text = CurrentWordCounter.ToString() + $"/{NumberOfWords}";
+            tbWordsCounter.Text = CurrentTest.CurrentWordCounter.ToString() + $"/{NumberOfWords}";
             tbTimer.Text = stopwatch.Elapsed.ToString(@"mm\:ss");
 
             StartTimer();
@@ -179,7 +170,7 @@ namespace Typing_Test
 
                 UpdateIndexOfFirstCharOfCurrentWord();
 
-                CurrentWordCounter++;
+                CurrentTest.CurrentWordCounter++;
 
                 SetCurrentWordColor();
 
@@ -189,6 +180,7 @@ namespace Typing_Test
 
                 if (AreAllWordsTyped())
                 {
+                    tbType.ReadOnly = true;
                     ShowResults();
                     ResetTimer();
 
@@ -203,26 +195,26 @@ namespace Typing_Test
         {
             if (CheckCurrentWordTypedTrue())
             {
-                rtbWords.Select(IndexOfFirstCharOfCurrentWord, CurrentWords[CurrentWordCounter].Length);
+                rtbWords.Select(IndexOfFirstCharOfCurrentWord, CurrentWords[CurrentTest.CurrentWordCounter].Length);
                 rtbWords.SelectionColor = CorrectWordColor;
             }
             else
             {
-                rtbWords.Select(IndexOfFirstCharOfCurrentWord, CurrentWords[CurrentWordCounter].Length);
+                rtbWords.Select(IndexOfFirstCharOfCurrentWord, CurrentWords[CurrentTest.CurrentWordCounter].Length);
                 rtbWords.SelectionColor = WrongWordColor;
             }
         }
 
         private void UpdateIndexOfFirstCharOfCurrentWord()
         {
-            IndexOfFirstCharOfCurrentWord += 1 + CurrentWords[CurrentWordCounter].Length;
+            IndexOfFirstCharOfCurrentWord += 1 + CurrentWords[CurrentTest.CurrentWordCounter].Length;
         }
 
         private void SetCurrentWordColor()
         {
-            if (CurrentWordCounter < NumberOfWords)
+            if (CurrentTest.CurrentWordCounter < NumberOfWords)
             {
-                rtbWords.Select(IndexOfFirstCharOfCurrentWord, CurrentWords[CurrentWordCounter].Length);
+                rtbWords.Select(IndexOfFirstCharOfCurrentWord, CurrentWords[CurrentTest.CurrentWordCounter].Length);
                 rtbWords.SelectionColor = CurrentWordColor;
             }
         }
@@ -245,12 +237,12 @@ namespace Typing_Test
 
         private void SetKeyStrokesColors()
         {
-            rtbKeyStrokes.Text = "(" + CorrectStrokes + " | " + WrongStrokes + ")  " + (CorrectStrokes + WrongStrokes);
+            rtbKeyStrokes.Text = "(" + CurrentTest.CorrectStrokes + " | " + CurrentTest.WrongStrokes + ")  " + (CurrentTest.CorrectStrokes + CurrentTest.WrongStrokes);
 
-            rtbKeyStrokes.Select(1, CorrectStrokes.ToString().Length);
+            rtbKeyStrokes.Select(1, CurrentTest.CorrectStrokes.ToString().Length);
             rtbKeyStrokes.SelectionColor = Color.Green;
 
-            rtbKeyStrokes.Select(1 + CorrectStrokes.ToString().Length + 3, WrongStrokes.ToString().Length);
+            rtbKeyStrokes.Select(1 + CurrentTest.CorrectStrokes.ToString().Length + 3, CurrentTest.WrongStrokes.ToString().Length);
             rtbKeyStrokes.SelectionColor = Color.Red;
         }
 
@@ -260,56 +252,83 @@ namespace Typing_Test
         {
             double WPM = 0.0;
 
-            double Words = CorrectStrokes / 5.0;
+            double Words = CurrentTest.CorrectStrokes / 5.0;
 
             double TotalSeconds = (double)stopwatch.ElapsedMilliseconds / 1000;
 
             if(Words == 0 || TotalSeconds == 0)
             {
-                CurrentWPM = WPM;
+                CurrentTest.WPM = 0.00;
                 return 0.0;
             }   
 
             WPM = Words / (TotalSeconds / 60.0);
 
-            CurrentWPM = WPM;
+            CurrentTest.WPM = Convert.ToDouble(WPM.ToString("F2"));
             return WPM;
+        }
+
+        private double CalcAccuracy()
+        {
+            if (CurrentTest.CurrentWordCounter == 0)
+            {
+                return 0.0;
+            }
+            else
+            {
+                return ((double)(CurrentTest.CorrectStrokes) / (CurrentTest.CorrectStrokes + CurrentTest.WrongStrokes)) * 100;
+            }
+        }
+
+
+        private void ShowResultScreen()
+        {
+            pnlResults.Show();
+            rtbWords.Hide();
+            pnlSettings.Hide();
+        }
+
+        private void ShowTypingTestScreen()
+        {
+            rtbWords.Show();
+            pnlResults.Hide();
+            pnlSettings.Hide();
+        }
+
+        private void ShowSettingsScreen()
+        {
+            pnlSettings.Show();
+            pnlResults.Hide();
+            rtbWords.Hide();
         }
 
         private void ShowResults()
         {
-            pnlResults.BringToFront();
-            pnlResults.Visible = true;
+            ShowResultScreen();
 
-            rtbCorrectWords.Text = CorrectWordsCounter.ToString();
-            rtbWrongWords.Text = WrongWordsCounter.ToString();
-            if (CurrentWordCounter == 0)
-            {
-                rtbAccuracy.Text = "0%";
-            }
-            else
-            {
-                rtbAccuracy.Text = (Convert.ToInt16((Convert.ToDouble(CorrectStrokes) / (CorrectStrokes + WrongStrokes)) * 100)).ToString() + "%";
-            }
+            rtbCorrectWords.Text = CurrentTest.CorrectWords.ToString();
+            rtbWrongWords.Text = CurrentTest.WrongWords.ToString();
+
+            CurrentTest.Accuracy = Convert.ToDouble(CalcAccuracy().ToString("F2"));
+            rtbAccuracy.Text = CurrentTest.Accuracy.ToString("F0") + "%";
 
             rtbFinalWPM.Text = Convert.ToInt16(CalcWPM()).ToString();
-            
+
+            CurrentTest.DurationSeconds = stopwatch.Elapsed.TotalSeconds;
+            rtbDuration.Text = CurrentTest.DurationSeconds.ToString("F2") +" s";
+
             SetKeyStrokesColors();
+
+            Test.AddResult(CurrentTest);
         }
 
         private void ChangeNumberOfSeconds(Button btn)
         {
-            Mode = enMode.Time;
+            CurrentTest.Mode = enMode.Time;
 
             ResetTimer();
 
             RestartWords();
-
-            pnlResults.Hide();
-            if (!IsSettingsOpen)
-            {
-                tbType.ReadOnly = false;
-            }
 
             NumberOfSeconds = Convert.ToInt16(btn.Text);
 
@@ -322,19 +341,13 @@ namespace Typing_Test
 
         private void ChangeNumberOfWords(Button btn)
         {
-            Mode = enMode.Words;
+            CurrentTest.Mode = enMode.Words;
 
             ResetTimer();
 
             NumberOfWords = Convert.ToInt16(btn.Text);
             CurrentWords = new string[NumberOfWords];
             RestartWords();
-
-            pnlResults.Hide();
-            if (!IsSettingsOpen)
-            {
-                tbType.ReadOnly = false;
-            }
 
             btn15.BackColor = btn30.BackColor = btn60.BackColor = btn120.BackColor = Color.Gainsboro;
             btn10.BackColor = btn25.BackColor = btn50.BackColor = btn100.BackColor = Color.Gainsboro;

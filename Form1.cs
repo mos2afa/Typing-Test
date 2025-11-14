@@ -33,24 +33,14 @@ namespace Typing_Test
             Restart();
             SetFirstWordColor();
 
-            rtbWords.BringToFront();
+            rtbWords.Show();
+            pnlResults.Hide();
+            pnlSettings.Hide();
 
             ChangeSomeControlColorsAccordingToFormBackColor();
 
             btn15.BackColor = SelectColor;
             btnTime.BackColor = SelectColor;
-
-            rtbCorrectWords.SelectAll();
-            rtbCorrectWords.SelectionAlignment = HorizontalAlignment.Right;
-
-            rtbWrongWords.SelectAll();
-            rtbWrongWords.SelectionAlignment = HorizontalAlignment.Right;
-
-            rtbKeyStrokes.SelectAll();
-            rtbKeyStrokes.SelectionAlignment = HorizontalAlignment.Right;
-
-            rtbAccuracy.SelectAll();
-            rtbAccuracy.SelectionAlignment = HorizontalAlignment.Right;
 
             rtbFinalWPM.SelectAll();
             rtbFinalWPM.SelectionAlignment = HorizontalAlignment.Center;
@@ -89,6 +79,10 @@ namespace Typing_Test
         private void btnRestart_Click(object sender, EventArgs e)
         {
             if (IsSettingsOpen) return;
+            else
+            {
+                ShowTypingTestScreen();
+            }
 
             Restart();
         }
@@ -128,9 +122,9 @@ namespace Typing_Test
 
         private void btnTime_Click(object sender, EventArgs e)
         {
-            if (Mode == enMode.Time) return;
+            if (CurrentTest.Mode == enMode.Time) return;
 
-            Mode = enMode.Time;
+            CurrentTest.Mode = enMode.Time;
 
             btnTime.BackColor = SelectColor;
             btnWords.BackColor = Color.White;
@@ -151,9 +145,9 @@ namespace Typing_Test
 
         private void btnWords_Click(object sender, EventArgs e)
         {
-            if (Mode == enMode.Words) return;
+            if (CurrentTest.Mode == enMode.Words) return;
 
-            Mode = enMode.Words;
+            CurrentTest.Mode = enMode.Words;
 
             btnWords.BackColor = SelectColor;
             btnTime.BackColor = Color.White;
@@ -198,68 +192,5 @@ namespace Typing_Test
         {
             ResetDefaultSettings();
         }
-
-        private void cbWhichWords_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (cbWhichWords.SelectedIndex == 0) words = AllWords10FastFingers.Split('|');
-
-            if (cbWhichWords.SelectedIndex == 1) words = AllWordsMonkeyType.Split(' ');
-        }
-
-        private void rtbWPMWord_MouseDown(object sender, MouseEventArgs e)
-        {
-            e = null;
-            this.ActiveControl = tbType;
-        }
-
-        private void rtbWords_MouseDown(object sender, MouseEventArgs e)
-        {
-            e = null;
-            this.ActiveControl = tbType;
-        }
-
-        ToolTip toolTip = new ToolTip();
-        private void rtbFinalWPM_MouseEnter(object sender, EventArgs e)
-        {
-            toolTip.BackColor = Color.Black;
-            toolTip.ForeColor = Color.White;
-
-            // Enable custom drawing
-            toolTip.OwnerDraw = true;
-
-            // Handle the Draw event to use a larger font
-            toolTip.Draw += (s, m) =>
-            {
-                using (Font f = new Font("Segoe UI", 16, FontStyle.Bold)) // larger font
-                {
-                    m.Graphics.FillRectangle(new SolidBrush(toolTip.BackColor), m.Bounds);
-                    m.Graphics.DrawString(m.ToolTipText, f, new SolidBrush(toolTip.ForeColor), m.Bounds);
-                }
-            };
-
-            // Optional: handle Popup if you want to adjust the tooltip size to fit bigger text
-            toolTip.Popup += (s, m) =>
-            {
-                using (Font f = new Font("Segoe UI", 16, FontStyle.Bold))
-                {
-                    Size size = TextRenderer.MeasureText(toolTip.GetToolTip(m.AssociatedControl), f);
-                    m.ToolTipSize = new Size(size.Width + 10, size.Height + 10);
-                }
-            };
-
-            toolTip.Show(
-                CurrentWPM.ToString("F2") + " WPM",
-                rtbFinalWPM,
-                rtbFinalWPM.Location.X + 80,
-                Location.Y - 20
-            );
-
-        }
-
-        private void rtbFinalWPM_MouseLeave(object sender, EventArgs e)
-        {
-            toolTip.Hide(rtbFinalWPM);
-        }
-        
     }
 }
