@@ -21,5 +21,7 @@ namespace Typing_Test
 
         public FormWindowState WindowState      {get;set; } // Normal, Maximized, Minimized
         public FormBorderStyle FormBorderStyle  {get;set; }
+
+        public string SelectedLanguage {get;set; }
     }
 }

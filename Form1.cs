@@ -1,5 +1,7 @@
-﻿using System;
+﻿using DocumentFormat.OpenXml.Wordprocessing;
+using System;
 using System.Drawing;
+using System.Drawing.Printing;
 using System.Drawing.Text;
 using System.IO;
 using System.Text.Json;
@@ -14,8 +16,13 @@ namespace Typing_Test
             InitializeComponent();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void LoadForm()
         {
+            foreach (string Language in Languages.GetAllLanguageNames())
+            {
+                cbLanguage.Items.Add(Language);
+            }
+
             if (!File.Exists(jsonSettingsPath))
             {
                 LoadDefaultSettings();
@@ -43,9 +50,12 @@ namespace Typing_Test
             rtbFinalWPM.SelectAll();
             rtbFinalWPM.SelectionAlignment = HorizontalAlignment.Center;
 
-            cbWhichWords.SelectedIndex = 0;
-
             CurrentBtn = btn15;
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            LoadForm();
         }
 
         private void Form1_KeyDown_1(object sender, KeyEventArgs e)
@@ -68,7 +78,7 @@ namespace Typing_Test
                 ToggleSettingsVisibility();
             }
 
-            if (Control.IsKeyLocked(Keys.CapsLock))
+            if (System.Windows.Forms.Control.IsKeyLocked(Keys.CapsLock))
                 rtbCapsLock.Show();
             else
                 rtbCapsLock.Hide();
@@ -76,13 +86,7 @@ namespace Typing_Test
 
         private void btnRestart_Click(object sender, EventArgs e)
         {
-            if (pnlSettings.Visible) return;
-            else
-            {
-                ShowTypingTestScreen();
-            }
-
-            Restart();
+            PerformBtnRestartClick();
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -116,49 +120,15 @@ namespace Typing_Test
             btn120.BringToFront();
         }
 
-        Button CurrentBtn;
 
         private void btnTime_Click(object sender, EventArgs e)
         {
-            if (CurrentTest.Mode == enMode.Time) return;
-
-            CurrentTest.Mode = enMode.Time;
-
-            btnTime.BackColor = SelectColor;
-            btnWords.BackColor = Color.White;
-
-            tbTimer.Show();
-            tbWordsCounter.Hide();
-
-            NumberOfWords = 1000;
-            CurrentWords = new string[NumberOfWords];
-
-            Restart();
-            
-            BringToFrontTimeButtons();
-
-            CurrentBtn = btn15;
-            ChangeNumberOfSeconds(CurrentBtn);
+            PerformBtnTimeClick();
         }
 
         private void btnWords_Click(object sender, EventArgs e)
         {
-            if (CurrentTest.Mode == enMode.Words) return;
-
-            CurrentTest.Mode = enMode.Words;
-
-            btnWords.BackColor = SelectColor;
-            btnTime.BackColor = Color.White;
-
-            tbTimer.Hide();
-            tbWordsCounter.Show();
-
-            Restart();
-
-            BringToFrontWordButtons();
-
-            CurrentBtn = btn10;
-            ChangeNumberOfWords(CurrentBtn);
+            PerformBtnWordsClick();
         }
 
         private void tbType_KeyDown(object sender, KeyEventArgs e)
@@ -189,6 +159,12 @@ namespace Typing_Test
         private void lbResetDefaultSettings_Click(object sender, EventArgs e)
         {
             ResetDefaultSettings();
+        }
+
+        private void cbLanguage_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string SelectedLanguage = cbLanguage.SelectedItem.ToString();
+            ChangeCurrentLanguage(SelectedLanguage);
         }
     }
 }

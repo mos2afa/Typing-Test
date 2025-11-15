@@ -16,6 +16,8 @@ namespace Typing_Test
 
     public class Test
     {
+        public string Language { get; set; }
+
         public enMode Mode { get; set; }
         public double WPM { get; set; }
         public double Accuracy { get; set; } 
@@ -67,6 +69,7 @@ namespace Typing_Test
                 cmd.CommandText = @"
             CREATE TABLE IF NOT EXISTS TypingTests (
                 Id INTEGER PRIMARY KEY AUTOINCREMENT,
+                Language TEXT,
                 Mode TEXT,
                 WPM REAL,
                 Accuracy REAL,
@@ -90,10 +93,11 @@ namespace Typing_Test
                 var insertCmd = conn.CreateCommand();
                 insertCmd.CommandText = @"
             INSERT INTO TypingTests
-            (Mode, WPM, Accuracy, DurationSeconds, CorrectWords, WrongWords, CorrectStrokes, WrongStrokes, TestDate)
+            (Language,Mode, WPM, Accuracy, DurationSeconds, CorrectWords, WrongWords, CorrectStrokes, WrongStrokes, TestDate)
             VALUES
-            (@Mode, @WPM, @Accuracy, @DurationSeconds, @CorrectWords, @WrongWords, @CorrectStrokes, @WrongStrokes, @TestDate);";
+            (@Language,@Mode, @WPM, @Accuracy, @DurationSeconds, @CorrectWords, @WrongWords, @CorrectStrokes, @WrongStrokes, @TestDate);";
 
+                insertCmd.Parameters.AddWithValue("@Language", result.Language);
                 insertCmd.Parameters.AddWithValue("@Mode", result.Mode.ToString());
                 insertCmd.Parameters.AddWithValue("@WPM", result.WPM);
                 insertCmd.Parameters.AddWithValue("@Accuracy", result.Accuracy);
@@ -170,7 +174,7 @@ namespace Typing_Test
             }
         }
 
-        public static void ClearTypingTests()
+        public static void ClearTypingTestsResults()
         {
             if (!File.Exists(DbPath))
                 return;
@@ -180,6 +184,22 @@ namespace Typing_Test
                 conn.Open();
 
                 using (var cmd = new SQLiteCommand("DELETE FROM TypingTests;", conn))
+                {
+                    int rowsAffected = cmd.ExecuteNonQuery();
+                }
+            }
+        }
+
+        public static void DropTypingTestsResultsTable()
+        {
+            if (!File.Exists(DbPath))
+                return;
+
+            using (var conn = new SQLiteConnection(ConnectionString))
+            {
+                conn.Open();
+
+                using (var cmd = new SQLiteCommand("DROP TABLE IF EXISTS TypingTests;", conn))
                 {
                     int rowsAffected = cmd.ExecuteNonQuery();
                 }

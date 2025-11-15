@@ -157,7 +157,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;rtbWords.ZOrder" xml:space="preserve">
-    <value>18</value>
+    <value>20</value>
   </data>
   <data name="tbType.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Left, Right</value>
@@ -187,7 +187,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;tbType.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>4</value>
   </data>
   <data name="btn10.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
@@ -223,7 +223,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btn10.ZOrder" xml:space="preserve">
-    <value>14</value>
+    <value>13</value>
   </data>
   <data name="btn25.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
@@ -259,7 +259,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btn25.ZOrder" xml:space="preserve">
-    <value>13</value>
+    <value>12</value>
   </data>
   <data name="btn50.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
@@ -295,7 +295,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btn50.ZOrder" xml:space="preserve">
-    <value>12</value>
+    <value>11</value>
   </data>
   <data name="btn100.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
@@ -331,7 +331,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btn100.ZOrder" xml:space="preserve">
-    <value>11</value>
+    <value>10</value>
   </data>
   <data name="btn15.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
@@ -367,7 +367,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btn15.ZOrder" xml:space="preserve">
-    <value>10</value>
+    <value>9</value>
   </data>
   <data name="btn30.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
@@ -403,7 +403,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btn30.ZOrder" xml:space="preserve">
-    <value>9</value>
+    <value>8</value>
   </data>
   <data name="btn60.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
@@ -439,7 +439,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btn60.ZOrder" xml:space="preserve">
-    <value>8</value>
+    <value>7</value>
   </data>
   <data name="btn120.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
@@ -475,10 +475,10 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btn120.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>6</value>
   </data>
   <data name="tbTimer.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 40.2pt, style=Bold</value>
+    <value>Microsoft Sans Serif, 37.8pt, style=Bold</value>
   </data>
   <data name="tbTimer.Location" type="System.Drawing.Point, System.Drawing">
     <value>12, 1</value>
@@ -487,7 +487,7 @@
     <value>3, 2, 3, 2</value>
   </data>
   <data name="tbTimer.Size" type="System.Drawing.Size, System.Drawing">
-    <value>239, 76</value>
+    <value>239, 72</value>
   </data>
   <data name="tbTimer.TabIndex" type="System.Int32, mscorlib">
     <value>18</value>
@@ -502,7 +502,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;tbTimer.ZOrder" xml:space="preserve">
-    <value>16</value>
+    <value>15</value>
   </data>
   <data name="label1.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -852,39 +852,6 @@
   <data name="&gt;&gt;lbExportSettings.ZOrder" xml:space="preserve">
     <value>8</value>
   </data>
-  <data name="cbWhichWords.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 19.8000011pt</value>
-  </data>
-  <data name="cbWhichWords.Items" xml:space="preserve">
-    <value>10 fast fingers</value>
-  </data>
-  <data name="cbWhichWords.Items1" xml:space="preserve">
-    <value>monkey type</value>
-  </data>
-  <data name="cbWhichWords.Location" type="System.Drawing.Point, System.Drawing">
-    <value>367, 24</value>
-  </data>
-  <data name="cbWhichWords.Size" type="System.Drawing.Size, System.Drawing">
-    <value>243, 46</value>
-  </data>
-  <data name="cbWhichWords.TabIndex" type="System.Int32, mscorlib">
-    <value>7</value>
-  </data>
-  <data name="cbWhichWords.Text" xml:space="preserve">
-    <value>Which Words</value>
-  </data>
-  <data name="&gt;&gt;cbWhichWords.Name" xml:space="preserve">
-    <value>cbWhichWords</value>
-  </data>
-  <data name="&gt;&gt;cbWhichWords.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;cbWhichWords.Parent" xml:space="preserve">
-    <value>pnlSettings</value>
-  </data>
-  <data name="&gt;&gt;cbWhichWords.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
   <data name="lbTypeBarForeColor.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
@@ -1150,7 +1117,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btnTime.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>3</value>
   </data>
   <data name="btnWords.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
@@ -1186,10 +1153,10 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btnWords.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>2</value>
   </data>
   <data name="tbLiveWPM.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 40.2pt, style=Bold</value>
+    <value>Microsoft Sans Serif, 37.8pt, style=Bold</value>
   </data>
   <data name="tbLiveWPM.Location" type="System.Drawing.Point, System.Drawing">
     <value>261, 1</value>
@@ -1198,7 +1165,7 @@
     <value>3, 2, 3, 2</value>
   </data>
   <data name="tbLiveWPM.Size" type="System.Drawing.Size, System.Drawing">
-    <value>134, 76</value>
+    <value>134, 72</value>
   </data>
   <data name="tbLiveWPM.TabIndex" type="System.Int32, mscorlib">
     <value>26</value>
@@ -1213,7 +1180,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;tbLiveWPM.ZOrder" xml:space="preserve">
-    <value>15</value>
+    <value>14</value>
   </data>
   <metadata name="colorDialog1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>144, 8</value>
@@ -1276,7 +1243,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btnSettings.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>19</value>
   </data>
   <data name="btnRestart.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Right</value>
@@ -1309,7 +1276,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btnRestart.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>5</value>
   </data>
   <data name="rtbCapsLock.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top</value>
@@ -1345,7 +1312,7 @@
     <value>0</value>
   </data>
   <data name="tbWordsCounter.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 40.2pt, style=Bold</value>
+    <value>Microsoft Sans Serif, 37.8pt, style=Bold</value>
   </data>
   <data name="tbWordsCounter.Location" type="System.Drawing.Point, System.Drawing">
     <value>12, 1</value>
@@ -1354,7 +1321,7 @@
     <value>3, 2, 3, 2</value>
   </data>
   <data name="tbWordsCounter.Size" type="System.Drawing.Size, System.Drawing">
-    <value>239, 76</value>
+    <value>239, 72</value>
   </data>
   <data name="tbWordsCounter.TabIndex" type="System.Int32, mscorlib">
     <value>37</value>
@@ -1372,7 +1339,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;tbWordsCounter.ZOrder" xml:space="preserve">
-    <value>17</value>
+    <value>16</value>
   </data>
   <data name="pnlSettings.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Bottom, Left, Right</value>
@@ -1482,6 +1449,33 @@
   <data name="&gt;&gt;lbChangeCountersColor.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
+  <data name="cbLanguage.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 19.8000011pt</value>
+  </data>
+  <data name="cbLanguage.Location" type="System.Drawing.Point, System.Drawing">
+    <value>367, 24</value>
+  </data>
+  <data name="cbLanguage.Size" type="System.Drawing.Size, System.Drawing">
+    <value>243, 46</value>
+  </data>
+  <data name="cbLanguage.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="cbLanguage.Text" xml:space="preserve">
+    <value>Language</value>
+  </data>
+  <data name="&gt;&gt;cbLanguage.Name" xml:space="preserve">
+    <value>cbLanguage</value>
+  </data>
+  <data name="&gt;&gt;cbLanguage.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;cbLanguage.Parent" xml:space="preserve">
+    <value>pnlSettings</value>
+  </data>
+  <data name="&gt;&gt;cbLanguage.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
   <data name="pnlSettings.Location" type="System.Drawing.Point, System.Drawing">
     <value>13, 73</value>
   </data>
@@ -1501,7 +1495,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;pnlSettings.ZOrder" xml:space="preserve">
-    <value>19</value>
+    <value>17</value>
   </data>
   <data name="pnlResults.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Bottom, Left, Right</value>
@@ -1624,7 +1618,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;pnlResults.ZOrder" xml:space="preserve">
-    <value>20</value>
+    <value>18</value>
   </data>
   <metadata name="tUpdateUI.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>28, 7</value>

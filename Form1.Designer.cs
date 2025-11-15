@@ -53,7 +53,6 @@ namespace Typing_Test
             this.rtbFinalWPM = new System.Windows.Forms.RichTextBox();
             this.lbImportSettings = new System.Windows.Forms.Label();
             this.lbExportSettings = new System.Windows.Forms.Label();
-            this.cbWhichWords = new System.Windows.Forms.ComboBox();
             this.lbTypeBarForeColor = new System.Windows.Forms.Label();
             this.lbResetDefaultSettings = new System.Windows.Forms.Label();
             this.lbWrongWordColor = new System.Windows.Forms.Label();
@@ -74,6 +73,7 @@ namespace Typing_Test
             this.lbExportResultsToExcel = new System.Windows.Forms.Label();
             this.lbChangeSelectColor = new System.Windows.Forms.Label();
             this.lbChangeCountersColor = new System.Windows.Forms.Label();
+            this.cbLanguage = new System.Windows.Forms.ComboBox();
             this.pnlResults = new System.Windows.Forms.Panel();
             this.rtbDuration = new System.Windows.Forms.RichTextBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -287,18 +287,6 @@ namespace Typing_Test
             this.lbExportSettings.Name = "lbExportSettings";
             this.lbExportSettings.Click += new System.EventHandler(this.lbExportSettings_Click);
             // 
-            // cbWhichWords
-            // 
-            this.cbWhichWords.DisplayMember = "0";
-            resources.ApplyResources(this.cbWhichWords, "cbWhichWords");
-            this.cbWhichWords.FormattingEnabled = true;
-            this.cbWhichWords.Items.AddRange(new object[] {
-            resources.GetString("cbWhichWords.Items"),
-            resources.GetString("cbWhichWords.Items1")});
-            this.cbWhichWords.Name = "cbWhichWords";
-            this.cbWhichWords.TabStop = false;
-            this.cbWhichWords.SelectedIndexChanged += new System.EventHandler(this.cbWhichWords_SelectedIndexChanged);
-            // 
             // lbTypeBarForeColor
             // 
             resources.ApplyResources(this.lbTypeBarForeColor, "lbTypeBarForeColor");
@@ -441,7 +429,7 @@ namespace Typing_Test
             this.pnlSettings.Controls.Add(this.lbChangeSelectColor);
             this.pnlSettings.Controls.Add(this.lbChangeCountersColor);
             this.pnlSettings.Controls.Add(this.lbTypeBarForeColor);
-            this.pnlSettings.Controls.Add(this.cbWhichWords);
+            this.pnlSettings.Controls.Add(this.cbLanguage);
             this.pnlSettings.Controls.Add(this.lbResetDefaultSettings);
             this.pnlSettings.Controls.Add(this.lbImportSettings);
             this.pnlSettings.Controls.Add(this.lbWrongWordColor);
@@ -472,6 +460,17 @@ namespace Typing_Test
             this.lbChangeCountersColor.ForeColor = System.Drawing.Color.DodgerBlue;
             this.lbChangeCountersColor.Name = "lbChangeCountersColor";
             this.lbChangeCountersColor.Click += new System.EventHandler(this.lbChangeCountersColor_Click);
+            // 
+            // cbLanguage
+            // 
+            this.cbLanguage.BackColor = System.Drawing.Color.Black;
+            this.cbLanguage.DisplayMember = "0";
+            resources.ApplyResources(this.cbLanguage, "cbLanguage");
+            this.cbLanguage.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.cbLanguage.FormattingEnabled = true;
+            this.cbLanguage.Name = "cbLanguage";
+            this.cbLanguage.TabStop = false;
+            this.cbLanguage.SelectedIndexChanged += new System.EventHandler(this.cbLanguage_SelectedIndexChanged);
             // 
             // pnlResults
             // 
@@ -529,7 +528,6 @@ namespace Typing_Test
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(25)))), ((int)(((byte)(24)))));
             this.Controls.Add(this.rtbCapsLock);
             this.Controls.Add(this.pictureBox2);
-            this.Controls.Add(this.btnSettings);
             this.Controls.Add(this.btnWords);
             this.Controls.Add(this.btnTime);
             this.Controls.Add(this.tbType);
@@ -545,9 +543,10 @@ namespace Typing_Test
             this.Controls.Add(this.tbLiveWPM);
             this.Controls.Add(this.tbTimer);
             this.Controls.Add(this.tbWordsCounter);
-            this.Controls.Add(this.rtbWords);
             this.Controls.Add(this.pnlSettings);
             this.Controls.Add(this.pnlResults);
+            this.Controls.Add(this.btnSettings);
+            this.Controls.Add(this.rtbWords);
             this.KeyPreview = true;
             this.Name = "Form1";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
@@ -603,7 +602,6 @@ namespace Typing_Test
         private System.Windows.Forms.Label lbCurrentWordColor;
         private System.Windows.Forms.Label lbFontColor;
         private System.Windows.Forms.Label lbFormBackColor;
-        private System.Windows.Forms.ComboBox cbWhichWords;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.RichTextBox rtbCapsLock;
         public System.Windows.Forms.TextBox tbWordsCounter;
@@ -619,6 +617,7 @@ namespace Typing_Test
         private System.Windows.Forms.SaveFileDialog sfdExportResultsToExcel;
         public System.Windows.Forms.RichTextBox rtbDuration;
         public System.Windows.Forms.Label label5;
+        private System.Windows.Forms.ComboBox cbLanguage;
     }
 }
 

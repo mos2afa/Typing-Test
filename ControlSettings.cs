@@ -41,6 +41,17 @@ namespace Typing_Test
 
             this.WindowState = FormWindowState.Maximized;
             this.FormBorderStyle = FormBorderStyle.Fixed3D;
+
+            cbLanguage.SelectedItem = "English";
+            ChangeCurrentLanguage("English");// Default Lang
+        }
+
+        private void ChangeCurrentLanguage(string Name)
+        {
+            string SelectedLanguage = Languages.GetLanguageWords(Name);
+            cbLanguage.SelectedItem = Name;
+            AllLanguageWords = SelectedLanguage.Split(' ');
+            RestartWords();
         }
 
         private void LoadColorsSettings()
@@ -101,6 +112,9 @@ namespace Typing_Test
             LoadWindowStateSettings();
 
             LoadFormBorderStyleSettings();
+
+            ChangeCurrentLanguage(settings.SelectedLanguage);
+            cbLanguage.SelectedItem = settings.SelectedLanguage;
         }
 
         private void UpdateSettingsObject()
@@ -116,6 +130,8 @@ namespace Typing_Test
 
             settings.WindowState = this.WindowState; // Normal, Maximized, Minimized
             settings.FormBorderStyle = this.FormBorderStyle; // None, Fixed3D
+
+            settings.SelectedLanguage = cbLanguage.SelectedItem.ToString();
         }
 
         private void ResetDefaultSettings()
@@ -168,129 +184,6 @@ namespace Typing_Test
             CanType();
         }
 
-        private void lbExportSettings_Click(object sender, EventArgs e)
-        {
-            SaveSettings();
-
-            Clipboard.SetText(jsonString);
-
-            MessageBox.Show("Settings Copied To Clipboard Successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        }
-
-        private void lbImportSettings_Click(object sender, EventArgs e)
-        {
-            jsonString = Clipboard.GetText();
-
-            try
-            {
-                SaveToFile();
-
-                LoadSettings();
-
-                MessageBox.Show("Settings Loaded Successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("Error while Importing Settings.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private void lbChangeFormBackColor_Click(object sender, EventArgs e)
-        {
-            colorDialog1.Color = this.BackColor;
-            if (colorDialog1.ShowDialog() == DialogResult.OK)
-            {
-                this.BackColor = colorDialog1.Color;
-                SaveSettings();
-            }
-        }
-
-        private void lbChangertbWordsForeColor_Click(object sender, EventArgs e)
-        {
-            colorDialog1.Color = rtbWords.ForeColor;
-            if (colorDialog1.ShowDialog() == DialogResult.OK)
-            {
-                rtbWords.ForeColor = colorDialog1.Color;
-                SaveSettings();
-            }
-        }
-
-        private void lbChangeCurrentWordColor_Click(object sender, EventArgs e)
-        {
-            colorDialog1.Color = CurrentWordColor;
-            if (colorDialog1.ShowDialog() == DialogResult.OK)
-            {
-                CurrentWordColor = colorDialog1.Color;
-                SaveSettings();
-            }
-        }
-
-        private void lbChangeCorrectWordColor_Click(object sender, EventArgs e)
-        {
-            colorDialog1.Color = CorrectWordColor;
-            if (colorDialog1.ShowDialog() == DialogResult.OK)
-            {
-                CorrectWordColor = colorDialog1.Color;
-                SaveSettings();
-            }
-        }
-
-        private void lbChangeWrongWordColor_Click(object sender, EventArgs e)
-        {
-            colorDialog1.Color = WrongWordColor;
-            if (colorDialog1.ShowDialog() == DialogResult.OK)
-            {
-                WrongWordColor = colorDialog1.Color;
-                SaveSettings();
-            }
-        }
-
-        private void lbChangetbTypeForeColor_Click(object sender, EventArgs e)
-        {
-            colorDialog1.Color = tbType.ForeColor;
-            if (colorDialog1.ShowDialog() == DialogResult.OK)
-            {
-                tbType.ForeColor = colorDialog1.Color;
-                SaveSettings();
-            }
-        }
-
-        private void lbChangeCountersColor_Click(object sender, EventArgs e)
-        {
-            colorDialog1.Color = tbLiveWPM.ForeColor;
-            if (colorDialog1.ShowDialog() == DialogResult.OK)
-            {
-                tbLiveWPM.ForeColor = colorDialog1.Color;
-                tbWordsCounter.ForeColor = colorDialog1.Color;
-                tbTimer.ForeColor = colorDialog1.Color;
-                rtbFinalWPM.ForeColor = colorDialog1.Color;
-                rtbWPMWord.ForeColor = colorDialog1.Color;
-                SaveSettings();
-            }
-        }
-
-
-        private void lbChangeSelectColor_Click(object sender, EventArgs e)
-        {
-            colorDialog1.Color = SelectColor;
-            if (colorDialog1.ShowDialog() == DialogResult.OK)
-            {
-                SelectColor = colorDialog1.Color;
-                SaveSettings();
-
-                CurrentBtn.BackColor = SelectColor;
-
-                if(CurrentTest.Mode == enMode.Time)
-                {
-                    btnTime.BackColor = SelectColor;
-                }
-                else
-                {
-                    btnWords.BackColor = SelectColor;
-                }
-            }
-        }
-
         private void ChangeSomeControlColorsAccordingToFormBackColor()
         {
             tbLiveWPM.BackColor = this.BackColor;
@@ -300,6 +193,7 @@ namespace Typing_Test
             rtbFinalWPM.BackColor = this.BackColor;
             rtbWPMWord.BackColor = this.BackColor;
             tbType.BackColor = this.BackColor;
+            cbLanguage.BackColor = this.BackColor;
         }
 
         private void ToggleFullScreen()
@@ -323,7 +217,6 @@ namespace Typing_Test
 
         private void Form1_Resize(object sender, EventArgs e)
         {
-
             if (this.WindowState == FormWindowState.Maximized)
             {
                 rtbWords.ZoomFactor = 2f;
@@ -333,13 +226,6 @@ namespace Typing_Test
             {
                 rtbWords.ZoomFactor = 1.45f;
             }
-        }
-
-        private void cbWhichWords_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (cbWhichWords.SelectedIndex == 0) words = AllWords10FastFingers.Split('|');
-
-            if (cbWhichWords.SelectedIndex == 1) words = AllWordsMonkeyType.Split(' ');
         }
 
         private void rtbWPMWord_MouseDown(object sender, MouseEventArgs e)
@@ -363,7 +249,6 @@ namespace Typing_Test
             // Enable custom drawing
             toolTip.OwnerDraw = true;
 
-            // Handle the Draw event to use a larger font
             toolTip.Draw += (s, m) =>
             {
                 using (Font f = new Font("Segoe UI", 16, FontStyle.Bold)) // larger font
@@ -373,7 +258,6 @@ namespace Typing_Test
                 }
             };
 
-            // Optional: handle Popup if you want to adjust the tooltip size to fit bigger text
             toolTip.Popup += (s, m) =>
             {
                 using (Font f = new Font("Segoe UI", 16, FontStyle.Bold))
@@ -397,16 +281,6 @@ namespace Typing_Test
             toolTip.Hide(rtbFinalWPM);
         }
 
-        private void lbExportResultsToExcel_Click(object sender, EventArgs e)
-        {
-            sfdExportResultsToExcel.Filter = "Excel Workbook (*.xlsx)|*.xlsx";
-            sfdExportResultsToExcel.FileName = "Typing_Results.xlsx";
-
-            if (sfdExportResultsToExcel.ShowDialog() == DialogResult.OK)
-            {
-                Test.ExportTypingTestsToExcel(sfdExportResultsToExcel.FileName);
-                MessageBox.Show("Results exported to Excel successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-        }
+        
     }
 }
