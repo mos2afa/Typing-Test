@@ -43,13 +43,11 @@ namespace Typing_Test
             this.FormBorderStyle = FormBorderStyle.Fixed3D;
 
             cbLanguage.SelectedItem = "English";
-            ChangeCurrentLanguage("English");// Default Lang
         }
 
         private void ChangeCurrentLanguage(string Name)
         {
             string SelectedLanguage = Languages.GetLanguageWords(Name);
-            cbLanguage.SelectedItem = Name;
             AllLanguageWords = SelectedLanguage.Split(' ');
             RestartWords();
         }
@@ -113,7 +111,6 @@ namespace Typing_Test
 
             LoadFormBorderStyleSettings();
 
-            ChangeCurrentLanguage(settings.SelectedLanguage);
             cbLanguage.SelectedItem = settings.SelectedLanguage;
         }
 
@@ -241,7 +238,8 @@ namespace Typing_Test
         }
 
         ToolTip toolTip = new ToolTip();
-        private void rtbFinalWPM_MouseEnter(object sender, EventArgs e)
+
+        private void CustomizeToolTip()
         {
             toolTip.BackColor = Color.Black;
             toolTip.ForeColor = Color.White;
@@ -266,14 +264,16 @@ namespace Typing_Test
                     m.ToolTipSize = new Size(size.Width + 10, size.Height + 10);
                 }
             };
+        }
 
+        private void rtbFinalWPM_MouseEnter(object sender, EventArgs e)
+        {
             toolTip.Show(
                 CurrentTest.WPM.ToString("F2") + " WPM",
                 rtbFinalWPM,
                 rtbFinalWPM.Location.X + 80,
-                Location.Y - 20
+                rtbFinalWPM.Location.Y - 40
             );
-
         }
 
         private void rtbFinalWPM_MouseLeave(object sender, EventArgs e)
@@ -281,6 +281,36 @@ namespace Typing_Test
             toolTip.Hide(rtbFinalWPM);
         }
 
-        
+        private void pbBest_MouseEnter(object sender, EventArgs e)
+        {
+            toolTip.Show(
+                "+" + Diff_WPM.ToString("F2"),
+                pbBest,
+                pbBest.Location.X - 240,
+                pbBest.Location.Y
+            );
+        }
+
+        private void pbBest_MouseLeave(object sender, EventArgs e)
+        {
+            toolTip.Hide(pbBest);
+        }
+
+        private void BringToFrontWordButtons()
+        {
+            btn10.BringToFront();
+            btn25.BringToFront();
+            btn50.BringToFront();
+            btn100.BringToFront();
+        }
+
+        private void BringToFrontTimeButtons()
+        {
+            btn15.BringToFront();
+            btn30.BringToFront();
+            btn60.BringToFront();
+            btn120.BringToFront();
+        }
+
     }
 }

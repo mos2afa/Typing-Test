@@ -123,13 +123,15 @@ namespace Typing_Test
             }
         }
 
-        public static double GetMaxWPM()
+        public static double GetMaxWPM(string LanguageName)
         {
             using (var conn = new SQLiteConnection(ConnectionString))
             {
                 conn.Open();
                 var cmd = conn.CreateCommand();
-                cmd.CommandText = "SELECT IFNULL(MAX(WPM), 0) FROM TypingTests;";
+                cmd.CommandText = "SELECT IFNULL(MAX(WPM), 0) FROM TypingTests " +
+                    "Where Language = @LanguageName;";
+                cmd.Parameters.AddWithValue("@LanguageName", LanguageName);
                 return Convert.ToDouble(cmd.ExecuteScalar());
             }
         }

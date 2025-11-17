@@ -16,43 +16,6 @@ namespace Typing_Test
             InitializeComponent();
         }
 
-        private void LoadForm()
-        {
-            foreach (string Language in Languages.GetAllLanguageNames())
-            {
-                cbLanguage.Items.Add(Language);
-            }
-
-            if (!File.Exists(jsonSettingsPath))
-            {
-                LoadDefaultSettings();
-                using (File.Create(jsonSettingsPath)) { };
-                Serialize();
-                SaveToFile();
-            }
-            else
-            {
-                LoadSettings();
-            }
-
-            tbType.Select();
-
-            ShowTypingTestScreen();
-
-            Restart();
-            SetFirstWordColor();
-
-            ChangeSomeControlColorsAccordingToFormBackColor();
-
-            btn15.BackColor = SelectColor;
-            btnTime.BackColor = SelectColor;
-
-            rtbFinalWPM.SelectAll();
-            rtbFinalWPM.SelectionAlignment = HorizontalAlignment.Center;
-
-            CurrentBtn = btn15;
-        }
-
         private void Form1_Load(object sender, EventArgs e)
         {
             LoadForm();
@@ -60,28 +23,7 @@ namespace Typing_Test
 
         private void Form1_KeyDown_1(object sender, KeyEventArgs e)
         {
-            if (e.Control && e.KeyCode == Keys.W)
-            {
-                e.SuppressKeyPress = true;
-                this.Close(); 
-            }
-
-            if (e.KeyCode == Keys.F11 || (e.Control && e.KeyCode == Keys.F))
-            {
-                e.SuppressKeyPress = true;
-
-                ToggleFullScreen();
-            }
-
-            if (e.KeyCode == Keys.Escape)
-            {
-                ToggleSettingsVisibility();
-            }
-
-            if (System.Windows.Forms.Control.IsKeyLocked(Keys.CapsLock))
-                rtbCapsLock.Show();
-            else
-                rtbCapsLock.Hide();
+            PerformKeyDown(e);
         }
 
         private void btnRestart_Click(object sender, EventArgs e)
@@ -103,23 +45,6 @@ namespace Typing_Test
         {
             ChangeNumberOfSeconds((Button)sender);
         }
-
-        private void BringToFrontWordButtons()
-        {
-            btn10.BringToFront();
-            btn25.BringToFront();
-            btn50.BringToFront();
-            btn100.BringToFront();
-        }
-
-        private void BringToFrontTimeButtons()
-        {
-            btn15.BringToFront();
-            btn30.BringToFront();
-            btn60.BringToFront();
-            btn120.BringToFront();
-        }
-
 
         private void btnTime_Click(object sender, EventArgs e)
         {
@@ -159,6 +84,11 @@ namespace Typing_Test
         private void lbResetDefaultSettings_Click(object sender, EventArgs e)
         {
             ResetDefaultSettings();
+        }
+
+        private void tUpdateUI_Tick(object sender, EventArgs e)
+        {
+            UpdateTestTimer();
         }
 
         private void cbLanguage_SelectedIndexChanged(object sender, EventArgs e)

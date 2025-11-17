@@ -63,10 +63,7 @@ namespace Typing_Test
             this.btnTime = new System.Windows.Forms.Button();
             this.btnWords = new System.Windows.Forms.Button();
             this.tbLiveWPM = new System.Windows.Forms.TextBox();
-            this.colorDialog1 = new System.Windows.Forms.ColorDialog();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.btnSettings = new System.Windows.Forms.PictureBox();
-            this.btnRestart = new System.Windows.Forms.Button();
+            this.cdChangeColor = new System.Windows.Forms.ColorDialog();
             this.rtbCapsLock = new System.Windows.Forms.RichTextBox();
             this.tbWordsCounter = new System.Windows.Forms.TextBox();
             this.pnlSettings = new System.Windows.Forms.Panel();
@@ -75,15 +72,20 @@ namespace Typing_Test
             this.lbChangeCountersColor = new System.Windows.Forms.Label();
             this.cbLanguage = new System.Windows.Forms.ComboBox();
             this.pnlResults = new System.Windows.Forms.Panel();
+            this.pbBest = new System.Windows.Forms.PictureBox();
             this.rtbDuration = new System.Windows.Forms.RichTextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.rtbWPMWord = new System.Windows.Forms.RichTextBox();
             this.tUpdateUI = new System.Windows.Forms.Timer(this.components);
             this.sfdExportResultsToExcel = new System.Windows.Forms.SaveFileDialog();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnSettings)).BeginInit();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.btnRestart = new System.Windows.Forms.Button();
+            this.btnSettings = new System.Windows.Forms.PictureBox();
             this.pnlSettings.SuspendLayout();
             this.pnlResults.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbBest)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnSettings)).BeginInit();
             this.SuspendLayout();
             // 
             // rtbWords
@@ -92,6 +94,7 @@ namespace Typing_Test
             this.rtbWords.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(25)))), ((int)(((byte)(24)))));
             this.rtbWords.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.rtbWords.Cursor = System.Windows.Forms.Cursors.Default;
+            this.rtbWords.DetectUrls = false;
             this.rtbWords.ForeColor = System.Drawing.Color.White;
             this.rtbWords.Name = "rtbWords";
             this.rtbWords.ReadOnly = true;
@@ -368,36 +371,9 @@ namespace Typing_Test
             this.tbLiveWPM.TabStop = false;
             this.tbLiveWPM.MouseDown += new System.Windows.Forms.MouseEventHandler(this.rtbWPMWord_MouseDown);
             // 
-            // colorDialog1
+            // cdChangeColor
             // 
-            this.colorDialog1.FullOpen = true;
-            // 
-            // pictureBox2
-            // 
-            resources.ApplyResources(this.pictureBox2, "pictureBox2");
-            this.pictureBox2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox2.Image = global::Typing_Test.Properties.Resources.fullscreen;
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.TabStop = false;
-            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
-            // 
-            // btnSettings
-            // 
-            resources.ApplyResources(this.btnSettings, "btnSettings");
-            this.btnSettings.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnSettings.Image = global::Typing_Test.Properties.Resources.setting;
-            this.btnSettings.Name = "btnSettings";
-            this.btnSettings.TabStop = false;
-            this.btnSettings.Click += new System.EventHandler(this.pictureBox1_Click);
-            // 
-            // btnRestart
-            // 
-            resources.ApplyResources(this.btnRestart, "btnRestart");
-            this.btnRestart.BackgroundImage = global::Typing_Test.Properties.Resources.Restart;
-            this.btnRestart.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnRestart.Name = "btnRestart";
-            this.btnRestart.UseVisualStyleBackColor = true;
-            this.btnRestart.Click += new System.EventHandler(this.btnRestart_Click);
+            this.cdChangeColor.FullOpen = true;
             // 
             // rtbCapsLock
             // 
@@ -475,6 +451,7 @@ namespace Typing_Test
             // pnlResults
             // 
             resources.ApplyResources(this.pnlResults, "pnlResults");
+            this.pnlResults.Controls.Add(this.pbBest);
             this.pnlResults.Controls.Add(this.rtbDuration);
             this.pnlResults.Controls.Add(this.label5);
             this.pnlResults.Controls.Add(this.rtbWPMWord);
@@ -488,6 +465,17 @@ namespace Typing_Test
             this.pnlResults.Controls.Add(this.rtbCorrectWords);
             this.pnlResults.Controls.Add(this.rtbWrongWords);
             this.pnlResults.Name = "pnlResults";
+            // 
+            // pbBest
+            // 
+            this.pbBest.BackColor = System.Drawing.Color.Black;
+            this.pbBest.Cursor = System.Windows.Forms.Cursors.Default;
+            this.pbBest.Image = global::Typing_Test.Properties.Resources.Star;
+            resources.ApplyResources(this.pbBest, "pbBest");
+            this.pbBest.Name = "pbBest";
+            this.pbBest.TabStop = false;
+            this.pbBest.MouseEnter += new System.EventHandler(this.pbBest_MouseEnter);
+            this.pbBest.MouseLeave += new System.EventHandler(this.pbBest_MouseLeave);
             // 
             // rtbDuration
             // 
@@ -521,6 +509,33 @@ namespace Typing_Test
             this.tUpdateUI.Interval = 1000;
             this.tUpdateUI.Tick += new System.EventHandler(this.tUpdateUI_Tick);
             // 
+            // pictureBox2
+            // 
+            resources.ApplyResources(this.pictureBox2, "pictureBox2");
+            this.pictureBox2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox2.Image = global::Typing_Test.Properties.Resources.fullscreen;
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.TabStop = false;
+            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
+            // 
+            // btnRestart
+            // 
+            resources.ApplyResources(this.btnRestart, "btnRestart");
+            this.btnRestart.BackgroundImage = global::Typing_Test.Properties.Resources.Restart;
+            this.btnRestart.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnRestart.Name = "btnRestart";
+            this.btnRestart.UseVisualStyleBackColor = true;
+            this.btnRestart.Click += new System.EventHandler(this.btnRestart_Click);
+            // 
+            // btnSettings
+            // 
+            resources.ApplyResources(this.btnSettings, "btnSettings");
+            this.btnSettings.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSettings.Image = global::Typing_Test.Properties.Resources.setting;
+            this.btnSettings.Name = "btnSettings";
+            this.btnSettings.TabStop = false;
+            this.btnSettings.Click += new System.EventHandler(this.pictureBox1_Click);
+            // 
             // Form1
             // 
             resources.ApplyResources(this, "$this");
@@ -543,10 +558,10 @@ namespace Typing_Test
             this.Controls.Add(this.tbLiveWPM);
             this.Controls.Add(this.tbTimer);
             this.Controls.Add(this.tbWordsCounter);
-            this.Controls.Add(this.pnlSettings);
-            this.Controls.Add(this.pnlResults);
             this.Controls.Add(this.btnSettings);
             this.Controls.Add(this.rtbWords);
+            this.Controls.Add(this.pnlSettings);
+            this.Controls.Add(this.pnlResults);
             this.KeyPreview = true;
             this.Name = "Form1";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
@@ -555,12 +570,13 @@ namespace Typing_Test
             this.BackColorChanged += new System.EventHandler(this.Form1_BackColorChanged);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown_1);
             this.Resize += new System.EventHandler(this.Form1_Resize);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnSettings)).EndInit();
             this.pnlSettings.ResumeLayout(false);
             this.pnlSettings.PerformLayout();
             this.pnlResults.ResumeLayout(false);
             this.pnlResults.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbBest)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnSettings)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -590,7 +606,7 @@ namespace Typing_Test
         public System.Windows.Forms.RichTextBox rtbCorrectWords;
         public System.Windows.Forms.RichTextBox rtbWrongWords;
         public System.Windows.Forms.TextBox tbLiveWPM;
-        private System.Windows.Forms.ColorDialog colorDialog1;
+        private System.Windows.Forms.ColorDialog cdChangeColor;
         //public System.Windows.Forms.RichTextBox richTextBox2;
         public System.Windows.Forms.RichTextBox rtbAccuracy;
         public System.Windows.Forms.Label label4;
@@ -618,6 +634,7 @@ namespace Typing_Test
         public System.Windows.Forms.RichTextBox rtbDuration;
         public System.Windows.Forms.Label label5;
         private System.Windows.Forms.ComboBox cbLanguage;
+        private System.Windows.Forms.PictureBox pbBest;
     }
 }
 

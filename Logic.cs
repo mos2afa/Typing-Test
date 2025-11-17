@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -27,7 +28,46 @@ namespace Typing_Test
 
         public bool IsTestCompleted = false;
 
-        private bool CheckCurrentWordTypedTrue()
+        private void LoadForm()
+        {
+            foreach (string Language in Languages.GetAllLanguageNames())
+            {
+                cbLanguage.Items.Add(Language);
+            }
+
+            if (!File.Exists(jsonSettingsPath))
+            {
+                LoadDefaultSettings();
+                using (File.Create(jsonSettingsPath)) { }
+                ;
+                Serialize();
+                SaveToFile();
+            }
+            else
+            {
+                LoadSettings();
+            }
+
+            tbType.Select();
+
+            ShowTypingTestScreen();
+
+            SetFirstWordColor();
+
+            ChangeSomeControlColorsAccordingToFormBackColor();
+
+            btn15.BackColor = SelectColor;
+            btnTime.BackColor = SelectColor;
+
+            rtbFinalWPM.SelectAll();
+            rtbFinalWPM.SelectionAlignment = HorizontalAlignment.Center;
+
+            CurrentBtn = btn15;
+
+            CustomizeToolTip();
+        }
+
+        private bool IsCurrentWordTypedTrue()
         {
             return tbType.Text == CurrentWords[CurrentTest.CurrentWordCounter];
         }
@@ -122,7 +162,7 @@ namespace Typing_Test
 
         private void DealWithCounters()
         {
-            if (tbType.Text == CurrentWords[CurrentTest.CurrentWordCounter])
+            if (IsCurrentWordTypedTrue())
             {
                 CurrentTest.CorrectWords++;
 
@@ -187,7 +227,7 @@ namespace Typing_Test
 
         private void SetPrevWordColor()
         {
-            if (CheckCurrentWordTypedTrue())
+            if (IsCurrentWordTypedTrue())
             {
                 rtbWords.Select(IndexOfFirstCharOfCurrentWord, CurrentWords[CurrentTest.CurrentWordCounter].Length);
                 rtbWords.SelectionColor = CorrectWordColor;
@@ -296,6 +336,8 @@ namespace Typing_Test
             rtbWords.Hide();
         }
 
+        double Diff_WPM = -1;
+
         private void ShowResults()
         {
             ShowResultScreen();
@@ -304,14 +346,22 @@ namespace Typing_Test
             rtbWrongWords.Text = CurrentTest.WrongWords.ToString();
 
             CurrentTest.Language = cbLanguage.SelectedItem.ToString();
+                
 
             CurrentTest.Accuracy = Math.Round(CalcAccuracy(),2);
             rtbAccuracy.Text = CurrentTest.Accuracy.ToString("F0") + "%";
 
             rtbFinalWPM.Text = Convert.ToInt16(CalcWPM()).ToString();
 
-            CurrentTest.DurationSeconds = stopwatch.Elapsed.TotalSeconds;
+            CurrentTest.DurationSeconds = Math.Round(stopwatch.Elapsed.TotalSeconds,2);
             rtbDuration.Text = CurrentTest.DurationSeconds.ToString("F2") +" s";
+
+            Diff_WPM = CurrentTest.WPM - Test.GetMaxWPM(CurrentTest.Language);
+
+            if (Diff_WPM >0)
+                pbBest.Show();
+            else
+                pbBest.Hide();
 
             SetKeyStrokesColors();
 
@@ -385,11 +435,6 @@ namespace Typing_Test
                 ShowResults();
                 ResetTimer();
             }
-        }
-
-        private void tUpdateUI_Tick(object sender, EventArgs e)
-        {
-            UpdateTestTimer();
         }
 
         private void PerformCtrlBackSpace(KeyEventArgs e)

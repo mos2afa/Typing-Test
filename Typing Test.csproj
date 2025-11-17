@@ -36,7 +36,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>—Pngtree—vector keyboard icon_3772837.ico</ApplicationIcon>
+    <ApplicationIcon>Form Icon.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
     <DebugSymbols>true</DebugSymbols>
@@ -218,9 +218,11 @@
     <None Include="Resources\Restart.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\Star.png" />
+    <None Include="Resources\BestResult.png" />
     <None Include="Resources\setting.png" />
     <None Include="Resources\fullscreen.png" />
-    <Content Include="—Pngtree—vector keyboard icon_3772837.ico" />
+    <Content Include="Form Icon.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

@@ -75,7 +75,9 @@ namespace Typing_Test
 
             if (sfdExportResultsToExcel.ShowDialog() == DialogResult.OK)
             {
+                Cursor = Cursors.WaitCursor;
                 Test.ExportTypingTestsToExcel(sfdExportResultsToExcel.FileName);
+                Cursor = Cursors.Default;
                 MessageBox.Show("Results exported to Excel successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
@@ -109,20 +111,20 @@ namespace Typing_Test
 
         private void lbChangeFormBackColor_Click(object sender, EventArgs e)
         {
-            colorDialog1.Color = this.BackColor;
-            if (colorDialog1.ShowDialog() == DialogResult.OK)
+            cdChangeColor.Color = this.BackColor;
+            if (cdChangeColor.ShowDialog() == DialogResult.OK)
             {
-                this.BackColor = colorDialog1.Color;
+                this.BackColor = cdChangeColor.Color;
                 SaveSettings();
             }
         }
 
         private void lbChangertbWordsForeColor_Click(object sender, EventArgs e)
         {
-            colorDialog1.Color = rtbWords.ForeColor;
-            if (colorDialog1.ShowDialog() == DialogResult.OK)
+            cdChangeColor.Color = rtbWords.ForeColor;
+            if (cdChangeColor.ShowDialog() == DialogResult.OK)
             {
-                rtbWords.ForeColor = colorDialog1.Color;
+                rtbWords.ForeColor = cdChangeColor.Color;
                 SaveSettings();
                 SetFirstWordColor();
             }
@@ -130,10 +132,10 @@ namespace Typing_Test
 
         private void lbChangeCurrentWordColor_Click(object sender, EventArgs e)
         {
-            colorDialog1.Color = CurrentWordColor;
-            if (colorDialog1.ShowDialog() == DialogResult.OK)
+            cdChangeColor.Color = CurrentWordColor;
+            if (cdChangeColor.ShowDialog() == DialogResult.OK)
             {
-                CurrentWordColor = colorDialog1.Color;
+                CurrentWordColor = cdChangeColor.Color;
                 SaveSettings();
                 SetFirstWordColor();
             }
@@ -141,44 +143,44 @@ namespace Typing_Test
 
         private void lbChangeCorrectWordColor_Click(object sender, EventArgs e)
         {
-            colorDialog1.Color = CorrectWordColor;
-            if (colorDialog1.ShowDialog() == DialogResult.OK)
+            cdChangeColor.Color = CorrectWordColor;
+            if (cdChangeColor.ShowDialog() == DialogResult.OK)
             {
-                CorrectWordColor = colorDialog1.Color;
+                CorrectWordColor = cdChangeColor.Color;
                 SaveSettings();
             }
         }
 
         private void lbChangeWrongWordColor_Click(object sender, EventArgs e)
         {
-            colorDialog1.Color = WrongWordColor;
-            if (colorDialog1.ShowDialog() == DialogResult.OK)
+            cdChangeColor.Color = WrongWordColor;
+            if (cdChangeColor.ShowDialog() == DialogResult.OK)
             {
-                WrongWordColor = colorDialog1.Color;
+                WrongWordColor = cdChangeColor.Color;
                 SaveSettings();
             }
         }
 
         private void lbChangetbTypeForeColor_Click(object sender, EventArgs e)
         {
-            colorDialog1.Color = tbType.ForeColor;
-            if (colorDialog1.ShowDialog() == DialogResult.OK)
+            cdChangeColor.Color = tbType.ForeColor;
+            if (cdChangeColor.ShowDialog() == DialogResult.OK)
             {
-                tbType.ForeColor = colorDialog1.Color;
+                tbType.ForeColor = cdChangeColor.Color;
                 SaveSettings();
             }
         }
 
         private void lbChangeCountersColor_Click(object sender, EventArgs e)
         {
-            colorDialog1.Color = tbLiveWPM.ForeColor;
-            if (colorDialog1.ShowDialog() == DialogResult.OK)
+            cdChangeColor.Color = tbLiveWPM.ForeColor;
+            if (cdChangeColor.ShowDialog() == DialogResult.OK)
             {
-                tbLiveWPM.ForeColor = colorDialog1.Color;
-                tbWordsCounter.ForeColor = colorDialog1.Color;
-                tbTimer.ForeColor = colorDialog1.Color;
-                rtbFinalWPM.ForeColor = colorDialog1.Color;
-                rtbWPMWord.ForeColor = colorDialog1.Color;
+                tbLiveWPM.ForeColor = cdChangeColor.Color;
+                tbWordsCounter.ForeColor = cdChangeColor.Color;
+                tbTimer.ForeColor = cdChangeColor.Color;
+                rtbFinalWPM.ForeColor = cdChangeColor.Color;
+                rtbWPMWord.ForeColor = cdChangeColor.Color;
                 SaveSettings();
             }
         }
@@ -186,10 +188,10 @@ namespace Typing_Test
 
         private void lbChangeSelectColor_Click(object sender, EventArgs e)
         {
-            colorDialog1.Color = SelectColor;
-            if (colorDialog1.ShowDialog() == DialogResult.OK)
+            cdChangeColor.Color = SelectColor;
+            if (cdChangeColor.ShowDialog() == DialogResult.OK)
             {
-                SelectColor = colorDialog1.Color;
+                SelectColor = cdChangeColor.Color;
                 SaveSettings();
 
                 CurrentBtn.BackColor = SelectColor;
@@ -203,6 +205,31 @@ namespace Typing_Test
                     btnWords.BackColor = SelectColor;
                 }
             }
+        }
+
+        private void PerformKeyDown(KeyEventArgs e)
+        {
+            if (e.Control && e.KeyCode == Keys.W)
+            {
+                e.SuppressKeyPress = true;
+                this.Close();
+            }
+
+            if (e.KeyCode == Keys.F11 || (e.Control && e.KeyCode == Keys.F))
+            {
+                e.SuppressKeyPress = true;
+                ToggleFullScreen();
+            }
+
+            if (e.KeyCode == Keys.Escape)
+            {
+                ToggleSettingsVisibility();
+            }
+
+            if (System.Windows.Forms.Control.IsKeyLocked(Keys.CapsLock))
+                rtbCapsLock.Show();
+            else
+                rtbCapsLock.Hide();
         }
     }
 }
