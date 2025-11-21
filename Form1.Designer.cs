@@ -67,6 +67,7 @@ namespace Typing_Test
             this.rtbCapsLock = new System.Windows.Forms.RichTextBox();
             this.tbWordsCounter = new System.Windows.Forms.TextBox();
             this.pnlSettings = new System.Windows.Forms.Panel();
+            this.lbClearResults = new System.Windows.Forms.Label();
             this.lbExportResultsToExcel = new System.Windows.Forms.Label();
             this.lbChangeSelectColor = new System.Windows.Forms.Label();
             this.lbChangeCountersColor = new System.Windows.Forms.Label();
@@ -113,7 +114,7 @@ namespace Typing_Test
             // btn10
             // 
             resources.ApplyResources(this.btn10, "btn10");
-            this.btn10.BackColor = System.Drawing.Color.Gainsboro;
+            this.btn10.BackColor = System.Drawing.Color.Black;
             this.btn10.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn10.Name = "btn10";
             this.btn10.TabStop = false;
@@ -123,7 +124,7 @@ namespace Typing_Test
             // btn25
             // 
             resources.ApplyResources(this.btn25, "btn25");
-            this.btn25.BackColor = System.Drawing.Color.Gainsboro;
+            this.btn25.BackColor = System.Drawing.Color.Black;
             this.btn25.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn25.Name = "btn25";
             this.btn25.TabStop = false;
@@ -133,7 +134,7 @@ namespace Typing_Test
             // btn50
             // 
             resources.ApplyResources(this.btn50, "btn50");
-            this.btn50.BackColor = System.Drawing.Color.Gainsboro;
+            this.btn50.BackColor = System.Drawing.Color.Black;
             this.btn50.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn50.Name = "btn50";
             this.btn50.TabStop = false;
@@ -143,7 +144,7 @@ namespace Typing_Test
             // btn100
             // 
             resources.ApplyResources(this.btn100, "btn100");
-            this.btn100.BackColor = System.Drawing.Color.Gainsboro;
+            this.btn100.BackColor = System.Drawing.Color.Black;
             this.btn100.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn100.Name = "btn100";
             this.btn100.TabStop = false;
@@ -153,8 +154,9 @@ namespace Typing_Test
             // btn15
             // 
             resources.ApplyResources(this.btn15, "btn15");
-            this.btn15.BackColor = System.Drawing.Color.Gainsboro;
+            this.btn15.BackColor = System.Drawing.Color.Black;
             this.btn15.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn15.ForeColor = System.Drawing.Color.White;
             this.btn15.Name = "btn15";
             this.btn15.TabStop = false;
             this.btn15.UseVisualStyleBackColor = false;
@@ -163,8 +165,9 @@ namespace Typing_Test
             // btn30
             // 
             resources.ApplyResources(this.btn30, "btn30");
-            this.btn30.BackColor = System.Drawing.Color.Gainsboro;
+            this.btn30.BackColor = System.Drawing.Color.Black;
             this.btn30.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn30.ForeColor = System.Drawing.Color.White;
             this.btn30.Name = "btn30";
             this.btn30.TabStop = false;
             this.btn30.UseVisualStyleBackColor = false;
@@ -173,8 +176,9 @@ namespace Typing_Test
             // btn60
             // 
             resources.ApplyResources(this.btn60, "btn60");
-            this.btn60.BackColor = System.Drawing.Color.Gainsboro;
+            this.btn60.BackColor = System.Drawing.Color.Black;
             this.btn60.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn60.ForeColor = System.Drawing.Color.White;
             this.btn60.Name = "btn60";
             this.btn60.TabStop = false;
             this.btn60.UseVisualStyleBackColor = false;
@@ -183,8 +187,9 @@ namespace Typing_Test
             // btn120
             // 
             resources.ApplyResources(this.btn120, "btn120");
-            this.btn120.BackColor = System.Drawing.Color.Gainsboro;
+            this.btn120.BackColor = System.Drawing.Color.Black;
             this.btn120.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn120.ForeColor = System.Drawing.Color.White;
             this.btn120.Name = "btn120";
             this.btn120.TabStop = false;
             this.btn120.UseVisualStyleBackColor = false;
@@ -279,6 +284,7 @@ namespace Typing_Test
             // lbImportSettings
             // 
             resources.ApplyResources(this.lbImportSettings, "lbImportSettings");
+            this.lbImportSettings.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lbImportSettings.ForeColor = System.Drawing.Color.DodgerBlue;
             this.lbImportSettings.Name = "lbImportSettings";
             this.lbImportSettings.Click += new System.EventHandler(this.lbImportSettings_Click);
@@ -286,6 +292,7 @@ namespace Typing_Test
             // lbExportSettings
             // 
             resources.ApplyResources(this.lbExportSettings, "lbExportSettings");
+            this.lbExportSettings.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lbExportSettings.ForeColor = System.Drawing.Color.DodgerBlue;
             this.lbExportSettings.Name = "lbExportSettings";
             this.lbExportSettings.Click += new System.EventHandler(this.lbExportSettings_Click);
@@ -293,6 +300,7 @@ namespace Typing_Test
             // lbTypeBarForeColor
             // 
             resources.ApplyResources(this.lbTypeBarForeColor, "lbTypeBarForeColor");
+            this.lbTypeBarForeColor.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lbTypeBarForeColor.ForeColor = System.Drawing.Color.DodgerBlue;
             this.lbTypeBarForeColor.Name = "lbTypeBarForeColor";
             this.lbTypeBarForeColor.Click += new System.EventHandler(this.lbChangetbTypeForeColor_Click);
@@ -300,6 +308,7 @@ namespace Typing_Test
             // lbResetDefaultSettings
             // 
             resources.ApplyResources(this.lbResetDefaultSettings, "lbResetDefaultSettings");
+            this.lbResetDefaultSettings.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lbResetDefaultSettings.ForeColor = System.Drawing.Color.DodgerBlue;
             this.lbResetDefaultSettings.Name = "lbResetDefaultSettings";
             this.lbResetDefaultSettings.Click += new System.EventHandler(this.lbResetDefaultSettings_Click);
@@ -307,6 +316,7 @@ namespace Typing_Test
             // lbWrongWordColor
             // 
             resources.ApplyResources(this.lbWrongWordColor, "lbWrongWordColor");
+            this.lbWrongWordColor.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lbWrongWordColor.ForeColor = System.Drawing.Color.DodgerBlue;
             this.lbWrongWordColor.Name = "lbWrongWordColor";
             this.lbWrongWordColor.Click += new System.EventHandler(this.lbChangeWrongWordColor_Click);
@@ -314,6 +324,7 @@ namespace Typing_Test
             // lbCorrectWordColor
             // 
             resources.ApplyResources(this.lbCorrectWordColor, "lbCorrectWordColor");
+            this.lbCorrectWordColor.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lbCorrectWordColor.ForeColor = System.Drawing.Color.DodgerBlue;
             this.lbCorrectWordColor.Name = "lbCorrectWordColor";
             this.lbCorrectWordColor.Click += new System.EventHandler(this.lbChangeCorrectWordColor_Click);
@@ -321,6 +332,7 @@ namespace Typing_Test
             // lbCurrentWordColor
             // 
             resources.ApplyResources(this.lbCurrentWordColor, "lbCurrentWordColor");
+            this.lbCurrentWordColor.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lbCurrentWordColor.ForeColor = System.Drawing.Color.DodgerBlue;
             this.lbCurrentWordColor.Name = "lbCurrentWordColor";
             this.lbCurrentWordColor.Click += new System.EventHandler(this.lbChangeCurrentWordColor_Click);
@@ -328,6 +340,7 @@ namespace Typing_Test
             // lbFontColor
             // 
             resources.ApplyResources(this.lbFontColor, "lbFontColor");
+            this.lbFontColor.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lbFontColor.ForeColor = System.Drawing.Color.DodgerBlue;
             this.lbFontColor.Name = "lbFontColor";
             this.lbFontColor.Click += new System.EventHandler(this.lbChangertbWordsForeColor_Click);
@@ -335,6 +348,7 @@ namespace Typing_Test
             // lbFormBackColor
             // 
             resources.ApplyResources(this.lbFormBackColor, "lbFormBackColor");
+            this.lbFormBackColor.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lbFormBackColor.ForeColor = System.Drawing.Color.DodgerBlue;
             this.lbFormBackColor.Name = "lbFormBackColor";
             this.lbFormBackColor.Click += new System.EventHandler(this.lbChangeFormBackColor_Click);
@@ -342,8 +356,9 @@ namespace Typing_Test
             // btnTime
             // 
             resources.ApplyResources(this.btnTime, "btnTime");
-            this.btnTime.BackColor = System.Drawing.Color.White;
+            this.btnTime.BackColor = System.Drawing.Color.Black;
             this.btnTime.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnTime.ForeColor = System.Drawing.Color.White;
             this.btnTime.Name = "btnTime";
             this.btnTime.TabStop = false;
             this.btnTime.UseVisualStyleBackColor = false;
@@ -352,8 +367,9 @@ namespace Typing_Test
             // btnWords
             // 
             resources.ApplyResources(this.btnWords, "btnWords");
-            this.btnWords.BackColor = System.Drawing.Color.White;
+            this.btnWords.BackColor = System.Drawing.Color.Black;
             this.btnWords.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnWords.ForeColor = System.Drawing.Color.White;
             this.btnWords.Name = "btnWords";
             this.btnWords.TabStop = false;
             this.btnWords.UseVisualStyleBackColor = false;
@@ -401,6 +417,7 @@ namespace Typing_Test
             // pnlSettings
             // 
             resources.ApplyResources(this.pnlSettings, "pnlSettings");
+            this.pnlSettings.Controls.Add(this.lbClearResults);
             this.pnlSettings.Controls.Add(this.lbExportResultsToExcel);
             this.pnlSettings.Controls.Add(this.lbChangeSelectColor);
             this.pnlSettings.Controls.Add(this.lbChangeCountersColor);
@@ -416,9 +433,18 @@ namespace Typing_Test
             this.pnlSettings.Controls.Add(this.lbFontColor);
             this.pnlSettings.Name = "pnlSettings";
             // 
+            // lbClearResults
+            // 
+            resources.ApplyResources(this.lbClearResults, "lbClearResults");
+            this.lbClearResults.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lbClearResults.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.lbClearResults.Name = "lbClearResults";
+            this.lbClearResults.Click += new System.EventHandler(this.lbClearResults_Click);
+            // 
             // lbExportResultsToExcel
             // 
             resources.ApplyResources(this.lbExportResultsToExcel, "lbExportResultsToExcel");
+            this.lbExportResultsToExcel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lbExportResultsToExcel.ForeColor = System.Drawing.Color.DodgerBlue;
             this.lbExportResultsToExcel.Name = "lbExportResultsToExcel";
             this.lbExportResultsToExcel.Click += new System.EventHandler(this.lbExportResultsToExcel_Click);
@@ -426,6 +452,7 @@ namespace Typing_Test
             // lbChangeSelectColor
             // 
             resources.ApplyResources(this.lbChangeSelectColor, "lbChangeSelectColor");
+            this.lbChangeSelectColor.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lbChangeSelectColor.ForeColor = System.Drawing.Color.DodgerBlue;
             this.lbChangeSelectColor.Name = "lbChangeSelectColor";
             this.lbChangeSelectColor.Click += new System.EventHandler(this.lbChangeSelectColor_Click);
@@ -433,6 +460,7 @@ namespace Typing_Test
             // lbChangeCountersColor
             // 
             resources.ApplyResources(this.lbChangeCountersColor, "lbChangeCountersColor");
+            this.lbChangeCountersColor.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lbChangeCountersColor.ForeColor = System.Drawing.Color.DodgerBlue;
             this.lbChangeCountersColor.Name = "lbChangeCountersColor";
             this.lbChangeCountersColor.Click += new System.EventHandler(this.lbChangeCountersColor_Click);
@@ -521,10 +549,12 @@ namespace Typing_Test
             // btnRestart
             // 
             resources.ApplyResources(this.btnRestart, "btnRestart");
-            this.btnRestart.BackgroundImage = global::Typing_Test.Properties.Resources.Restart;
+            this.btnRestart.BackColor = System.Drawing.Color.Black;
+            this.btnRestart.BackgroundImage = global::Typing_Test.Properties.Resources.Restart2;
             this.btnRestart.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnRestart.ForeColor = System.Drawing.Color.Black;
             this.btnRestart.Name = "btnRestart";
-            this.btnRestart.UseVisualStyleBackColor = true;
+            this.btnRestart.UseVisualStyleBackColor = false;
             this.btnRestart.Click += new System.EventHandler(this.btnRestart_Click);
             // 
             // btnSettings
@@ -540,13 +570,7 @@ namespace Typing_Test
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(25)))), ((int)(((byte)(24)))));
-            this.Controls.Add(this.rtbCapsLock);
-            this.Controls.Add(this.pictureBox2);
-            this.Controls.Add(this.btnWords);
-            this.Controls.Add(this.btnTime);
-            this.Controls.Add(this.tbType);
-            this.Controls.Add(this.btnRestart);
+            this.BackColor = System.Drawing.Color.Black;
             this.Controls.Add(this.btn120);
             this.Controls.Add(this.btn60);
             this.Controls.Add(this.btn30);
@@ -555,6 +579,12 @@ namespace Typing_Test
             this.Controls.Add(this.btn50);
             this.Controls.Add(this.btn25);
             this.Controls.Add(this.btn10);
+            this.Controls.Add(this.rtbCapsLock);
+            this.Controls.Add(this.pictureBox2);
+            this.Controls.Add(this.btnWords);
+            this.Controls.Add(this.btnTime);
+            this.Controls.Add(this.tbType);
+            this.Controls.Add(this.btnRestart);
             this.Controls.Add(this.tbLiveWPM);
             this.Controls.Add(this.tbTimer);
             this.Controls.Add(this.tbWordsCounter);
@@ -562,6 +592,7 @@ namespace Typing_Test
             this.Controls.Add(this.rtbWords);
             this.Controls.Add(this.pnlSettings);
             this.Controls.Add(this.pnlResults);
+            this.ForeColor = System.Drawing.Color.White;
             this.KeyPreview = true;
             this.Name = "Form1";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
@@ -635,6 +666,7 @@ namespace Typing_Test
         public System.Windows.Forms.Label label5;
         private System.Windows.Forms.ComboBox cbLanguage;
         private System.Windows.Forms.PictureBox pbBest;
+        private System.Windows.Forms.Label lbClearResults;
     }
 }
 

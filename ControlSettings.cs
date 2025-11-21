@@ -32,6 +32,16 @@ namespace Typing_Test
             WrongWordColor = Color.Red;
             SelectColor = Color.DodgerBlue;
             tbType.ForeColor = Color.White;
+            CurrentBtn.BackColor = SelectColor;
+
+            if (CurrentTest.Mode.ToString().Contains("Time"))
+            {
+                btnTime.BackColor = SelectColor;
+            }
+            else
+            {
+                btnWords.BackColor = SelectColor;
+            }
 
             tbTimer.ForeColor = Color.DeepPink;
             tbLiveWPM.ForeColor = Color.DeepPink;
@@ -136,7 +146,6 @@ namespace Typing_Test
             LoadDefaultSettings();
             File.Delete(jsonSettingsPath);
             SaveSettings();
-            MessageBox.Show("Settings have been reset successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void SaveToFile()
@@ -191,6 +200,7 @@ namespace Typing_Test
             rtbWPMWord.BackColor = this.BackColor;
             tbType.BackColor = this.BackColor;
             cbLanguage.BackColor = this.BackColor;
+            btnRestart.BackColor = this.BackColor;
         }
 
         private void ToggleFullScreen()

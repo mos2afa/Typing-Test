@@ -14,33 +14,29 @@ namespace Typing_Test
         public string Name { get; set; }
         public string Words { get; set; }
 
-        private static readonly string DbPath = Path.Combine(
-            Environment.CurrentDirectory,
-            "Typing_Results.db");
-
-        public static void CreateLanguagesTableIfNotExists()
-        {
-            using (var connection = new System.Data.SQLite.SQLiteConnection($"Data Source={DbPath}"))
-            {
-                connection.Open();
-                using (var command = new System.Data.SQLite.SQLiteCommand(connection))
-                {
-                    command.CommandText = @"
-                CREATE TABLE IF NOT EXISTS Languages (
-                    Id INTEGER PRIMARY KEY AUTOINCREMENT,
-                    Name TEXT NOT NULL,
-                    Words TEXT NOT NULL
-                )";
-                    command.ExecuteNonQuery();
-                }
-            }
-        }
+        //public static void CreateLanguagesTableIfNotExists()
+        //{
+        //    using (var connection = new System.Data.SQLite.SQLiteConnection($"Data Source={Global.DbPath}"))
+        //    {
+        //        connection.Open();
+        //        using (var command = new System.Data.SQLite.SQLiteCommand(connection))
+        //        {
+        //            command.CommandText = @"
+        //        CREATE TABLE IF NOT EXISTS Languages (
+        //            Id INTEGER PRIMARY KEY AUTOINCREMENT,
+        //            Name TEXT NOT NULL,
+        //            Words TEXT NOT NULL
+        //        )";
+        //            command.ExecuteNonQuery();
+        //        }
+        //    }
+        //}
 
         public static string GetLanguageWords(string Name)
         {
             string Words = "";
 
-            using (var connection = new System.Data.SQLite.SQLiteConnection($"Data Source={DbPath}"))
+            using (var connection = new System.Data.SQLite.SQLiteConnection($"Data Source={Global.DbPath}"))
             {
                 connection.Open();
                 using (var command = new System.Data.SQLite.SQLiteCommand(connection))
@@ -66,7 +62,7 @@ namespace Typing_Test
         public static List<string> GetAllLanguageNames()
         {
             List<string> languageNames = new List<string>();
-            using (var connection = new System.Data.SQLite.SQLiteConnection($"Data Source={DbPath}"))
+            using (var connection = new System.Data.SQLite.SQLiteConnection($"Data Source={Global.DbPath}"))
             {
                 connection.Open();
                 using (var command = new System.Data.SQLite.SQLiteCommand(connection))
@@ -84,19 +80,19 @@ namespace Typing_Test
             return languageNames;
         }
 
-        public static void AddLanguageInDataBase(string Name,string Words)
-        {
-            using (var connection = new System.Data.SQLite.SQLiteConnection($"Data Source={DbPath}"))
-            {
-                connection.Open();
-                using (var command = new System.Data.SQLite.SQLiteCommand(connection))
-                {
-                    command.CommandText = "INSERT INTO Languages (Name, Words) VALUES (@Name, @Words)";
-                    command.Parameters.AddWithValue("@Name", Name);
-                    command.Parameters.AddWithValue("@Words", Words);
-                    command.ExecuteNonQuery();
-                }
-            }
-        }
+        //public static void AddLanguageInDataBase(string Name,string Words)
+        //{
+        //    using (var connection = new System.Data.SQLite.SQLiteConnection($"Data Source={Global.DbPath}"))
+        //    {
+        //        connection.Open();
+        //        using (var command = new System.Data.SQLite.SQLiteCommand(connection))
+        //        {
+        //            command.CommandText = "INSERT INTO Languages (Name, Words) VALUES (@Name, @Words)";
+        //            command.Parameters.AddWithValue("@Name", Name);
+        //            command.Parameters.AddWithValue("@Words", Words);
+        //            command.ExecuteNonQuery();
+        //        }
+        //    }
+        //}
     }
 }

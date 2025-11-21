@@ -83,7 +83,11 @@ namespace Typing_Test
 
         private void lbResetDefaultSettings_Click(object sender, EventArgs e)
         {
-            ResetDefaultSettings();
+            if(MessageBox.Show("Are you sure you want to reset settings to default?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                ResetDefaultSettings();
+                MessageBox.Show("Settings have been reset successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
 
         private void tUpdateUI_Tick(object sender, EventArgs e)
@@ -95,6 +99,15 @@ namespace Typing_Test
         {
             string SelectedLanguage = cbLanguage.SelectedItem.ToString();
             ChangeCurrentLanguage(SelectedLanguage);
+        }
+
+        private void lbClearResults_Click(object sender, EventArgs e)
+        {
+            if(MessageBox.Show("Are you sure you want to clear results?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                Test.ClearTypingTestsResultsTable();
+                MessageBox.Show("Results Are Clear Now.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
     }
 }

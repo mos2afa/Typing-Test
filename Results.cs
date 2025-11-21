@@ -12,7 +12,7 @@ using System.Windows.Forms;
 
 namespace Typing_Test
 {
-    public enum enMode { Words, Time };
+    public enum enMode { Words10 = 10, Words25 = 25, Words50 = 50, Words100 = 100, Time15 = 15,Time30 = 30,Time60 = 60,Time120 = 120};
 
     public class Test
     {
@@ -32,7 +32,7 @@ namespace Typing_Test
 
         public Test()
         {
-            Mode = enMode.Time;
+            Mode = enMode.Time15;
             WPM = 0.0;
             Accuracy = 0.0;
             DurationSeconds = 0.0;
@@ -45,19 +45,15 @@ namespace Typing_Test
             CurrentWordCounter = 0;
         }
 
-        private static readonly string DbPath = Path.Combine(
-            Environment.CurrentDirectory,
-            "Typing_Results.db");
-
         private static readonly string ExcelSheetPath = Path.Combine(
             Environment.CurrentDirectory,
             "Typing_Results.xlsx");
 
-        private static readonly string ConnectionString = $"Data Source={DbPath}";
+        private static readonly string ConnectionString = $"Data Source={Global.DbPath}";
 
         static Test()
         {
-            CreateTableIfNotExists();
+            //CreateTableIfNotExists();
         }
 
         private static void CreateTableIfNotExists()
@@ -111,27 +107,28 @@ namespace Typing_Test
                 insertCmd.ExecuteNonQuery();
 
                 // Keep only the newest 1000 entries
-                var deleteCmd = conn.CreateCommand();
-                deleteCmd.CommandText = @"
-            DELETE FROM TypingTests
-            WHERE Id NOT IN (
-                SELECT Id FROM TypingTests
-                ORDER BY Id DESC
-                LIMIT 1000
-            );";
-                deleteCmd.ExecuteNonQuery();
+            //    var deleteCmd = conn.CreateCommand();
+            //    deleteCmd.CommandText = @"
+            //DELETE FROM TypingTests
+            //WHERE Id NOT IN (
+            //    SELECT Id FROM TypingTests
+            //    ORDER BY Id DESC
+            //    LIMIT 1000
+            //);";
+            //    deleteCmd.ExecuteNonQuery();
             }
         }
 
-        public static double GetMaxWPM(string LanguageName)
+        public static double GetMaxWPM(string LanguageName,enMode Mode)
         {
             using (var conn = new SQLiteConnection(ConnectionString))
             {
                 conn.Open();
                 var cmd = conn.CreateCommand();
                 cmd.CommandText = "SELECT IFNULL(MAX(WPM), 0) FROM TypingTests " +
-                    "Where Language = @LanguageName;";
+                    "Where Language = @LanguageName AND Mode = @Mode;";
                 cmd.Parameters.AddWithValue("@LanguageName", LanguageName);
+                cmd.Parameters.AddWithValue("@Mode", Mode.ToString());
                 return Convert.ToDouble(cmd.ExecuteScalar());
             }
         }
@@ -176,9 +173,9 @@ namespace Typing_Test
             }
         }
 
-        public static void ClearTypingTestsResults()
+        public static void ClearTypingTestsResultsTable()
         {
-            if (!File.Exists(DbPath))
+            if (!File.Exists(Global.DbPath))
                 return;
 
             using (var conn = new SQLiteConnection(ConnectionString))
@@ -194,7 +191,7 @@ namespace Typing_Test
 
         public static void DropTypingTestsResultsTable()
         {
-            if (!File.Exists(DbPath))
+            if (!File.Exists(Global.DbPath))
                 return;
 
             using (var conn = new SQLiteConnection(ConnectionString))

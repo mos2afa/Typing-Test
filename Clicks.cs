@@ -5,21 +5,22 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
 using System.Windows.Forms;
+using DocumentFormat.OpenXml.Office2010.CustomUI;
 
 namespace Typing_Test
 {
     public partial class Form1
     {
-        Button CurrentBtn;
+        System.Windows.Forms.Button CurrentBtn;
 
         private void PerformBtnTimeClick()
         {
-            if (CurrentTest.Mode == enMode.Time) return;
+            if ( CurrentTest.Mode.ToString().Contains("Time") ) return;
 
-            CurrentTest.Mode = enMode.Time;
+            CurrentTest.Mode = enMode.Time15;
 
             btnTime.BackColor = SelectColor;
-            btnWords.BackColor = Color.White;
+            btnWords.BackColor = Color.Black;
 
             tbTimer.Show();
             tbWordsCounter.Hide();
@@ -37,12 +38,12 @@ namespace Typing_Test
 
         private void PerformBtnWordsClick()
         {
-            if (CurrentTest.Mode == enMode.Words) return;
+            if (CurrentTest.Mode.ToString().Contains("Words")) return;
 
-            CurrentTest.Mode = enMode.Words;
+            CurrentTest.Mode = enMode.Words10;
 
             btnWords.BackColor = SelectColor;
-            btnTime.BackColor = Color.White;
+            btnTime.BackColor = Color.Black;
 
             tbTimer.Hide();
             tbWordsCounter.Show();
@@ -59,11 +60,8 @@ namespace Typing_Test
 
         private void PerformBtnRestartClick()
         {
-            if (pnlSettings.Visible) return;
-            else
-            {
-                ShowTypingTestScreen();
-            }
+            IsTestCompleted = false;
+            ShowTypingTestScreen();
 
             Restart();
         }
@@ -185,7 +183,6 @@ namespace Typing_Test
             }
         }
 
-
         private void lbChangeSelectColor_Click(object sender, EventArgs e)
         {
             cdChangeColor.Color = SelectColor;
@@ -196,7 +193,7 @@ namespace Typing_Test
 
                 CurrentBtn.BackColor = SelectColor;
 
-                if (CurrentTest.Mode == enMode.Time)
+                if ( CurrentTest.Mode.ToString().Contains("Time") ) 
                 {
                     btnTime.BackColor = SelectColor;
                 }
@@ -226,6 +223,11 @@ namespace Typing_Test
                 ToggleSettingsVisibility();
             }
 
+            CheckCapsLock();
+        }
+
+        private void CheckCapsLock()
+        {
             if (System.Windows.Forms.Control.IsKeyLocked(Keys.CapsLock))
                 rtbCapsLock.Show();
             else

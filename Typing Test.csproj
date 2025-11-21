@@ -179,6 +179,7 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Global.cs" />
     <Compile Include="Languages.cs" />
     <Compile Include="Logic.cs">
       <SubType>Form</SubType>
@@ -218,6 +219,7 @@
     <None Include="Resources\Restart.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\Restart2.png" />
     <None Include="Resources\Star.png" />
     <None Include="Resources\BestResult.png" />
     <None Include="Resources\setting.png" />

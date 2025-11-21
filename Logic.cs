@@ -9,7 +9,6 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Microsoft.Data.Sqlite;
 
-
 namespace Typing_Test
 {
     public partial class Form1
@@ -30,6 +29,8 @@ namespace Typing_Test
 
         private void LoadForm()
         {
+            CurrentBtn = btn15;
+
             foreach (string Language in Languages.GetAllLanguageNames())
             {
                 cbLanguage.Items.Add(Language);
@@ -38,8 +39,7 @@ namespace Typing_Test
             if (!File.Exists(jsonSettingsPath))
             {
                 LoadDefaultSettings();
-                using (File.Create(jsonSettingsPath)) { }
-                ;
+                using (File.Create(jsonSettingsPath)) { };
                 Serialize();
                 SaveToFile();
             }
@@ -62,9 +62,9 @@ namespace Typing_Test
             rtbFinalWPM.SelectAll();
             rtbFinalWPM.SelectionAlignment = HorizontalAlignment.Center;
 
-            CurrentBtn = btn15;
-
             CustomizeToolTip();
+
+            CheckCapsLock();
         }
 
         private bool IsCurrentWordTypedTrue()
@@ -74,21 +74,19 @@ namespace Typing_Test
 
         private void FillWords()
         {
-            string TempText = "";
+            StringBuilder sb = new StringBuilder();
 
             for (int i = 0; i < NumberOfWords; i++)
             {
                 int RandomNumber = rndWord.Next(0, AllLanguageWords.Length);
 
                 CurrentWords[i] = AllLanguageWords[RandomNumber];
-                TempText += AllLanguageWords[RandomNumber];
-                TempText += " ";
+                sb.Append(CurrentWords[i]);
+                sb.Append(" ");
             }
 
-            rtbWords.Text = TempText;
-            rtbWords.Text += "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n"; // because there was a glitch in 50 / 100 words mode because of rtbwords.scrolltocaret() function.
-
-            tbType.Text = "";
+            sb.Append("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+            rtbWords.Text = sb.ToString();
         }
 
         private void RestartWords()
@@ -98,6 +96,7 @@ namespace Typing_Test
 
             FillWords();
 
+            tbType.Text = "";
             tbType.Focus();
 
             CurrentTest.CurrentWordCounter = 0;
@@ -346,7 +345,8 @@ namespace Typing_Test
             rtbWrongWords.Text = CurrentTest.WrongWords.ToString();
 
             CurrentTest.Language = cbLanguage.SelectedItem.ToString();
-                
+
+            CurrentTest.TestDate = DateTime.Now;
 
             CurrentTest.Accuracy = Math.Round(CalcAccuracy(),2);
             rtbAccuracy.Text = CurrentTest.Accuracy.ToString("F0") + "%";
@@ -356,7 +356,7 @@ namespace Typing_Test
             CurrentTest.DurationSeconds = Math.Round(stopwatch.Elapsed.TotalSeconds,2);
             rtbDuration.Text = CurrentTest.DurationSeconds.ToString("F2") +" s";
 
-            Diff_WPM = CurrentTest.WPM - Test.GetMaxWPM(CurrentTest.Language);
+            Diff_WPM = CurrentTest.WPM - Test.GetMaxWPM(CurrentTest.Language,CurrentTest.Mode);
 
             if (Diff_WPM >0)
                 pbBest.Show();
@@ -370,15 +370,12 @@ namespace Typing_Test
 
         private void CanType()
         {
-            if (pnlSettings.Visible || pnlResults.Visible)
-                tbType.ReadOnly = true;
-            else
-                tbType.ReadOnly = false;
+            tbType.ReadOnly = !rtbWords.Visible;
         }
 
         private void ChangeNumberOfSeconds(Button btn)
         {
-            CurrentTest.Mode = enMode.Time;
+            CurrentTest.Mode = (enMode)int.Parse(btn.Text);
 
             ResetTimer();
 
@@ -388,8 +385,8 @@ namespace Typing_Test
 
             NumberOfSeconds = Convert.ToInt16(btn.Text);
 
-            btn15.BackColor = btn30.BackColor = btn60.BackColor = btn120.BackColor = Color.Gainsboro;
-            btn10.BackColor = btn25.BackColor = btn50.BackColor = btn100.BackColor = Color.Gainsboro;
+            btn15.BackColor = btn30.BackColor = btn60.BackColor = btn120.BackColor = Color.Black;
+            btn10.BackColor = btn25.BackColor = btn50.BackColor = btn100.BackColor = Color.Black;
 
             CurrentBtn = btn;
             CurrentBtn.BackColor = SelectColor;
@@ -401,7 +398,7 @@ namespace Typing_Test
 
         private void ChangeNumberOfWords(Button btn)
         {
-            CurrentTest.Mode = enMode.Words;
+            CurrentTest.Mode = (enMode)int.Parse(btn.Text);
 
             ResetTimer();
 
@@ -411,8 +408,8 @@ namespace Typing_Test
 
             IsTestCompleted = false;
 
-            btn15.BackColor = btn30.BackColor = btn60.BackColor = btn120.BackColor = Color.Gainsboro;
-            btn10.BackColor = btn25.BackColor = btn50.BackColor = btn100.BackColor = Color.Gainsboro;
+            btn15.BackColor = btn30.BackColor = btn60.BackColor = btn120.BackColor = Color.Black;
+            btn10.BackColor = btn25.BackColor = btn50.BackColor = btn100.BackColor = Color.Black;
 
             CurrentBtn = btn;
             CurrentBtn.BackColor = SelectColor;
