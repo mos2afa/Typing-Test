@@ -95,6 +95,8 @@ namespace Typing_Test
 
             try
             {
+                Deserialize();
+
                 SaveToFile();
 
                 LoadSettings();

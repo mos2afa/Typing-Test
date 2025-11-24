@@ -41,10 +41,10 @@ namespace Typing_Test
                 cbLanguage.Items.Add(Language);
             }
 
-            if (!File.Exists(jsonSettingsPath))
+            if (!File.Exists(Global.JsonSettingsPath))
             {
                 LoadDefaultSettings();
-                using (File.Create(jsonSettingsPath)) { };
+                using (File.Create(Global.JsonSettingsPath)) { };
                 Serialize();
                 SaveToFile();
             }

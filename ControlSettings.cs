@@ -16,8 +16,6 @@ namespace Typing_Test
 
         string jsonString { get; set; }
 
-        string jsonSettingsPath = Directory.GetCurrentDirectory() + "\\Settings.json";
-
         Color CurrentWordColor;
         Color CorrectWordColor;
         Color WrongWordColor;
@@ -117,6 +115,17 @@ namespace Typing_Test
 
             LoadColorsSettings();
 
+            CurrentBtn.BackColor = SelectColor;
+
+            if (CurrentTest.Mode.ToString().Contains("Time"))
+            {
+                btnTime.BackColor = SelectColor;
+            }
+            else
+            {
+                btnWords.BackColor = SelectColor;
+            }
+
             LoadWindowStateSettings();
 
             LoadFormBorderStyleSettings();
@@ -144,13 +153,13 @@ namespace Typing_Test
         private void ResetDefaultSettings()
         {
             LoadDefaultSettings();
-            File.Delete(jsonSettingsPath);
+            File.Delete(Global.JsonSettingsPath);
             SaveSettings();
         }
 
         private void SaveToFile()
         {
-            File.WriteAllText(jsonSettingsPath, jsonString);
+            File.WriteAllText(Global.JsonSettingsPath, jsonString);
         }
 
         private void Serialize()
