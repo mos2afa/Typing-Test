@@ -14,7 +14,7 @@ namespace Typing_Test
 {
     public enum enMode { Words10 = 10, Words25 = 25, Words50 = 50, Words100 = 100, Time15 = 15,Time30 = 30,Time60 = 60,Time120 = 120};
 
-    public class Test
+    public class Result
     {
         public string Language { get; set; }
 
@@ -30,8 +30,10 @@ namespace Typing_Test
 
         public int CurrentWordCounter { get; set; }
 
-        public Test()
+        public Result()
         {
+            
+
             Mode = enMode.Time15;
             WPM = 0.0;
             Accuracy = 0.0;
@@ -49,16 +51,15 @@ namespace Typing_Test
             Environment.CurrentDirectory,
             "Typing_Results.xlsx");
 
-        private static readonly string ConnectionString = $"Data Source={Global.DbPath}";
 
-        static Test()
+        static Result()
         {
-            //CreateTableIfNotExists();
+
         }
 
         private static void CreateTableIfNotExists()
         {
-            using (var conn = new SQLiteConnection(ConnectionString))
+            using (var conn = new SQLiteConnection(Global.ConnectionString))
             {
                 conn.Open();
                 var cmd = conn.CreateCommand();
@@ -80,9 +81,9 @@ namespace Typing_Test
             }
         }
 
-        public static void AddResult(Test result)
+        public static void AddResult(Result result)
         {
-            using (var conn = new SQLiteConnection(ConnectionString))
+            using (var conn = new SQLiteConnection(Global.ConnectionString))
             {
                 conn.Open();
 
@@ -121,7 +122,7 @@ namespace Typing_Test
 
         public static double GetMaxWPM(string LanguageName,enMode Mode)
         {
-            using (var conn = new SQLiteConnection(ConnectionString))
+            using (var conn = new SQLiteConnection(Global.ConnectionString))
             {
                 conn.Open();
                 var cmd = conn.CreateCommand();
@@ -136,7 +137,7 @@ namespace Typing_Test
         public static void ExportTypingTestsToExcel(string FilePath)
         {
             DataTable dt = new DataTable();
-            using (var conn = new SQLiteConnection(ConnectionString))
+            using (var conn = new SQLiteConnection(Global.ConnectionString))
             {
                 conn.Open();
                 using (var cmd = new SQLiteCommand("SELECT * FROM TypingTests ORDER BY Id ASC", conn))
@@ -175,26 +176,16 @@ namespace Typing_Test
 
         public static void ClearTypingTestsResultsTable()
         {
-            if (!File.Exists(Global.DbPath))
-                return;
-
-            using (var conn = new SQLiteConnection(ConnectionString))
-            {
-                conn.Open();
-
-                using (var cmd = new SQLiteCommand("DELETE FROM TypingTests;", conn))
-                {
-                    int rowsAffected = cmd.ExecuteNonQuery();
-                }
-            }
+            DropTypingTestsResultsTable();
+            CreateTableIfNotExists();
         }
 
-        public static void DropTypingTestsResultsTable()
+        private static void DropTypingTestsResultsTable()
         {
-            if (!File.Exists(Global.DbPath))
+            if (!File.Exists(Global.LocalAppDataDbPath))
                 return;
 
-            using (var conn = new SQLiteConnection(ConnectionString))
+            using (var conn = new SQLiteConnection(Global.ConnectionString))
             {
                 conn.Open();
 

@@ -36,7 +36,7 @@ namespace Typing_Test
         {
             string Words = "";
 
-            using (var connection = new System.Data.SQLite.SQLiteConnection($"Data Source={Global.DbPath}"))
+            using (var connection = new System.Data.SQLite.SQLiteConnection(Global.ConnectionString))
             {
                 connection.Open();
                 using (var command = new System.Data.SQLite.SQLiteCommand(connection))
@@ -62,7 +62,7 @@ namespace Typing_Test
         public static List<string> GetAllLanguageNames()
         {
             List<string> languageNames = new List<string>();
-            using (var connection = new System.Data.SQLite.SQLiteConnection($"Data Source={Global.DbPath}"))
+            using (var connection = new System.Data.SQLite.SQLiteConnection(Global.ConnectionString))
             {
                 connection.Open();
                 using (var command = new System.Data.SQLite.SQLiteCommand(connection))

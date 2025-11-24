@@ -13,7 +13,7 @@ namespace Typing_Test
 {
     public partial class Form1
     {
-        Typing_Test.Test CurrentTest = new Typing_Test.Test();
+        Typing_Test.Result CurrentTest = new Typing_Test.Result();
 
         static short NumberOfSeconds = 15;
 
@@ -30,6 +30,11 @@ namespace Typing_Test
         private void LoadForm()
         {
             CurrentBtn = btn15;
+
+            if (!File.Exists(Global.LocalAppDataDbPath))
+            {
+                File.Copy(Global.Clean_DB_Path, Global.LocalAppDataDbPath);
+            }
 
             foreach (string Language in Languages.GetAllLanguageNames())
             {
@@ -356,7 +361,7 @@ namespace Typing_Test
             CurrentTest.DurationSeconds = Math.Round(stopwatch.Elapsed.TotalSeconds,2);
             rtbDuration.Text = CurrentTest.DurationSeconds.ToString("F2") +" s";
 
-            Diff_WPM = CurrentTest.WPM - Test.GetMaxWPM(CurrentTest.Language,CurrentTest.Mode);
+            Diff_WPM = CurrentTest.WPM - Result.GetMaxWPM(CurrentTest.Language,CurrentTest.Mode);
 
             if (Diff_WPM >0)
                 pbBest.Show();
@@ -365,7 +370,7 @@ namespace Typing_Test
 
             SetKeyStrokesColors();
 
-            Test.AddResult(CurrentTest);
+            Result.AddResult(CurrentTest);
         }
 
         private void CanType()

@@ -74,7 +74,7 @@ namespace Typing_Test
             if (sfdExportResultsToExcel.ShowDialog() == DialogResult.OK)
             {
                 Cursor = Cursors.WaitCursor;
-                Test.ExportTypingTestsToExcel(sfdExportResultsToExcel.FileName);
+                Result.ExportTypingTestsToExcel(sfdExportResultsToExcel.FileName);
                 Cursor = Cursors.Default;
                 MessageBox.Show("Results exported to Excel successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }

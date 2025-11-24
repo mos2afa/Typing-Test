@@ -105,7 +105,7 @@ namespace Typing_Test
         {
             if(MessageBox.Show("Are you sure you want to clear results?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                Test.ClearTypingTestsResultsTable();
+                Result.ClearTypingTestsResultsTable();
                 MessageBox.Show("Results Are Clear Now.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
