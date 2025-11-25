@@ -1,10 +1,4 @@
-﻿using DocumentFormat.OpenXml.Wordprocessing;
-using System;
-using System.Drawing;
-using System.Drawing.Printing;
-using System.Drawing.Text;
-using System.IO;
-using System.Text.Json;
+﻿using System;
 using System.Windows.Forms;
 
 namespace Typing_Test

@@ -5,7 +5,7 @@ VisualStudioVersion = 17.14.36109.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Typing Test", "Typing Test.csproj", "{DBEB8C60-15F8-4A87-9D35-E56B605EDFEB}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{8EC462FD-D22E-90A8-E5CE-7E832BA40C5D}"
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Typing_Test_Setup", "..\Typing_Test_Setup\Typing_Test_Setup.vdproj", "{75397723-F01F-6DC2-89FE-EC704F62EAA1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,6 +29,12 @@ Global
 		{DBEB8C60-15F8-4A87-9D35-E56B605EDFEB}.Release|x64.Build.0 = Release|x64
 		{DBEB8C60-15F8-4A87-9D35-E56B605EDFEB}.Release|x86.ActiveCfg = Release|x86
 		{DBEB8C60-15F8-4A87-9D35-E56B605EDFEB}.Release|x86.Build.0 = Release|x86
+		{75397723-F01F-6DC2-89FE-EC704F62EAA1}.Debug|Any CPU.ActiveCfg = Debug
+		{75397723-F01F-6DC2-89FE-EC704F62EAA1}.Debug|x64.ActiveCfg = Debug
+		{75397723-F01F-6DC2-89FE-EC704F62EAA1}.Debug|x86.ActiveCfg = Debug
+		{75397723-F01F-6DC2-89FE-EC704F62EAA1}.Release|Any CPU.ActiveCfg = Release
+		{75397723-F01F-6DC2-89FE-EC704F62EAA1}.Release|x64.ActiveCfg = Release
+		{75397723-F01F-6DC2-89FE-EC704F62EAA1}.Release|x86.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
