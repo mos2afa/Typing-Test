@@ -8,26 +8,24 @@ namespace Typing_Test
 {
     public enum enMode { Words10 = 10, Words25 = 25, Words50 = 50, Words100 = 100, Time15 = 15,Time30 = 30,Time60 = 60,Time120 = 120};
 
-    public class Result
+    public static class Result
     {
-        public string Language { get; set; }
+        public static string Language { get; set; }
 
-        public enMode Mode { get; set; }
-        public double WPM { get; set; }
-        public double Accuracy { get; set; } 
-        public double DurationSeconds { get; set; } 
-        public int CorrectWords { get; set; } 
-        public int WrongWords { get; set; }
-        public int CorrectStrokes { get; set; }
-        public int WrongStrokes { get; set; }
-        public DateTime TestDate { get; set; }
+        public static enMode Mode { get; set; }
+        public static double WPM { get; set; }
+        public static double Accuracy { get; set; } 
+        public static double DurationSeconds { get; set; } 
+        public static int CorrectWords { get; set; } 
+        public static int WrongWords { get; set; }
+        public static int CorrectStrokes { get; set; }
+        public static int WrongStrokes { get; set; }
+        public static DateTime TestDate { get; set; }
 
-        public int CurrentWordCounter { get; set; }
+        public static int CurrentWordCounter { get; set; }
 
-        public Result()
+        static Result()
         {
-            
-
             Mode = enMode.Time15;
             WPM = 0.0;
             Accuracy = 0.0;
@@ -45,11 +43,6 @@ namespace Typing_Test
             Environment.CurrentDirectory,
             "Typing_Results.xlsx");
 
-
-        static Result()
-        {
-
-        }
 
         private static void CreateTableIfNotExists()
         {
@@ -75,7 +68,7 @@ namespace Typing_Test
             }
         }
 
-        public static void AddResult(Result result)
+        public static void AddResult()
         {
             using (var conn = new SQLiteConnection(Global.ConnectionString))
             {
@@ -88,16 +81,16 @@ namespace Typing_Test
             VALUES
             (@Language,@Mode, @WPM, @Accuracy, @DurationSeconds, @CorrectWords, @WrongWords, @CorrectStrokes, @WrongStrokes, @TestDate);";
 
-                insertCmd.Parameters.AddWithValue("@Language", result.Language);
-                insertCmd.Parameters.AddWithValue("@Mode", result.Mode.ToString());
-                insertCmd.Parameters.AddWithValue("@WPM", result.WPM);
-                insertCmd.Parameters.AddWithValue("@Accuracy", result.Accuracy);
-                insertCmd.Parameters.AddWithValue("@DurationSeconds", result.DurationSeconds);
-                insertCmd.Parameters.AddWithValue("@CorrectWords", result.CorrectWords);
-                insertCmd.Parameters.AddWithValue("@WrongWords", result.WrongWords);
-                insertCmd.Parameters.AddWithValue("@CorrectStrokes", result.CorrectStrokes);
-                insertCmd.Parameters.AddWithValue("@WrongStrokes", result.WrongStrokes);
-                insertCmd.Parameters.AddWithValue("@TestDate", result.TestDate);
+                insertCmd.Parameters.AddWithValue("@Language", Language);
+                insertCmd.Parameters.AddWithValue("@Mode",Mode.ToString());
+                insertCmd.Parameters.AddWithValue("@WPM", WPM);
+                insertCmd.Parameters.AddWithValue("@Accuracy", Accuracy);
+                insertCmd.Parameters.AddWithValue("@DurationSeconds", DurationSeconds);
+                insertCmd.Parameters.AddWithValue("@CorrectWords", CorrectWords);
+                insertCmd.Parameters.AddWithValue("@WrongWords", WrongWords);
+                insertCmd.Parameters.AddWithValue("@CorrectStrokes", CorrectStrokes);
+                insertCmd.Parameters.AddWithValue("@WrongStrokes", WrongStrokes);
+                insertCmd.Parameters.AddWithValue("@TestDate", TestDate);
 
                 insertCmd.ExecuteNonQuery();
 

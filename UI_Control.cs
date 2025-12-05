@@ -28,7 +28,7 @@ namespace Typing_Test
             tbType.ForeColor = Color.White;
             CurrentBtn.BackColor = SelectColor;
 
-            if (CurrentTest.Mode.ToString().Contains("Time"))
+            if (Result.Mode.ToString().Contains("Time"))
             {
                 btnTime.BackColor = SelectColor;
             }
@@ -65,19 +65,24 @@ namespace Typing_Test
             SelectColor = ColorTranslator.FromHtml(settings.SelectColor);
             tbType.ForeColor = ColorTranslator.FromHtml(settings.TypeBarColor);
 
-            tbTimer.ForeColor         = SelectColor;
-            tbLiveWPM.ForeColor       = SelectColor;
-            tbWordsCounter.ForeColor  = SelectColor;
-            rtbFinalWPM.ForeColor     = SelectColor;
-            rtbWPMWord.ForeColor      = SelectColor;
-            rtbAccuracy.ForeColor     = SelectColor;
-            rtbAccuracyWord.ForeColor = SelectColor;
-            rtbDuration.ForeColor     = SelectColor; 
-            rtbTimeWord.ForeColor     = SelectColor;
-            rtbCharacters.ForeColor   = SelectColor;
-            rtbCharactersWord.ForeColor = SelectColor;
-            rtbWordsCounter.ForeColor = SelectColor;
-            rtbWordsWord.ForeColor = SelectColor;
+            ChangeCountersColors(ColorTranslator.FromHtml(settings.CountersColor));   
+        }
+
+        private void ChangeCountersColors(Color TargetColor)
+        {
+            tbTimer.ForeColor = TargetColor;
+            tbLiveWPM.ForeColor = TargetColor;
+            tbWordsCounter.ForeColor = TargetColor;
+            rtbFinalWPM.ForeColor = TargetColor;
+            rtbWPMWord.ForeColor = TargetColor;
+            rtbAccuracy.ForeColor = TargetColor;
+            rtbAccuracyWord.ForeColor = TargetColor;
+            rtbDuration.ForeColor = TargetColor;
+            rtbTimeWord.ForeColor = TargetColor;
+            rtbCharacters.ForeColor = TargetColor;
+            rtbCharactersWord.ForeColor = TargetColor;
+            rtbWordsCounter.ForeColor = TargetColor;
+            rtbWordsWord.ForeColor = TargetColor;
         }
 
         private void LoadWindowStateSettings()
@@ -120,7 +125,7 @@ namespace Typing_Test
 
             CurrentBtn.BackColor = SelectColor;
 
-            if (CurrentTest.Mode.ToString().Contains("Time"))
+            if (Result.Mode.ToString().Contains("Time"))
             {
                 btnTime.BackColor = SelectColor;
             }
@@ -293,7 +298,7 @@ namespace Typing_Test
         private void rtbFinalWPM_MouseEnter(object sender, EventArgs e)
         {
             toolTip.Show(
-                CurrentTest.WPM.ToString("F2") + " WPM",
+                Result.WPM.ToString("F2") + " WPM",
                 rtbFinalWPM,
                 0,
                 0
@@ -323,7 +328,7 @@ namespace Typing_Test
         private void rtbDuration_MouseEnter(object sender, EventArgs e)
         {
             toolTip.Show(
-                CurrentTest.DurationSeconds.ToString("F2") + "s",
+                Result.DurationSeconds.ToString("F2") + "s",
                 rtbDuration,
                 0,
                 -20
@@ -338,7 +343,7 @@ namespace Typing_Test
         private void rtbAccuracy_MouseEnter(object sender, EventArgs e)
         {
             toolTip.Show(
-                CurrentTest.Accuracy.ToString("F2") + "%",
+                Result.Accuracy.ToString("F2") + "%",
                 rtbAccuracy,
                 0 ,
                 0

@@ -55,9 +55,9 @@ namespace Typing_Test
 
         private void PerformBtnTimeClick()
         {
-            if ( CurrentTest.Mode.ToString().Contains("Time") ) return;
+            if ( Result.Mode.ToString().Contains("Time") ) return;
 
-            CurrentTest.Mode = enMode.Time15;
+            Result.Mode = enMode.Time15;
 
             btnTime.BackColor = SelectColor;
             btnWords.BackColor = Color.Black;
@@ -78,9 +78,9 @@ namespace Typing_Test
 
         private void PerformBtnWordsClick()
         {
-            if (CurrentTest.Mode.ToString().Contains("Words")) return;
+            if (Result.Mode.ToString().Contains("Words")) return;
 
-            CurrentTest.Mode = enMode.Words10;
+            Result.Mode = enMode.Words10;
 
             btnWords.BackColor = SelectColor;
             btnTime.BackColor = Color.Black;
@@ -216,11 +216,7 @@ namespace Typing_Test
             cdChangeColor.Color = tbLiveWPM.ForeColor;
             if (cdChangeColor.ShowDialog() == DialogResult.OK)
             {
-                tbLiveWPM.ForeColor = cdChangeColor.Color;
-                tbWordsCounter.ForeColor = cdChangeColor.Color;
-                tbTimer.ForeColor = cdChangeColor.Color;
-                rtbFinalWPM.ForeColor = cdChangeColor.Color;
-                rtbWPMWord.ForeColor = cdChangeColor.Color;
+                ChangeCountersColors(cdChangeColor.Color);
                 SaveSettings();
             }
         }
@@ -235,7 +231,7 @@ namespace Typing_Test
 
                 CurrentBtn.BackColor = SelectColor;
 
-                if ( CurrentTest.Mode.ToString().Contains("Time") ) 
+                if ( Result.Mode.ToString().Contains("Time") ) 
                 {
                     btnTime.BackColor = SelectColor;
                 }
