@@ -6,7 +6,7 @@ using Typing_Test.Properties;
 
 namespace Typing_Test
 {
-    public class Settings
+    public class AppSettings
     {
         // these are HTML colors
 

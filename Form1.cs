@@ -57,7 +57,7 @@ namespace Typing_Test
 
         private void Form1_BackColorChanged(object sender, EventArgs e)
         {
-            ChangeSomeControlColorsAccordingToFormBackColor();
+            ChangeSomeColorsAccordingToFormBackColor();
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)

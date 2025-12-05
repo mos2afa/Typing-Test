@@ -42,14 +42,6 @@ namespace Typing_Test
             this.btn60 = new System.Windows.Forms.Button();
             this.btn120 = new System.Windows.Forms.Button();
             this.tbTimer = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.rtbAccuracy = new System.Windows.Forms.RichTextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.rtbKeyStrokes = new System.Windows.Forms.RichTextBox();
-            this.rtbCorrectWords = new System.Windows.Forms.RichTextBox();
-            this.rtbWrongWords = new System.Windows.Forms.RichTextBox();
             this.rtbFinalWPM = new System.Windows.Forms.RichTextBox();
             this.lbImportSettings = new System.Windows.Forms.Label();
             this.lbExportSettings = new System.Windows.Forms.Label();
@@ -73,9 +65,15 @@ namespace Typing_Test
             this.lbChangeCountersColor = new System.Windows.Forms.Label();
             this.cbLanguage = new System.Windows.Forms.ComboBox();
             this.pnlResults = new System.Windows.Forms.Panel();
-            this.pbBest = new System.Windows.Forms.PictureBox();
+            this.rtbWordsWord = new System.Windows.Forms.RichTextBox();
+            this.rtbWordsCounter = new System.Windows.Forms.RichTextBox();
+            this.rtbCharactersWord = new System.Windows.Forms.RichTextBox();
+            this.rtbCharacters = new System.Windows.Forms.RichTextBox();
             this.rtbDuration = new System.Windows.Forms.RichTextBox();
-            this.label5 = new System.Windows.Forms.Label();
+            this.rtbTimeWord = new System.Windows.Forms.RichTextBox();
+            this.rtbAccuracyWord = new System.Windows.Forms.RichTextBox();
+            this.rtbAccuracy = new System.Windows.Forms.RichTextBox();
+            this.pbBest = new System.Windows.Forms.PictureBox();
             this.rtbWPMWord = new System.Windows.Forms.RichTextBox();
             this.tUpdateUI = new System.Windows.Forms.Timer(this.components);
             this.sfdExportResultsToExcel = new System.Windows.Forms.SaveFileDialog();
@@ -100,7 +98,7 @@ namespace Typing_Test
             this.rtbWords.Name = "rtbWords";
             this.rtbWords.ReadOnly = true;
             this.rtbWords.TabStop = false;
-            this.rtbWords.MouseDown += new System.Windows.Forms.MouseEventHandler(this.rtbWords_MouseDown);
+            this.rtbWords.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PerformMouseDown);
             // 
             // tbType
             // 
@@ -205,67 +203,7 @@ namespace Typing_Test
             this.tbTimer.Name = "tbTimer";
             this.tbTimer.ReadOnly = true;
             this.tbTimer.TabStop = false;
-            this.tbTimer.MouseDown += new System.Windows.Forms.MouseEventHandler(this.rtbWPMWord_MouseDown);
-            // 
-            // label1
-            // 
-            resources.ApplyResources(this.label1, "label1");
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Name = "label1";
-            // 
-            // label2
-            // 
-            resources.ApplyResources(this.label2, "label2");
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Name = "label2";
-            // 
-            // label3
-            // 
-            resources.ApplyResources(this.label3, "label3");
-            this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Name = "label3";
-            // 
-            // rtbAccuracy
-            // 
-            this.rtbAccuracy.BackColor = System.Drawing.Color.White;
-            resources.ApplyResources(this.rtbAccuracy, "rtbAccuracy");
-            this.rtbAccuracy.ForeColor = System.Drawing.Color.Black;
-            this.rtbAccuracy.Name = "rtbAccuracy";
-            this.rtbAccuracy.ReadOnly = true;
-            this.rtbAccuracy.TabStop = false;
-            // 
-            // label4
-            // 
-            resources.ApplyResources(this.label4, "label4");
-            this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Name = "label4";
-            // 
-            // rtbKeyStrokes
-            // 
-            this.rtbKeyStrokes.BackColor = System.Drawing.Color.White;
-            resources.ApplyResources(this.rtbKeyStrokes, "rtbKeyStrokes");
-            this.rtbKeyStrokes.ForeColor = System.Drawing.Color.Black;
-            this.rtbKeyStrokes.Name = "rtbKeyStrokes";
-            this.rtbKeyStrokes.ReadOnly = true;
-            this.rtbKeyStrokes.TabStop = false;
-            // 
-            // rtbCorrectWords
-            // 
-            this.rtbCorrectWords.BackColor = System.Drawing.Color.White;
-            resources.ApplyResources(this.rtbCorrectWords, "rtbCorrectWords");
-            this.rtbCorrectWords.ForeColor = System.Drawing.Color.Green;
-            this.rtbCorrectWords.Name = "rtbCorrectWords";
-            this.rtbCorrectWords.ReadOnly = true;
-            this.rtbCorrectWords.TabStop = false;
-            // 
-            // rtbWrongWords
-            // 
-            this.rtbWrongWords.BackColor = System.Drawing.Color.White;
-            resources.ApplyResources(this.rtbWrongWords, "rtbWrongWords");
-            this.rtbWrongWords.ForeColor = System.Drawing.Color.Red;
-            this.rtbWrongWords.Name = "rtbWrongWords";
-            this.rtbWrongWords.ReadOnly = true;
-            this.rtbWrongWords.TabStop = false;
+            this.tbTimer.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PerformMouseDown);
             // 
             // rtbFinalWPM
             // 
@@ -277,7 +215,7 @@ namespace Typing_Test
             this.rtbFinalWPM.Name = "rtbFinalWPM";
             this.rtbFinalWPM.ReadOnly = true;
             this.rtbFinalWPM.TabStop = false;
-            this.rtbFinalWPM.MouseDown += new System.Windows.Forms.MouseEventHandler(this.rtbWPMWord_MouseDown);
+            this.rtbFinalWPM.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PerformMouseDown);
             this.rtbFinalWPM.MouseEnter += new System.EventHandler(this.rtbFinalWPM_MouseEnter);
             this.rtbFinalWPM.MouseLeave += new System.EventHandler(this.rtbFinalWPM_MouseLeave);
             // 
@@ -385,7 +323,7 @@ namespace Typing_Test
             this.tbLiveWPM.Name = "tbLiveWPM";
             this.tbLiveWPM.ReadOnly = true;
             this.tbLiveWPM.TabStop = false;
-            this.tbLiveWPM.MouseDown += new System.Windows.Forms.MouseEventHandler(this.rtbWPMWord_MouseDown);
+            this.tbLiveWPM.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PerformMouseDown);
             // 
             // cdChangeColor
             // 
@@ -400,7 +338,7 @@ namespace Typing_Test
             this.rtbCapsLock.Name = "rtbCapsLock";
             this.rtbCapsLock.ReadOnly = true;
             this.rtbCapsLock.TabStop = false;
-            this.rtbCapsLock.MouseDown += new System.Windows.Forms.MouseEventHandler(this.rtbWPMWord_MouseDown);
+            this.rtbCapsLock.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PerformMouseDown);
             // 
             // tbWordsCounter
             // 
@@ -412,7 +350,7 @@ namespace Typing_Test
             this.tbWordsCounter.Name = "tbWordsCounter";
             this.tbWordsCounter.ReadOnly = true;
             this.tbWordsCounter.TabStop = false;
-            this.tbWordsCounter.MouseDown += new System.Windows.Forms.MouseEventHandler(this.rtbWPMWord_MouseDown);
+            this.tbWordsCounter.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PerformMouseDown);
             // 
             // pnlSettings
             // 
@@ -479,20 +417,118 @@ namespace Typing_Test
             // pnlResults
             // 
             resources.ApplyResources(this.pnlResults, "pnlResults");
-            this.pnlResults.Controls.Add(this.pbBest);
+            this.pnlResults.Controls.Add(this.rtbWordsWord);
+            this.pnlResults.Controls.Add(this.rtbWordsCounter);
+            this.pnlResults.Controls.Add(this.rtbCharactersWord);
+            this.pnlResults.Controls.Add(this.rtbCharacters);
             this.pnlResults.Controls.Add(this.rtbDuration);
-            this.pnlResults.Controls.Add(this.label5);
-            this.pnlResults.Controls.Add(this.rtbWPMWord);
+            this.pnlResults.Controls.Add(this.rtbTimeWord);
+            this.pnlResults.Controls.Add(this.rtbAccuracyWord);
             this.pnlResults.Controls.Add(this.rtbAccuracy);
+            this.pnlResults.Controls.Add(this.pbBest);
+            this.pnlResults.Controls.Add(this.rtbWPMWord);
             this.pnlResults.Controls.Add(this.rtbFinalWPM);
-            this.pnlResults.Controls.Add(this.label4);
-            this.pnlResults.Controls.Add(this.label1);
-            this.pnlResults.Controls.Add(this.label2);
-            this.pnlResults.Controls.Add(this.rtbKeyStrokes);
-            this.pnlResults.Controls.Add(this.label3);
-            this.pnlResults.Controls.Add(this.rtbCorrectWords);
-            this.pnlResults.Controls.Add(this.rtbWrongWords);
             this.pnlResults.Name = "pnlResults";
+            // 
+            // rtbWordsWord
+            // 
+            this.rtbWordsWord.BackColor = System.Drawing.Color.DodgerBlue;
+            this.rtbWordsWord.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.rtbWordsWord.Cursor = System.Windows.Forms.Cursors.Default;
+            resources.ApplyResources(this.rtbWordsWord, "rtbWordsWord");
+            this.rtbWordsWord.ForeColor = System.Drawing.Color.DeepPink;
+            this.rtbWordsWord.Name = "rtbWordsWord";
+            this.rtbWordsWord.ReadOnly = true;
+            this.rtbWordsWord.TabStop = false;
+            // 
+            // rtbWordsCounter
+            // 
+            this.rtbWordsCounter.BackColor = System.Drawing.Color.DodgerBlue;
+            this.rtbWordsCounter.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.rtbWordsCounter.Cursor = System.Windows.Forms.Cursors.Default;
+            resources.ApplyResources(this.rtbWordsCounter, "rtbWordsCounter");
+            this.rtbWordsCounter.ForeColor = System.Drawing.Color.DeepPink;
+            this.rtbWordsCounter.Name = "rtbWordsCounter";
+            this.rtbWordsCounter.ReadOnly = true;
+            this.rtbWordsCounter.TabStop = false;
+            this.rtbWordsCounter.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PerformMouseDown);
+            this.rtbWordsCounter.MouseEnter += new System.EventHandler(this.rtbWordsCounter_MouseEnter);
+            this.rtbWordsCounter.MouseLeave += new System.EventHandler(this.rtbWordsCounter_MouseLeave);
+            // 
+            // rtbCharactersWord
+            // 
+            this.rtbCharactersWord.BackColor = System.Drawing.Color.DodgerBlue;
+            this.rtbCharactersWord.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.rtbCharactersWord.Cursor = System.Windows.Forms.Cursors.Default;
+            resources.ApplyResources(this.rtbCharactersWord, "rtbCharactersWord");
+            this.rtbCharactersWord.ForeColor = System.Drawing.Color.DeepPink;
+            this.rtbCharactersWord.Name = "rtbCharactersWord";
+            this.rtbCharactersWord.ReadOnly = true;
+            this.rtbCharactersWord.TabStop = false;
+            // 
+            // rtbCharacters
+            // 
+            this.rtbCharacters.BackColor = System.Drawing.Color.DodgerBlue;
+            this.rtbCharacters.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.rtbCharacters.Cursor = System.Windows.Forms.Cursors.Default;
+            resources.ApplyResources(this.rtbCharacters, "rtbCharacters");
+            this.rtbCharacters.ForeColor = System.Drawing.Color.DeepPink;
+            this.rtbCharacters.Name = "rtbCharacters";
+            this.rtbCharacters.ReadOnly = true;
+            this.rtbCharacters.TabStop = false;
+            this.rtbCharacters.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PerformMouseDown);
+            this.rtbCharacters.MouseEnter += new System.EventHandler(this.rtbCharacters_MouseEnter);
+            this.rtbCharacters.MouseLeave += new System.EventHandler(this.rtbCharacters_MouseLeave);
+            // 
+            // rtbDuration
+            // 
+            this.rtbDuration.BackColor = System.Drawing.Color.DodgerBlue;
+            this.rtbDuration.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.rtbDuration.Cursor = System.Windows.Forms.Cursors.Default;
+            resources.ApplyResources(this.rtbDuration, "rtbDuration");
+            this.rtbDuration.ForeColor = System.Drawing.Color.DeepPink;
+            this.rtbDuration.Name = "rtbDuration";
+            this.rtbDuration.ReadOnly = true;
+            this.rtbDuration.TabStop = false;
+            this.rtbDuration.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PerformMouseDown);
+            this.rtbDuration.MouseEnter += new System.EventHandler(this.rtbDuration_MouseEnter);
+            this.rtbDuration.MouseLeave += new System.EventHandler(this.rtbDuration_MouseLeave);
+            // 
+            // rtbTimeWord
+            // 
+            this.rtbTimeWord.BackColor = System.Drawing.Color.DodgerBlue;
+            this.rtbTimeWord.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.rtbTimeWord.Cursor = System.Windows.Forms.Cursors.Default;
+            resources.ApplyResources(this.rtbTimeWord, "rtbTimeWord");
+            this.rtbTimeWord.ForeColor = System.Drawing.Color.DeepPink;
+            this.rtbTimeWord.Name = "rtbTimeWord";
+            this.rtbTimeWord.ReadOnly = true;
+            this.rtbTimeWord.TabStop = false;
+            // 
+            // rtbAccuracyWord
+            // 
+            this.rtbAccuracyWord.BackColor = System.Drawing.Color.DodgerBlue;
+            this.rtbAccuracyWord.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.rtbAccuracyWord.Cursor = System.Windows.Forms.Cursors.Default;
+            resources.ApplyResources(this.rtbAccuracyWord, "rtbAccuracyWord");
+            this.rtbAccuracyWord.ForeColor = System.Drawing.Color.DeepPink;
+            this.rtbAccuracyWord.Name = "rtbAccuracyWord";
+            this.rtbAccuracyWord.ReadOnly = true;
+            this.rtbAccuracyWord.TabStop = false;
+            // 
+            // rtbAccuracy
+            // 
+            this.rtbAccuracy.BackColor = System.Drawing.Color.DodgerBlue;
+            this.rtbAccuracy.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.rtbAccuracy.Cursor = System.Windows.Forms.Cursors.Default;
+            resources.ApplyResources(this.rtbAccuracy, "rtbAccuracy");
+            this.rtbAccuracy.ForeColor = System.Drawing.Color.DeepPink;
+            this.rtbAccuracy.Name = "rtbAccuracy";
+            this.rtbAccuracy.ReadOnly = true;
+            this.rtbAccuracy.TabStop = false;
+            this.rtbAccuracy.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PerformMouseDown);
+            this.rtbAccuracy.MouseEnter += new System.EventHandler(this.rtbAccuracy_MouseEnter);
+            this.rtbAccuracy.MouseLeave += new System.EventHandler(this.rtbAccuracy_MouseLeave);
             // 
             // pbBest
             // 
@@ -505,21 +541,6 @@ namespace Typing_Test
             this.pbBest.MouseEnter += new System.EventHandler(this.pbBest_MouseEnter);
             this.pbBest.MouseLeave += new System.EventHandler(this.pbBest_MouseLeave);
             // 
-            // rtbDuration
-            // 
-            this.rtbDuration.BackColor = System.Drawing.Color.White;
-            resources.ApplyResources(this.rtbDuration, "rtbDuration");
-            this.rtbDuration.ForeColor = System.Drawing.Color.Black;
-            this.rtbDuration.Name = "rtbDuration";
-            this.rtbDuration.ReadOnly = true;
-            this.rtbDuration.TabStop = false;
-            // 
-            // label5
-            // 
-            resources.ApplyResources(this.label5, "label5");
-            this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Name = "label5";
-            // 
             // rtbWPMWord
             // 
             this.rtbWPMWord.BackColor = System.Drawing.Color.DodgerBlue;
@@ -530,7 +551,7 @@ namespace Typing_Test
             this.rtbWPMWord.Name = "rtbWPMWord";
             this.rtbWPMWord.ReadOnly = true;
             this.rtbWPMWord.TabStop = false;
-            this.rtbWPMWord.MouseDown += new System.Windows.Forms.MouseEventHandler(this.rtbWPMWord_MouseDown);
+            this.rtbWPMWord.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PerformMouseDown);
             // 
             // tUpdateUI
             // 
@@ -604,7 +625,6 @@ namespace Typing_Test
             this.pnlSettings.ResumeLayout(false);
             this.pnlSettings.PerformLayout();
             this.pnlResults.ResumeLayout(false);
-            this.pnlResults.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbBest)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnSettings)).EndInit();
@@ -627,20 +647,11 @@ namespace Typing_Test
         public System.Windows.Forms.Button btn60;
         public System.Windows.Forms.Button btn120;
         public System.Windows.Forms.TextBox tbTimer;
-        public System.Windows.Forms.Label label1;
-        public System.Windows.Forms.Label label2;
-        public System.Windows.Forms.Label label3;
         public System.Windows.Forms.RichTextBox rtbFinalWPM;
         public System.Windows.Forms.Button btnTime;
         public System.Windows.Forms.Button btnWords;
-        public System.Windows.Forms.RichTextBox rtbKeyStrokes;
-        public System.Windows.Forms.RichTextBox rtbCorrectWords;
-        public System.Windows.Forms.RichTextBox rtbWrongWords;
         public System.Windows.Forms.TextBox tbLiveWPM;
         private System.Windows.Forms.ColorDialog cdChangeColor;
-        //public System.Windows.Forms.RichTextBox richTextBox2;
-        public System.Windows.Forms.RichTextBox rtbAccuracy;
-        public System.Windows.Forms.Label label4;
         private System.Windows.Forms.PictureBox btnSettings;
         private System.Windows.Forms.Label lbTypeBarForeColor;
         private System.Windows.Forms.Label lbResetDefaultSettings;
@@ -662,11 +673,17 @@ namespace Typing_Test
         private System.Windows.Forms.Timer tUpdateUI;
         private System.Windows.Forms.Label lbExportResultsToExcel;
         private System.Windows.Forms.SaveFileDialog sfdExportResultsToExcel;
-        public System.Windows.Forms.RichTextBox rtbDuration;
-        public System.Windows.Forms.Label label5;
         private System.Windows.Forms.ComboBox cbLanguage;
         private System.Windows.Forms.PictureBox pbBest;
         private System.Windows.Forms.Label lbClearResults;
+        public System.Windows.Forms.RichTextBox rtbAccuracy;
+        public System.Windows.Forms.RichTextBox rtbAccuracyWord;
+        public System.Windows.Forms.RichTextBox rtbTimeWord;
+        public System.Windows.Forms.RichTextBox rtbDuration;
+        public System.Windows.Forms.RichTextBox rtbCharactersWord;
+        public System.Windows.Forms.RichTextBox rtbCharacters;
+        public System.Windows.Forms.RichTextBox rtbWordsWord;
+        public System.Windows.Forms.RichTextBox rtbWordsCounter;
     }
 }
 

@@ -183,10 +183,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AppSettings.cs" />
-    <Compile Include="Clicks.cs">
+    <Compile Include="Settings_Control.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ControlSettings.cs">
+    <Compile Include="UI_Control.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.cs">

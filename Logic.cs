@@ -23,50 +23,7 @@ namespace Typing_Test
 
         public bool IsTestCompleted = false;
 
-        private void LoadForm()
-        {
-            CurrentBtn = btn15;
-
-            if (!File.Exists(Global.LocalAppDataDbPath))
-            {
-                File.Copy(Global.Clean_DB_Path, Global.LocalAppDataDbPath);
-            }
-
-            foreach (string Language in Languages.GetAllLanguageNames())
-            {
-                cbLanguage.Items.Add(Language);
-            }
-
-            if (!File.Exists(Global.JsonSettingsPath))
-            {
-                LoadDefaultSettings();
-                using (File.Create(Global.JsonSettingsPath)) { };
-                Serialize();
-                SaveToFile();
-            }
-            else
-            {
-                LoadSettings();
-            }
-
-            tbType.Select();
-
-            ShowTypingTestScreen();
-
-            SetFirstWordColor();
-
-            ChangeSomeControlColorsAccordingToFormBackColor();
-
-            btn15.BackColor = SelectColor;
-            btnTime.BackColor = SelectColor;
-
-            rtbFinalWPM.SelectAll();
-            rtbFinalWPM.SelectionAlignment = HorizontalAlignment.Center;
-
-            CustomizeToolTip();
-
-            CheckCapsLock();
-        }
+        
 
         private bool IsCurrentWordTypedTrue()
         {
@@ -269,15 +226,13 @@ namespace Typing_Test
             tbWordsCounter.Text = "";
         }
 
-        private void SetKeyStrokesColors()
+        
+
+        private void ChangeCurrentLanguage(string Name)
         {
-            rtbKeyStrokes.Text = "(" + CurrentTest.CorrectStrokes + " | " + CurrentTest.WrongStrokes + ")  " + (CurrentTest.CorrectStrokes + CurrentTest.WrongStrokes);
-
-            rtbKeyStrokes.Select(1, CurrentTest.CorrectStrokes.ToString().Length);
-            rtbKeyStrokes.SelectionColor = Color.Green;
-
-            rtbKeyStrokes.Select(1 + CurrentTest.CorrectStrokes.ToString().Length + 3, CurrentTest.WrongStrokes.ToString().Length);
-            rtbKeyStrokes.SelectionColor = Color.Red;
+            string SelectedLanguage = Languages.GetLanguageWords(Name);
+            AllLanguageWords = SelectedLanguage.Split(' ');
+            RestartWords();
         }
 
         Stopwatch stopwatch = new Stopwatch();
@@ -342,9 +297,6 @@ namespace Typing_Test
         {
             ShowResultScreen();
 
-            rtbCorrectWords.Text = CurrentTest.CorrectWords.ToString();
-            rtbWrongWords.Text = CurrentTest.WrongWords.ToString();
-
             CurrentTest.Language = cbLanguage.SelectedItem.ToString();
 
             CurrentTest.TestDate = DateTime.Now;
@@ -355,16 +307,20 @@ namespace Typing_Test
             rtbFinalWPM.Text = Convert.ToInt16(CalcWPM()).ToString();
 
             CurrentTest.DurationSeconds = Math.Round(stopwatch.Elapsed.TotalSeconds,2);
-            rtbDuration.Text = CurrentTest.DurationSeconds.ToString("F2") +" s";
+            rtbDuration.Text = CurrentTest.DurationSeconds.ToString("F0") +"s";
 
             Diff_WPM = CurrentTest.WPM - Result.GetMaxWPM(CurrentTest.Language,CurrentTest.Mode);
+
+            rtbWordsCounter.Text = $"{CurrentTest.CorrectWords}/{CurrentTest.WrongWords}";
+
+            rtbCharacters.Text = $"{CurrentTest.CorrectStrokes}/{CurrentTest.WrongStrokes}";
+
 
             if (Diff_WPM >0)
                 pbBest.Show();
             else
                 pbBest.Hide();
 
-            SetKeyStrokesColors();
 
             Result.AddResult(CurrentTest);
         }
@@ -426,7 +382,7 @@ namespace Typing_Test
 
             tbTimer.Text = stopwatch.Elapsed.ToString(@"mm\:ss");
 
-            if (stopwatch.Elapsed.Seconds >= NumberOfSeconds || AreAllWordsTyped())
+            if (stopwatch.Elapsed.Seconds >= NumberOfSeconds)
             {
                 IsTestCompleted = true;
                 tbType.ReadOnly = true;

@@ -8,7 +8,7 @@ namespace Typing_Test
 {
     public partial class Form1
     {
-        Settings settings = new Settings();
+        AppSettings settings = new AppSettings();
 
         string jsonString { get; set; }
 
@@ -42,6 +42,10 @@ namespace Typing_Test
             tbWordsCounter.ForeColor = Color.DeepPink;
             rtbWPMWord.ForeColor = Color.DeepPink;
             rtbFinalWPM.ForeColor = Color.DeepPink;
+            rtbAccuracy.ForeColor = Color.DeepPink;
+            rtbAccuracyWord.ForeColor = Color.DeepPink;
+            rtbTimeWord.ForeColor = Color.DeepPink;
+            rtbDuration.ForeColor = Color.DeepPink;
 
             this.WindowState = FormWindowState.Maximized;
             this.FormBorderStyle = FormBorderStyle.Fixed3D;
@@ -49,12 +53,7 @@ namespace Typing_Test
             cbLanguage.SelectedItem = "English";
         }
 
-        private void ChangeCurrentLanguage(string Name)
-        {
-            string SelectedLanguage = Languages.GetLanguageWords(Name);
-            AllLanguageWords = SelectedLanguage.Split(' ');
-            RestartWords();
-        }
+        
 
         private void LoadColorsSettings()
         {
@@ -66,11 +65,19 @@ namespace Typing_Test
             SelectColor = ColorTranslator.FromHtml(settings.SelectColor);
             tbType.ForeColor = ColorTranslator.FromHtml(settings.TypeBarColor);
 
-            tbTimer.ForeColor = ColorTranslator.FromHtml(settings.CountersColor);
-            tbLiveWPM.ForeColor = ColorTranslator.FromHtml(settings.CountersColor);
-            tbWordsCounter.ForeColor = ColorTranslator.FromHtml(settings.CountersColor);
-            rtbWPMWord.ForeColor = ColorTranslator.FromHtml(settings.CountersColor);
-            rtbFinalWPM.ForeColor = ColorTranslator.FromHtml(settings.CountersColor);
+            tbTimer.ForeColor         = SelectColor;
+            tbLiveWPM.ForeColor       = SelectColor;
+            tbWordsCounter.ForeColor  = SelectColor;
+            rtbFinalWPM.ForeColor     = SelectColor;
+            rtbWPMWord.ForeColor      = SelectColor;
+            rtbAccuracy.ForeColor     = SelectColor;
+            rtbAccuracyWord.ForeColor = SelectColor;
+            rtbDuration.ForeColor     = SelectColor; 
+            rtbTimeWord.ForeColor     = SelectColor;
+            rtbCharacters.ForeColor   = SelectColor;
+            rtbCharactersWord.ForeColor = SelectColor;
+            rtbWordsCounter.ForeColor = SelectColor;
+            rtbWordsWord.ForeColor = SelectColor;
         }
 
         private void LoadWindowStateSettings()
@@ -95,7 +102,7 @@ namespace Typing_Test
 
         private void Deserialize()
         {
-            settings = JsonSerializer.Deserialize<Settings>(jsonString);
+            settings = JsonSerializer.Deserialize<AppSettings>(jsonString);
         }
 
         private void LoadFromFile()
@@ -160,7 +167,7 @@ namespace Typing_Test
 
         private void Serialize()
         {
-            jsonString = JsonSerializer.Serialize<Settings>(settings);
+            jsonString = JsonSerializer.Serialize<AppSettings>(settings);
         }
 
         private void SaveSettings()
@@ -195,7 +202,7 @@ namespace Typing_Test
             CanType();
         }
 
-        private void ChangeSomeControlColorsAccordingToFormBackColor()
+        private void ChangeSomeColorsAccordingToFormBackColor()
         {
             tbLiveWPM.BackColor = this.BackColor;
             tbTimer.BackColor = this.BackColor;
@@ -203,6 +210,14 @@ namespace Typing_Test
             rtbWords.BackColor = this.BackColor;
             rtbFinalWPM.BackColor = this.BackColor;
             rtbWPMWord.BackColor = this.BackColor;
+            rtbAccuracy.BackColor = this.BackColor;
+            rtbAccuracyWord.BackColor = this.BackColor;
+            rtbDuration.BackColor = this.BackColor;
+            rtbCharacters.BackColor = this.BackColor;
+            rtbCharactersWord.BackColor = this.BackColor;
+            rtbWordsCounter.BackColor = this.BackColor;
+            rtbWordsWord.BackColor = this.BackColor;
+            rtbTimeWord.BackColor = this.BackColor;
             tbType.BackColor = this.BackColor;
             cbLanguage.BackColor = this.BackColor;
             btnRestart.BackColor = this.BackColor;
@@ -240,13 +255,7 @@ namespace Typing_Test
             }
         }
 
-        private void rtbWPMWord_MouseDown(object sender, MouseEventArgs e)
-        {
-            e = null;
-            this.ActiveControl = tbType;
-        }
-
-        private void rtbWords_MouseDown(object sender, MouseEventArgs e)
+        private void PerformMouseDown(object sender, MouseEventArgs e)
         {
             e = null;
             this.ActiveControl = tbType;
@@ -286,8 +295,8 @@ namespace Typing_Test
             toolTip.Show(
                 CurrentTest.WPM.ToString("F2") + " WPM",
                 rtbFinalWPM,
-                rtbFinalWPM.Location.X + 80,
-                rtbFinalWPM.Location.Y - 40
+                0,
+                0
             );
         }
 
@@ -301,14 +310,74 @@ namespace Typing_Test
             toolTip.Show(
                 "+" + Diff_WPM.ToString("F2"),
                 pbBest,
-                pbBest.Location.X - 240,
-                pbBest.Location.Y
+                0,
+                0
             );
         }
 
         private void pbBest_MouseLeave(object sender, EventArgs e)
         {
             toolTip.Hide(pbBest);
+        }
+
+        private void rtbDuration_MouseEnter(object sender, EventArgs e)
+        {
+            toolTip.Show(
+                CurrentTest.DurationSeconds.ToString("F2") + "s",
+                rtbDuration,
+                0,
+                -20
+            );
+        }
+
+        private void rtbDuration_MouseLeave(object sender, EventArgs e)
+        {
+            toolTip.Hide(rtbDuration);
+        }
+
+        private void rtbAccuracy_MouseEnter(object sender, EventArgs e)
+        {
+            toolTip.Show(
+                CurrentTest.Accuracy.ToString("F2") + "%",
+                rtbAccuracy,
+                0 ,
+                0
+            );
+        }
+        private void rtbAccuracy_MouseLeave(object sender, EventArgs e)
+        {
+            toolTip.Hide(rtbAccuracy);
+        }
+
+
+        private void rtbCharacters_MouseEnter(object sender, EventArgs e)
+        {
+            toolTip.Show(
+                "correct\nincorrect",
+                rtbCharacters,
+                0,
+                -50
+            );
+        }
+
+        private void rtbCharacters_MouseLeave(object sender, EventArgs e)
+        {
+            toolTip.Hide(rtbCharacters);
+        }
+
+        private void rtbWordsCounter_MouseEnter(object sender, EventArgs e)
+        {
+            toolTip.Show(
+                "correct\nincorrect",
+                rtbWordsCounter,
+                0,
+                -50
+            );
+        }
+
+        private void rtbWordsCounter_MouseLeave(object sender, EventArgs e)
+        {
+            toolTip.Hide(rtbWordsCounter);
         }
 
         private void BringToFrontWordButtons()

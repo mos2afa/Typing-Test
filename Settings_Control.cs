@@ -1,12 +1,57 @@
 ﻿using System;
 using System.Drawing;
 using System.Windows.Forms;
+using System.IO;
 
 namespace Typing_Test
 {
     public partial class Form1
     {
         System.Windows.Forms.Button CurrentBtn;
+
+
+        private void LoadForm()
+        {
+            CurrentBtn = btn15;
+
+            if (!File.Exists(Global.LocalAppDataDbPath))
+            {
+                File.Copy(Global.Clean_DB_Path, Global.LocalAppDataDbPath);
+            }
+
+            foreach (string Language in Languages.GetAllLanguageNames())
+            {
+                cbLanguage.Items.Add(Language);
+            }
+
+            if (!File.Exists(Global.JsonSettingsPath))
+            {
+                LoadDefaultSettings();
+                using (File.Create(Global.JsonSettingsPath)) { }
+                ;
+                Serialize();
+                SaveToFile();
+            }
+            else
+            {
+                LoadSettings();
+            }
+
+            tbType.Select();
+
+            ShowTypingTestScreen();
+
+            SetFirstWordColor();
+
+            ChangeSomeColorsAccordingToFormBackColor();
+
+            btn15.BackColor = SelectColor;
+            btnTime.BackColor = SelectColor;
+
+            CustomizeToolTip();
+
+            CheckCapsLock();
+        }
 
         private void PerformBtnTimeClick()
         {
