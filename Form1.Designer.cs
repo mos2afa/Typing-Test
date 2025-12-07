@@ -65,6 +65,9 @@ namespace Typing_Test
             this.lbChangeCountersColor = new System.Windows.Forms.Label();
             this.cbLanguage = new System.Windows.Forms.ComboBox();
             this.pnlResults = new System.Windows.Forms.Panel();
+            this.rtbTestType = new System.Windows.Forms.RichTextBox();
+            this.rtbTestTypeWord = new System.Windows.Forms.RichTextBox();
+            this.pbBest = new System.Windows.Forms.PictureBox();
             this.rtbWordsWord = new System.Windows.Forms.RichTextBox();
             this.rtbWordsCounter = new System.Windows.Forms.RichTextBox();
             this.rtbCharactersWord = new System.Windows.Forms.RichTextBox();
@@ -73,7 +76,6 @@ namespace Typing_Test
             this.rtbTimeWord = new System.Windows.Forms.RichTextBox();
             this.rtbAccuracyWord = new System.Windows.Forms.RichTextBox();
             this.rtbAccuracy = new System.Windows.Forms.RichTextBox();
-            this.pbBest = new System.Windows.Forms.PictureBox();
             this.rtbWPMWord = new System.Windows.Forms.RichTextBox();
             this.tUpdateUI = new System.Windows.Forms.Timer(this.components);
             this.sfdExportResultsToExcel = new System.Windows.Forms.SaveFileDialog();
@@ -417,6 +419,9 @@ namespace Typing_Test
             // pnlResults
             // 
             resources.ApplyResources(this.pnlResults, "pnlResults");
+            this.pnlResults.Controls.Add(this.rtbTestType);
+            this.pnlResults.Controls.Add(this.rtbTestTypeWord);
+            this.pnlResults.Controls.Add(this.pbBest);
             this.pnlResults.Controls.Add(this.rtbWordsWord);
             this.pnlResults.Controls.Add(this.rtbWordsCounter);
             this.pnlResults.Controls.Add(this.rtbCharactersWord);
@@ -425,10 +430,42 @@ namespace Typing_Test
             this.pnlResults.Controls.Add(this.rtbTimeWord);
             this.pnlResults.Controls.Add(this.rtbAccuracyWord);
             this.pnlResults.Controls.Add(this.rtbAccuracy);
-            this.pnlResults.Controls.Add(this.pbBest);
             this.pnlResults.Controls.Add(this.rtbWPMWord);
             this.pnlResults.Controls.Add(this.rtbFinalWPM);
             this.pnlResults.Name = "pnlResults";
+            // 
+            // rtbTestType
+            // 
+            this.rtbTestType.BackColor = System.Drawing.Color.DodgerBlue;
+            this.rtbTestType.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.rtbTestType.Cursor = System.Windows.Forms.Cursors.Default;
+            resources.ApplyResources(this.rtbTestType, "rtbTestType");
+            this.rtbTestType.ForeColor = System.Drawing.Color.DeepPink;
+            this.rtbTestType.Name = "rtbTestType";
+            this.rtbTestType.ReadOnly = true;
+            this.rtbTestType.TabStop = false;
+            // 
+            // rtbTestTypeWord
+            // 
+            this.rtbTestTypeWord.BackColor = System.Drawing.Color.DodgerBlue;
+            this.rtbTestTypeWord.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.rtbTestTypeWord.Cursor = System.Windows.Forms.Cursors.Default;
+            resources.ApplyResources(this.rtbTestTypeWord, "rtbTestTypeWord");
+            this.rtbTestTypeWord.ForeColor = System.Drawing.Color.DeepPink;
+            this.rtbTestTypeWord.Name = "rtbTestTypeWord";
+            this.rtbTestTypeWord.ReadOnly = true;
+            this.rtbTestTypeWord.TabStop = false;
+            // 
+            // pbBest
+            // 
+            this.pbBest.BackColor = System.Drawing.Color.Black;
+            this.pbBest.Cursor = System.Windows.Forms.Cursors.Default;
+            this.pbBest.Image = global::Typing_Test.Properties.Resources.Star;
+            resources.ApplyResources(this.pbBest, "pbBest");
+            this.pbBest.Name = "pbBest";
+            this.pbBest.TabStop = false;
+            this.pbBest.MouseEnter += new System.EventHandler(this.pbBest_MouseEnter);
+            this.pbBest.MouseLeave += new System.EventHandler(this.pbBest_MouseLeave);
             // 
             // rtbWordsWord
             // 
@@ -529,17 +566,6 @@ namespace Typing_Test
             this.rtbAccuracy.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PerformMouseDown);
             this.rtbAccuracy.MouseEnter += new System.EventHandler(this.rtbAccuracy_MouseEnter);
             this.rtbAccuracy.MouseLeave += new System.EventHandler(this.rtbAccuracy_MouseLeave);
-            // 
-            // pbBest
-            // 
-            this.pbBest.BackColor = System.Drawing.Color.Black;
-            this.pbBest.Cursor = System.Windows.Forms.Cursors.Default;
-            this.pbBest.Image = global::Typing_Test.Properties.Resources.Star;
-            resources.ApplyResources(this.pbBest, "pbBest");
-            this.pbBest.Name = "pbBest";
-            this.pbBest.TabStop = false;
-            this.pbBest.MouseEnter += new System.EventHandler(this.pbBest_MouseEnter);
-            this.pbBest.MouseLeave += new System.EventHandler(this.pbBest_MouseLeave);
             // 
             // rtbWPMWord
             // 
@@ -684,6 +710,8 @@ namespace Typing_Test
         public System.Windows.Forms.RichTextBox rtbCharacters;
         public System.Windows.Forms.RichTextBox rtbWordsWord;
         public System.Windows.Forms.RichTextBox rtbWordsCounter;
+        public System.Windows.Forms.RichTextBox rtbTestType;
+        public System.Windows.Forms.RichTextBox rtbTestTypeWord;
     }
 }
 

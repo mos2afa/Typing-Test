@@ -140,7 +140,7 @@ namespace Typing_Test
                 return;
             }
 
-            tbWordsCounter.Text = Result.CurrentWordCounter.ToString() + $"/{NumberOfWords}";
+            tbWordsCounter.Text = $"{Result.CurrentWordCounter}/{NumberOfWords}";
             tbTimer.Text = stopwatch.Elapsed.ToString(@"mm\:ss");
 
             StartTimer();
@@ -160,6 +160,7 @@ namespace Typing_Test
                 UpdateIndexOfFirstCharOfCurrentWord();
 
                 Result.CurrentWordCounter++;
+                tbWordsCounter.Text =  $"{Result.CurrentWordCounter}/{NumberOfWords}";
 
                 SetCurrentWordColor();
 
@@ -297,7 +298,8 @@ namespace Typing_Test
 
             Result.Language = cbLanguage.SelectedItem.ToString();
 
-            Result.TestDate = DateTime.Now;
+            rtbTestType.Text = $"{Result.Mode}\n{Result.Language}";
+
 
             Result.Accuracy = Math.Round(CalcAccuracy(),2);
             rtbAccuracy.Text = Result.Accuracy.ToString("F0") + "%";
@@ -313,12 +315,12 @@ namespace Typing_Test
 
             rtbCharacters.Text = $"{Result.CorrectStrokes}/{Result.WrongStrokes}";
 
-
             if (Diff_WPM >0)
                 pbBest.Show();
             else
                 pbBest.Hide();
 
+            Result.TestDate = DateTime.Now;
 
             Result.AddResult();
         }

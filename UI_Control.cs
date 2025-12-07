@@ -46,6 +46,10 @@ namespace Typing_Test
             rtbAccuracyWord.ForeColor = Color.DeepPink;
             rtbTimeWord.ForeColor = Color.DeepPink;
             rtbDuration.ForeColor = Color.DeepPink;
+            rtbWordsCounter.ForeColor = Color.DeepPink;
+            rtbWordsWord.ForeColor = Color.DeepPink;
+            rtbTestType.ForeColor = Color.DeepPink;
+            rtbTestTypeWord.ForeColor = Color.DeepPink;
 
             this.WindowState = FormWindowState.Maximized;
             this.FormBorderStyle = FormBorderStyle.Fixed3D;
@@ -83,6 +87,8 @@ namespace Typing_Test
             rtbCharactersWord.ForeColor = TargetColor;
             rtbWordsCounter.ForeColor = TargetColor;
             rtbWordsWord.ForeColor = TargetColor;
+            rtbTestType.ForeColor = TargetColor;
+            rtbTestTypeWord.ForeColor = TargetColor;
         }
 
         private void LoadWindowStateSettings()
@@ -223,6 +229,8 @@ namespace Typing_Test
             rtbWordsCounter.BackColor = this.BackColor;
             rtbWordsWord.BackColor = this.BackColor;
             rtbTimeWord.BackColor = this.BackColor;
+            rtbTestType.BackColor = this.BackColor;
+            rtbTestTypeWord.BackColor = this.BackColor;
             tbType.BackColor = this.BackColor;
             cbLanguage.BackColor = this.BackColor;
             btnRestart.BackColor = this.BackColor;
@@ -316,7 +324,7 @@ namespace Typing_Test
                 "+" + Diff_WPM.ToString("F2"),
                 pbBest,
                 0,
-                0
+                -30
             );
         }
 

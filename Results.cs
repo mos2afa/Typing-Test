@@ -36,13 +36,8 @@ namespace Typing_Test
             WrongWords = 0;
             TestDate = DateTime.Now;
 
-            CurrentWordCounter = 0;
+            CurrentWordCounter = 1;
         }
-
-        private static readonly string ExcelSheetPath = Path.Combine(
-            Environment.CurrentDirectory,
-            "Typing_Results.xlsx");
-
 
         private static void CreateTableIfNotExists()
         {
