@@ -28,14 +28,11 @@ namespace Typing_Test
             tbType.ForeColor = Color.White;
             CurrentBtn.BackColor = SelectColor;
 
-            if (Result.Mode.ToString().Contains("Time"))
-            {
+            if(Test.IsTimeMode())
                 btnTime.BackColor = SelectColor;
-            }
             else
-            {
                 btnWords.BackColor = SelectColor;
-            }
+            
 
             tbTimer.ForeColor = Color.DeepPink;
             tbLiveWPM.ForeColor = Color.DeepPink;
@@ -131,14 +128,11 @@ namespace Typing_Test
 
             CurrentBtn.BackColor = SelectColor;
 
-            if (Result.Mode.ToString().Contains("Time"))
-            {
+            if(Test.IsTimeMode())
                 btnTime.BackColor = SelectColor;
-            }
             else
-            {
                 btnWords.BackColor = SelectColor;
-            }
+            
 
             LoadWindowStateSettings();
 
@@ -306,7 +300,7 @@ namespace Typing_Test
         private void rtbFinalWPM_MouseEnter(object sender, EventArgs e)
         {
             toolTip.Show(
-                Result.WPM.ToString("F2") + " WPM",
+                Test.WPM.ToString("F2") + " WPM",
                 rtbFinalWPM,
                 0,
                 0
@@ -336,7 +330,7 @@ namespace Typing_Test
         private void rtbDuration_MouseEnter(object sender, EventArgs e)
         {
             toolTip.Show(
-                Result.DurationSeconds.ToString("F2") + "s",
+                Test.DurationSeconds.ToString("F2") + "s",
                 rtbDuration,
                 0,
                 -20
@@ -351,7 +345,7 @@ namespace Typing_Test
         private void rtbAccuracy_MouseEnter(object sender, EventArgs e)
         {
             toolTip.Show(
-                Result.Accuracy.ToString("F2") + "%",
+                Test.Accuracy.ToString("F2") + "%",
                 rtbAccuracy,
                 0 ,
                 0

@@ -55,9 +55,9 @@ namespace Typing_Test
 
         private void PerformBtnTimeClick()
         {
-            if ( Result.Mode.ToString().Contains("Time") ) return;
+            if (Test.IsTimeMode()) return;
 
-            Result.Mode = enMode.Time15;
+            Test.Mode = enMode.Time15;
 
             btnTime.BackColor = SelectColor;
             btnWords.BackColor = Color.Black;
@@ -78,9 +78,9 @@ namespace Typing_Test
 
         private void PerformBtnWordsClick()
         {
-            if (Result.Mode.ToString().Contains("Words")) return;
+            if (Test.IsWordsMode()) return;
 
-            Result.Mode = enMode.Words10;
+            Test.Mode = enMode.Words10;
 
             btnWords.BackColor = SelectColor;
             btnTime.BackColor = Color.Black;
@@ -114,7 +114,7 @@ namespace Typing_Test
             if (sfdExportResultsToExcel.ShowDialog() == DialogResult.OK)
             {
                 Cursor = Cursors.WaitCursor;
-                Result.ExportTypingTestsToExcel(sfdExportResultsToExcel.FileName);
+                Test.ExportTypingTestsToExcel(sfdExportResultsToExcel.FileName);
                 Cursor = Cursors.Default;
                 MessageBox.Show("Results exported to Excel successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
@@ -231,14 +231,10 @@ namespace Typing_Test
 
                 CurrentBtn.BackColor = SelectColor;
 
-                if ( Result.Mode.ToString().Contains("Time") ) 
-                {
+                if (Test.IsTimeMode()) 
                     btnTime.BackColor = SelectColor;
-                }
                 else
-                {
                     btnWords.BackColor = SelectColor;
-                }
             }
         }
 

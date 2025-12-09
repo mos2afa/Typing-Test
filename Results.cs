@@ -8,7 +8,7 @@ namespace Typing_Test
 {
     public enum enMode { Words10 = 10, Words25 = 25, Words50 = 50, Words100 = 100, Time15 = 15,Time30 = 30,Time60 = 60,Time120 = 120};
 
-    public static class Result
+    public static class Test
     {
         public static string Language { get; set; }
 
@@ -24,7 +24,7 @@ namespace Typing_Test
 
         public static int CurrentWordCounter { get; set; }
 
-        static Result()
+        static Test()
         {
             Mode = enMode.Time15;
             WPM = 0.0;
@@ -37,6 +37,16 @@ namespace Typing_Test
             TestDate = DateTime.Now;
 
             CurrentWordCounter = 1;
+        }
+
+        public static bool IsTimeMode()
+        {
+            return Mode.ToString().Contains("Time");
+        }
+
+        public static bool IsWordsMode()
+        {
+            return !IsTimeMode();
         }
 
         private static void CreateTableIfNotExists()
