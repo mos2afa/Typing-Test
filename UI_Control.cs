@@ -266,6 +266,8 @@ namespace Typing_Test
                 rtbWords.ZoomFactor = 1.45f;
             }
 
+            pnlKeyboard.Location = new Point(Width/3, rtbWords.Height + 70);
+
             HideTestsScreen();
         }
 

@@ -23,5 +23,7 @@ namespace Typing_Test
         public FormBorderStyle FormBorderStyle  {get;set; }
 
         public string SelectedLanguage {get;set; }
+
+        public bool KeyboardVisible { get; set; }
     }
 }

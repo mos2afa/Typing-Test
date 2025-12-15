@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Drawing;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace Typing_Test
@@ -53,7 +54,35 @@ namespace Typing_Test
 
         private void tbType_KeyDown(object sender, KeyEventArgs e)
         {
+            char keycode = (char)e.KeyCode;
+
+            Label lbl = pnlKeyboard.Controls
+                     .OfType<Label>()
+                     .FirstOrDefault(b => b.Text[0] == char.ToLower(keycode));
+
+            if (lbl != null)
+            {
+                HighLightCharacter(lbl);
+            }
+
             PerformCtrlBackSpace(e);
+        }
+
+        public void HighLightCharacter(Label lbl)
+        {
+            lbl.BackColor = CurrentWordColor;
+
+            Timer t = new Timer();
+            t.Interval = 120;
+            t.Tick += (s, args) =>
+            {
+                lbl.BackColor = Color.Black;
+
+                t.Stop();
+                t.Dispose();
+            };
+
+            t.Start();
         }
 
         private void Form1_BackColorChanged(object sender, EventArgs e)
@@ -148,6 +177,11 @@ namespace Typing_Test
             HideTestsScreen();
 
             dgvResults.DataSource = null;
+        }
+
+        private void rtbWords_VisibleChanged(object sender, EventArgs e)
+        {
+            pnlKeyboard.Visible = rtbWords.Visible;
         }
     }
 }

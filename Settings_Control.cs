@@ -3,6 +3,7 @@ using System.Drawing;
 using System.Windows.Forms;
 using System.IO;
 using DocumentFormat.OpenXml.Presentation;
+using Control = System.Windows.Forms.Control;
 
 namespace Typing_Test
 {
@@ -222,6 +223,7 @@ namespace Typing_Test
 
         private void PerformKeyDown(KeyEventArgs e)
         {
+
             if (e.Control && e.KeyCode == Keys.W)
             {
                 e.SuppressKeyPress = true;

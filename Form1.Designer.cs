@@ -64,6 +64,34 @@ namespace Typing_Test
             this.lbChangeCountersColor = new System.Windows.Forms.Label();
             this.cbLanguage = new System.Windows.Forms.ComboBox();
             this.lbChangeSelectColor = new System.Windows.Forms.Label();
+            this.pnlKeyboard = new System.Windows.Forms.Panel();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label26 = new System.Windows.Forms.Label();
+            this.label27 = new System.Windows.Forms.Label();
+            this.label28 = new System.Windows.Forms.Label();
+            this.label29 = new System.Windows.Forms.Label();
+            this.label30 = new System.Windows.Forms.Label();
+            this.label31 = new System.Windows.Forms.Label();
+            this.label32 = new System.Windows.Forms.Label();
+            this.label33 = new System.Windows.Forms.Label();
+            this.label34 = new System.Windows.Forms.Label();
+            this.label35 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
+            this.label23 = new System.Windows.Forms.Label();
+            this.label24 = new System.Windows.Forms.Label();
+            this.label25 = new System.Windows.Forms.Label();
             this.lbExportResultsToExcel = new System.Windows.Forms.Label();
             this.lbClearResults = new System.Windows.Forms.Label();
             this.lbHideResults = new System.Windows.Forms.Label();
@@ -87,6 +115,7 @@ namespace Typing_Test
             this.btnSettings = new System.Windows.Forms.PictureBox();
             this.pnlSettings.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvResults)).BeginInit();
+            this.pnlKeyboard.SuspendLayout();
             this.pnlResults.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbBest)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -104,6 +133,7 @@ namespace Typing_Test
             this.rtbWords.Name = "rtbWords";
             this.rtbWords.ReadOnly = true;
             this.rtbWords.TabStop = false;
+            this.rtbWords.VisibleChanged += new System.EventHandler(this.rtbWords_VisibleChanged);
             this.rtbWords.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PerformMouseDown);
             // 
             // tbType
@@ -425,6 +455,228 @@ namespace Typing_Test
             this.lbChangeSelectColor.Name = "lbChangeSelectColor";
             this.lbChangeSelectColor.Click += new System.EventHandler(this.lbChangeSelectColor_Click);
             // 
+            // pnlKeyboard
+            // 
+            resources.ApplyResources(this.pnlKeyboard, "pnlKeyboard");
+            this.pnlKeyboard.BackColor = System.Drawing.Color.Black;
+            this.pnlKeyboard.Controls.Add(this.label13);
+            this.pnlKeyboard.Controls.Add(this.label14);
+            this.pnlKeyboard.Controls.Add(this.label15);
+            this.pnlKeyboard.Controls.Add(this.label9);
+            this.pnlKeyboard.Controls.Add(this.label8);
+            this.pnlKeyboard.Controls.Add(this.label7);
+            this.pnlKeyboard.Controls.Add(this.label6);
+            this.pnlKeyboard.Controls.Add(this.label5);
+            this.pnlKeyboard.Controls.Add(this.label4);
+            this.pnlKeyboard.Controls.Add(this.label1);
+            this.pnlKeyboard.Controls.Add(this.label26);
+            this.pnlKeyboard.Controls.Add(this.label27);
+            this.pnlKeyboard.Controls.Add(this.label28);
+            this.pnlKeyboard.Controls.Add(this.label29);
+            this.pnlKeyboard.Controls.Add(this.label30);
+            this.pnlKeyboard.Controls.Add(this.label31);
+            this.pnlKeyboard.Controls.Add(this.label32);
+            this.pnlKeyboard.Controls.Add(this.label33);
+            this.pnlKeyboard.Controls.Add(this.label34);
+            this.pnlKeyboard.Controls.Add(this.label35);
+            this.pnlKeyboard.Controls.Add(this.label19);
+            this.pnlKeyboard.Controls.Add(this.label20);
+            this.pnlKeyboard.Controls.Add(this.label21);
+            this.pnlKeyboard.Controls.Add(this.label22);
+            this.pnlKeyboard.Controls.Add(this.label23);
+            this.pnlKeyboard.Controls.Add(this.label24);
+            this.pnlKeyboard.Controls.Add(this.label25);
+            this.pnlKeyboard.Name = "pnlKeyboard";
+            // 
+            // label13
+            // 
+            this.label13.BackColor = System.Drawing.Color.Black;
+            resources.ApplyResources(this.label13, "label13");
+            this.label13.ForeColor = System.Drawing.Color.White;
+            this.label13.Name = "label13";
+            // 
+            // label14
+            // 
+            this.label14.BackColor = System.Drawing.Color.Black;
+            resources.ApplyResources(this.label14, "label14");
+            this.label14.ForeColor = System.Drawing.Color.White;
+            this.label14.Name = "label14";
+            // 
+            // label15
+            // 
+            this.label15.BackColor = System.Drawing.Color.Black;
+            resources.ApplyResources(this.label15, "label15");
+            this.label15.ForeColor = System.Drawing.Color.White;
+            this.label15.Name = "label15";
+            // 
+            // label9
+            // 
+            this.label9.BackColor = System.Drawing.Color.Black;
+            resources.ApplyResources(this.label9, "label9");
+            this.label9.ForeColor = System.Drawing.Color.White;
+            this.label9.Name = "label9";
+            // 
+            // label8
+            // 
+            this.label8.BackColor = System.Drawing.Color.Black;
+            resources.ApplyResources(this.label8, "label8");
+            this.label8.ForeColor = System.Drawing.Color.White;
+            this.label8.Name = "label8";
+            // 
+            // label7
+            // 
+            this.label7.BackColor = System.Drawing.Color.Black;
+            resources.ApplyResources(this.label7, "label7");
+            this.label7.ForeColor = System.Drawing.Color.White;
+            this.label7.Name = "label7";
+            // 
+            // label6
+            // 
+            this.label6.BackColor = System.Drawing.Color.Black;
+            resources.ApplyResources(this.label6, "label6");
+            this.label6.ForeColor = System.Drawing.Color.White;
+            this.label6.Name = "label6";
+            // 
+            // label5
+            // 
+            this.label5.BackColor = System.Drawing.Color.Black;
+            resources.ApplyResources(this.label5, "label5");
+            this.label5.ForeColor = System.Drawing.Color.White;
+            this.label5.Name = "label5";
+            // 
+            // label4
+            // 
+            this.label4.BackColor = System.Drawing.Color.Black;
+            resources.ApplyResources(this.label4, "label4");
+            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.Name = "label4";
+            // 
+            // label1
+            // 
+            this.label1.BackColor = System.Drawing.Color.Black;
+            resources.ApplyResources(this.label1, "label1");
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Name = "label1";
+            // 
+            // label26
+            // 
+            this.label26.BackColor = System.Drawing.Color.Black;
+            resources.ApplyResources(this.label26, "label26");
+            this.label26.ForeColor = System.Drawing.Color.White;
+            this.label26.Name = "label26";
+            // 
+            // label27
+            // 
+            this.label27.BackColor = System.Drawing.Color.Black;
+            resources.ApplyResources(this.label27, "label27");
+            this.label27.ForeColor = System.Drawing.Color.White;
+            this.label27.Name = "label27";
+            // 
+            // label28
+            // 
+            this.label28.BackColor = System.Drawing.Color.Black;
+            resources.ApplyResources(this.label28, "label28");
+            this.label28.ForeColor = System.Drawing.Color.White;
+            this.label28.Name = "label28";
+            // 
+            // label29
+            // 
+            this.label29.BackColor = System.Drawing.Color.Black;
+            resources.ApplyResources(this.label29, "label29");
+            this.label29.ForeColor = System.Drawing.Color.White;
+            this.label29.Name = "label29";
+            // 
+            // label30
+            // 
+            this.label30.BackColor = System.Drawing.Color.Black;
+            resources.ApplyResources(this.label30, "label30");
+            this.label30.ForeColor = System.Drawing.Color.White;
+            this.label30.Name = "label30";
+            // 
+            // label31
+            // 
+            this.label31.BackColor = System.Drawing.Color.Black;
+            resources.ApplyResources(this.label31, "label31");
+            this.label31.ForeColor = System.Drawing.Color.White;
+            this.label31.Name = "label31";
+            // 
+            // label32
+            // 
+            this.label32.BackColor = System.Drawing.Color.Black;
+            resources.ApplyResources(this.label32, "label32");
+            this.label32.ForeColor = System.Drawing.Color.White;
+            this.label32.Name = "label32";
+            // 
+            // label33
+            // 
+            this.label33.BackColor = System.Drawing.Color.Black;
+            resources.ApplyResources(this.label33, "label33");
+            this.label33.ForeColor = System.Drawing.Color.White;
+            this.label33.Name = "label33";
+            // 
+            // label34
+            // 
+            this.label34.BackColor = System.Drawing.Color.Black;
+            resources.ApplyResources(this.label34, "label34");
+            this.label34.ForeColor = System.Drawing.Color.White;
+            this.label34.Name = "label34";
+            // 
+            // label35
+            // 
+            this.label35.BackColor = System.Drawing.Color.Black;
+            resources.ApplyResources(this.label35, "label35");
+            this.label35.ForeColor = System.Drawing.Color.White;
+            this.label35.Name = "label35";
+            // 
+            // label19
+            // 
+            this.label19.BackColor = System.Drawing.Color.Black;
+            resources.ApplyResources(this.label19, "label19");
+            this.label19.ForeColor = System.Drawing.Color.White;
+            this.label19.Name = "label19";
+            // 
+            // label20
+            // 
+            this.label20.BackColor = System.Drawing.Color.Black;
+            resources.ApplyResources(this.label20, "label20");
+            this.label20.ForeColor = System.Drawing.Color.White;
+            this.label20.Name = "label20";
+            // 
+            // label21
+            // 
+            this.label21.BackColor = System.Drawing.Color.Black;
+            resources.ApplyResources(this.label21, "label21");
+            this.label21.ForeColor = System.Drawing.Color.White;
+            this.label21.Name = "label21";
+            // 
+            // label22
+            // 
+            this.label22.BackColor = System.Drawing.Color.Black;
+            resources.ApplyResources(this.label22, "label22");
+            this.label22.ForeColor = System.Drawing.Color.White;
+            this.label22.Name = "label22";
+            // 
+            // label23
+            // 
+            this.label23.BackColor = System.Drawing.Color.Black;
+            resources.ApplyResources(this.label23, "label23");
+            this.label23.ForeColor = System.Drawing.Color.White;
+            this.label23.Name = "label23";
+            // 
+            // label24
+            // 
+            this.label24.BackColor = System.Drawing.Color.Black;
+            resources.ApplyResources(this.label24, "label24");
+            this.label24.ForeColor = System.Drawing.Color.White;
+            this.label24.Name = "label24";
+            // 
+            // label25
+            // 
+            this.label25.BackColor = System.Drawing.Color.Black;
+            resources.ApplyResources(this.label25, "label25");
+            this.label25.ForeColor = System.Drawing.Color.White;
+            this.label25.Name = "label25";
+            // 
             // lbExportResultsToExcel
             // 
             resources.ApplyResources(this.lbExportResultsToExcel, "lbExportResultsToExcel");
@@ -651,6 +903,7 @@ namespace Typing_Test
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
+            this.Controls.Add(this.pnlKeyboard);
             this.Controls.Add(this.lbClearResults);
             this.Controls.Add(this.lbExportResultsToExcel);
             this.Controls.Add(this.btn120);
@@ -687,6 +940,7 @@ namespace Typing_Test
             this.pnlSettings.ResumeLayout(false);
             this.pnlSettings.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvResults)).EndInit();
+            this.pnlKeyboard.ResumeLayout(false);
             this.pnlResults.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pbBest)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
@@ -752,6 +1006,34 @@ namespace Typing_Test
         private System.Windows.Forms.DataGridView dgvResults;
         private System.Windows.Forms.Label lbShowResults;
         private System.Windows.Forms.Label lbHideResults;
+        private System.Windows.Forms.Panel pnlKeyboard;
+        public System.Windows.Forms.Label label26;
+        public System.Windows.Forms.Label label27;
+        public System.Windows.Forms.Label label28;
+        public System.Windows.Forms.Label label29;
+        public System.Windows.Forms.Label label30;
+        public System.Windows.Forms.Label label31;
+        public System.Windows.Forms.Label label32;
+        public System.Windows.Forms.Label label33;
+        public System.Windows.Forms.Label label34;
+        public System.Windows.Forms.Label label35;
+        public System.Windows.Forms.Label label19;
+        public System.Windows.Forms.Label label20;
+        public System.Windows.Forms.Label label21;
+        public System.Windows.Forms.Label label22;
+        public System.Windows.Forms.Label label23;
+        public System.Windows.Forms.Label label24;
+        public System.Windows.Forms.Label label25;
+        public System.Windows.Forms.Label label13;
+        public System.Windows.Forms.Label label14;
+        public System.Windows.Forms.Label label15;
+        public System.Windows.Forms.Label label9;
+        public System.Windows.Forms.Label label8;
+        public System.Windows.Forms.Label label7;
+        public System.Windows.Forms.Label label6;
+        public System.Windows.Forms.Label label5;
+        public System.Windows.Forms.Label label4;
+        public System.Windows.Forms.Label label1;
     }
 }
 
