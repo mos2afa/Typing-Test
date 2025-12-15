@@ -59,14 +59,14 @@ namespace Typing_Test
             this.rtbCapsLock = new System.Windows.Forms.RichTextBox();
             this.tbWordsCounter = new System.Windows.Forms.TextBox();
             this.pnlSettings = new System.Windows.Forms.Panel();
-            this.lbExportResultsToExcel = new System.Windows.Forms.Label();
-            this.lbClearResults = new System.Windows.Forms.Label();
-            this.lbHideResults = new System.Windows.Forms.Label();
             this.dgvResults = new System.Windows.Forms.DataGridView();
             this.lbShowResults = new System.Windows.Forms.Label();
             this.lbChangeCountersColor = new System.Windows.Forms.Label();
             this.cbLanguage = new System.Windows.Forms.ComboBox();
             this.lbChangeSelectColor = new System.Windows.Forms.Label();
+            this.lbExportResultsToExcel = new System.Windows.Forms.Label();
+            this.lbClearResults = new System.Windows.Forms.Label();
+            this.lbHideResults = new System.Windows.Forms.Label();
             this.pnlResults = new System.Windows.Forms.Panel();
             this.rtbTestType = new System.Windows.Forms.RichTextBox();
             this.rtbTestTypeWord = new System.Windows.Forms.RichTextBox();
@@ -361,9 +361,6 @@ namespace Typing_Test
             // pnlSettings
             // 
             resources.ApplyResources(this.pnlSettings, "pnlSettings");
-            this.pnlSettings.Controls.Add(this.lbExportResultsToExcel);
-            this.pnlSettings.Controls.Add(this.lbClearResults);
-            this.pnlSettings.Controls.Add(this.lbHideResults);
             this.pnlSettings.Controls.Add(this.dgvResults);
             this.pnlSettings.Controls.Add(this.lbShowResults);
             this.pnlSettings.Controls.Add(this.lbChangeCountersColor);
@@ -379,30 +376,6 @@ namespace Typing_Test
             this.pnlSettings.Controls.Add(this.lbFontColor);
             this.pnlSettings.Controls.Add(this.lbChangeSelectColor);
             this.pnlSettings.Name = "pnlSettings";
-            // 
-            // lbExportResultsToExcel
-            // 
-            resources.ApplyResources(this.lbExportResultsToExcel, "lbExportResultsToExcel");
-            this.lbExportResultsToExcel.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.lbExportResultsToExcel.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.lbExportResultsToExcel.Name = "lbExportResultsToExcel";
-            this.lbExportResultsToExcel.Click += new System.EventHandler(this.lbExportResultsToExcel_Click);
-            // 
-            // lbClearResults
-            // 
-            resources.ApplyResources(this.lbClearResults, "lbClearResults");
-            this.lbClearResults.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.lbClearResults.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.lbClearResults.Name = "lbClearResults";
-            this.lbClearResults.Click += new System.EventHandler(this.lbClearResults_Click_1);
-            // 
-            // lbHideResults
-            // 
-            resources.ApplyResources(this.lbHideResults, "lbHideResults");
-            this.lbHideResults.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.lbHideResults.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.lbHideResults.Name = "lbHideResults";
-            this.lbHideResults.Click += new System.EventHandler(this.lbHideResults_Click);
             // 
             // dgvResults
             // 
@@ -451,6 +424,30 @@ namespace Typing_Test
             this.lbChangeSelectColor.ForeColor = System.Drawing.Color.DodgerBlue;
             this.lbChangeSelectColor.Name = "lbChangeSelectColor";
             this.lbChangeSelectColor.Click += new System.EventHandler(this.lbChangeSelectColor_Click);
+            // 
+            // lbExportResultsToExcel
+            // 
+            resources.ApplyResources(this.lbExportResultsToExcel, "lbExportResultsToExcel");
+            this.lbExportResultsToExcel.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lbExportResultsToExcel.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.lbExportResultsToExcel.Name = "lbExportResultsToExcel";
+            this.lbExportResultsToExcel.Click += new System.EventHandler(this.lbExportResultsToExcel_Click);
+            // 
+            // lbClearResults
+            // 
+            resources.ApplyResources(this.lbClearResults, "lbClearResults");
+            this.lbClearResults.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lbClearResults.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.lbClearResults.Name = "lbClearResults";
+            this.lbClearResults.Click += new System.EventHandler(this.lbClearResults_Click_1);
+            // 
+            // lbHideResults
+            // 
+            resources.ApplyResources(this.lbHideResults, "lbHideResults");
+            this.lbHideResults.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lbHideResults.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.lbHideResults.Name = "lbHideResults";
+            this.lbHideResults.Click += new System.EventHandler(this.lbHideResults_Click);
             // 
             // pnlResults
             // 
@@ -654,8 +651,11 @@ namespace Typing_Test
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
+            this.Controls.Add(this.lbClearResults);
+            this.Controls.Add(this.lbExportResultsToExcel);
             this.Controls.Add(this.btn120);
             this.Controls.Add(this.btn60);
+            this.Controls.Add(this.lbHideResults);
             this.Controls.Add(this.btn30);
             this.Controls.Add(this.btn15);
             this.Controls.Add(this.btn100);
@@ -672,9 +672,9 @@ namespace Typing_Test
             this.Controls.Add(this.tbTimer);
             this.Controls.Add(this.tbWordsCounter);
             this.Controls.Add(this.btnSettings);
+            this.Controls.Add(this.rtbWords);
             this.Controls.Add(this.pnlSettings);
             this.Controls.Add(this.pnlResults);
-            this.Controls.Add(this.rtbWords);
             this.ForeColor = System.Drawing.Color.White;
             this.KeyPreview = true;
             this.Name = "Form1";

@@ -2,6 +2,7 @@
 using System.Drawing;
 using System.Windows.Forms;
 using System.IO;
+using DocumentFormat.OpenXml.Presentation;
 
 namespace Typing_Test
 {
@@ -102,30 +103,8 @@ namespace Typing_Test
             Restart();
         }
 
-        private void lbExportResultsToExcel_Click(object sender, EventArgs e)
-        {
-            sfdExportResultsToExcel.Filter = "Excel Workbook (*.xlsx)|*.xlsx";
-            sfdExportResultsToExcel.FileName = "Typing_Results.xlsx";
 
-            if (sfdExportResultsToExcel.ShowDialog() == DialogResult.OK)
-            {
-                Cursor = Cursors.WaitCursor;
-                Test.ExportTypingTestsToExcel(sfdExportResultsToExcel.FileName);
-                Cursor = Cursors.Default;
-                MessageBox.Show("Results exported to Excel successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-        }
-
-        private void lbExportSettings_Click(object sender, EventArgs e)
-        {
-            SaveSettings();
-
-            Clipboard.SetText(jsonString);
-
-            MessageBox.Show("Settings Copied To Clipboard Successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        }
-
-        private void lbImportSettings_Click(object sender, EventArgs e)
+        private bool ImportSettingsFromClipBoard()
         {
             jsonString = Clipboard.GetText();
 
@@ -137,12 +116,19 @@ namespace Typing_Test
 
                 LoadSettings();
 
-                MessageBox.Show("Settings Loaded Successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return true;
             }
             catch (Exception)
             {
-                MessageBox.Show("Error while Importing Settings.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
             }
+        }
+
+        private void ExportSettingsFromClipBoard()
+        {
+            SaveSettings();
+
+            Clipboard.SetText(jsonString);
         }
 
         private void lbChangeFormBackColor_Click(object sender, EventArgs e)

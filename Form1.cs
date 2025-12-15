@@ -75,6 +75,24 @@ namespace Typing_Test
         {
             SaveSettings();
         }
+        private void lbImportSettings_Click(object sender, EventArgs e)
+        {
+            if (ImportSettingsFromClipBoard())
+            {
+                MessageBox.Show("Settings Loaded Successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("Error while Importing Settings.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void lbExportSettings_Click(object sender, EventArgs e)
+        {
+            ExportSettingsFromClipBoard();
+
+            MessageBox.Show("Settings Copied To Clipboard Successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
 
         private void lbResetDefaultSettings_Click(object sender, EventArgs e)
         {
@@ -106,62 +124,29 @@ namespace Typing_Test
             }
         }
 
+        private void lbExportResultsToExcel_Click(object sender, EventArgs e)
+        {
+            sfdExportResultsToExcel.Filter = "Excel Workbook (*.xlsx)|*.xlsx";
+            sfdExportResultsToExcel.FileName = "Typing_Results.xlsx";
+
+            if (sfdExportResultsToExcel.ShowDialog() == DialogResult.OK)
+            {
+                Cursor = Cursors.WaitCursor;
+                Test.ExportTypingTestsToExcel(sfdExportResultsToExcel.FileName);
+                Cursor = Cursors.Default;
+                MessageBox.Show("Results exported to Excel successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
         private void lbShowResults_Click(object sender, EventArgs e)
         {
-            dgvResults.RowTemplate.Height = 40;
-
-            dgvResults.GridColor = Color.LightGray;
-
-            dgvResults.DataSource = Test.GetTypingTestsForShowing();
-
-            dgvResults.Columns[0].Width = 140;
-            dgvResults.Columns[1].Width = 140;
-            dgvResults.Columns[2].Width = 140;
-            dgvResults.Columns[3].Width = 140;
-            dgvResults.Columns[4].Width = 140;
-            dgvResults.Columns[5].Width = 140;
-            dgvResults.Columns[6].Width = 140;
-            dgvResults.Columns[7].Width = 250;
-
-            dgvResults.GridColor = Color.Black;
-            dgvResults.ForeColor = SelectColor;
-            dgvResults.BackgroundColor = Color.Black;
-            dgvResults.DefaultCellStyle.BackColor = Color.Black;
-
-            dgvResults.EnableHeadersVisualStyles = false;
-
-            Color headerColor = this.BackColor;
-
-            dgvResults.ColumnHeadersDefaultCellStyle.BackColor = headerColor;
-            dgvResults.ColumnHeadersDefaultCellStyle.ForeColor = SelectColor;
-
-            dgvResults.RowHeadersDefaultCellStyle.BackColor = headerColor;
-            dgvResults.RowHeadersDefaultCellStyle.ForeColor = SelectColor;
-                
-            dgvResults.Size = pnlSettings.Size;
-            dgvResults.Location = new Point(0, 0);
-
-            dgvResults.Font = new Font(this.Font.FontFamily, 18);
-
-            lbHideResults.Location = new Point(this.Size.Width-250 , 0);
-            lbExportResultsToExcel.Location = new Point(this.Size.Width-250 , 50);
-            lbClearResults.Location = new Point(this.Size.Width-250 , 100);
-
-            lbHideResults.Show();
-            lbExportResultsToExcel.Show();
-            lbClearResults.Show();
-
-            dgvResults.Show();
-
+            PerformShowResultsButton();
         }
 
         private void lbHideResults_Click(object sender, EventArgs e)
         {
-            lbHideResults.Hide();
-            lbExportResultsToExcel.Hide();
-            lbClearResults.Hide();
+            HideTestsScreen();
 
-            dgvResults.Hide();
             dgvResults.DataSource = null;
         }
     }

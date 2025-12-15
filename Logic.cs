@@ -63,6 +63,8 @@ namespace Typing_Test
 
             SetFirstWordColor();
 
+            HideTestsScreen();
+
             rtbWords.Select(0, 1);
             rtbWords.ScrollToCaret();
         }

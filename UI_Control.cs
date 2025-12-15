@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Text.Json;
@@ -204,6 +205,9 @@ namespace Typing_Test
                 {
                     ShowTypingTestScreen();
                 }
+
+                HideTestsScreen();
+                dgvResults.Hide();
             }
 
             CanType();
@@ -240,15 +244,14 @@ namespace Typing_Test
                 this.FormBorderStyle = FormBorderStyle.None;
                 this.WindowState = FormWindowState.Maximized;
                 rtbWords.ZoomFactor += 0.25f;
-                return;
             }
-
-            if (this.FormBorderStyle == FormBorderStyle.None)
+            else if (this.FormBorderStyle == FormBorderStyle.None)
             {
                 this.FormBorderStyle = FormBorderStyle.Fixed3D;
                 rtbWords.ZoomFactor -= 0.25f;
-                return;
             }
+
+            HideTestsScreen();
         }
 
         private void Form1_Resize(object sender, EventArgs e)
@@ -262,7 +265,48 @@ namespace Typing_Test
             {
                 rtbWords.ZoomFactor = 1.45f;
             }
+
+            HideTestsScreen();
         }
+
+        private void PerformShowResultsButton()
+        {
+            dgvResults.RowTemplate.Height = 40;
+
+            dgvResults.GridColor = Color.LightGray;
+
+            dgvResults.DataSource = Test.GetTypingTestsForShowing();
+
+            dgvResults.Columns[0].Width = 100;
+            dgvResults.Columns[1].Width = 120;
+            dgvResults.Columns[2].Width = 130;
+            dgvResults.Columns[3].Width = 120;
+            dgvResults.Columns[4].Width = 120;
+            dgvResults.Columns[5].Width = 100;
+            dgvResults.Columns[6].Width = 120;
+            dgvResults.Columns[7].Width = 250;
+
+            dgvResults.GridColor = BackColor;
+            dgvResults.ForeColor = SelectColor;
+            dgvResults.BackgroundColor = BackColor;
+            dgvResults.DefaultCellStyle.BackColor = BackColor;
+
+            dgvResults.EnableHeadersVisualStyles = false;
+
+            dgvResults.ColumnHeadersDefaultCellStyle.BackColor = BackColor;
+            dgvResults.ColumnHeadersDefaultCellStyle.ForeColor = CurrentWordColor;
+
+            dgvResults.RowHeadersDefaultCellStyle.BackColor = BackColor;
+            dgvResults.RowHeadersDefaultCellStyle.ForeColor = SelectColor;
+
+            dgvResults.Size = pnlSettings.Size;
+            dgvResults.Location = new Point(0, 0);
+            dgvResults.Font = new Font(this.Font.FontFamily, 18);
+
+            ShowTestsScreen();
+        }
+
+
 
         private void PerformMouseDown(object sender, MouseEventArgs e)
         {
@@ -403,6 +447,24 @@ namespace Typing_Test
             btn30.BringToFront();
             btn60.BringToFront();
             btn120.BringToFront();
+        }
+
+        private void ShowTestsScreen()
+        {
+            lbHideResults.Show();
+            lbExportResultsToExcel.Show();
+            lbClearResults.Show();
+
+            dgvResults.Show();
+        }
+
+        private void HideTestsScreen()
+        {
+            lbHideResults.Hide();
+            lbExportResultsToExcel.Hide();
+            lbClearResults.Hide();
+
+            dgvResults.Hide();
         }
 
     }
