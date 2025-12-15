@@ -126,7 +126,7 @@ namespace Typing_Test
             }
         }
 
-        public static void ExportTypingTestsToExcel(string FilePath)
+        public static DataTable GetTypingTests()
         {
             DataTable dt = new DataTable();
             using (var conn = new SQLiteConnection(Global.ConnectionString))
@@ -138,6 +138,33 @@ namespace Typing_Test
                     adapter.Fill(dt);
                 }
             }
+
+            return dt;
+        }
+
+        public static DataTable GetTypingTestsForShowing()
+        {
+            DataTable dt = new DataTable();
+            using (var conn = new SQLiteConnection(Global.ConnectionString))
+            {
+                conn.Open();
+                string Query = @"SELECT WPM,Mode,Language,Accuracy || '%' AS Accuracy,
+                            DurationSeconds AS Seconds,CorrectWords || '/' || WrongWords AS Words,
+                            CorrectStrokes || '/'  || WrongStrokes as Strokes,
+                            TestDate AS Date FROM TypingTests ORDER BY TestDate DESC";
+                using (var cmd = new SQLiteCommand(Query, conn))
+                using (var adapter = new SQLiteDataAdapter(cmd))
+                {
+                    adapter.Fill(dt);
+                }
+            }
+
+            return dt;
+        }
+
+        public static void ExportTypingTestsToExcel(string FilePath)
+        {
+            DataTable dt = GetTypingTests();
 
             using (var workbook = new XLWorkbook())
             {

@@ -19,16 +19,12 @@ namespace Typing_Test
                 File.Copy(Global.Clean_DB_Path, Global.LocalAppDataDbPath);
             }
 
-            foreach (string Language in Languages.GetAllLanguageNames())
-            {
-                cbLanguage.Items.Add(Language);
-            }
+            Languages.GetAllLanguageNames().ForEach(L => cbLanguage.Items.Add(L));
 
             if (!File.Exists(Global.JsonSettingsPath))
             {
                 LoadDefaultSettings();
-                using (File.Create(Global.JsonSettingsPath)) { }
-                ;
+                using (File.Create(Global.JsonSettingsPath)) { };
                 Serialize();
                 SaveToFile();
             }

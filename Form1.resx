@@ -138,7 +138,7 @@
     <value>None</value>
   </data>
   <data name="rtbWords.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1412, 505</value>
+    <value>1537, 589</value>
   </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="rtbWords.TabIndex" type="System.Int32, mscorlib">
@@ -157,7 +157,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;rtbWords.ZOrder" xml:space="preserve">
-    <value>18</value>
+    <value>20</value>
   </data>
   <data name="tbType.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Left, Right</value>
@@ -166,13 +166,13 @@
     <value>Microsoft Sans Serif, 28.2pt</value>
   </data>
   <data name="tbType.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 582</value>
+    <value>12, 666</value>
   </data>
   <data name="tbType.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 2, 3, 2</value>
   </data>
   <data name="tbType.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1332, 61</value>
+    <value>1457, 61</value>
   </data>
   <data name="tbType.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -199,7 +199,7 @@
     <value>NoControl</value>
   </data>
   <data name="btn10.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1034, 10</value>
+    <value>1159, 10</value>
   </data>
   <data name="btn10.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 2, 3, 2</value>
@@ -235,7 +235,7 @@
     <value>NoControl</value>
   </data>
   <data name="btn25.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1094, 10</value>
+    <value>1219, 10</value>
   </data>
   <data name="btn25.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 2, 3, 2</value>
@@ -271,7 +271,7 @@
     <value>NoControl</value>
   </data>
   <data name="btn50.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1154, 10</value>
+    <value>1279, 10</value>
   </data>
   <data name="btn50.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 2, 3, 2</value>
@@ -307,7 +307,7 @@
     <value>NoControl</value>
   </data>
   <data name="btn100.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1214, 10</value>
+    <value>1339, 10</value>
   </data>
   <data name="btn100.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 2, 3, 2</value>
@@ -343,7 +343,7 @@
     <value>NoControl</value>
   </data>
   <data name="btn15.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1034, 10</value>
+    <value>1159, 10</value>
   </data>
   <data name="btn15.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 2, 3, 2</value>
@@ -379,7 +379,7 @@
     <value>NoControl</value>
   </data>
   <data name="btn30.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1094, 10</value>
+    <value>1219, 10</value>
   </data>
   <data name="btn30.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 2, 3, 2</value>
@@ -415,7 +415,7 @@
     <value>NoControl</value>
   </data>
   <data name="btn60.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1154, 10</value>
+    <value>1279, 10</value>
   </data>
   <data name="btn60.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 2, 3, 2</value>
@@ -451,7 +451,7 @@
     <value>NoControl</value>
   </data>
   <data name="btn120.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1214, 10</value>
+    <value>1339, 10</value>
   </data>
   <data name="btn120.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 2, 3, 2</value>
@@ -565,7 +565,7 @@
     <value>pnlSettings</value>
   </data>
   <data name="&gt;&gt;lbImportSettings.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>9</value>
   </data>
   <data name="lbExportSettings.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -598,7 +598,7 @@
     <value>pnlSettings</value>
   </data>
   <data name="&gt;&gt;lbExportSettings.ZOrder" xml:space="preserve">
-    <value>9</value>
+    <value>11</value>
   </data>
   <data name="lbTypeBarForeColor.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -631,7 +631,7 @@
     <value>pnlSettings</value>
   </data>
   <data name="&gt;&gt;lbTypeBarForeColor.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>6</value>
   </data>
   <data name="lbResetDefaultSettings.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -664,7 +664,7 @@
     <value>pnlSettings</value>
   </data>
   <data name="&gt;&gt;lbResetDefaultSettings.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>8</value>
   </data>
   <data name="lbWrongWordColor.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -697,7 +697,7 @@
     <value>pnlSettings</value>
   </data>
   <data name="&gt;&gt;lbWrongWordColor.ZOrder" xml:space="preserve">
-    <value>8</value>
+    <value>10</value>
   </data>
   <data name="lbCorrectWordColor.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -730,7 +730,7 @@
     <value>pnlSettings</value>
   </data>
   <data name="&gt;&gt;lbCorrectWordColor.ZOrder" xml:space="preserve">
-    <value>10</value>
+    <value>12</value>
   </data>
   <data name="lbCurrentWordColor.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -763,7 +763,7 @@
     <value>pnlSettings</value>
   </data>
   <data name="&gt;&gt;lbCurrentWordColor.ZOrder" xml:space="preserve">
-    <value>11</value>
+    <value>13</value>
   </data>
   <data name="lbFontColor.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -796,7 +796,7 @@
     <value>pnlSettings</value>
   </data>
   <data name="&gt;&gt;lbFontColor.ZOrder" xml:space="preserve">
-    <value>13</value>
+    <value>15</value>
   </data>
   <data name="lbFormBackColor.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -829,7 +829,7 @@
     <value>pnlSettings</value>
   </data>
   <data name="&gt;&gt;lbFormBackColor.ZOrder" xml:space="preserve">
-    <value>12</value>
+    <value>14</value>
   </data>
   <data name="btnTime.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
@@ -841,7 +841,7 @@
     <value>NoControl</value>
   </data>
   <data name="btnTime.Location" type="System.Drawing.Point, System.Drawing">
-    <value>793, 10</value>
+    <value>918, 10</value>
   </data>
   <data name="btnTime.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 2, 3, 2</value>
@@ -877,7 +877,7 @@
     <value>NoControl</value>
   </data>
   <data name="btnWords.Location" type="System.Drawing.Point, System.Drawing">
-    <value>915, 10</value>
+    <value>1040, 10</value>
   </data>
   <data name="btnWords.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 2, 3, 2</value>
@@ -940,7 +940,7 @@
     <value>Microsoft Sans Serif, 22.2pt</value>
   </data>
   <data name="rtbCapsLock.Location" type="System.Drawing.Point, System.Drawing">
-    <value>494, 3</value>
+    <value>556, 3</value>
   </data>
   <data name="rtbCapsLock.Size" type="System.Drawing.Size, System.Drawing">
     <value>256, 61</value>
@@ -1005,17 +1005,29 @@
   <data name="pnlSettings.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="&gt;&gt;lbClearResults.Name" xml:space="preserve">
-    <value>lbClearResults</value>
+  <data name="lbExportResultsToExcel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
-  <data name="&gt;&gt;lbClearResults.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="lbExportResultsToExcel.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 19.8000011pt</value>
   </data>
-  <data name="&gt;&gt;lbClearResults.Parent" xml:space="preserve">
-    <value>pnlSettings</value>
+  <data name="lbExportResultsToExcel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
-  <data name="&gt;&gt;lbClearResults.ZOrder" xml:space="preserve">
-    <value>0</value>
+  <data name="lbExportResultsToExcel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>1276, 94</value>
+  </data>
+  <data name="lbExportResultsToExcel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>245, 39</value>
+  </data>
+  <data name="lbExportResultsToExcel.TabIndex" type="System.Int32, mscorlib">
+    <value>42</value>
+  </data>
+  <data name="lbExportResultsToExcel.Text" xml:space="preserve">
+    <value>Export to Excel</value>
+  </data>
+  <data name="lbExportResultsToExcel.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
   <data name="&gt;&gt;lbExportResultsToExcel.Name" xml:space="preserve">
     <value>lbExportResultsToExcel</value>
@@ -1027,64 +1039,7 @@
     <value>pnlSettings</value>
   </data>
   <data name="&gt;&gt;lbExportResultsToExcel.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;lbChangeSelectColor.Name" xml:space="preserve">
-    <value>lbChangeSelectColor</value>
-  </data>
-  <data name="&gt;&gt;lbChangeSelectColor.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lbChangeSelectColor.Parent" xml:space="preserve">
-    <value>pnlSettings</value>
-  </data>
-  <data name="&gt;&gt;lbChangeSelectColor.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;lbChangeCountersColor.Name" xml:space="preserve">
-    <value>lbChangeCountersColor</value>
-  </data>
-  <data name="&gt;&gt;lbChangeCountersColor.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lbChangeCountersColor.Parent" xml:space="preserve">
-    <value>pnlSettings</value>
-  </data>
-  <data name="&gt;&gt;lbChangeCountersColor.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;cbLanguage.Name" xml:space="preserve">
-    <value>cbLanguage</value>
-  </data>
-  <data name="&gt;&gt;cbLanguage.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;cbLanguage.Parent" xml:space="preserve">
-    <value>pnlSettings</value>
-  </data>
-  <data name="&gt;&gt;cbLanguage.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="pnlSettings.Location" type="System.Drawing.Point, System.Drawing">
-    <value>13, 73</value>
-  </data>
-  <data name="pnlSettings.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1399, 504</value>
-  </data>
-  <data name="pnlSettings.TabIndex" type="System.Int32, mscorlib">
-    <value>10</value>
-  </data>
-  <data name="&gt;&gt;pnlSettings.Name" xml:space="preserve">
-    <value>pnlSettings</value>
-  </data>
-  <data name="&gt;&gt;pnlSettings.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;pnlSettings.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;pnlSettings.ZOrder" xml:space="preserve">
-    <value>19</value>
+    <value>0</value>
   </data>
   <data name="lbClearResults.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1096,16 +1051,19 @@
     <value>NoControl</value>
   </data>
   <data name="lbClearResults.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1028, 81</value>
+    <value>1280, 154</value>
   </data>
   <data name="lbClearResults.Size" type="System.Drawing.Size, System.Drawing">
     <value>222, 39</value>
   </data>
   <data name="lbClearResults.TabIndex" type="System.Int32, mscorlib">
-    <value>13</value>
+    <value>43</value>
   </data>
   <data name="lbClearResults.Text" xml:space="preserve">
     <value>Clear Results</value>
+  </data>
+  <data name="lbClearResults.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
   <data name="&gt;&gt;lbClearResults.Name" xml:space="preserve">
     <value>lbClearResults</value>
@@ -1117,73 +1075,103 @@
     <value>pnlSettings</value>
   </data>
   <data name="&gt;&gt;lbClearResults.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="lbExportResultsToExcel.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="lbExportResultsToExcel.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 19.8000011pt</value>
-  </data>
-  <data name="lbExportResultsToExcel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="lbExportResultsToExcel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1028, 27</value>
-  </data>
-  <data name="lbExportResultsToExcel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>368, 39</value>
-  </data>
-  <data name="lbExportResultsToExcel.TabIndex" type="System.Int32, mscorlib">
-    <value>12</value>
-  </data>
-  <data name="lbExportResultsToExcel.Text" xml:space="preserve">
-    <value>Export Results to Excel</value>
-  </data>
-  <data name="&gt;&gt;lbExportResultsToExcel.Name" xml:space="preserve">
-    <value>lbExportResultsToExcel</value>
-  </data>
-  <data name="&gt;&gt;lbExportResultsToExcel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lbExportResultsToExcel.Parent" xml:space="preserve">
-    <value>pnlSettings</value>
-  </data>
-  <data name="&gt;&gt;lbExportResultsToExcel.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="lbChangeSelectColor.AutoSize" type="System.Boolean, mscorlib">
+  <data name="lbHideResults.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="lbChangeSelectColor.Font" type="System.Drawing.Font, System.Drawing">
+  <data name="lbHideResults.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 19.8000011pt</value>
   </data>
-  <data name="lbChangeSelectColor.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+  <data name="lbHideResults.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="lbChangeSelectColor.Location" type="System.Drawing.Point, System.Drawing">
-    <value>26, 442</value>
+  <data name="lbHideResults.Location" type="System.Drawing.Point, System.Drawing">
+    <value>1285, 222</value>
   </data>
-  <data name="lbChangeSelectColor.Size" type="System.Drawing.Size, System.Drawing">
-    <value>203, 39</value>
+  <data name="lbHideResults.Size" type="System.Drawing.Size, System.Drawing">
+    <value>211, 39</value>
   </data>
-  <data name="lbChangeSelectColor.TabIndex" type="System.Int32, mscorlib">
-    <value>11</value>
+  <data name="lbHideResults.TabIndex" type="System.Int32, mscorlib">
+    <value>44</value>
   </data>
-  <data name="lbChangeSelectColor.Text" xml:space="preserve">
-    <value>Select Color</value>
+  <data name="lbHideResults.Text" xml:space="preserve">
+    <value>Hide Results</value>
   </data>
-  <data name="&gt;&gt;lbChangeSelectColor.Name" xml:space="preserve">
-    <value>lbChangeSelectColor</value>
+  <data name="lbHideResults.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
-  <data name="&gt;&gt;lbChangeSelectColor.Type" xml:space="preserve">
+  <data name="&gt;&gt;lbHideResults.Name" xml:space="preserve">
+    <value>lbHideResults</value>
+  </data>
+  <data name="&gt;&gt;lbHideResults.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;lbChangeSelectColor.Parent" xml:space="preserve">
+  <data name="&gt;&gt;lbHideResults.Parent" xml:space="preserve">
     <value>pnlSettings</value>
   </data>
-  <data name="&gt;&gt;lbChangeSelectColor.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;lbHideResults.ZOrder" xml:space="preserve">
     <value>2</value>
+  </data>
+  <data name="dgvResults.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 6</value>
+  </data>
+  <data name="dgvResults.RowHeadersWidth" type="System.Int32, mscorlib">
+    <value>51</value>
+  </data>
+  <data name="dgvResults.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1279, 573</value>
+  </data>
+  <data name="dgvResults.TabIndex" type="System.Int32, mscorlib">
+    <value>41</value>
+  </data>
+  <data name="dgvResults.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;dgvResults.Name" xml:space="preserve">
+    <value>dgvResults</value>
+  </data>
+  <data name="&gt;&gt;dgvResults.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;dgvResults.Parent" xml:space="preserve">
+    <value>pnlSettings</value>
+  </data>
+  <data name="&gt;&gt;dgvResults.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="lbShowResults.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lbShowResults.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 19.8000011pt</value>
+  </data>
+  <data name="lbShowResults.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lbShowResults.Location" type="System.Drawing.Point, System.Drawing">
+    <value>1280, 24</value>
+  </data>
+  <data name="lbShowResults.Size" type="System.Drawing.Size, System.Drawing">
+    <value>226, 39</value>
+  </data>
+  <data name="lbShowResults.TabIndex" type="System.Int32, mscorlib">
+    <value>14</value>
+  </data>
+  <data name="lbShowResults.Text" xml:space="preserve">
+    <value>Show Results</value>
+  </data>
+  <data name="&gt;&gt;lbShowResults.Name" xml:space="preserve">
+    <value>lbShowResults</value>
+  </data>
+  <data name="&gt;&gt;lbShowResults.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lbShowResults.Parent" xml:space="preserve">
+    <value>pnlSettings</value>
+  </data>
+  <data name="&gt;&gt;lbShowResults.ZOrder" xml:space="preserve">
+    <value>4</value>
   </data>
   <data name="lbChangeCountersColor.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1216,7 +1204,7 @@
     <value>pnlSettings</value>
   </data>
   <data name="&gt;&gt;lbChangeCountersColor.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>5</value>
   </data>
   <data name="cbLanguage.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 19.8000011pt</value>
@@ -1243,7 +1231,61 @@
     <value>pnlSettings</value>
   </data>
   <data name="&gt;&gt;cbLanguage.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>7</value>
+  </data>
+  <data name="lbChangeSelectColor.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lbChangeSelectColor.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 19.8000011pt</value>
+  </data>
+  <data name="lbChangeSelectColor.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lbChangeSelectColor.Location" type="System.Drawing.Point, System.Drawing">
+    <value>26, 442</value>
+  </data>
+  <data name="lbChangeSelectColor.Size" type="System.Drawing.Size, System.Drawing">
+    <value>203, 39</value>
+  </data>
+  <data name="lbChangeSelectColor.TabIndex" type="System.Int32, mscorlib">
+    <value>11</value>
+  </data>
+  <data name="lbChangeSelectColor.Text" xml:space="preserve">
+    <value>Select Color</value>
+  </data>
+  <data name="&gt;&gt;lbChangeSelectColor.Name" xml:space="preserve">
+    <value>lbChangeSelectColor</value>
+  </data>
+  <data name="&gt;&gt;lbChangeSelectColor.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lbChangeSelectColor.Parent" xml:space="preserve">
+    <value>pnlSettings</value>
+  </data>
+  <data name="&gt;&gt;lbChangeSelectColor.ZOrder" xml:space="preserve">
+    <value>16</value>
+  </data>
+  <data name="pnlSettings.Location" type="System.Drawing.Point, System.Drawing">
+    <value>13, 73</value>
+  </data>
+  <data name="pnlSettings.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1536, 594</value>
+  </data>
+  <data name="pnlSettings.TabIndex" type="System.Int32, mscorlib">
+    <value>10</value>
+  </data>
+  <data name="&gt;&gt;pnlSettings.Name" xml:space="preserve">
+    <value>pnlSettings</value>
+  </data>
+  <data name="&gt;&gt;pnlSettings.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;pnlSettings.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;pnlSettings.ZOrder" xml:space="preserve">
+    <value>18</value>
   </data>
   <data name="pnlResults.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Bottom, Left, Right</value>
@@ -1253,171 +1295,6 @@
   </data>
   <data name="pnlResults.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
-  </data>
-  <data name="&gt;&gt;rtbTestType.Name" xml:space="preserve">
-    <value>rtbTestType</value>
-  </data>
-  <data name="&gt;&gt;rtbTestType.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RichTextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;rtbTestType.Parent" xml:space="preserve">
-    <value>pnlResults</value>
-  </data>
-  <data name="&gt;&gt;rtbTestType.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;rtbTestTypeWord.Name" xml:space="preserve">
-    <value>rtbTestTypeWord</value>
-  </data>
-  <data name="&gt;&gt;rtbTestTypeWord.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RichTextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;rtbTestTypeWord.Parent" xml:space="preserve">
-    <value>pnlResults</value>
-  </data>
-  <data name="&gt;&gt;rtbTestTypeWord.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;pbBest.Name" xml:space="preserve">
-    <value>pbBest</value>
-  </data>
-  <data name="&gt;&gt;pbBest.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;pbBest.Parent" xml:space="preserve">
-    <value>pnlResults</value>
-  </data>
-  <data name="&gt;&gt;pbBest.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;rtbWordsWord.Name" xml:space="preserve">
-    <value>rtbWordsWord</value>
-  </data>
-  <data name="&gt;&gt;rtbWordsWord.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RichTextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;rtbWordsWord.Parent" xml:space="preserve">
-    <value>pnlResults</value>
-  </data>
-  <data name="&gt;&gt;rtbWordsWord.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;rtbWordsCounter.Name" xml:space="preserve">
-    <value>rtbWordsCounter</value>
-  </data>
-  <data name="&gt;&gt;rtbWordsCounter.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RichTextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;rtbWordsCounter.Parent" xml:space="preserve">
-    <value>pnlResults</value>
-  </data>
-  <data name="&gt;&gt;rtbWordsCounter.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="&gt;&gt;rtbCharactersWord.Name" xml:space="preserve">
-    <value>rtbCharactersWord</value>
-  </data>
-  <data name="&gt;&gt;rtbCharactersWord.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RichTextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;rtbCharactersWord.Parent" xml:space="preserve">
-    <value>pnlResults</value>
-  </data>
-  <data name="&gt;&gt;rtbCharactersWord.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="&gt;&gt;rtbCharacters.Name" xml:space="preserve">
-    <value>rtbCharacters</value>
-  </data>
-  <data name="&gt;&gt;rtbCharacters.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RichTextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;rtbCharacters.Parent" xml:space="preserve">
-    <value>pnlResults</value>
-  </data>
-  <data name="&gt;&gt;rtbCharacters.ZOrder" xml:space="preserve">
-    <value>6</value>
-  </data>
-  <data name="&gt;&gt;rtbDuration.Name" xml:space="preserve">
-    <value>rtbDuration</value>
-  </data>
-  <data name="&gt;&gt;rtbDuration.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RichTextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;rtbDuration.Parent" xml:space="preserve">
-    <value>pnlResults</value>
-  </data>
-  <data name="&gt;&gt;rtbDuration.ZOrder" xml:space="preserve">
-    <value>7</value>
-  </data>
-  <data name="&gt;&gt;rtbTimeWord.Name" xml:space="preserve">
-    <value>rtbTimeWord</value>
-  </data>
-  <data name="&gt;&gt;rtbTimeWord.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RichTextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;rtbTimeWord.Parent" xml:space="preserve">
-    <value>pnlResults</value>
-  </data>
-  <data name="&gt;&gt;rtbTimeWord.ZOrder" xml:space="preserve">
-    <value>8</value>
-  </data>
-  <data name="&gt;&gt;rtbAccuracyWord.Name" xml:space="preserve">
-    <value>rtbAccuracyWord</value>
-  </data>
-  <data name="&gt;&gt;rtbAccuracyWord.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RichTextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;rtbAccuracyWord.Parent" xml:space="preserve">
-    <value>pnlResults</value>
-  </data>
-  <data name="&gt;&gt;rtbAccuracyWord.ZOrder" xml:space="preserve">
-    <value>9</value>
-  </data>
-  <data name="&gt;&gt;rtbAccuracy.Name" xml:space="preserve">
-    <value>rtbAccuracy</value>
-  </data>
-  <data name="&gt;&gt;rtbAccuracy.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RichTextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;rtbAccuracy.Parent" xml:space="preserve">
-    <value>pnlResults</value>
-  </data>
-  <data name="&gt;&gt;rtbAccuracy.ZOrder" xml:space="preserve">
-    <value>10</value>
-  </data>
-  <data name="&gt;&gt;rtbWPMWord.Name" xml:space="preserve">
-    <value>rtbWPMWord</value>
-  </data>
-  <data name="&gt;&gt;rtbWPMWord.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RichTextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;rtbWPMWord.Parent" xml:space="preserve">
-    <value>pnlResults</value>
-  </data>
-  <data name="&gt;&gt;rtbWPMWord.ZOrder" xml:space="preserve">
-    <value>11</value>
-  </data>
-  <data name="pnlResults.Location" type="System.Drawing.Point, System.Drawing">
-    <value>13, 73</value>
-  </data>
-  <data name="pnlResults.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1399, 504</value>
-  </data>
-  <data name="pnlResults.TabIndex" type="System.Int32, mscorlib">
-    <value>33</value>
-  </data>
-  <data name="&gt;&gt;pnlResults.Name" xml:space="preserve">
-    <value>pnlResults</value>
-  </data>
-  <data name="&gt;&gt;pnlResults.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;pnlResults.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;pnlResults.ZOrder" xml:space="preserve">
-    <value>20</value>
   </data>
   <data name="rtbTestType.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Tai Le, 22pt, style=Bold</value>
@@ -1779,6 +1656,27 @@
   <data name="&gt;&gt;rtbWPMWord.ZOrder" xml:space="preserve">
     <value>11</value>
   </data>
+  <data name="pnlResults.Location" type="System.Drawing.Point, System.Drawing">
+    <value>13, 73</value>
+  </data>
+  <data name="pnlResults.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1524, 588</value>
+  </data>
+  <data name="pnlResults.TabIndex" type="System.Int32, mscorlib">
+    <value>33</value>
+  </data>
+  <data name="&gt;&gt;pnlResults.Name" xml:space="preserve">
+    <value>pnlResults</value>
+  </data>
+  <data name="&gt;&gt;pnlResults.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;pnlResults.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;pnlResults.ZOrder" xml:space="preserve">
+    <value>19</value>
+  </data>
   <metadata name="tUpdateUI.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>28, 7</value>
   </metadata>
@@ -1792,7 +1690,7 @@
     <value>NoControl</value>
   </data>
   <data name="pictureBox2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1364, 3</value>
+    <value>1489, 3</value>
   </data>
   <data name="pictureBox2.Size" type="System.Drawing.Size, System.Drawing">
     <value>61, 54</value>
@@ -1825,7 +1723,7 @@
     <value>NoControl</value>
   </data>
   <data name="btnRestart.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1350, 582</value>
+    <value>1475, 666</value>
   </data>
   <data name="btnRestart.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 2, 3, 2</value>
@@ -1855,7 +1753,7 @@
     <value>NoControl</value>
   </data>
   <data name="btnSettings.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1297, 4</value>
+    <value>1422, 4</value>
   </data>
   <data name="btnSettings.Size" type="System.Drawing.Size, System.Drawing">
     <value>61, 54</value>
@@ -1882,7 +1780,7 @@
     <value>True</value>
   </metadata>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>66</value>
+    <value>52</value>
   </metadata>
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
     <value>8, 16</value>
@@ -1894,7 +1792,7 @@
     <value>Center</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>1430, 650</value>
+    <value>1555, 734</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>

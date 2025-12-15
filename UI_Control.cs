@@ -84,6 +84,8 @@ namespace Typing_Test
             rtbCharactersWord.ForeColor = TargetColor;
             rtbWordsCounter.ForeColor = TargetColor;
             rtbWordsWord.ForeColor = TargetColor;
+            rtbCharacters.ForeColor = TargetColor;
+            rtbCharactersWord.ForeColor = TargetColor;
             rtbTestType.ForeColor = TargetColor;
             rtbTestTypeWord.ForeColor = TargetColor;
         }
