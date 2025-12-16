@@ -160,7 +160,7 @@
     <value>22</value>
   </data>
   <data name="tbType.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Bottom, Left, Right</value>
+    <value>Bottom</value>
   </data>
   <data name="tbType.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 28.2pt</value>
@@ -1005,87 +1005,6 @@
   <data name="pnlSettings.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="&gt;&gt;dgvResults.Name" xml:space="preserve">
-    <value>dgvResults</value>
-  </data>
-  <data name="&gt;&gt;dgvResults.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;dgvResults.Parent" xml:space="preserve">
-    <value>pnlSettings</value>
-  </data>
-  <data name="&gt;&gt;dgvResults.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;lbShowResults.Name" xml:space="preserve">
-    <value>lbShowResults</value>
-  </data>
-  <data name="&gt;&gt;lbShowResults.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lbShowResults.Parent" xml:space="preserve">
-    <value>pnlSettings</value>
-  </data>
-  <data name="&gt;&gt;lbShowResults.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;lbChangeCountersColor.Name" xml:space="preserve">
-    <value>lbChangeCountersColor</value>
-  </data>
-  <data name="&gt;&gt;lbChangeCountersColor.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lbChangeCountersColor.Parent" xml:space="preserve">
-    <value>pnlSettings</value>
-  </data>
-  <data name="&gt;&gt;lbChangeCountersColor.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;cbLanguage.Name" xml:space="preserve">
-    <value>cbLanguage</value>
-  </data>
-  <data name="&gt;&gt;cbLanguage.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;cbLanguage.Parent" xml:space="preserve">
-    <value>pnlSettings</value>
-  </data>
-  <data name="&gt;&gt;cbLanguage.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="&gt;&gt;lbChangeSelectColor.Name" xml:space="preserve">
-    <value>lbChangeSelectColor</value>
-  </data>
-  <data name="&gt;&gt;lbChangeSelectColor.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lbChangeSelectColor.Parent" xml:space="preserve">
-    <value>pnlSettings</value>
-  </data>
-  <data name="&gt;&gt;lbChangeSelectColor.ZOrder" xml:space="preserve">
-    <value>13</value>
-  </data>
-  <data name="pnlSettings.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 73</value>
-  </data>
-  <data name="pnlSettings.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1518, 580</value>
-  </data>
-  <data name="pnlSettings.TabIndex" type="System.Int32, mscorlib">
-    <value>10</value>
-  </data>
-  <data name="&gt;&gt;pnlSettings.Name" xml:space="preserve">
-    <value>pnlSettings</value>
-  </data>
-  <data name="&gt;&gt;pnlSettings.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;pnlSettings.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;pnlSettings.ZOrder" xml:space="preserve">
-    <value>23</value>
-  </data>
   <data name="dgvResults.Location" type="System.Drawing.Point, System.Drawing">
     <value>6, 13</value>
   </data>
@@ -1239,17 +1158,38 @@
   <data name="&gt;&gt;lbChangeSelectColor.ZOrder" xml:space="preserve">
     <value>13</value>
   </data>
+  <data name="pnlSettings.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 73</value>
+  </data>
+  <data name="pnlSettings.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1518, 869</value>
+  </data>
+  <data name="pnlSettings.TabIndex" type="System.Int32, mscorlib">
+    <value>10</value>
+  </data>
+  <data name="&gt;&gt;pnlSettings.Name" xml:space="preserve">
+    <value>pnlSettings</value>
+  </data>
+  <data name="&gt;&gt;pnlSettings.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;pnlSettings.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;pnlSettings.ZOrder" xml:space="preserve">
+    <value>23</value>
+  </data>
   <data name="pnlKeyboard.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Bottom, Left, Right</value>
+    <value>None</value>
   </data>
   <data name="lbCloseBracket.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 22.2pt</value>
+    <value>Microsoft Sans Serif, 18pt</value>
   </data>
   <data name="lbCloseBracket.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="lbCloseBracket.Location" type="System.Drawing.Point, System.Drawing">
-    <value>584, 0</value>
+    <value>564, 6</value>
   </data>
   <data name="lbCloseBracket.Size" type="System.Drawing.Size, System.Drawing">
     <value>47, 54</value>
@@ -1276,13 +1216,13 @@
     <value>0</value>
   </data>
   <data name="lbOpenBracket.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 22.2pt</value>
+    <value>Microsoft Sans Serif, 18pt</value>
   </data>
   <data name="lbOpenBracket.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="lbOpenBracket.Location" type="System.Drawing.Point, System.Drawing">
-    <value>535, 0</value>
+    <value>515, 6</value>
   </data>
   <data name="lbOpenBracket.Size" type="System.Drawing.Size, System.Drawing">
     <value>47, 54</value>
@@ -1315,7 +1255,7 @@
     <value>NoControl</value>
   </data>
   <data name="lbQuote.Location" type="System.Drawing.Point, System.Drawing">
-    <value>553, 76</value>
+    <value>540, 77</value>
   </data>
   <data name="lbQuote.Size" type="System.Drawing.Size, System.Drawing">
     <value>47, 54</value>
@@ -1324,7 +1264,7 @@
     <value>95</value>
   </data>
   <data name="lbQuote.Text" xml:space="preserve">
-    <value>;</value>
+    <value>'</value>
   </data>
   <data name="lbQuote.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleCenter</value>
@@ -1348,7 +1288,7 @@
     <value>NoControl</value>
   </data>
   <data name="lbSemiColon.Location" type="System.Drawing.Point, System.Drawing">
-    <value>501, 76</value>
+    <value>488, 77</value>
   </data>
   <data name="lbSemiColon.Size" type="System.Drawing.Size, System.Drawing">
     <value>47, 54</value>
@@ -1381,7 +1321,7 @@
     <value>NoControl</value>
   </data>
   <data name="lbSlash.Location" type="System.Drawing.Point, System.Drawing">
-    <value>527, 143</value>
+    <value>507, 149</value>
   </data>
   <data name="lbSlash.Size" type="System.Drawing.Size, System.Drawing">
     <value>47, 54</value>
@@ -1414,7 +1354,7 @@
     <value>NoControl</value>
   </data>
   <data name="lbPeriod.Location" type="System.Drawing.Point, System.Drawing">
-    <value>474, 143</value>
+    <value>454, 149</value>
   </data>
   <data name="lbPeriod.Size" type="System.Drawing.Size, System.Drawing">
     <value>47, 54</value>
@@ -1423,7 +1363,7 @@
     <value>92</value>
   </data>
   <data name="lbPeriod.Text" xml:space="preserve">
-    <value>,</value>
+    <value>.</value>
   </data>
   <data name="lbPeriod.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleCenter</value>
@@ -1447,7 +1387,7 @@
     <value>NoControl</value>
   </data>
   <data name="lbComma.Location" type="System.Drawing.Point, System.Drawing">
-    <value>421, 143</value>
+    <value>401, 149</value>
   </data>
   <data name="lbComma.Size" type="System.Drawing.Size, System.Drawing">
     <value>47, 54</value>
@@ -1477,7 +1417,7 @@
     <value>Microsoft Sans Serif, 22.2pt</value>
   </data>
   <data name="lbL.Location" type="System.Drawing.Point, System.Drawing">
-    <value>449, 76</value>
+    <value>436, 77</value>
   </data>
   <data name="lbL.Size" type="System.Drawing.Size, System.Drawing">
     <value>47, 54</value>
@@ -1510,7 +1450,7 @@
     <value>NoControl</value>
   </data>
   <data name="lbK.Location" type="System.Drawing.Point, System.Drawing">
-    <value>397, 76</value>
+    <value>384, 77</value>
   </data>
   <data name="lbK.Size" type="System.Drawing.Size, System.Drawing">
     <value>47, 54</value>
@@ -1540,7 +1480,7 @@
     <value>Microsoft Sans Serif, 22.2pt</value>
   </data>
   <data name="lbJ.Location" type="System.Drawing.Point, System.Drawing">
-    <value>345, 76</value>
+    <value>332, 77</value>
   </data>
   <data name="lbJ.Size" type="System.Drawing.Size, System.Drawing">
     <value>47, 54</value>
@@ -1573,7 +1513,7 @@
     <value>NoControl</value>
   </data>
   <data name="lbH.Location" type="System.Drawing.Point, System.Drawing">
-    <value>293, 76</value>
+    <value>280, 77</value>
   </data>
   <data name="lbH.Size" type="System.Drawing.Size, System.Drawing">
     <value>47, 54</value>
@@ -1603,7 +1543,7 @@
     <value>Microsoft Sans Serif, 22.2pt</value>
   </data>
   <data name="lbG.Location" type="System.Drawing.Point, System.Drawing">
-    <value>241, 76</value>
+    <value>228, 77</value>
   </data>
   <data name="lbG.Size" type="System.Drawing.Size, System.Drawing">
     <value>47, 54</value>
@@ -1633,7 +1573,7 @@
     <value>Microsoft Sans Serif, 22.2pt</value>
   </data>
   <data name="lbF.Location" type="System.Drawing.Point, System.Drawing">
-    <value>189, 76</value>
+    <value>176, 77</value>
   </data>
   <data name="lbF.Size" type="System.Drawing.Size, System.Drawing">
     <value>47, 54</value>
@@ -1663,7 +1603,7 @@
     <value>Microsoft Sans Serif, 22.2pt</value>
   </data>
   <data name="lbD.Location" type="System.Drawing.Point, System.Drawing">
-    <value>137, 76</value>
+    <value>124, 77</value>
   </data>
   <data name="lbD.Size" type="System.Drawing.Size, System.Drawing">
     <value>47, 54</value>
@@ -1693,7 +1633,7 @@
     <value>Microsoft Sans Serif, 22.2pt</value>
   </data>
   <data name="lbS.Location" type="System.Drawing.Point, System.Drawing">
-    <value>85, 76</value>
+    <value>72, 77</value>
   </data>
   <data name="lbS.Size" type="System.Drawing.Size, System.Drawing">
     <value>47, 54</value>
@@ -1723,7 +1663,7 @@
     <value>Microsoft Sans Serif, 22.2pt</value>
   </data>
   <data name="lbA.Location" type="System.Drawing.Point, System.Drawing">
-    <value>33, 76</value>
+    <value>20, 77</value>
   </data>
   <data name="lbA.Size" type="System.Drawing.Size, System.Drawing">
     <value>47, 54</value>
@@ -1756,7 +1696,7 @@
     <value>NoControl</value>
   </data>
   <data name="lbSpace.Location" type="System.Drawing.Point, System.Drawing">
-    <value>163, 209</value>
+    <value>143, 215</value>
   </data>
   <data name="lbSpace.Size" type="System.Drawing.Size, System.Drawing">
     <value>305, 47</value>
@@ -1786,7 +1726,7 @@
     <value>Microsoft Sans Serif, 22.2pt</value>
   </data>
   <data name="lbP.Location" type="System.Drawing.Point, System.Drawing">
-    <value>482, 0</value>
+    <value>462, 6</value>
   </data>
   <data name="lbP.Size" type="System.Drawing.Size, System.Drawing">
     <value>47, 54</value>
@@ -1816,7 +1756,7 @@
     <value>Microsoft Sans Serif, 22.2pt</value>
   </data>
   <data name="lbO.Location" type="System.Drawing.Point, System.Drawing">
-    <value>433, 0</value>
+    <value>413, 6</value>
   </data>
   <data name="lbO.Size" type="System.Drawing.Size, System.Drawing">
     <value>47, 54</value>
@@ -1846,7 +1786,7 @@
     <value>Microsoft Sans Serif, 22.2pt</value>
   </data>
   <data name="lbI.Location" type="System.Drawing.Point, System.Drawing">
-    <value>380, 0</value>
+    <value>360, 6</value>
   </data>
   <data name="lbI.Size" type="System.Drawing.Size, System.Drawing">
     <value>47, 54</value>
@@ -1876,7 +1816,7 @@
     <value>Microsoft Sans Serif, 22.2pt</value>
   </data>
   <data name="lbU.Location" type="System.Drawing.Point, System.Drawing">
-    <value>327, 0</value>
+    <value>307, 6</value>
   </data>
   <data name="lbU.Size" type="System.Drawing.Size, System.Drawing">
     <value>47, 54</value>
@@ -1906,7 +1846,7 @@
     <value>Microsoft Sans Serif, 22.2pt</value>
   </data>
   <data name="lbY.Location" type="System.Drawing.Point, System.Drawing">
-    <value>278, 0</value>
+    <value>258, 6</value>
   </data>
   <data name="lbY.Size" type="System.Drawing.Size, System.Drawing">
     <value>47, 54</value>
@@ -1936,7 +1876,7 @@
     <value>Microsoft Sans Serif, 22.2pt</value>
   </data>
   <data name="lbT.Location" type="System.Drawing.Point, System.Drawing">
-    <value>229, 0</value>
+    <value>209, 6</value>
   </data>
   <data name="lbT.Size" type="System.Drawing.Size, System.Drawing">
     <value>47, 54</value>
@@ -1966,7 +1906,7 @@
     <value>Microsoft Sans Serif, 22.2pt</value>
   </data>
   <data name="lbR.Location" type="System.Drawing.Point, System.Drawing">
-    <value>180, 0</value>
+    <value>160, 6</value>
   </data>
   <data name="lbR.Size" type="System.Drawing.Size, System.Drawing">
     <value>47, 54</value>
@@ -1996,7 +1936,7 @@
     <value>Microsoft Sans Serif, 22.2pt</value>
   </data>
   <data name="lbE.Location" type="System.Drawing.Point, System.Drawing">
-    <value>129, 0</value>
+    <value>109, 6</value>
   </data>
   <data name="lbE.Size" type="System.Drawing.Size, System.Drawing">
     <value>47, 54</value>
@@ -2026,7 +1966,7 @@
     <value>Microsoft Sans Serif, 22.2pt</value>
   </data>
   <data name="lbW.Location" type="System.Drawing.Point, System.Drawing">
-    <value>76, 0</value>
+    <value>56, 6</value>
   </data>
   <data name="lbW.Size" type="System.Drawing.Size, System.Drawing">
     <value>47, 54</value>
@@ -2056,7 +1996,7 @@
     <value>Microsoft Sans Serif, 22.2pt</value>
   </data>
   <data name="lbQ.Location" type="System.Drawing.Point, System.Drawing">
-    <value>23, 0</value>
+    <value>3, 6</value>
   </data>
   <data name="lbQ.Size" type="System.Drawing.Size, System.Drawing">
     <value>47, 54</value>
@@ -2089,7 +2029,7 @@
     <value>NoControl</value>
   </data>
   <data name="lbM.Location" type="System.Drawing.Point, System.Drawing">
-    <value>368, 143</value>
+    <value>348, 149</value>
   </data>
   <data name="lbM.Size" type="System.Drawing.Size, System.Drawing">
     <value>47, 54</value>
@@ -2122,7 +2062,7 @@
     <value>NoControl</value>
   </data>
   <data name="lbN.Location" type="System.Drawing.Point, System.Drawing">
-    <value>315, 143</value>
+    <value>295, 149</value>
   </data>
   <data name="lbN.Size" type="System.Drawing.Size, System.Drawing">
     <value>47, 54</value>
@@ -2155,7 +2095,7 @@
     <value>NoControl</value>
   </data>
   <data name="lbB.Location" type="System.Drawing.Point, System.Drawing">
-    <value>262, 143</value>
+    <value>242, 149</value>
   </data>
   <data name="lbB.Size" type="System.Drawing.Size, System.Drawing">
     <value>47, 54</value>
@@ -2188,7 +2128,7 @@
     <value>NoControl</value>
   </data>
   <data name="lbV.Location" type="System.Drawing.Point, System.Drawing">
-    <value>209, 143</value>
+    <value>189, 149</value>
   </data>
   <data name="lbV.Size" type="System.Drawing.Size, System.Drawing">
     <value>47, 54</value>
@@ -2221,7 +2161,7 @@
     <value>NoControl</value>
   </data>
   <data name="lbC.Location" type="System.Drawing.Point, System.Drawing">
-    <value>156, 143</value>
+    <value>136, 149</value>
   </data>
   <data name="lbC.Size" type="System.Drawing.Size, System.Drawing">
     <value>47, 54</value>
@@ -2254,7 +2194,7 @@
     <value>NoControl</value>
   </data>
   <data name="lbX.Location" type="System.Drawing.Point, System.Drawing">
-    <value>103, 143</value>
+    <value>83, 149</value>
   </data>
   <data name="lbX.Size" type="System.Drawing.Size, System.Drawing">
     <value>47, 54</value>
@@ -2287,7 +2227,7 @@
     <value>NoControl</value>
   </data>
   <data name="lbZ.Location" type="System.Drawing.Point, System.Drawing">
-    <value>50, 143</value>
+    <value>30, 149</value>
   </data>
   <data name="lbZ.Size" type="System.Drawing.Size, System.Drawing">
     <value>47, 54</value>
@@ -2314,10 +2254,10 @@
     <value>33</value>
   </data>
   <data name="pnlKeyboard.Location" type="System.Drawing.Point, System.Drawing">
-    <value>63, 457</value>
+    <value>470, 400</value>
   </data>
   <data name="pnlKeyboard.Size" type="System.Drawing.Size, System.Drawing">
-    <value>637, 265</value>
+    <value>619, 265</value>
   </data>
   <data name="pnlKeyboard.TabIndex" type="System.Int32, mscorlib">
     <value>42</value>
@@ -2450,171 +2390,6 @@
   </data>
   <data name="pnlResults.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
-  </data>
-  <data name="&gt;&gt;rtbTestType.Name" xml:space="preserve">
-    <value>rtbTestType</value>
-  </data>
-  <data name="&gt;&gt;rtbTestType.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RichTextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;rtbTestType.Parent" xml:space="preserve">
-    <value>pnlResults</value>
-  </data>
-  <data name="&gt;&gt;rtbTestType.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;rtbTestTypeWord.Name" xml:space="preserve">
-    <value>rtbTestTypeWord</value>
-  </data>
-  <data name="&gt;&gt;rtbTestTypeWord.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RichTextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;rtbTestTypeWord.Parent" xml:space="preserve">
-    <value>pnlResults</value>
-  </data>
-  <data name="&gt;&gt;rtbTestTypeWord.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;pbBest.Name" xml:space="preserve">
-    <value>pbBest</value>
-  </data>
-  <data name="&gt;&gt;pbBest.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;pbBest.Parent" xml:space="preserve">
-    <value>pnlResults</value>
-  </data>
-  <data name="&gt;&gt;pbBest.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;rtbWordsWord.Name" xml:space="preserve">
-    <value>rtbWordsWord</value>
-  </data>
-  <data name="&gt;&gt;rtbWordsWord.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RichTextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;rtbWordsWord.Parent" xml:space="preserve">
-    <value>pnlResults</value>
-  </data>
-  <data name="&gt;&gt;rtbWordsWord.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;rtbWordsCounter.Name" xml:space="preserve">
-    <value>rtbWordsCounter</value>
-  </data>
-  <data name="&gt;&gt;rtbWordsCounter.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RichTextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;rtbWordsCounter.Parent" xml:space="preserve">
-    <value>pnlResults</value>
-  </data>
-  <data name="&gt;&gt;rtbWordsCounter.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="&gt;&gt;rtbCharactersWord.Name" xml:space="preserve">
-    <value>rtbCharactersWord</value>
-  </data>
-  <data name="&gt;&gt;rtbCharactersWord.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RichTextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;rtbCharactersWord.Parent" xml:space="preserve">
-    <value>pnlResults</value>
-  </data>
-  <data name="&gt;&gt;rtbCharactersWord.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="&gt;&gt;rtbCharacters.Name" xml:space="preserve">
-    <value>rtbCharacters</value>
-  </data>
-  <data name="&gt;&gt;rtbCharacters.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RichTextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;rtbCharacters.Parent" xml:space="preserve">
-    <value>pnlResults</value>
-  </data>
-  <data name="&gt;&gt;rtbCharacters.ZOrder" xml:space="preserve">
-    <value>6</value>
-  </data>
-  <data name="&gt;&gt;rtbDuration.Name" xml:space="preserve">
-    <value>rtbDuration</value>
-  </data>
-  <data name="&gt;&gt;rtbDuration.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RichTextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;rtbDuration.Parent" xml:space="preserve">
-    <value>pnlResults</value>
-  </data>
-  <data name="&gt;&gt;rtbDuration.ZOrder" xml:space="preserve">
-    <value>7</value>
-  </data>
-  <data name="&gt;&gt;rtbTimeWord.Name" xml:space="preserve">
-    <value>rtbTimeWord</value>
-  </data>
-  <data name="&gt;&gt;rtbTimeWord.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RichTextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;rtbTimeWord.Parent" xml:space="preserve">
-    <value>pnlResults</value>
-  </data>
-  <data name="&gt;&gt;rtbTimeWord.ZOrder" xml:space="preserve">
-    <value>8</value>
-  </data>
-  <data name="&gt;&gt;rtbAccuracyWord.Name" xml:space="preserve">
-    <value>rtbAccuracyWord</value>
-  </data>
-  <data name="&gt;&gt;rtbAccuracyWord.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RichTextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;rtbAccuracyWord.Parent" xml:space="preserve">
-    <value>pnlResults</value>
-  </data>
-  <data name="&gt;&gt;rtbAccuracyWord.ZOrder" xml:space="preserve">
-    <value>9</value>
-  </data>
-  <data name="&gt;&gt;rtbAccuracy.Name" xml:space="preserve">
-    <value>rtbAccuracy</value>
-  </data>
-  <data name="&gt;&gt;rtbAccuracy.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RichTextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;rtbAccuracy.Parent" xml:space="preserve">
-    <value>pnlResults</value>
-  </data>
-  <data name="&gt;&gt;rtbAccuracy.ZOrder" xml:space="preserve">
-    <value>10</value>
-  </data>
-  <data name="&gt;&gt;rtbWPMWord.Name" xml:space="preserve">
-    <value>rtbWPMWord</value>
-  </data>
-  <data name="&gt;&gt;rtbWPMWord.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RichTextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;rtbWPMWord.Parent" xml:space="preserve">
-    <value>pnlResults</value>
-  </data>
-  <data name="&gt;&gt;rtbWPMWord.ZOrder" xml:space="preserve">
-    <value>11</value>
-  </data>
-  <data name="pnlResults.Location" type="System.Drawing.Point, System.Drawing">
-    <value>13, 73</value>
-  </data>
-  <data name="pnlResults.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1517, 580</value>
-  </data>
-  <data name="pnlResults.TabIndex" type="System.Int32, mscorlib">
-    <value>33</value>
-  </data>
-  <data name="&gt;&gt;pnlResults.Name" xml:space="preserve">
-    <value>pnlResults</value>
-  </data>
-  <data name="&gt;&gt;pnlResults.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;pnlResults.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;pnlResults.ZOrder" xml:space="preserve">
-    <value>24</value>
   </data>
   <data name="rtbTestType.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Tai Le, 22pt, style=Bold</value>
@@ -2976,6 +2751,27 @@
   <data name="&gt;&gt;rtbWPMWord.ZOrder" xml:space="preserve">
     <value>11</value>
   </data>
+  <data name="pnlResults.Location" type="System.Drawing.Point, System.Drawing">
+    <value>13, 73</value>
+  </data>
+  <data name="pnlResults.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1517, 580</value>
+  </data>
+  <data name="pnlResults.TabIndex" type="System.Int32, mscorlib">
+    <value>33</value>
+  </data>
+  <data name="&gt;&gt;pnlResults.Name" xml:space="preserve">
+    <value>pnlResults</value>
+  </data>
+  <data name="&gt;&gt;pnlResults.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;pnlResults.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;pnlResults.ZOrder" xml:space="preserve">
+    <value>24</value>
+  </data>
   <metadata name="tUpdateUI.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>28, 7</value>
   </metadata>
@@ -3013,7 +2809,7 @@
     <value>13</value>
   </data>
   <data name="btnRestart.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Bottom, Right</value>
+    <value>Bottom</value>
   </data>
   <data name="btnRestart.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Zoom</value>

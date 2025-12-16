@@ -165,5 +165,6 @@ namespace Typing_Test
         {
             pnlKeyboard.Visible = rtbWords.Visible;
         }
+
     }
 }

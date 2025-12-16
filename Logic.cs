@@ -264,6 +264,8 @@ namespace Typing_Test
             pnlResults.Show();
             rtbWords.Hide();
             pnlSettings.Hide();
+            btnRestart.Show();
+            tbType.Show();
         }
 
         private void ShowTypingTestScreen()
@@ -271,6 +273,8 @@ namespace Typing_Test
             rtbWords.Show();
             pnlResults.Hide();
             pnlSettings.Hide();
+            btnRestart.Show();
+            tbType.Show();
         }
 
         private void ShowSettingsScreen()
@@ -278,6 +282,8 @@ namespace Typing_Test
             pnlSettings.Show();
             pnlResults.Hide();
             rtbWords.Hide();
+            btnRestart.Hide();
+            tbType.Hide();
         }
 
         double Diff_WPM = -1;
@@ -340,6 +346,8 @@ namespace Typing_Test
             ShowTypingTestScreen();
 
             CanType();
+
+            tbType.Focus();
         }
 
         private void ChangeNumberOfWords(Button btn)
@@ -363,9 +371,9 @@ namespace Typing_Test
             ShowTypingTestScreen();
 
             CanType();
-        }
 
-        
+            tbType.Focus();
+        }
 
         private void StartTest()
         {

@@ -268,6 +268,8 @@ namespace Typing_Test
             }
 
             pnlKeyboard.Location = new Point(Width/4+50, rtbWords.Height + 70);
+            tbType.Location = new Point( pnlKeyboard.Location.X,tbType.Location.Y);
+            btnRestart.Location = new Point(tbType.Location.X+tbType.Width+5 , btnRestart.Location.Y);
 
             HideTestsScreen();
         }
@@ -363,7 +365,7 @@ namespace Typing_Test
             t.Interval = 100;
             t.Tick += (s, args) =>
             {
-                lbl.BackColor = Color.Black;
+                lbl.BackColor = Color.Black;;
 
                 t.Stop();
                 t.Dispose();
