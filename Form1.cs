@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
@@ -14,7 +15,7 @@ namespace Typing_Test
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            LoadForm();
+            LoadFirstTime();
         }
 
         private void Form1_KeyDown_1(object sender, KeyEventArgs e)
@@ -54,35 +55,16 @@ namespace Typing_Test
 
         private void tbType_KeyDown(object sender, KeyEventArgs e)
         {
-            char keycode = (char)e.KeyCode;
-
-            Label lbl = pnlKeyboard.Controls
-                     .OfType<Label>()
-                     .FirstOrDefault(b => b.Text[0] == char.ToLower(keycode));
-
-            if (lbl != null)
+            if (KeyboardDictionary.TryGetValue(e.KeyCode, out var label))
             {
-                HighLightCharacter(lbl);
+                HighLightCharacter(label);
             }
 
-            PerformCtrlBackSpace(e);
-        }
 
-        public void HighLightCharacter(Label lbl)
-        {
-            lbl.BackColor = CurrentWordColor;
-
-            Timer t = new Timer();
-            t.Interval = 120;
-            t.Tick += (s, args) =>
+            if (e.Control && e.KeyCode == Keys.Back)
             {
-                lbl.BackColor = Color.Black;
-
-                t.Stop();
-                t.Dispose();
-            };
-
-            t.Start();
+                PerformCtrlBackSpace(e);
+            }
         }
 
         private void Form1_BackColorChanged(object sender, EventArgs e)

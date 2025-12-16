@@ -65,33 +65,40 @@ namespace Typing_Test
             this.cbLanguage = new System.Windows.Forms.ComboBox();
             this.lbChangeSelectColor = new System.Windows.Forms.Label();
             this.pnlKeyboard = new System.Windows.Forms.Panel();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label26 = new System.Windows.Forms.Label();
-            this.label27 = new System.Windows.Forms.Label();
-            this.label28 = new System.Windows.Forms.Label();
-            this.label29 = new System.Windows.Forms.Label();
-            this.label30 = new System.Windows.Forms.Label();
-            this.label31 = new System.Windows.Forms.Label();
-            this.label32 = new System.Windows.Forms.Label();
-            this.label33 = new System.Windows.Forms.Label();
-            this.label34 = new System.Windows.Forms.Label();
-            this.label35 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
-            this.label21 = new System.Windows.Forms.Label();
-            this.label22 = new System.Windows.Forms.Label();
-            this.label23 = new System.Windows.Forms.Label();
-            this.label24 = new System.Windows.Forms.Label();
-            this.label25 = new System.Windows.Forms.Label();
+            this.lbCloseBracket = new System.Windows.Forms.Label();
+            this.lbOpenBracket = new System.Windows.Forms.Label();
+            this.lbQuote = new System.Windows.Forms.Label();
+            this.lbSemiColon = new System.Windows.Forms.Label();
+            this.lbSlash = new System.Windows.Forms.Label();
+            this.lbPeriod = new System.Windows.Forms.Label();
+            this.lbComma = new System.Windows.Forms.Label();
+            this.lbL = new System.Windows.Forms.Label();
+            this.lbK = new System.Windows.Forms.Label();
+            this.lbJ = new System.Windows.Forms.Label();
+            this.lbH = new System.Windows.Forms.Label();
+            this.lbG = new System.Windows.Forms.Label();
+            this.lbF = new System.Windows.Forms.Label();
+            this.lbD = new System.Windows.Forms.Label();
+            this.lbS = new System.Windows.Forms.Label();
+            this.lbA = new System.Windows.Forms.Label();
+            this.lbSpace = new System.Windows.Forms.Label();
+            this.lbP = new System.Windows.Forms.Label();
+            this.lbO = new System.Windows.Forms.Label();
+            this.lbI = new System.Windows.Forms.Label();
+            this.lbU = new System.Windows.Forms.Label();
+            this.lbY = new System.Windows.Forms.Label();
+            this.lbT = new System.Windows.Forms.Label();
+            this.lbR = new System.Windows.Forms.Label();
+            this.lbE = new System.Windows.Forms.Label();
+            this.lbW = new System.Windows.Forms.Label();
+            this.lbQ = new System.Windows.Forms.Label();
+            this.lbM = new System.Windows.Forms.Label();
+            this.lbN = new System.Windows.Forms.Label();
+            this.lbB = new System.Windows.Forms.Label();
+            this.lbV = new System.Windows.Forms.Label();
+            this.lbC = new System.Windows.Forms.Label();
+            this.lbX = new System.Windows.Forms.Label();
+            this.lbZ = new System.Windows.Forms.Label();
             this.lbExportResultsToExcel = new System.Windows.Forms.Label();
             this.lbClearResults = new System.Windows.Forms.Label();
             this.lbHideResults = new System.Windows.Forms.Label();
@@ -459,223 +466,279 @@ namespace Typing_Test
             // 
             resources.ApplyResources(this.pnlKeyboard, "pnlKeyboard");
             this.pnlKeyboard.BackColor = System.Drawing.Color.Black;
-            this.pnlKeyboard.Controls.Add(this.label13);
-            this.pnlKeyboard.Controls.Add(this.label14);
-            this.pnlKeyboard.Controls.Add(this.label15);
-            this.pnlKeyboard.Controls.Add(this.label9);
-            this.pnlKeyboard.Controls.Add(this.label8);
-            this.pnlKeyboard.Controls.Add(this.label7);
-            this.pnlKeyboard.Controls.Add(this.label6);
-            this.pnlKeyboard.Controls.Add(this.label5);
-            this.pnlKeyboard.Controls.Add(this.label4);
-            this.pnlKeyboard.Controls.Add(this.label1);
-            this.pnlKeyboard.Controls.Add(this.label26);
-            this.pnlKeyboard.Controls.Add(this.label27);
-            this.pnlKeyboard.Controls.Add(this.label28);
-            this.pnlKeyboard.Controls.Add(this.label29);
-            this.pnlKeyboard.Controls.Add(this.label30);
-            this.pnlKeyboard.Controls.Add(this.label31);
-            this.pnlKeyboard.Controls.Add(this.label32);
-            this.pnlKeyboard.Controls.Add(this.label33);
-            this.pnlKeyboard.Controls.Add(this.label34);
-            this.pnlKeyboard.Controls.Add(this.label35);
-            this.pnlKeyboard.Controls.Add(this.label19);
-            this.pnlKeyboard.Controls.Add(this.label20);
-            this.pnlKeyboard.Controls.Add(this.label21);
-            this.pnlKeyboard.Controls.Add(this.label22);
-            this.pnlKeyboard.Controls.Add(this.label23);
-            this.pnlKeyboard.Controls.Add(this.label24);
-            this.pnlKeyboard.Controls.Add(this.label25);
+            this.pnlKeyboard.Controls.Add(this.lbCloseBracket);
+            this.pnlKeyboard.Controls.Add(this.lbOpenBracket);
+            this.pnlKeyboard.Controls.Add(this.lbQuote);
+            this.pnlKeyboard.Controls.Add(this.lbSemiColon);
+            this.pnlKeyboard.Controls.Add(this.lbSlash);
+            this.pnlKeyboard.Controls.Add(this.lbPeriod);
+            this.pnlKeyboard.Controls.Add(this.lbComma);
+            this.pnlKeyboard.Controls.Add(this.lbL);
+            this.pnlKeyboard.Controls.Add(this.lbK);
+            this.pnlKeyboard.Controls.Add(this.lbJ);
+            this.pnlKeyboard.Controls.Add(this.lbH);
+            this.pnlKeyboard.Controls.Add(this.lbG);
+            this.pnlKeyboard.Controls.Add(this.lbF);
+            this.pnlKeyboard.Controls.Add(this.lbD);
+            this.pnlKeyboard.Controls.Add(this.lbS);
+            this.pnlKeyboard.Controls.Add(this.lbA);
+            this.pnlKeyboard.Controls.Add(this.lbSpace);
+            this.pnlKeyboard.Controls.Add(this.lbP);
+            this.pnlKeyboard.Controls.Add(this.lbO);
+            this.pnlKeyboard.Controls.Add(this.lbI);
+            this.pnlKeyboard.Controls.Add(this.lbU);
+            this.pnlKeyboard.Controls.Add(this.lbY);
+            this.pnlKeyboard.Controls.Add(this.lbT);
+            this.pnlKeyboard.Controls.Add(this.lbR);
+            this.pnlKeyboard.Controls.Add(this.lbE);
+            this.pnlKeyboard.Controls.Add(this.lbW);
+            this.pnlKeyboard.Controls.Add(this.lbQ);
+            this.pnlKeyboard.Controls.Add(this.lbM);
+            this.pnlKeyboard.Controls.Add(this.lbN);
+            this.pnlKeyboard.Controls.Add(this.lbB);
+            this.pnlKeyboard.Controls.Add(this.lbV);
+            this.pnlKeyboard.Controls.Add(this.lbC);
+            this.pnlKeyboard.Controls.Add(this.lbX);
+            this.pnlKeyboard.Controls.Add(this.lbZ);
             this.pnlKeyboard.Name = "pnlKeyboard";
             // 
-            // label13
+            // lbCloseBracket
             // 
-            this.label13.BackColor = System.Drawing.Color.Black;
-            resources.ApplyResources(this.label13, "label13");
-            this.label13.ForeColor = System.Drawing.Color.White;
-            this.label13.Name = "label13";
+            this.lbCloseBracket.BackColor = System.Drawing.Color.Black;
+            resources.ApplyResources(this.lbCloseBracket, "lbCloseBracket");
+            this.lbCloseBracket.ForeColor = System.Drawing.Color.White;
+            this.lbCloseBracket.Name = "lbCloseBracket";
             // 
-            // label14
+            // lbOpenBracket
             // 
-            this.label14.BackColor = System.Drawing.Color.Black;
-            resources.ApplyResources(this.label14, "label14");
-            this.label14.ForeColor = System.Drawing.Color.White;
-            this.label14.Name = "label14";
+            this.lbOpenBracket.BackColor = System.Drawing.Color.Black;
+            resources.ApplyResources(this.lbOpenBracket, "lbOpenBracket");
+            this.lbOpenBracket.ForeColor = System.Drawing.Color.White;
+            this.lbOpenBracket.Name = "lbOpenBracket";
             // 
-            // label15
+            // lbQuote
             // 
-            this.label15.BackColor = System.Drawing.Color.Black;
-            resources.ApplyResources(this.label15, "label15");
-            this.label15.ForeColor = System.Drawing.Color.White;
-            this.label15.Name = "label15";
+            this.lbQuote.BackColor = System.Drawing.Color.Black;
+            resources.ApplyResources(this.lbQuote, "lbQuote");
+            this.lbQuote.ForeColor = System.Drawing.Color.White;
+            this.lbQuote.Name = "lbQuote";
             // 
-            // label9
+            // lbSemiColon
             // 
-            this.label9.BackColor = System.Drawing.Color.Black;
-            resources.ApplyResources(this.label9, "label9");
-            this.label9.ForeColor = System.Drawing.Color.White;
-            this.label9.Name = "label9";
+            this.lbSemiColon.BackColor = System.Drawing.Color.Black;
+            resources.ApplyResources(this.lbSemiColon, "lbSemiColon");
+            this.lbSemiColon.ForeColor = System.Drawing.Color.White;
+            this.lbSemiColon.Name = "lbSemiColon";
             // 
-            // label8
+            // lbSlash
             // 
-            this.label8.BackColor = System.Drawing.Color.Black;
-            resources.ApplyResources(this.label8, "label8");
-            this.label8.ForeColor = System.Drawing.Color.White;
-            this.label8.Name = "label8";
+            this.lbSlash.BackColor = System.Drawing.Color.Black;
+            resources.ApplyResources(this.lbSlash, "lbSlash");
+            this.lbSlash.ForeColor = System.Drawing.Color.White;
+            this.lbSlash.Name = "lbSlash";
             // 
-            // label7
+            // lbPeriod
             // 
-            this.label7.BackColor = System.Drawing.Color.Black;
-            resources.ApplyResources(this.label7, "label7");
-            this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Name = "label7";
+            this.lbPeriod.BackColor = System.Drawing.Color.Black;
+            resources.ApplyResources(this.lbPeriod, "lbPeriod");
+            this.lbPeriod.ForeColor = System.Drawing.Color.White;
+            this.lbPeriod.Name = "lbPeriod";
             // 
-            // label6
+            // lbComma
             // 
-            this.label6.BackColor = System.Drawing.Color.Black;
-            resources.ApplyResources(this.label6, "label6");
-            this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Name = "label6";
+            this.lbComma.BackColor = System.Drawing.Color.Black;
+            resources.ApplyResources(this.lbComma, "lbComma");
+            this.lbComma.ForeColor = System.Drawing.Color.White;
+            this.lbComma.Name = "lbComma";
             // 
-            // label5
+            // lbL
             // 
-            this.label5.BackColor = System.Drawing.Color.Black;
-            resources.ApplyResources(this.label5, "label5");
-            this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Name = "label5";
+            this.lbL.BackColor = System.Drawing.Color.Black;
+            resources.ApplyResources(this.lbL, "lbL");
+            this.lbL.ForeColor = System.Drawing.Color.White;
+            this.lbL.Name = "lbL";
             // 
-            // label4
+            // lbK
             // 
-            this.label4.BackColor = System.Drawing.Color.Black;
-            resources.ApplyResources(this.label4, "label4");
-            this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Name = "label4";
+            this.lbK.BackColor = System.Drawing.Color.Black;
+            resources.ApplyResources(this.lbK, "lbK");
+            this.lbK.ForeColor = System.Drawing.Color.White;
+            this.lbK.Name = "lbK";
             // 
-            // label1
+            // lbJ
             // 
-            this.label1.BackColor = System.Drawing.Color.Black;
-            resources.ApplyResources(this.label1, "label1");
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Name = "label1";
+            this.lbJ.BackColor = System.Drawing.Color.Black;
+            resources.ApplyResources(this.lbJ, "lbJ");
+            this.lbJ.ForeColor = System.Drawing.Color.White;
+            this.lbJ.Name = "lbJ";
             // 
-            // label26
+            // lbH
             // 
-            this.label26.BackColor = System.Drawing.Color.Black;
-            resources.ApplyResources(this.label26, "label26");
-            this.label26.ForeColor = System.Drawing.Color.White;
-            this.label26.Name = "label26";
+            this.lbH.BackColor = System.Drawing.Color.Black;
+            resources.ApplyResources(this.lbH, "lbH");
+            this.lbH.ForeColor = System.Drawing.Color.White;
+            this.lbH.Name = "lbH";
             // 
-            // label27
+            // lbG
             // 
-            this.label27.BackColor = System.Drawing.Color.Black;
-            resources.ApplyResources(this.label27, "label27");
-            this.label27.ForeColor = System.Drawing.Color.White;
-            this.label27.Name = "label27";
+            this.lbG.BackColor = System.Drawing.Color.Black;
+            resources.ApplyResources(this.lbG, "lbG");
+            this.lbG.ForeColor = System.Drawing.Color.White;
+            this.lbG.Name = "lbG";
             // 
-            // label28
+            // lbF
             // 
-            this.label28.BackColor = System.Drawing.Color.Black;
-            resources.ApplyResources(this.label28, "label28");
-            this.label28.ForeColor = System.Drawing.Color.White;
-            this.label28.Name = "label28";
+            this.lbF.BackColor = System.Drawing.Color.Black;
+            resources.ApplyResources(this.lbF, "lbF");
+            this.lbF.ForeColor = System.Drawing.Color.White;
+            this.lbF.Name = "lbF";
             // 
-            // label29
+            // lbD
             // 
-            this.label29.BackColor = System.Drawing.Color.Black;
-            resources.ApplyResources(this.label29, "label29");
-            this.label29.ForeColor = System.Drawing.Color.White;
-            this.label29.Name = "label29";
+            this.lbD.BackColor = System.Drawing.Color.Black;
+            resources.ApplyResources(this.lbD, "lbD");
+            this.lbD.ForeColor = System.Drawing.Color.White;
+            this.lbD.Name = "lbD";
             // 
-            // label30
+            // lbS
             // 
-            this.label30.BackColor = System.Drawing.Color.Black;
-            resources.ApplyResources(this.label30, "label30");
-            this.label30.ForeColor = System.Drawing.Color.White;
-            this.label30.Name = "label30";
+            this.lbS.BackColor = System.Drawing.Color.Black;
+            resources.ApplyResources(this.lbS, "lbS");
+            this.lbS.ForeColor = System.Drawing.Color.White;
+            this.lbS.Name = "lbS";
             // 
-            // label31
+            // lbA
             // 
-            this.label31.BackColor = System.Drawing.Color.Black;
-            resources.ApplyResources(this.label31, "label31");
-            this.label31.ForeColor = System.Drawing.Color.White;
-            this.label31.Name = "label31";
+            this.lbA.BackColor = System.Drawing.Color.Black;
+            resources.ApplyResources(this.lbA, "lbA");
+            this.lbA.ForeColor = System.Drawing.Color.White;
+            this.lbA.Name = "lbA";
             // 
-            // label32
+            // lbSpace
             // 
-            this.label32.BackColor = System.Drawing.Color.Black;
-            resources.ApplyResources(this.label32, "label32");
-            this.label32.ForeColor = System.Drawing.Color.White;
-            this.label32.Name = "label32";
+            this.lbSpace.BackColor = System.Drawing.Color.Black;
+            resources.ApplyResources(this.lbSpace, "lbSpace");
+            this.lbSpace.ForeColor = System.Drawing.Color.White;
+            this.lbSpace.Name = "lbSpace";
             // 
-            // label33
+            // lbP
             // 
-            this.label33.BackColor = System.Drawing.Color.Black;
-            resources.ApplyResources(this.label33, "label33");
-            this.label33.ForeColor = System.Drawing.Color.White;
-            this.label33.Name = "label33";
+            this.lbP.BackColor = System.Drawing.Color.Black;
+            resources.ApplyResources(this.lbP, "lbP");
+            this.lbP.ForeColor = System.Drawing.Color.White;
+            this.lbP.Name = "lbP";
             // 
-            // label34
+            // lbO
             // 
-            this.label34.BackColor = System.Drawing.Color.Black;
-            resources.ApplyResources(this.label34, "label34");
-            this.label34.ForeColor = System.Drawing.Color.White;
-            this.label34.Name = "label34";
+            this.lbO.BackColor = System.Drawing.Color.Black;
+            resources.ApplyResources(this.lbO, "lbO");
+            this.lbO.ForeColor = System.Drawing.Color.White;
+            this.lbO.Name = "lbO";
             // 
-            // label35
+            // lbI
             // 
-            this.label35.BackColor = System.Drawing.Color.Black;
-            resources.ApplyResources(this.label35, "label35");
-            this.label35.ForeColor = System.Drawing.Color.White;
-            this.label35.Name = "label35";
+            this.lbI.BackColor = System.Drawing.Color.Black;
+            resources.ApplyResources(this.lbI, "lbI");
+            this.lbI.ForeColor = System.Drawing.Color.White;
+            this.lbI.Name = "lbI";
             // 
-            // label19
+            // lbU
             // 
-            this.label19.BackColor = System.Drawing.Color.Black;
-            resources.ApplyResources(this.label19, "label19");
-            this.label19.ForeColor = System.Drawing.Color.White;
-            this.label19.Name = "label19";
+            this.lbU.BackColor = System.Drawing.Color.Black;
+            resources.ApplyResources(this.lbU, "lbU");
+            this.lbU.ForeColor = System.Drawing.Color.White;
+            this.lbU.Name = "lbU";
             // 
-            // label20
+            // lbY
             // 
-            this.label20.BackColor = System.Drawing.Color.Black;
-            resources.ApplyResources(this.label20, "label20");
-            this.label20.ForeColor = System.Drawing.Color.White;
-            this.label20.Name = "label20";
+            this.lbY.BackColor = System.Drawing.Color.Black;
+            resources.ApplyResources(this.lbY, "lbY");
+            this.lbY.ForeColor = System.Drawing.Color.White;
+            this.lbY.Name = "lbY";
             // 
-            // label21
+            // lbT
             // 
-            this.label21.BackColor = System.Drawing.Color.Black;
-            resources.ApplyResources(this.label21, "label21");
-            this.label21.ForeColor = System.Drawing.Color.White;
-            this.label21.Name = "label21";
+            this.lbT.BackColor = System.Drawing.Color.Black;
+            resources.ApplyResources(this.lbT, "lbT");
+            this.lbT.ForeColor = System.Drawing.Color.White;
+            this.lbT.Name = "lbT";
             // 
-            // label22
+            // lbR
             // 
-            this.label22.BackColor = System.Drawing.Color.Black;
-            resources.ApplyResources(this.label22, "label22");
-            this.label22.ForeColor = System.Drawing.Color.White;
-            this.label22.Name = "label22";
+            this.lbR.BackColor = System.Drawing.Color.Black;
+            resources.ApplyResources(this.lbR, "lbR");
+            this.lbR.ForeColor = System.Drawing.Color.White;
+            this.lbR.Name = "lbR";
             // 
-            // label23
+            // lbE
             // 
-            this.label23.BackColor = System.Drawing.Color.Black;
-            resources.ApplyResources(this.label23, "label23");
-            this.label23.ForeColor = System.Drawing.Color.White;
-            this.label23.Name = "label23";
+            this.lbE.BackColor = System.Drawing.Color.Black;
+            resources.ApplyResources(this.lbE, "lbE");
+            this.lbE.ForeColor = System.Drawing.Color.White;
+            this.lbE.Name = "lbE";
             // 
-            // label24
+            // lbW
             // 
-            this.label24.BackColor = System.Drawing.Color.Black;
-            resources.ApplyResources(this.label24, "label24");
-            this.label24.ForeColor = System.Drawing.Color.White;
-            this.label24.Name = "label24";
+            this.lbW.BackColor = System.Drawing.Color.Black;
+            resources.ApplyResources(this.lbW, "lbW");
+            this.lbW.ForeColor = System.Drawing.Color.White;
+            this.lbW.Name = "lbW";
             // 
-            // label25
+            // lbQ
             // 
-            this.label25.BackColor = System.Drawing.Color.Black;
-            resources.ApplyResources(this.label25, "label25");
-            this.label25.ForeColor = System.Drawing.Color.White;
-            this.label25.Name = "label25";
+            this.lbQ.BackColor = System.Drawing.Color.Black;
+            resources.ApplyResources(this.lbQ, "lbQ");
+            this.lbQ.ForeColor = System.Drawing.Color.White;
+            this.lbQ.Name = "lbQ";
+            // 
+            // lbM
+            // 
+            this.lbM.BackColor = System.Drawing.Color.Black;
+            resources.ApplyResources(this.lbM, "lbM");
+            this.lbM.ForeColor = System.Drawing.Color.White;
+            this.lbM.Name = "lbM";
+            // 
+            // lbN
+            // 
+            this.lbN.BackColor = System.Drawing.Color.Black;
+            resources.ApplyResources(this.lbN, "lbN");
+            this.lbN.ForeColor = System.Drawing.Color.White;
+            this.lbN.Name = "lbN";
+            // 
+            // lbB
+            // 
+            this.lbB.BackColor = System.Drawing.Color.Black;
+            resources.ApplyResources(this.lbB, "lbB");
+            this.lbB.ForeColor = System.Drawing.Color.White;
+            this.lbB.Name = "lbB";
+            // 
+            // lbV
+            // 
+            this.lbV.BackColor = System.Drawing.Color.Black;
+            resources.ApplyResources(this.lbV, "lbV");
+            this.lbV.ForeColor = System.Drawing.Color.White;
+            this.lbV.Name = "lbV";
+            // 
+            // lbC
+            // 
+            this.lbC.BackColor = System.Drawing.Color.Black;
+            resources.ApplyResources(this.lbC, "lbC");
+            this.lbC.ForeColor = System.Drawing.Color.White;
+            this.lbC.Name = "lbC";
+            // 
+            // lbX
+            // 
+            this.lbX.BackColor = System.Drawing.Color.Black;
+            resources.ApplyResources(this.lbX, "lbX");
+            this.lbX.ForeColor = System.Drawing.Color.White;
+            this.lbX.Name = "lbX";
+            // 
+            // lbZ
+            // 
+            this.lbZ.BackColor = System.Drawing.Color.Black;
+            resources.ApplyResources(this.lbZ, "lbZ");
+            this.lbZ.ForeColor = System.Drawing.Color.White;
+            this.lbZ.Name = "lbZ";
             // 
             // lbExportResultsToExcel
             // 
@@ -1007,33 +1070,40 @@ namespace Typing_Test
         private System.Windows.Forms.Label lbShowResults;
         private System.Windows.Forms.Label lbHideResults;
         private System.Windows.Forms.Panel pnlKeyboard;
-        public System.Windows.Forms.Label label26;
-        public System.Windows.Forms.Label label27;
-        public System.Windows.Forms.Label label28;
-        public System.Windows.Forms.Label label29;
-        public System.Windows.Forms.Label label30;
-        public System.Windows.Forms.Label label31;
-        public System.Windows.Forms.Label label32;
-        public System.Windows.Forms.Label label33;
-        public System.Windows.Forms.Label label34;
-        public System.Windows.Forms.Label label35;
-        public System.Windows.Forms.Label label19;
-        public System.Windows.Forms.Label label20;
-        public System.Windows.Forms.Label label21;
-        public System.Windows.Forms.Label label22;
-        public System.Windows.Forms.Label label23;
-        public System.Windows.Forms.Label label24;
-        public System.Windows.Forms.Label label25;
-        public System.Windows.Forms.Label label13;
-        public System.Windows.Forms.Label label14;
-        public System.Windows.Forms.Label label15;
-        public System.Windows.Forms.Label label9;
-        public System.Windows.Forms.Label label8;
-        public System.Windows.Forms.Label label7;
-        public System.Windows.Forms.Label label6;
-        public System.Windows.Forms.Label label5;
-        public System.Windows.Forms.Label label4;
-        public System.Windows.Forms.Label label1;
+        public System.Windows.Forms.Label lbP;
+        public System.Windows.Forms.Label lbO;
+        public System.Windows.Forms.Label lbI;
+        public System.Windows.Forms.Label lbU;
+        public System.Windows.Forms.Label lbY;
+        public System.Windows.Forms.Label lbT;
+        public System.Windows.Forms.Label lbR;
+        public System.Windows.Forms.Label lbE;
+        public System.Windows.Forms.Label lbW;
+        public System.Windows.Forms.Label lbQ;
+        public System.Windows.Forms.Label lbM;
+        public System.Windows.Forms.Label lbN;
+        public System.Windows.Forms.Label lbB;
+        public System.Windows.Forms.Label lbV;
+        public System.Windows.Forms.Label lbC;
+        public System.Windows.Forms.Label lbX;
+        public System.Windows.Forms.Label lbZ;
+        public System.Windows.Forms.Label lbL;
+        public System.Windows.Forms.Label lbK;
+        public System.Windows.Forms.Label lbJ;
+        public System.Windows.Forms.Label lbH;
+        public System.Windows.Forms.Label lbG;
+        public System.Windows.Forms.Label lbF;
+        public System.Windows.Forms.Label lbD;
+        public System.Windows.Forms.Label lbS;
+        public System.Windows.Forms.Label lbA;
+        public System.Windows.Forms.Label lbSpace;
+        public System.Windows.Forms.Label lbComma;
+        public System.Windows.Forms.Label lbPeriod;
+        public System.Windows.Forms.Label lbSlash;
+        public System.Windows.Forms.Label lbSemiColon;
+        public System.Windows.Forms.Label lbCloseBracket;
+        public System.Windows.Forms.Label lbOpenBracket;
+        public System.Windows.Forms.Label lbQuote;
     }
 }
 

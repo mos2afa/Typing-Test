@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
 using System.IO;
@@ -266,7 +267,7 @@ namespace Typing_Test
                 rtbWords.ZoomFactor = 1.45f;
             }
 
-            pnlKeyboard.Location = new Point(Width/3, rtbWords.Height + 70);
+            pnlKeyboard.Location = new Point(Width/4+50, rtbWords.Height + 70);
 
             HideTestsScreen();
         }
@@ -280,7 +281,7 @@ namespace Typing_Test
             dgvResults.DataSource = Test.GetTypingTestsForShowing();
 
             dgvResults.Columns[0].Width = 100;
-            dgvResults.Columns[1].Width = 120;
+            dgvResults.Columns[1].Width = 130;
             dgvResults.Columns[2].Width = 130;
             dgvResults.Columns[3].Width = 120;
             dgvResults.Columns[4].Width = 120;
@@ -309,6 +310,67 @@ namespace Typing_Test
         }
 
 
+        Dictionary<Keys, Label> KeyboardDictionary = new Dictionary<Keys, Label>();
+
+        private void InitializeKeyboardDictionary()
+        {
+            KeyboardDictionary.Add(Keys.Space, lbSpace);
+
+            KeyboardDictionary.Add(Keys.A, lbA);
+            KeyboardDictionary.Add(Keys.B, lbB);
+            KeyboardDictionary.Add(Keys.C, lbC);
+            KeyboardDictionary.Add(Keys.D, lbD);
+            KeyboardDictionary.Add(Keys.E, lbE);
+            KeyboardDictionary.Add(Keys.F, lbF);
+            KeyboardDictionary.Add(Keys.G, lbG);
+            KeyboardDictionary.Add(Keys.H, lbH);
+            KeyboardDictionary.Add(Keys.I, lbI);
+            KeyboardDictionary.Add(Keys.J, lbJ);
+            KeyboardDictionary.Add(Keys.K, lbK);
+            KeyboardDictionary.Add(Keys.L, lbL);
+            KeyboardDictionary.Add(Keys.M, lbM);
+            KeyboardDictionary.Add(Keys.N, lbN);
+            KeyboardDictionary.Add(Keys.O, lbO);
+            KeyboardDictionary.Add(Keys.P, lbP);
+            KeyboardDictionary.Add(Keys.Q, lbQ);
+            KeyboardDictionary.Add(Keys.R, lbR);
+            KeyboardDictionary.Add(Keys.S, lbS);
+            KeyboardDictionary.Add(Keys.T, lbT);
+            KeyboardDictionary.Add(Keys.U, lbU);
+            KeyboardDictionary.Add(Keys.V, lbV);
+            KeyboardDictionary.Add(Keys.W, lbW);
+            KeyboardDictionary.Add(Keys.X, lbX);
+            KeyboardDictionary.Add(Keys.Y, lbY);
+            KeyboardDictionary.Add(Keys.Z, lbZ);
+
+            KeyboardDictionary.Add(Keys.Oemcomma, lbComma);
+            KeyboardDictionary.Add(Keys.OemPeriod, lbPeriod);
+            KeyboardDictionary.Add(Keys.OemQuestion, lbSlash);
+
+            KeyboardDictionary.Add(Keys.OemSemicolon, lbSemiColon);
+            KeyboardDictionary.Add(Keys.OemQuotes, lbQuote);
+
+            KeyboardDictionary.Add(Keys.OemOpenBrackets, lbOpenBracket);
+            KeyboardDictionary.Add(Keys.OemCloseBrackets, lbCloseBracket);
+
+        }
+
+        public void HighLightCharacter(Label lbl)
+        {
+            lbl.BackColor = CurrentWordColor;
+
+            Timer t = new Timer();
+            t.Interval = 100;
+            t.Tick += (s, args) =>
+            {
+                lbl.BackColor = Color.Black;
+
+                t.Stop();
+                t.Dispose();
+            };
+
+            t.Start();
+        }
 
         private void PerformMouseDown(object sender, MouseEventArgs e)
         {

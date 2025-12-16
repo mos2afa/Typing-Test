@@ -422,12 +422,9 @@ namespace Typing_Test
 
         private void PerformCtrlBackSpace(KeyEventArgs e)
         {
-            if (e.Control && e.KeyCode == Keys.Back)
-            {
-                e.SuppressKeyPress = true; // Prevent the default Backspace behavior (inserting space)
+            e.SuppressKeyPress = true; // Prevent the default Backspace behavior (inserting space)
 
-                tbType.Text = "";
-            }
+            tbType.Text = "";
         }
     }
 }

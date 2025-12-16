@@ -12,7 +12,7 @@ namespace Typing_Test
         System.Windows.Forms.Button CurrentBtn;
 
 
-        private void LoadForm()
+        private void LoadFirstTime()
         {
             CurrentBtn = btn15;
 
@@ -47,6 +47,8 @@ namespace Typing_Test
             btnTime.BackColor = SelectColor;
 
             CustomizeToolTip();
+
+            InitializeKeyboardDictionary();
 
             CheckCapsLock();
         }
