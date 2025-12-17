@@ -4,7 +4,10 @@ using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Text.Json;
+using System.Windows;
 using System.Windows.Forms;
+using Size = System.Drawing.Size;
+using Point = System.Drawing.Point;
 
 namespace Typing_Test
 {
@@ -208,7 +211,6 @@ namespace Typing_Test
                 }
 
                 HideTestsScreen();
-                dgvResults.Hide();
             }
 
             CanType();
@@ -252,7 +254,7 @@ namespace Typing_Test
                 rtbWords.ZoomFactor -= 0.25f;
             }
 
-            HideTestsScreen();
+            dgvResults.Size = new Size(this.Width - 30, this.Height - tbType.Height - rtbCapsLock.Height - 50);
         }
 
         private void Form1_Resize(object sender, EventArgs e)
@@ -271,7 +273,7 @@ namespace Typing_Test
             tbType.Location = new Point( pnlKeyboard.Location.X,tbType.Location.Y);
             btnRestart.Location = new Point(tbType.Location.X+tbType.Width+5 , btnRestart.Location.Y);
 
-            HideTestsScreen();
+            dgvResults.Size = new Size(this.Width - 30, this.Height - tbType.Height - rtbCapsLock.Height - 50);
         }
 
         private void PerformShowResultsButton()
@@ -304,10 +306,10 @@ namespace Typing_Test
             dgvResults.RowHeadersDefaultCellStyle.BackColor = BackColor;
             dgvResults.RowHeadersDefaultCellStyle.ForeColor = SelectColor;
 
-            dgvResults.Size = pnlSettings.Size;
             dgvResults.Location = new Point(0, 0);
             dgvResults.Font = new Font(this.Font.FontFamily, 18);
 
+            dgvResults.Size = new Size(this.Width-30, this.Height - tbType.Height - rtbCapsLock.Height-50);
             ShowTestsScreen();
         }
 
