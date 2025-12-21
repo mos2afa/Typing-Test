@@ -121,8 +121,8 @@ namespace Typing_Test
 
         private void cbLanguage_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string SelectedLanguage = cbLanguage.SelectedItem.ToString();
-            ChangeCurrentLanguage(SelectedLanguage);
+            Test.Language = cbLanguage.SelectedItem.ToString();
+            ChangeCurrentLanguage(Test.Language);
         }
 
         private void lbClearResults_Click_1(object sender, EventArgs e)

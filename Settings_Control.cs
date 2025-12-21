@@ -201,7 +201,7 @@ namespace Typing_Test
             cdChangeColor.Color = tbLiveWPM.ForeColor;
             if (cdChangeColor.ShowDialog() == DialogResult.OK)
             {
-                ChangeCountersColors(cdChangeColor.Color);
+                ChangeCountersForeColor(cdChangeColor.Color);
                 SaveSettings();
             }
         }

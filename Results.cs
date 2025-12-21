@@ -26,6 +26,8 @@ namespace Typing_Test
 
         static Test()
         {
+            Language = "English";
+
             Mode = enMode.Time15;
             WPM = 0.0;
             Accuracy = 0.0;

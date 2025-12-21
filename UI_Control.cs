@@ -8,6 +8,7 @@ using System.Windows;
 using System.Windows.Forms;
 using Size = System.Drawing.Size;
 using Point = System.Drawing.Point;
+using System.Linq;
 
 namespace Typing_Test
 {
@@ -37,21 +38,9 @@ namespace Typing_Test
                 btnTime.BackColor = SelectColor;
             else
                 btnWords.BackColor = SelectColor;
-            
 
-            tbTimer.ForeColor = Color.DeepPink;
-            tbLiveWPM.ForeColor = Color.DeepPink;
-            tbWordsCounter.ForeColor = Color.DeepPink;
-            rtbWPMWord.ForeColor = Color.DeepPink;
-            rtbFinalWPM.ForeColor = Color.DeepPink;
-            rtbAccuracy.ForeColor = Color.DeepPink;
-            rtbAccuracyWord.ForeColor = Color.DeepPink;
-            rtbTimeWord.ForeColor = Color.DeepPink;
-            rtbDuration.ForeColor = Color.DeepPink;
-            rtbWordsCounter.ForeColor = Color.DeepPink;
-            rtbWordsWord.ForeColor = Color.DeepPink;
-            rtbTestType.ForeColor = Color.DeepPink;
-            rtbTestTypeWord.ForeColor = Color.DeepPink;
+
+            ChangeCountersForeColor(Color.DeepPink);
 
             this.WindowState = FormWindowState.Maximized;
             this.FormBorderStyle = FormBorderStyle.Fixed3D;
@@ -71,29 +60,31 @@ namespace Typing_Test
             SelectColor = ColorTranslator.FromHtml(settings.SelectColor);
             tbType.ForeColor = ColorTranslator.FromHtml(settings.TypeBarColor);
 
-            ChangeCountersColors(ColorTranslator.FromHtml(settings.CountersColor));   
+            ChangeCountersForeColor(ColorTranslator.FromHtml(settings.CountersColor));   
         }
 
-        private void ChangeCountersColors(Color TargetColor)
+        private void ChangeCountersForeColor(Color TargetColor)
         {
             tbTimer.ForeColor = TargetColor;
             tbLiveWPM.ForeColor = TargetColor;
             tbWordsCounter.ForeColor = TargetColor;
-            rtbFinalWPM.ForeColor = TargetColor;
-            rtbWPMWord.ForeColor = TargetColor;
-            rtbAccuracy.ForeColor = TargetColor;
-            rtbAccuracyWord.ForeColor = TargetColor;
-            rtbDuration.ForeColor = TargetColor;
-            rtbTimeWord.ForeColor = TargetColor;
-            rtbCharacters.ForeColor = TargetColor;
-            rtbCharactersWord.ForeColor = TargetColor;
-            rtbWordsCounter.ForeColor = TargetColor;
-            rtbWordsWord.ForeColor = TargetColor;
-            rtbCharacters.ForeColor = TargetColor;
-            rtbCharactersWord.ForeColor = TargetColor;
-            rtbTestType.ForeColor = TargetColor;
-            rtbTestTypeWord.ForeColor = TargetColor;
+
+            toolTip.ForeColor = TargetColor;
+
+            pnlResults.Controls.OfType<RichTextBox>().ToList().ForEach(lbl => lbl.ForeColor = TargetColor);
         }
+
+        private void ChangeCountersBackColor(Color TargetColor)
+        {
+            tbTimer.BackColor = TargetColor;
+            tbLiveWPM.BackColor = TargetColor;
+            tbWordsCounter.BackColor = TargetColor;
+
+            toolTip.BackColor = TargetColor;
+
+            pnlResults.Controls.OfType<RichTextBox>().ToList().ForEach(lbl => lbl.BackColor = TargetColor);
+        }
+
 
         private void LoadWindowStateSettings()
         {
@@ -218,22 +209,12 @@ namespace Typing_Test
 
         private void ChangeSomeColorsAccordingToFormBackColor()
         {
-            tbLiveWPM.BackColor = this.BackColor;
-            tbTimer.BackColor = this.BackColor;
-            tbWordsCounter.BackColor = this.BackColor;
+            ChangeCountersBackColor(this.BackColor);
+
+            pnlKeyboard.Controls.OfType<Label>().ToList().ForEach(lbl => lbl.BackColor = this.BackColor);
+
+            pnlKeyboard.BackColor = this.BackColor;
             rtbWords.BackColor = this.BackColor;
-            rtbFinalWPM.BackColor = this.BackColor;
-            rtbWPMWord.BackColor = this.BackColor;
-            rtbAccuracy.BackColor = this.BackColor;
-            rtbAccuracyWord.BackColor = this.BackColor;
-            rtbDuration.BackColor = this.BackColor;
-            rtbCharacters.BackColor = this.BackColor;
-            rtbCharactersWord.BackColor = this.BackColor;
-            rtbWordsCounter.BackColor = this.BackColor;
-            rtbWordsWord.BackColor = this.BackColor;
-            rtbTimeWord.BackColor = this.BackColor;
-            rtbTestType.BackColor = this.BackColor;
-            rtbTestTypeWord.BackColor = this.BackColor;
             tbType.BackColor = this.BackColor;
             cbLanguage.BackColor = this.BackColor;
             btnRestart.BackColor = this.BackColor;
@@ -367,7 +348,7 @@ namespace Typing_Test
             t.Interval = 100;
             t.Tick += (s, args) =>
             {
-                lbl.BackColor = Color.Black;;
+                lbl.BackColor = this.BackColor;
 
                 t.Stop();
                 t.Dispose();
@@ -386,8 +367,8 @@ namespace Typing_Test
 
         private void CustomizeToolTip()
         {
-            toolTip.BackColor = Color.Black;
-            toolTip.ForeColor = Color.White;
+            toolTip.BackColor = this.BackColor;
+            toolTip.ForeColor = ColorTranslator.FromHtml( settings.CountersColor );
 
             // Enable custom drawing
             toolTip.OwnerDraw = true;
@@ -417,7 +398,7 @@ namespace Typing_Test
                 Test.WPM.ToString("F2") + " WPM",
                 rtbFinalWPM,
                 0,
-                0
+                -30
             );
         }
 
@@ -432,7 +413,7 @@ namespace Typing_Test
                 "+" + Diff_WPM.ToString("F2"),
                 pbBest,
                 0,
-                -30
+                -40
             );
         }
 
@@ -447,7 +428,7 @@ namespace Typing_Test
                 Test.DurationSeconds.ToString("F2") + "s",
                 rtbDuration,
                 0,
-                -20
+                -30
             );
         }
 
@@ -462,7 +443,7 @@ namespace Typing_Test
                 Test.Accuracy.ToString("F2") + "%",
                 rtbAccuracy,
                 0 ,
-                0
+                -30
             );
         }
         private void rtbAccuracy_MouseLeave(object sender, EventArgs e)
@@ -477,7 +458,7 @@ namespace Typing_Test
                 "correct\nincorrect",
                 rtbCharacters,
                 0,
-                -50
+                -70
             );
         }
 
@@ -492,7 +473,7 @@ namespace Typing_Test
                 "correct\nincorrect",
                 rtbWordsCounter,
                 0,
-                -50
+                -70
             );
         }
 
