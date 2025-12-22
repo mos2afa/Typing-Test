@@ -808,7 +808,7 @@ namespace Typing_Test
             // 
             this.pbBest.BackColor = System.Drawing.Color.Black;
             this.pbBest.Cursor = System.Windows.Forms.Cursors.Default;
-            this.pbBest.Image = global::Typing_Test.Properties.Resources.Star;
+            this.pbBest.Image = global::Typing_Test.Properties.Resources.blackStar;
             resources.ApplyResources(this.pbBest, "pbBest");
             this.pbBest.Name = "pbBest";
             this.pbBest.TabStop = false;

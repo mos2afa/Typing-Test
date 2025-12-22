@@ -2458,10 +2458,10 @@
     <value>NoControl</value>
   </data>
   <data name="pbBest.Location" type="System.Drawing.Point, System.Drawing">
-    <value>111, 1</value>
+    <value>115, 1</value>
   </data>
   <data name="pbBest.Size" type="System.Drawing.Size, System.Drawing">
-    <value>63, 63</value>
+    <value>50, 50</value>
   </data>
   <data name="pbBest.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
     <value>Zoom</value>

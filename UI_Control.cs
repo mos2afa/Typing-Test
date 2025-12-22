@@ -72,6 +72,8 @@ namespace Typing_Test
             toolTip.ForeColor = TargetColor;
 
             pnlResults.Controls.OfType<RichTextBox>().ToList().ForEach(lbl => lbl.ForeColor = TargetColor);
+
+            pbBest.BackColor = TargetColor;
         }
 
         private void ChangeCountersBackColor(Color TargetColor)

@@ -239,6 +239,7 @@
     <None Include="Resources\Restart.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\blackStar.png" />
     <None Include="Resources\Restart2.png" />
     <None Include="Resources\Star.png" />
     <None Include="Resources\BestResult.png" />
