@@ -25,5 +25,36 @@ namespace Typing_Test
         public string SelectedLanguage {get;set; }
 
         public bool KeyboardVisible { get; set; }
+
+        public static Color color(string HtmlColor)
+        {
+            return ColorTranslator.FromHtml(HtmlColor);
+        }
+
+        public static string color(Color objectColor)
+        {
+            return ColorTranslator.ToHtml(objectColor);
+        }
+
+        public AppSettings()
+        {
+            // Default values.
+            
+            FormBackColor     = color(Color.FromArgb(1, 3, 25));
+            FontColor         = color(Color.FromArgb(60, 77, 120));
+            CurrentWordColor  = color(Color.DodgerBlue);
+            CorrectWordColor  = color(Color.Green);
+            WrongWordColor    = color(Color.Red);
+            SelectColor       = color(Color.DodgerBlue);
+            TypeBarColor      = color(Color.White);
+            CountersColor     = color(Color.DodgerBlue);
+
+            SelectedLanguage = "English";
+
+            WindowState = FormWindowState.Maximized;
+            FormBorderStyle = FormBorderStyle.Fixed3D;
+
+            KeyboardVisible = true;
+        }
     }
 }

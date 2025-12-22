@@ -4,6 +4,7 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using Button = System.Windows.Forms.Button;
+using static Typing_Test.AppSettings;
 
 namespace Typing_Test
 {
@@ -73,7 +74,7 @@ namespace Typing_Test
         {
             IndexOfFirstCharOfCurrentWord = 0;
             rtbWords.Select(IndexOfFirstCharOfCurrentWord, CurrentWords[0].Length);
-            rtbWords.SelectionColor = CurrentWordColor;
+            rtbWords.SelectionColor = color(settings.CurrentWordColor);
         }
 
         private void Restart()
@@ -111,7 +112,7 @@ namespace Typing_Test
                 else
                 {
                     rtbWords.Select(IndexOfFirstCharOfCurrentWord, CurrentWords[Test.CurrentWordCounter].Length);
-                    rtbWords.SelectionBackColor = WrongWordColor;
+                    rtbWords.SelectionBackColor = color(settings.WrongWordColor);
                     break;
                 }
             }
@@ -185,12 +186,12 @@ namespace Typing_Test
             if (IsCurrentWordTypedTrue())
             {
                 rtbWords.Select(IndexOfFirstCharOfCurrentWord, CurrentWords[Test.CurrentWordCounter].Length);
-                rtbWords.SelectionColor = CorrectWordColor;
+                rtbWords.SelectionColor = color(settings.CorrectWordColor);
             }
             else
             {
                 rtbWords.Select(IndexOfFirstCharOfCurrentWord, CurrentWords[Test.CurrentWordCounter].Length);
-                rtbWords.SelectionColor = WrongWordColor;
+                rtbWords.SelectionColor = color(settings.WrongWordColor);
             }
         }
 
@@ -204,7 +205,7 @@ namespace Typing_Test
             if (Test.CurrentWordCounter < NumberOfWords)
             {
                 rtbWords.Select(IndexOfFirstCharOfCurrentWord, CurrentWords[Test.CurrentWordCounter].Length);
-                rtbWords.SelectionColor = CurrentWordColor;
+                rtbWords.SelectionColor = color(settings.CurrentWordColor);
             }
         }        
 
@@ -341,7 +342,7 @@ namespace Typing_Test
             btn10.BackColor = btn25.BackColor = btn50.BackColor = btn100.BackColor = Color.Black;
 
             CurrentBtn = btn;
-            CurrentBtn.BackColor = SelectColor;
+            CurrentBtn.BackColor = color(settings.SelectColor);
 
             ShowTypingTestScreen();
 
@@ -366,7 +367,7 @@ namespace Typing_Test
             btn10.BackColor = btn25.BackColor = btn50.BackColor = btn100.BackColor = Color.Black;
 
             CurrentBtn = btn;
-            CurrentBtn.BackColor = SelectColor;
+            CurrentBtn.BackColor = color(settings.SelectColor);
 
             ShowTypingTestScreen();
 

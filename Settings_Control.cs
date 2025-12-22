@@ -4,6 +4,7 @@ using System.Windows.Forms;
 using System.IO;
 using DocumentFormat.OpenXml.Presentation;
 using Control = System.Windows.Forms.Control;
+using static Typing_Test.AppSettings;
 
 namespace Typing_Test
 {
@@ -11,9 +12,12 @@ namespace Typing_Test
     {
         System.Windows.Forms.Button CurrentBtn;
 
+        AppSettings settings;
 
         private void LoadFirstTime()
         {
+            settings = new AppSettings();
+
             CurrentBtn = btn15;
 
             if (!File.Exists(Global.LocalAppDataDbPath))
@@ -30,10 +34,8 @@ namespace Typing_Test
                 Serialize();
                 SaveToFile();
             }
-            else
-            {
-                LoadSettings();
-            }
+
+            LoadSettings();
 
             tbType.Select();
 
@@ -43,8 +45,8 @@ namespace Typing_Test
 
             ChangeSomeColorsAccordingToFormBackColor();
 
-            btn15.BackColor = SelectColor;
-            btnTime.BackColor = SelectColor;
+            btn15.BackColor = color(settings.SelectColor);
+            btnTime.BackColor = color(settings.SelectColor);
 
             CustomizeToolTip();
 
@@ -59,7 +61,7 @@ namespace Typing_Test
 
             Test.Mode = enMode.Time15;
 
-            btnTime.BackColor = SelectColor;
+            btnTime.BackColor = color(settings.SelectColor);
             btnWords.BackColor = Color.Black;
 
             tbTimer.Show();
@@ -82,7 +84,7 @@ namespace Typing_Test
 
             Test.Mode = enMode.Words10;
 
-            btnWords.BackColor = SelectColor;
+            btnWords.BackColor = color(settings.SelectColor);
             btnTime.BackColor = Color.Black;
 
             tbTimer.Hide();
@@ -157,10 +159,10 @@ namespace Typing_Test
 
         private void lbChangeCurrentWordColor_Click(object sender, EventArgs e)
         {
-            cdChangeColor.Color = CurrentWordColor;
+            cdChangeColor.Color = color(settings.CurrentWordColor);
             if (cdChangeColor.ShowDialog() == DialogResult.OK)
             {
-                CurrentWordColor = cdChangeColor.Color;
+                settings.CurrentWordColor = color(cdChangeColor.Color);
                 SaveSettings();
                 SetFirstWordColor();
             }
@@ -168,20 +170,20 @@ namespace Typing_Test
 
         private void lbChangeCorrectWordColor_Click(object sender, EventArgs e)
         {
-            cdChangeColor.Color = CorrectWordColor;
+            cdChangeColor.Color = color(settings.CorrectWordColor);
             if (cdChangeColor.ShowDialog() == DialogResult.OK)
             {
-                CorrectWordColor = cdChangeColor.Color;
+                settings.CorrectWordColor = color(cdChangeColor.Color);
                 SaveSettings();
             }
         }
 
         private void lbChangeWrongWordColor_Click(object sender, EventArgs e)
         {
-            cdChangeColor.Color = WrongWordColor;
+            cdChangeColor.Color = color(settings.WrongWordColor);
             if (cdChangeColor.ShowDialog() == DialogResult.OK)
             {
-                WrongWordColor = cdChangeColor.Color;
+                settings.WrongWordColor = color(cdChangeColor.Color);
                 SaveSettings();
             }
         }
@@ -208,18 +210,18 @@ namespace Typing_Test
 
         private void lbChangeSelectColor_Click(object sender, EventArgs e)
         {
-            cdChangeColor.Color = SelectColor;
+            cdChangeColor.Color = color(settings.SelectColor);
             if (cdChangeColor.ShowDialog() == DialogResult.OK)
             {
-                SelectColor = cdChangeColor.Color;
+                settings.SelectColor = color(cdChangeColor.Color);
                 SaveSettings();
 
-                CurrentBtn.BackColor = SelectColor;
+                CurrentBtn.BackColor = color(settings.SelectColor);
 
                 if (Test.IsTimeMode()) 
-                    btnTime.BackColor = SelectColor;
+                    btnTime.BackColor = color(settings.SelectColor);
                 else
-                    btnWords.BackColor = SelectColor;
+                    btnWords.BackColor = color(settings.SelectColor);
             }
         }
 

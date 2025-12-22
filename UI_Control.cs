@@ -9,58 +9,43 @@ using System.Windows.Forms;
 using Size = System.Drawing.Size;
 using Point = System.Drawing.Point;
 using System.Linq;
+using static Typing_Test.AppSettings;
+using System.Net.Configuration;
 
 namespace Typing_Test
 {
     public partial class Form1
     {
-        AppSettings settings = new AppSettings();
 
         string jsonString { get; set; }
 
-        Color CurrentWordColor;
-        Color CorrectWordColor;
-        Color WrongWordColor;
-        Color SelectColor;
-
         private void LoadDefaultSettings()
         {
-            this.BackColor = Color.FromArgb(1, 3, 25);
-            rtbWords.ForeColor = Color.FromArgb(60, 77, 120);
-            CurrentWordColor = Color.DodgerBlue;
-            CorrectWordColor = Color.Green;
-            WrongWordColor = Color.Red;
-            SelectColor = Color.DodgerBlue;
-            tbType.ForeColor = Color.White;
-            CurrentBtn.BackColor = SelectColor;
+            settings = new AppSettings();
+
+            LoadColorsSettings();
 
             if(Test.IsTimeMode())
-                btnTime.BackColor = SelectColor;
+                btnTime.BackColor = color(settings.SelectColor);
             else
-                btnWords.BackColor = SelectColor;
+                btnWords.BackColor = color(settings.SelectColor);
 
+            CurrentBtn.BackColor = color(settings.SelectColor);
 
-            ChangeCountersForeColor(Color.DeepPink);
+            cbLanguage.SelectedItem = settings.SelectedLanguage;
 
-            this.WindowState = FormWindowState.Maximized;
-            this.FormBorderStyle = FormBorderStyle.Fixed3D;
-
-            cbLanguage.SelectedItem = "English";
+            ChangeCountersForeColor(color( settings.CountersColor));
         }
 
         
 
         private void LoadColorsSettings()
         {
-            this.BackColor = ColorTranslator.FromHtml(settings.FormBackColor);
-            rtbWords.ForeColor = ColorTranslator.FromHtml(settings.FontColor);
-            CurrentWordColor = ColorTranslator.FromHtml(settings.CurrentWordColor);
-            CorrectWordColor = ColorTranslator.FromHtml(settings.CorrectWordColor);
-            WrongWordColor = ColorTranslator.FromHtml(settings.WrongWordColor);
-            SelectColor = ColorTranslator.FromHtml(settings.SelectColor);
-            tbType.ForeColor = ColorTranslator.FromHtml(settings.TypeBarColor);
+            this.BackColor = color(settings.FormBackColor);
+            rtbWords.ForeColor = color(settings.FontColor);
+            tbType.ForeColor = color(settings.TypeBarColor);
 
-            ChangeCountersForeColor(ColorTranslator.FromHtml(settings.CountersColor));   
+            ChangeCountersForeColor(color(settings.CountersColor));   
         }
 
         private void ChangeCountersForeColor(Color TargetColor)
@@ -126,12 +111,12 @@ namespace Typing_Test
 
             LoadColorsSettings();
 
-            CurrentBtn.BackColor = SelectColor;
+            CurrentBtn.BackColor = color(settings.SelectColor);
 
             if(Test.IsTimeMode())
-                btnTime.BackColor = SelectColor;
+                btnTime.BackColor = color(settings.SelectColor);
             else
-                btnWords.BackColor = SelectColor;
+                btnWords.BackColor = color(settings.SelectColor);
             
 
             LoadWindowStateSettings();
@@ -143,14 +128,10 @@ namespace Typing_Test
 
         private void UpdateSettingsObject()
         {
-            settings.FormBackColor = ColorTranslator.ToHtml(this.BackColor);
-            settings.FontColor = ColorTranslator.ToHtml(rtbWords.ForeColor);
-            settings.CurrentWordColor = ColorTranslator.ToHtml(CurrentWordColor);
-            settings.CorrectWordColor = ColorTranslator.ToHtml(CorrectWordColor);
-            settings.WrongWordColor = ColorTranslator.ToHtml(WrongWordColor);
-            settings.SelectColor = ColorTranslator.ToHtml(SelectColor);
-            settings.TypeBarColor = ColorTranslator.ToHtml(tbType.ForeColor);
-            settings.CountersColor = ColorTranslator.ToHtml(tbTimer.ForeColor);
+            settings.FormBackColor = color(this.BackColor);
+            settings.FontColor = color(rtbWords.ForeColor);
+            settings.TypeBarColor = color(tbType.ForeColor);
+            settings.CountersColor = color(tbTimer.ForeColor);
 
             settings.WindowState = this.WindowState; // Normal, Maximized, Minimized
             settings.FormBorderStyle = this.FormBorderStyle; // None, Fixed3D
@@ -277,17 +258,17 @@ namespace Typing_Test
             dgvResults.Columns[7].Width = 250;
 
             dgvResults.GridColor = BackColor;
-            dgvResults.ForeColor = SelectColor;
+            dgvResults.ForeColor = color(settings.SelectColor);
             dgvResults.BackgroundColor = BackColor;
             dgvResults.DefaultCellStyle.BackColor = BackColor;
 
             dgvResults.EnableHeadersVisualStyles = false;
 
             dgvResults.ColumnHeadersDefaultCellStyle.BackColor = BackColor;
-            dgvResults.ColumnHeadersDefaultCellStyle.ForeColor = CurrentWordColor;
+            dgvResults.ColumnHeadersDefaultCellStyle.ForeColor = color(settings.CurrentWordColor);
 
             dgvResults.RowHeadersDefaultCellStyle.BackColor = BackColor;
-            dgvResults.RowHeadersDefaultCellStyle.ForeColor = SelectColor;
+            dgvResults.RowHeadersDefaultCellStyle.ForeColor = color(settings.SelectColor);
 
             dgvResults.Location = new Point(0, 0);
             dgvResults.Font = new Font(this.Font.FontFamily, 18);
@@ -344,7 +325,7 @@ namespace Typing_Test
 
         public void HighLightCharacter(Label lbl)
         {
-            lbl.BackColor = CurrentWordColor;
+            lbl.BackColor = color(settings.CurrentWordColor);
 
             Timer t = new Timer();
             t.Interval = 100;
@@ -370,7 +351,7 @@ namespace Typing_Test
         private void CustomizeToolTip()
         {
             toolTip.BackColor = this.BackColor;
-            toolTip.ForeColor = ColorTranslator.FromHtml( settings.CountersColor );
+            toolTip.ForeColor = color( settings.CountersColor );
 
             // Enable custom drawing
             toolTip.OwnerDraw = true;
