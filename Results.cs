@@ -150,7 +150,7 @@ namespace Typing_Test
             using (var conn = new SQLiteConnection(Global.ConnectionString))
             {
                 conn.Open();
-                string Query = @"SELECT WPM,Mode,Language,Accuracy || '%' AS Accuracy,
+                string Query = @"SELECT WPM,Accuracy || '%' AS Accuracy,Mode,Language,
                             DurationSeconds AS Seconds,CorrectWords || '/' || WrongWords AS Words,
                             CorrectStrokes || '/'  || WrongStrokes as Strokes,
                             TestDate AS Date FROM TypingTests ORDER BY TestDate DESC";

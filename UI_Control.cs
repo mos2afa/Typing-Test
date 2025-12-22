@@ -242,20 +242,7 @@ namespace Typing_Test
 
         private void PerformShowResultsButton()
         {
-            dgvResults.RowTemplate.Height = 40;
-
-            dgvResults.GridColor = Color.LightGray;
-
             dgvResults.DataSource = Test.GetTypingTestsForShowing();
-
-            dgvResults.Columns[0].Width = 100;
-            dgvResults.Columns[1].Width = 130;
-            dgvResults.Columns[2].Width = 130;
-            dgvResults.Columns[3].Width = 120;
-            dgvResults.Columns[4].Width = 120;
-            dgvResults.Columns[5].Width = 100;
-            dgvResults.Columns[6].Width = 120;
-            dgvResults.Columns[7].Width = 250;
 
             dgvResults.GridColor = BackColor;
             dgvResults.ForeColor = color(settings.SelectColor);
@@ -264,17 +251,33 @@ namespace Typing_Test
 
             dgvResults.EnableHeadersVisualStyles = false;
 
+            dgvResults.ColumnHeadersDefaultCellStyle.Alignment =
+                DataGridViewContentAlignment.MiddleCenter;
+
+            dgvResults.DefaultCellStyle.Alignment =
+                DataGridViewContentAlignment.MiddleCenter;
+
+
             dgvResults.ColumnHeadersDefaultCellStyle.BackColor = BackColor;
             dgvResults.ColumnHeadersDefaultCellStyle.ForeColor = color(settings.CurrentWordColor);
 
             dgvResults.RowHeadersDefaultCellStyle.BackColor = BackColor;
             dgvResults.RowHeadersDefaultCellStyle.ForeColor = color(settings.SelectColor);
 
-            dgvResults.Location = new Point(0, 0);
-            dgvResults.Font = new Font(this.Font.FontFamily, 18);
+            dgvResults.RowHeadersVisible = false;
 
+            dgvResults.RowsDefaultCellStyle.BackColor = BackColor;
+            dgvResults.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(1,3,70);
+
+            dgvResults.Font = new Font(this.Font.FontFamily, 18);
             dgvResults.Size = new Size(this.Width-30, this.Height - tbType.Height - rtbCapsLock.Height-50);
+
+            dgvResults.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            dgvResults.RowTemplate.Height = 50;
+
+
             ShowTestsScreen();
+            dgvResults.ClearSelection();
         }
 
 
