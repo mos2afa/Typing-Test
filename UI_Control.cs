@@ -34,6 +34,10 @@ namespace Typing_Test
 
             cbLanguage.SelectedItem = settings.SelectedLanguage;
 
+            LoadWindowStateSettings();
+
+            LoadFormBorderStyleSettings();
+
             ChangeCountersForeColor(color( settings.CountersColor));
         }
 
@@ -388,11 +392,6 @@ namespace Typing_Test
             );
         }
 
-        private void rtbFinalWPM_MouseLeave(object sender, EventArgs e)
-        {
-            toolTip.Hide(rtbFinalWPM);
-        }
-
         private void pbBest_MouseEnter(object sender, EventArgs e)
         {
             toolTip.Show(
@@ -401,11 +400,6 @@ namespace Typing_Test
                 0,
                 -40
             );
-        }
-
-        private void pbBest_MouseLeave(object sender, EventArgs e)
-        {
-            toolTip.Hide(pbBest);
         }
 
         private void rtbDuration_MouseEnter(object sender, EventArgs e)
@@ -418,11 +412,6 @@ namespace Typing_Test
             );
         }
 
-        private void rtbDuration_MouseLeave(object sender, EventArgs e)
-        {
-            toolTip.Hide(rtbDuration);
-        }
-
         private void rtbAccuracy_MouseEnter(object sender, EventArgs e)
         {
             toolTip.Show(
@@ -432,11 +421,6 @@ namespace Typing_Test
                 -30
             );
         }
-        private void rtbAccuracy_MouseLeave(object sender, EventArgs e)
-        {
-            toolTip.Hide(rtbAccuracy);
-        }
-
 
         private void rtbCharacters_MouseEnter(object sender, EventArgs e)
         {
@@ -446,11 +430,6 @@ namespace Typing_Test
                 0,
                 -70
             );
-        }
-
-        private void rtbCharacters_MouseLeave(object sender, EventArgs e)
-        {
-            toolTip.Hide(rtbCharacters);
         }
 
         private void rtbWordsCounter_MouseEnter(object sender, EventArgs e)
@@ -463,10 +442,12 @@ namespace Typing_Test
             );
         }
 
-        private void rtbWordsCounter_MouseLeave(object sender, EventArgs e)
+        private void Counters_MouseLeave(object sender, EventArgs e)
         {
-            toolTip.Hide(rtbWordsCounter);
+            toolTip.Hide((Control)sender);
         }
+
+
 
         private void BringToFrontWordButtons()
         {

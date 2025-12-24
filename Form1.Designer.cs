@@ -260,7 +260,7 @@ namespace Typing_Test
             this.rtbFinalWPM.TabStop = false;
             this.rtbFinalWPM.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PerformMouseDown);
             this.rtbFinalWPM.MouseEnter += new System.EventHandler(this.rtbFinalWPM_MouseEnter);
-            this.rtbFinalWPM.MouseLeave += new System.EventHandler(this.rtbFinalWPM_MouseLeave);
+            this.rtbFinalWPM.MouseLeave += new System.EventHandler(this.Counters_MouseLeave);
             // 
             // lbImportSettings
             // 
@@ -813,7 +813,7 @@ namespace Typing_Test
             this.pbBest.Name = "pbBest";
             this.pbBest.TabStop = false;
             this.pbBest.MouseEnter += new System.EventHandler(this.pbBest_MouseEnter);
-            this.pbBest.MouseLeave += new System.EventHandler(this.pbBest_MouseLeave);
+            this.pbBest.MouseLeave += new System.EventHandler(this.Counters_MouseLeave);
             // 
             // rtbWordsWord
             // 
@@ -838,7 +838,7 @@ namespace Typing_Test
             this.rtbWordsCounter.TabStop = false;
             this.rtbWordsCounter.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PerformMouseDown);
             this.rtbWordsCounter.MouseEnter += new System.EventHandler(this.rtbWordsCounter_MouseEnter);
-            this.rtbWordsCounter.MouseLeave += new System.EventHandler(this.rtbWordsCounter_MouseLeave);
+            this.rtbWordsCounter.MouseLeave += new System.EventHandler(this.Counters_MouseLeave);
             // 
             // rtbCharactersWord
             // 
@@ -863,7 +863,7 @@ namespace Typing_Test
             this.rtbCharacters.TabStop = false;
             this.rtbCharacters.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PerformMouseDown);
             this.rtbCharacters.MouseEnter += new System.EventHandler(this.rtbCharacters_MouseEnter);
-            this.rtbCharacters.MouseLeave += new System.EventHandler(this.rtbCharacters_MouseLeave);
+            this.rtbCharacters.MouseLeave += new System.EventHandler(this.Counters_MouseLeave);
             // 
             // rtbDuration
             // 
@@ -877,7 +877,7 @@ namespace Typing_Test
             this.rtbDuration.TabStop = false;
             this.rtbDuration.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PerformMouseDown);
             this.rtbDuration.MouseEnter += new System.EventHandler(this.rtbDuration_MouseEnter);
-            this.rtbDuration.MouseLeave += new System.EventHandler(this.rtbDuration_MouseLeave);
+            this.rtbDuration.MouseLeave += new System.EventHandler(this.Counters_MouseLeave);
             // 
             // rtbTimeWord
             // 
@@ -913,7 +913,7 @@ namespace Typing_Test
             this.rtbAccuracy.TabStop = false;
             this.rtbAccuracy.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PerformMouseDown);
             this.rtbAccuracy.MouseEnter += new System.EventHandler(this.rtbAccuracy_MouseEnter);
-            this.rtbAccuracy.MouseLeave += new System.EventHandler(this.rtbAccuracy_MouseLeave);
+            this.rtbAccuracy.MouseLeave += new System.EventHandler(this.Counters_MouseLeave);
             // 
             // rtbWPMWord
             // 
