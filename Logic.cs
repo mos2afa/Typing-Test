@@ -102,7 +102,7 @@ namespace Typing_Test
         {
             if (Test.CurrentWordCounter >= NumberOfWords) return;
 
-            for (int i = 0; (i < CurrentWords[Test.CurrentWordCounter].Length) && (i < tbType.Text.Length); i++)
+            for (int i = 0; i < Math.Min(CurrentWords[Test.CurrentWordCounter].Length, tbType.Text.Length) ; i++)
             {
                 if (tbType.Text[i] == CurrentWords[Test.CurrentWordCounter][i] && tbType.Text.Length <= CurrentWords[Test.CurrentWordCounter].Length)
                 {
@@ -219,11 +219,22 @@ namespace Typing_Test
         TimeSpan SecondsCounter = TimeSpan.Zero;
         Stopwatch stopwatch = new Stopwatch();
 
+        private int CorrectStrokesInCurrentWord()
+        {
+            int CorrectStrokes = 0;
+            for (int i = 0; i < tbType.Text.Length && i < CurrentWords[Test.CurrentWordCounter].Length; i++)
+            {
+                if (tbType.Text[i] == CurrentWords[Test.CurrentWordCounter][i])
+                    CorrectStrokes++;
+            }
+            return CorrectStrokes;
+        }
+
         private double CalcWPM()
         {
             double WPM = 0.0,TotalSeconds = 0.0;
 
-            double Words = Test.CorrectStrokes / 5.0;
+            double Words = (Test.CorrectStrokes+CorrectStrokesInCurrentWord()) / 5.0;
 
             if(Test.IsTimeMode())
             {

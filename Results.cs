@@ -38,7 +38,7 @@ namespace Typing_Test
             WrongWords = 0;
             TestDate = DateTime.Now;
 
-            CurrentWordCounter = 1;
+            CurrentWordCounter = 0;
         }
 
         public static bool IsTimeMode()
