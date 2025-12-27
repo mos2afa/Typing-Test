@@ -84,7 +84,8 @@ namespace Typing_Test
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
-            SaveSettings();
+            UpdateSettingsObject(settings);
+            AppSettings.SaveToFile(settings);
         }
         private void lbImportSettings_Click(object sender, EventArgs e)
         {
@@ -109,7 +110,9 @@ namespace Typing_Test
         {
             if(MessageBox.Show("Are you sure you want to reset settings to default?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                ResetDefaultSettings();
+                settings = new AppSettings();
+                AppSettings.SaveToFile(settings);
+                LoadSettings(settings);
                 MessageBox.Show("Settings have been reset successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }

@@ -29,13 +29,12 @@ namespace Typing_Test
 
             if (!File.Exists(Global.JsonSettingsPath))
             {
-                LoadDefaultSettings();
+                settings = new AppSettings();
                 using (File.Create(Global.JsonSettingsPath)) { };
-                Serialize();
-                SaveToFile();
+                AppSettings.SaveToFile(settings);
             }
 
-            LoadSettings();
+            LoadSettings(settings);
 
             tbType.Select();
 
@@ -111,15 +110,15 @@ namespace Typing_Test
 
         private bool ImportSettingsFromClipBoard()
         {
-            jsonString = Clipboard.GetText();
+            string jsonString = Clipboard.GetText();
 
             try
             {
-                Deserialize();
+                settings = AppSettings.Deserialize(jsonString);
 
-                SaveToFile();
+                AppSettings.SaveToFile(settings);
 
-                LoadSettings();
+                LoadSettings(settings);
 
                 return true;
             }
@@ -131,7 +130,9 @@ namespace Typing_Test
 
         private void ExportSettingsFromClipBoard()
         {
-            SaveSettings();
+            UpdateSettingsObject(settings);
+
+            string jsonString = Serialize(settings);
 
             Clipboard.SetText(jsonString);
         }
@@ -142,7 +143,8 @@ namespace Typing_Test
             if (cdChangeColor.ShowDialog() == DialogResult.OK)
             {
                 this.BackColor = cdChangeColor.Color;
-                SaveSettings();
+                UpdateSettingsObject(settings);
+                AppSettings.SaveToFile(settings);
             }
         }
 
@@ -152,7 +154,8 @@ namespace Typing_Test
             if (cdChangeColor.ShowDialog() == DialogResult.OK)
             {
                 rtbWords.ForeColor = cdChangeColor.Color;
-                SaveSettings();
+                UpdateSettingsObject(settings);
+                AppSettings.SaveToFile(settings);
                 SetFirstWordColor();
             }
         }
@@ -163,7 +166,8 @@ namespace Typing_Test
             if (cdChangeColor.ShowDialog() == DialogResult.OK)
             {
                 settings.CurrentWordColor = color(cdChangeColor.Color);
-                SaveSettings();
+                UpdateSettingsObject(settings);
+                AppSettings.SaveToFile(settings);
                 SetFirstWordColor();
             }
         }
@@ -174,7 +178,8 @@ namespace Typing_Test
             if (cdChangeColor.ShowDialog() == DialogResult.OK)
             {
                 settings.CorrectWordColor = color(cdChangeColor.Color);
-                SaveSettings();
+                UpdateSettingsObject(settings);
+                AppSettings.SaveToFile(settings);
             }
         }
 
@@ -184,7 +189,8 @@ namespace Typing_Test
             if (cdChangeColor.ShowDialog() == DialogResult.OK)
             {
                 settings.WrongWordColor = color(cdChangeColor.Color);
-                SaveSettings();
+                UpdateSettingsObject(settings);
+                AppSettings.SaveToFile(settings);
             }
         }
 
@@ -194,7 +200,8 @@ namespace Typing_Test
             if (cdChangeColor.ShowDialog() == DialogResult.OK)
             {
                 tbType.ForeColor = cdChangeColor.Color;
-                SaveSettings();
+                UpdateSettingsObject(settings);
+                AppSettings.SaveToFile(settings);
             }
         }
 
@@ -204,7 +211,8 @@ namespace Typing_Test
             if (cdChangeColor.ShowDialog() == DialogResult.OK)
             {
                 ChangeCountersForeColor(cdChangeColor.Color);
-                SaveSettings();
+                UpdateSettingsObject(settings);
+                AppSettings.SaveToFile(settings);
             }
         }
 
@@ -214,7 +222,8 @@ namespace Typing_Test
             if (cdChangeColor.ShowDialog() == DialogResult.OK)
             {
                 settings.SelectColor = color(cdChangeColor.Color);
-                SaveSettings();
+                UpdateSettingsObject(settings);
+                AppSettings.SaveToFile(settings);
 
                 CurrentBtn.BackColor = color(settings.SelectColor);
 

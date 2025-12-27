@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Drawing;
+using System.IO;
+using System.Text.Json;
 using System.Windows.Forms;
-using Typing_Test.Properties;
 
 
 namespace Typing_Test
@@ -56,5 +57,32 @@ namespace Typing_Test
 
             KeyboardVisible = true;
         }
+
+
+        public static AppSettings Deserialize(string JsonString)
+        {
+            return JsonSerializer.Deserialize<AppSettings>(JsonString);
+        }
+
+        private static string JsonString()
+        {
+            return File.ReadAllText("Settings.json");
+        }
+
+        public static void SaveToFile(AppSettings settings)
+        {
+            File.WriteAllText(Global.JsonSettingsPath, Serialize(settings));
+        }
+
+        public static AppSettings LoadFromFile()
+        {
+            return Deserialize(JsonString());
+        }
+
+        public static string Serialize(AppSettings settings)
+        {
+            return JsonSerializer.Serialize(settings);
+        }
+
     }
 }

@@ -16,34 +16,7 @@ namespace Typing_Test
 {
     public partial class Form1
     {
-
-        string jsonString { get; set; }
-
-        private void LoadDefaultSettings()
-        {
-            settings = new AppSettings();
-
-            LoadColorsSettings();
-
-            if(Test.IsTimeMode())
-                btnTime.BackColor = color(settings.SelectColor);
-            else
-                btnWords.BackColor = color(settings.SelectColor);
-
-            CurrentBtn.BackColor = color(settings.SelectColor);
-
-            cbLanguage.SelectedItem = settings.SelectedLanguage;
-
-            LoadWindowStateSettings();
-
-            LoadFormBorderStyleSettings();
-
-            ChangeCountersForeColor(color( settings.CountersColor));
-        }
-
-        
-
-        private void LoadColorsSettings()
+        private void LoadColorsSettings(AppSettings settings)
         {
             this.BackColor = color(settings.FormBackColor);
             rtbWords.ForeColor = color(settings.FontColor);
@@ -97,23 +70,11 @@ namespace Typing_Test
             }
         }
 
-        private void Deserialize()
+        private void LoadSettings(AppSettings settings)
         {
-            settings = JsonSerializer.Deserialize<AppSettings>(jsonString);
-        }
+            settings = AppSettings.LoadFromFile();
 
-        private void LoadFromFile()
-        {
-            jsonString = File.ReadAllText("Settings.json");
-        }
-
-        private void LoadSettings()
-        {
-            LoadFromFile();
-
-            Deserialize();
-
-            LoadColorsSettings();
+            LoadColorsSettings(settings);
 
             CurrentBtn.BackColor = color(settings.SelectColor);
 
@@ -130,7 +91,7 @@ namespace Typing_Test
             cbLanguage.SelectedItem = settings.SelectedLanguage;
         }
 
-        private void UpdateSettingsObject()
+        private void UpdateSettingsObject(AppSettings settings)
         {
             settings.FormBackColor = color(this.BackColor);
             settings.FontColor = color(rtbWords.ForeColor);
@@ -141,32 +102,6 @@ namespace Typing_Test
             settings.FormBorderStyle = this.FormBorderStyle; // None, Fixed3D
 
             settings.SelectedLanguage = cbLanguage.SelectedItem.ToString();
-        }
-
-        private void ResetDefaultSettings()
-        {
-            LoadDefaultSettings();
-            File.Delete(Global.JsonSettingsPath);
-            SaveSettings();
-        }
-
-        private void SaveToFile()
-        {
-            File.WriteAllText(Global.JsonSettingsPath, jsonString);
-        }
-
-        private void Serialize()
-        {
-            jsonString = JsonSerializer.Serialize<AppSettings>(settings);
-        }
-
-        private void SaveSettings()
-        {
-            UpdateSettingsObject();
-
-            Serialize();
-
-            SaveToFile();
         }
 
         private void ToggleSettingsVisibility()

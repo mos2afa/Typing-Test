@@ -21,7 +21,7 @@ namespace Typing_Test
 
         
 
-        private bool IsCurrentWordTypedTrue()
+        private bool IsCurrentWordTypedCorrectly()
         {
             return tbType.Text == CurrentWord;
         }
@@ -71,8 +71,7 @@ namespace Typing_Test
 
         private bool AreAllWordsTyped()
         {
-            IsTestCompleted = (Test.CurrentWordCounter >= NumberOfWords);
-            return IsTestCompleted;
+            return Test.CurrentWordCounter >= NumberOfWords;
         }
 
         private bool IsWordTypingFinished()
@@ -82,7 +81,7 @@ namespace Typing_Test
 
         private void CheckEachCharInCurrentWord()
         {
-            if (Test.CurrentWordCounter >= NumberOfWords) return;
+            if (AreAllWordsTyped()) return;
 
             rtbWords.Select(IndexOfFirstCharOfCurrentWord, CurrentWords[Test.CurrentWordCounter].Length);
 
@@ -93,22 +92,6 @@ namespace Typing_Test
             else
             {
                 rtbWords.SelectionBackColor = color(settings.WrongWordColor);
-            }
-        }
-
-        private void DealWithCounters()
-        {
-            if (IsCurrentWordTypedTrue())
-            {
-                Test.CorrectWords++;
-
-                Test.CorrectStrokes += CurrentWords[Test.CurrentWordCounter].Length + 1;
-            }
-            else
-            {
-                Test.WrongWords++;
-
-                Test.WrongStrokes += CurrentWords[Test.CurrentWordCounter].Length;
             }
         }
 
@@ -129,9 +112,22 @@ namespace Typing_Test
             {
                 tbType.Text = tbType.Text.Trim();
 
-                DealWithCounters();
+                bool TypedCorrectly = IsCurrentWordTypedCorrectly(); 
 
-                SetPrevWordColor();
+                if(TypedCorrectly)
+                {
+                    Test.CorrectWords++;
+                    Test.CorrectStrokes += CurrentWord.Length + 1;
+
+                    SetPrevWordColor(color(settings.CorrectWordColor));
+                }
+                else
+                {
+                    Test.WrongWords++;
+                    Test.WrongStrokes += CurrentWord.Length;
+
+                    SetPrevWordColor(color(settings.WrongWordColor));
+                }
 
                 rtbWords.SelectionBackColor = rtbWords.BackColor;
 
@@ -148,6 +144,7 @@ namespace Typing_Test
 
                 if (AreAllWordsTyped())
                 {
+                    IsTestCompleted = true;
                     tbType.ReadOnly = true;
                     ShowResults();
                     ResetTest();
@@ -159,14 +156,11 @@ namespace Typing_Test
 
         int IndexOfFirstCharOfCurrentWord = 0;
 
-        private void SetPrevWordColor()
+        private void SetPrevWordColor(Color color)
         {
-            rtbWords.Select(IndexOfFirstCharOfCurrentWord, CurrentWords[Test.CurrentWordCounter].Length);
+            rtbWords.Select(IndexOfFirstCharOfCurrentWord, CurrentWord.Length);
 
-            if (IsCurrentWordTypedTrue())
-                rtbWords.SelectionColor = color(settings.CorrectWordColor);
-            else
-                rtbWords.SelectionColor = color(settings.WrongWordColor);
+            rtbWords.SelectionColor = color;
         }
 
         private void UpdateIndexOfFirstCharOfCurrentWord()
@@ -176,7 +170,7 @@ namespace Typing_Test
 
         private void SetCurrentWordColor()
         {
-            if (Test.CurrentWordCounter < NumberOfWords)
+            if (!AreAllWordsTyped())
             {
                 rtbWords.Select(IndexOfFirstCharOfCurrentWord, CurrentWords[Test.CurrentWordCounter].Length);
                 rtbWords.SelectionColor = color(settings.CurrentWordColor);
@@ -196,12 +190,10 @@ namespace Typing_Test
         {
             get
             {
-                if (Test.CurrentWordCounter == NumberOfWords) return "";
+                if (Test.CurrentWordCounter >= NumberOfWords) return "";
                 return CurrentWords[Test.CurrentWordCounter];
             }
         }
-
-        
 
         private int CorrectStrokesInCurrentWord
         {
