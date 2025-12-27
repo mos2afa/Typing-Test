@@ -3,12 +3,8 @@ using System.Windows.Forms;
 
 namespace Typing_Test
 {
-    public class Languages
+    public static class Languages
     {
-        public int Id { get; set; }
-        public string Name { get; set; }
-        public string Words { get; set; }
-
         public static void CreateLanguagesTableIfNotExists()
         {
             using (var connection = new System.Data.SQLite.SQLiteConnection($"Data Source={Global.Clean_DB_Path}"))

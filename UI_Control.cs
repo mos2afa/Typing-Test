@@ -483,5 +483,33 @@ namespace Typing_Test
             dgvResults.Hide();
         }
 
+
+        private void ShowResultScreen()
+        {
+            pnlResults.Show();
+            rtbWords.Hide();
+            pnlSettings.Hide();
+            btnRestart.Show();
+            tbType.Show();
+        }
+
+        private void ShowTypingTestScreen()
+        {
+            rtbWords.Show();
+            pnlResults.Hide();
+            pnlSettings.Hide();
+            btnRestart.Show();
+            tbType.Show();
+        }
+
+        private void ShowSettingsScreen()
+        {
+            pnlSettings.Show();
+            pnlResults.Hide();
+            rtbWords.Hide();
+            btnRestart.Hide();
+            tbType.Hide();
+        }
+
     }
 }

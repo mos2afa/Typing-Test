@@ -183,6 +183,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AppSettings.cs" />
+    <Compile Include="Logic.cs" />
     <Compile Include="Settings_Control.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -197,7 +198,7 @@
     </Compile>
     <Compile Include="Global.cs" />
     <Compile Include="Languages.cs" />
-    <Compile Include="Logic.cs">
+    <Compile Include="LogicImpure.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Program.cs" />
